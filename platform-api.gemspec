@@ -7,7 +7,7 @@ require 'platform-api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'platform-api'
-  spec.version       = platformAPI::VERSION
+  spec.version       = PlatformAPI::VERSION
   spec.authors       = ['jkakar']
   spec.email         = ['jkakar@kakar.ca']
   spec.description   = 'Ruby HTTP client for the Heroku API.'
