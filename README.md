@@ -27,12 +27,12 @@ $ gem install heroics
 The best place to start using the Heroku API is the [Platform API Reference](https://devcenter.heroku.com/articles/platform-api-reference).
 It has detailed descriptions of the HTTP API, including general information
 about authentication, caching, object identifiers, rate limits, etc.  It also
-includes detailed information about each support resource and the actions
-supported for those resources.
+includes detailed information about each supported resource and the actions
+available for them.
 
-The table of contents includes a list of all the resources that are supported,
-such as App, Add-on, Config Vars, Formation, etc.  Each resource includes
-detailed information about the support actions.  For example, the [Formation](https://devcenter.heroku.com/articles/platform-api-reference#formation)
+The table of contents lists all the resources that are supported, such as App,
+Add-on, Config Vars, Formation, etc.  Each resource includes detailed
+information about the support actions.  For example, the [Formation](https://devcenter.heroku.com/articles/platform-api-reference#formation)
 resource has [Info](https://devcenter.heroku.com/articles/platform-api-reference#formation-info), [List](https://devcenter.heroku.com/articles/platform-api-reference#formation-list), [Batch update](https://devcenter.heroku.com/articles/platform-api-reference#formation-batch-update), and [Update](https://devcenter.heroku.com/articles/platform-api-reference#formation-update) actions.
 
 You can easily map any resource and its related action client methods.  The
@@ -51,10 +51,16 @@ Once you get used to these basic patterns using the client is quite easy
 because it's mapped directly from the documentation.  Below we'll go through
 some more detailed examples to give a better idea about how it works.
 
-### 
+### Handling errors
 
-The first thing you need is a client that's setup with your username and API
-token.
+The client uses [Excon](https://github.com/geemus/excon) under the hood and
+raises `Excon::Error` exceptions when errors occur.
+
+### A real world example
+
+Let's go through an example of creating an app and using the API to work with
+it.  The first thing you need is a client that's setup with your username and
+API token.
 
 ```ruby
 require 'platform-api'
