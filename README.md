@@ -217,7 +217,9 @@ client.formation.list('floating-retreat-4255')
 Let's change `web` process to run on a 2X dyno:
 
 ```ruby
-client.formation.batch_update('floating-retreat-4255', {"updates" => [{"process" => "web", "quantity" => 1, "size" => "2X"}]})
+client.formation.batch_update(
+  'floating-retreat-4255',
+  {"updates" => [{"process" => "web", "quantity" => 1, "size" => "2X"}]})
 => [{"command"=>"coffee index.coffee",
      "created_at"=>"2014-03-13T04:13:37Z",
      "id"=>"f682b260-8089-4e18-b792-688cc02bf923",
