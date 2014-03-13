@@ -163,7 +163,7 @@ client.config_var.info('floating-retreat-4255')
 ```
 
 And there we go, we have the config var.  Let's set an additional config var,
-which will also demonstrate an request that needs a payload:
+which will also demonstrate how to make a request that needs a payload:
 
 ```ruby
 client.config_var.update('floating-retreat-4255', {'MYAPP' => 'ROCKS'})
