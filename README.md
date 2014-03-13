@@ -174,7 +174,7 @@ client.config_var.update('floating-retreat-4255', {'MYAPP' => 'ROCKS'})
 As you can see, any action that needs a request body takes it as a plain Ruby
 object, as the final parameter of the method call.
 
-Let continue by deploying a sample app.  We'll use the
+Let's continue by deploying a sample app.  We'll use the
 [Geosockets](https://github.com/heroku-examples/geosockets) example app:
 
 ```bash
