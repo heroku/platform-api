@@ -8,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     excon (0.32.0)
-    heroics (0.0.2)
+    heroics (0.0.3)
       excon
       moneta
       multi_json
