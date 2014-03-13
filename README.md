@@ -242,8 +242,8 @@ client.formation.update('floating-retreat-4255', 'web', {"size" => "1X"})
     "updated_at"=>"2014-03-13T04:24:46Z"}
 ```
 
-Hopefully this has given you a taste of how the client works!  If you have
-questions please feel free to file issues!
+Hopefully this has given you a taste of how the client works.  If you have
+questions please feel free to file issues.
 
 ### Debugging
 
