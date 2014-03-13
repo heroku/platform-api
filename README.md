@@ -60,13 +60,13 @@ raises `Excon::Error` exceptions when errors occur.  You can catch specific
 ### A real world example
 
 Let's go through an example of creating an app and using the API to work with
-it.  The first thing you need is a client that's setup with your username and
-API token.  You can find your API token by clicking the *Show API Key* on your
+it.  The first thing you need is a client that's setup with your API token.
+You can find your API token by clicking the *Show API Key* on your
 [account page](https://dashboard.heroku.com/account).
 
 ```ruby
 require 'platform-api'
-heroku = PlatformAPI.connect('username', 'token')
+heroku = PlatformAPI.connect('token')
 ```
 
 Now let's create an app:
