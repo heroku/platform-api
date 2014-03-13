@@ -67,7 +67,7 @@ API token.  You can find your API token by clicking the *Show API Key* on your
 ```ruby
 require 'platform-api'
 client = PlatformAPI.connect('jkakar', '<token>')
-``
+```
 
 Now let's create an app:
 
