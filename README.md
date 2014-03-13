@@ -154,7 +154,7 @@ client.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev'}
     "updated_at"=>"2014-03-13T00:28:55Z"}
 ```
 
-Excellent.  That will have added a config var which we can now see:
+Excellent!  That will have added a config var which we can now see:
 
 ```ruby
 client.config_var.info('floating-retreat-4255')
