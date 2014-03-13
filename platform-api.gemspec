@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['jkakar@kakar.ca']
   spec.description   = 'Ruby HTTP client for the Heroku API.'
   spec.summary       = 'Ruby HTTP client for the Heroku API.'
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/heroku/platform-api'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
