@@ -139,7 +139,7 @@ client.app.info('floating-retreat-4255')
     "updated_at"=>"2014/03/12 16:44:12 -0700"}
 ```
 
-Let add a Heroku PostgreSQL database to our app now:
+Let's add a Heroku PostgreSQL database to our app now:
 
 ```ruby
 client.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev'})
