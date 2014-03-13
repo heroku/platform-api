@@ -7,7 +7,7 @@ Ruby HTTP client for the Heroku API.
 Add this line to your application's Gemfile:
 
 ```
-gem 'heroics'
+gem 'platform-api'
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ $ bundle
 Or install it yourself as:
 
 ```
-$ gem install heroics
+$ gem install platform-api
 ```
 
 ## Usage guide
