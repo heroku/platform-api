@@ -36,15 +36,15 @@ information about the support actions.  For example, the [Formation](https://dev
 resource has [Info](https://devcenter.heroku.com/articles/platform-api-reference#formation-info), [List](https://devcenter.heroku.com/articles/platform-api-reference#formation-list), [Batch update](https://devcenter.heroku.com/articles/platform-api-reference#formation-batch-update), and [Update](https://devcenter.heroku.com/articles/platform-api-reference#formation-update) actions.
 
 You can easily map any resource and its related action client methods.  The
-formation actions above are accessed as `client.formation.info`,
-`client.formation.list`, `client.formation.batch_update` and
-`client.formation.update`.  When the URL for one of these actions includes
+formation actions above are accessed as `heroku.formation.info`,
+`heroku.formation.list`, `heroku.formation.batch_update` and
+`heroku.formation.update`.  When the URL for one of these actions includes
 parameters they should be passed as arguments to the method.  When the request
 expects a request payload it should be passed as a Ruby Hash in the final
 argument to the method.
 
 For example, to get information about the `web` formation on the `sushi` app
-you'd invoke `client.formation.info('sushi', 'web')` and it would return a
+you'd invoke `heroku.formation.info('sushi', 'web')` and it would return a
 Ruby object that matches the one given in the [response example](https://devcenter.heroku.com/articles/platform-api-reference#formation-info).
 
 Once you get used to these basic patterns using the client is quite easy
@@ -66,13 +66,13 @@ API token.  You can find your API token by clicking the *Show API Key* on your
 
 ```ruby
 require 'platform-api'
-client = PlatformAPI.connect('username', 'token')
+heroku = PlatformAPI.connect('username', 'token')
 ```
 
 Now let's create an app:
 
 ```ruby
-client.app.create
+heroku.app.create
 => {"id"=>22979756,
     "name"=>"floating-retreat-4255",
     "dynos"=>0,
@@ -107,7 +107,7 @@ client.app.create
 We can read the same information back with the `info` method.
 
 ```ruby
-client.app.info('floating-retreat-4255')
+heroku.app.info('floating-retreat-4255')
 => {"id"=>22979756,
     "name"=>"floating-retreat-4255",
     "dynos"=>0,
@@ -142,7 +142,7 @@ client.app.info('floating-retreat-4255')
 Let's add a Heroku PostgreSQL database to our app now:
 
 ```ruby
-client.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev'})
+heroku.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev'})
 => {"config_vars"=>["HEROKU_POSTGRESQL_COBALT_URL"],
     "created_at"=>"2014-03-13T00:28:55Z",
     "id"=>"79a0c826-06be-4dcd-8bb5-f2c1b1bc2beb",
@@ -157,16 +157,15 @@ client.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev'}
 Excellent!  That will have added a config var which we can now see:
 
 ```ruby
-client.config_var.info('floating-retreat-4255')
-=> client.config_var.info('floating-retreat-4255')
-   {"HEROKU_POSTGRESQL_COBALT_URL"=>"postgres://<redacted>"}
+heroku.config_var.info('floating-retreat-4255')
+=> {"HEROKU_POSTGRESQL_COBALT_URL"=>"postgres://<redacted>"}
 ```
 
 And there we go, we have the config var.  Let's set an additional config var,
 which will also demonstrate how to make a request that needs a payload:
 
 ```ruby
-client.config_var.update('floating-retreat-4255', {'MYAPP' => 'ROCKS'})
+heroku.config_var.update('floating-retreat-4255', {'MYAPP' => 'ROCKS'})
 => {"HEROKU_POSTGRESQL_COBALT_URL"=>"postgres://<redacted>",
     "MYAPP"=>"ROCKS"}
 ```
@@ -204,7 +203,7 @@ Total 489 (delta 244), reused 489 (delta 244)
 We can now use the API to see our `web` process running:
 
 ```ruby
-client.formation.list('floating-retreat-4255')
+heroku.formation.list('floating-retreat-4255')
 => [{"command"=>"coffee index.coffee",
      "created_at"=>"2014-03-13T04:13:37Z",
      "id"=>"f682b260-8089-4e18-b792-688cc02bf923",
@@ -217,7 +216,7 @@ client.formation.list('floating-retreat-4255')
 Let's change `web` process to run on a 2X dyno:
 
 ```ruby
-client.formation.batch_update('floating-retreat-4255',
+heroku.formation.batch_update('floating-retreat-4255',
                               {"updates" => [{"process" => "web",
                                               "quantity" => 1,
                                               "size" => "2X"}]})
@@ -235,7 +234,7 @@ command.  We can use the singular update action to modify a single formation
 type:
 
 ```ruby
-client.formation.update('floating-retreat-4255', 'web', {"size" => "1X"})
+heroku.formation.update('floating-retreat-4255', 'web', {"size" => "1X"})
 => {"command"=>"coffee index.coffee",
     "created_at"=>"2014-03-13T04:13:37Z",
     "id"=>"f682b260-8089-4e18-b792-688cc02bf923",
