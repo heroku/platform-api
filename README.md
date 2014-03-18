@@ -60,14 +60,28 @@ raises `Excon::Error` exceptions when errors occur.  You can catch specific
 ### A real world example
 
 Let's go through an example of creating an app and using the API to work with
-it.  The first thing you need is a client that's setup with your API token.
-You can find your API token by clicking the *Show API Key* on your
-[account page](https://dashboard.heroku.com/account).
+it.  The first thing you need is a client setup with an OAuth token.  You can
+create an OAuth token using the `heroku-oauth` toolbelt plugin:
+
+```bash
+$ heroku plugins:install git@github.com:heroku/heroku-oauth.git
+$ heroku authorizations:create -d "Platform API example token"
+Created OAuth authorization.
+  ID:          2f01aac0-e9d3-4773-af4e-3e510aa006ca
+  Description: Platform API example token
+  Scope:       global
+  Token:       e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2
+```
+
+Use the `Token` value when instantiating a client:
 
 ```ruby
 require 'platform-api'
-heroku = PlatformAPI.connect('token')
+heroku = PlatformAPI.connect_oauth('e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2')
 ```
+
+The [OAuth article]()https://devcenter.heroku.com/articles/oauth has more information about OAuth tokens, including how to
+create tokens with specific scopes.
 
 Now let's create an app:
 
