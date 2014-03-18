@@ -1,6 +1,20 @@
 module PlatformAPI
-  # Get a client configured with the specified token.
-  def self.connect( token)
+  # Get a client configured with the specified OAuth token.
+  def self.connect_oauth(oauth_token)
+    url = "https://api.heroku.com"
+    default_headers = {'Accept' => 'application/vnd.heroku+json; version=3'}
+    cache = Moneta.new(:File, dir: "#{Dir.home}/.heroku/platform-api")
+    options = {default_headers: default_headers, cache: cache}
+    schema_json = File.read("#{File.dirname(__FILE__)}/schema.json")
+    schema = Heroics::Schema.new(MultiJson.decode(schema_json))
+    Heroics.oauth_client_from_schema(oauth_token, schema, url, options)
+  end
+
+  # Get a client configured with the specified API token.
+  #
+  # Always prefer `connect_oauth` unless there's a very good reason you must
+  # use a non-OAuth API token.
+  def self.connect(token)
     url = "https://:#{token}@api.heroku.com"
     default_headers = {'Accept' => 'application/vnd.heroku+json; version=3'}
     cache = Moneta.new(:File, dir: "#{Dir.home}/.heroku/platform-api")
