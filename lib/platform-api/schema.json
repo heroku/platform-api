@@ -39,6 +39,7 @@
         "enabled": {
           "description": "whether or not account feature has been enabled",
           "example": true,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -116,6 +117,9 @@
             },
             "required": [
               "enabled"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Update"
@@ -162,6 +166,7 @@
           "default": true,
           "description": "whether to allow third party web activity tracking",
           "example": true,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -170,6 +175,7 @@
           "default": false,
           "description": "whether allowed to utilize beta Heroku features",
           "example": false,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -187,6 +193,7 @@
           "description": "unique email address of account",
           "example": "username@example.com",
           "format": "email",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -256,6 +263,7 @@
           "default": false,
           "description": "whether account has been verified with billing information",
           "example": false,
+          "readOnly": true,
           "type": [
             "boolean"
           ]
@@ -291,6 +299,9 @@
             },
             "required": [
               "password"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Update"
@@ -312,6 +323,9 @@
             "required": [
               "password",
               "email"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Change Email"
@@ -333,6 +347,9 @@
             "required": [
               "new_password",
               "password"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Change Password"
@@ -508,6 +525,7 @@
           "description": "name of the add-on unique within its app",
           "example": "heroku-postgresql-teal",
           "pattern": "^[a-z][a-z0-9-]+$",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -515,6 +533,7 @@
         "provider_id": {
           "description": "id of this add-on with its provider",
           "example": "app123@heroku.com",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -560,6 +579,9 @@
             },
             "required": [
               "plan"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -586,7 +608,7 @@
           "title": "List"
         },
         {
-          "description": "Update an existing add-on.",
+          "description": "Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
           "method": "PATCH",
           "rel": "update",
@@ -598,6 +620,9 @@
             },
             "required": [
               "plan"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Update"
@@ -676,6 +701,7 @@
         "enabled": {
           "description": "whether or not app feature has been enabled",
           "example": true,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -753,6 +779,9 @@
             },
             "required": [
               "enabled"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Update"
@@ -831,6 +860,7 @@
             "declined"
           ],
           "example": "pending",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -863,6 +893,9 @@
             "required": [
               "app",
               "recipient"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -901,6 +934,9 @@
             },
             "required": [
               "state"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Update"
@@ -1034,6 +1070,7 @@
           "default": false,
           "description": "maintenance status of app",
           "example": false,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -1042,6 +1079,7 @@
           "description": "unique name of app",
           "example": "example",
           "pattern": "^[a-z][a-z0-9-]{3,30}$",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -1114,7 +1152,10 @@
               "stack": {
                 "$ref": "#/definitions/stack/definitions/identity"
               }
-            }
+            },
+            "type": [
+              "object"
+            ]
           },
           "title": "Create"
         },
@@ -1152,7 +1193,10 @@
               "name": {
                 "$ref": "#/definitions/app/definitions/name"
               }
-            }
+            },
+            "type": [
+              "object"
+            ]
           },
           "title": "Update"
         }
@@ -1261,6 +1305,7 @@
           "description": "invited email address of collaborator",
           "example": "collaborator@example.com",
           "format": "email",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -1288,6 +1333,7 @@
           "default": false,
           "description": "whether to suppress email invitation when creating collaborator",
           "example": false,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -1319,6 +1365,9 @@
             },
             "required": [
               "user"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -1500,6 +1549,9 @@
             },
             "required": [
               "hostname"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -1554,6 +1606,7 @@
         "attach": {
           "description": "whether to stream output or not",
           "example": true,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -1561,6 +1614,7 @@
         "attach_url": {
           "description": "a URL to stream output from for attached processes or null for non-attached processes",
           "example": "rendezvous://rendezvous.runtime.heroku.com:5000/{rendezvous-id}",
+          "readOnly": true,
           "type": [
             "string",
             "null"
@@ -1569,6 +1623,7 @@
         "command": {
           "description": "command used to start this process",
           "example": "bash",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -1596,6 +1651,7 @@
               ]
             }
           },
+          "readOnly": false,
           "type": [
             "object"
           ]
@@ -1630,6 +1686,7 @@
         "size": {
           "description": "dyno size (default: \"1X\")",
           "example": "1X",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -1683,6 +1740,9 @@
             },
             "required": [
               "command"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -1773,6 +1833,7 @@
         "command": {
           "description": "command to use to launch this process",
           "example": "bundle exec rails server -p $PORT",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -1808,6 +1869,7 @@
         "quantity": {
           "description": "number of processes to maintain",
           "example": 1,
+          "readOnly": false,
           "type": [
             "integer"
           ]
@@ -1815,6 +1877,7 @@
         "size": {
           "description": "dyno size (default: \"1X\")",
           "example": "1X",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -1838,6 +1901,7 @@
         },
         "update": {
           "additionalProperties": false,
+          "description": "Properties to update a process type",
           "properties": {
             "process": {
               "$ref": "#/definitions/formation/definitions/identity"
@@ -1849,6 +1913,7 @@
               "$ref": "#/definitions/formation/definitions/size"
             }
           },
+          "readOnly": false,
           "required": [
             "process"
           ],
@@ -1900,6 +1965,9 @@
             },
             "required": [
               "updates"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Batch update"
@@ -1917,9 +1985,15 @@
               "size": {
                 "$ref": "#/definitions/formation/definitions/size"
               }
-            }
+            },
+            "type": [
+              "object"
+            ]
           },
-          "title": "Update"
+          "title": "Update",
+          "type": [
+            "object"
+          ]
         }
       ],
       "properties": {
@@ -2033,6 +2107,9 @@
             },
             "required": [
               "public_key"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -2098,6 +2175,7 @@
               "$ref": "#/definitions/addon/definitions/id"
             }
           },
+          "readOnly": true,
           "type": [
             "object",
             "null"
@@ -2116,6 +2194,7 @@
           "description": "unique identifier of this log drain",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -2133,6 +2212,7 @@
         "token": {
           "description": "token associated with the log drain",
           "example": "d.01234567-89ab-cdef-0123-456789abcdef",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -2149,6 +2229,7 @@
         "url": {
           "description": "url associated with the log drain",
           "example": "https://example.com/drain",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -2168,6 +2249,9 @@
             },
             "required": [
               "url"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -2237,6 +2321,7 @@
         "dyno": {
           "description": "dyno to limit results to",
           "example": "web.1",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -2245,6 +2330,7 @@
           "description": "unique identifier of this log session",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -2259,6 +2345,7 @@
         "lines": {
           "description": "number of log lines to stream at once",
           "example": 10,
+          "readOnly": false,
           "type": [
             "integer"
           ]
@@ -2274,6 +2361,7 @@
         "source": {
           "description": "log source to limit results to",
           "example": "app",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -2281,6 +2369,7 @@
         "tail": {
           "description": "whether to stream ongoing logs",
           "example": true,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -2315,7 +2404,10 @@
               "tail": {
                 "$ref": "#/definitions/log-session/definitions/tail"
               }
-            }
+            },
+            "type": [
+              "object"
+            ]
           },
           "title": "Create"
         }
@@ -2424,6 +2516,9 @@
             },
             "required": [
               "scope"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -2633,6 +2728,9 @@
             "required": [
               "name",
               "redirect_uri"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -2671,7 +2769,10 @@
               "redirect_uri": {
                 "$ref": "#/definitions/oauth-client/definitions/redirect_uri"
               }
-            }
+            },
+            "type": [
+              "object"
+            ]
           },
           "title": "Update"
         }
@@ -2733,6 +2834,13 @@
           "readOnly": true,
           "type": [
             "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/oauth-grant/definitions/id"
+            }
           ]
         },
         "type": {
@@ -2857,6 +2965,9 @@
               "grant",
               "client",
               "refresh_token"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -2964,6 +3075,459 @@
           "type": [
             "object"
           ]
+        }
+      }
+    },
+    "organization-app": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "OrganizationApp encapsulates the orgs specific functionality on heroku apps",
+      "title": "Heroku Platform API - Organization App",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "locked": {
+          "default": false,
+          "description": "are other organization members forbidden from joining this app.",
+          "example": false,
+          "type": [
+            "boolean"
+          ]
+        },
+        "joined": {
+          "default": false,
+          "description": "is the current member a collaborator on this app.",
+          "example": false,
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new organization app.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/apps",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "locked": {
+                "$ref": "#/definitions/organization-app/definitions/locked"
+              },
+              "name": {
+                "$ref": "#/definitions/app/definitions/name"
+              },
+              "region": {
+                "$ref": "#/definitions/region/definitions/identity"
+              },
+              "stack": {
+                "$ref": "#/definitions/stack/definitions/identity"
+              }
+            }
+          },
+          "title": "Create"
+        },
+        {
+          "description": "List existing organization-app.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/apps",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
+        },
+        {
+          "description": "Update locked.",
+          "href": "/organizations/apps/{(%2Fschema%app%23%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "locked": {
+                "$ref": "#/definitions/organization-app/definitions/locked"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Update Locked"
+        },
+        {
+          "description": "Transfer an existing organization app.",
+          "href": "/organizations/apps/{(%2Fschema%app%23%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "owner": {
+                "$ref": "#/definitions/account/definitions/identity"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "archived_at": {
+          "$ref": "#/definitions/app/definitions/archived_at"
+        },
+        "buildpack_provided_description": {
+          "$ref": "#/definitions/app/definitions/buildpack_provided_description"
+        },
+        "created_at": {
+          "$ref": "#/definitions/app/definitions/created_at"
+        },
+        "git_url": {
+          "$ref": "#/definitions/app/definitions/git_url"
+        },
+        "id": {
+          "$ref": "#/definitions/app/definitions/id"
+        },
+        "maintenance": {
+          "$ref": "#/definitions/app/definitions/maintenance"
+        },
+        "name": {
+          "$ref": "#/definitions/app/definitions/name"
+        },
+        "owner": {
+          "description": "identity of app owner",
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "region": {
+          "description": "identity of app region",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/region/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/region/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "released_at": {
+          "$ref": "#/definitions/app/definitions/released_at"
+        },
+        "repo_size": {
+          "$ref": "#/definitions/app/definitions/repo_size"
+        },
+        "slug_size": {
+          "$ref": "#/definitions/app/definitions/slug_size"
+        },
+        "stack": {
+          "description": "identity of app stack",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/stack/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/stack/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "updated_at": {
+          "$ref": "#/definitions/app/definitions/updated_at"
+        },
+        "web_url": {
+          "$ref": "#/definitions/app/definitions/web_url"
+        }
+      },
+      "id": "schema/organization-app"
+    },
+    "organization-collaborator": {
+      "description": "An organization collaborator represents an account that has been given access to an organization app on Heroku.",
+      "id": "schema/org-collaborator",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "title": "Heroku Platform API - Organization Collaborator",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+      },
+      "links": [
+        {
+          "description": "Create a new collaborator.",
+          "href": "/organizations/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "silent": {
+                "$ref": "#/definitions/collaborator/definitions/silent"
+              },
+              "user": {
+                "$ref": "#/definitions/account/definitions/identity"
+              }
+            },
+            "required": [
+              "user"
+            ]
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Delete an existing collaborator.",
+          "href": "/organizations/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Fcollaborator%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "title": "Delete"
+        },
+        {
+          "description": "Info for existing collaborator.",
+          "href": "/organizations/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Fcollaborator%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info"
+        },
+        {
+          "description": "List existing collaborators.",
+          "href": "/organizations/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/collaborator/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/collaborator/definitions/id"
+        },
+        "role": {
+          "$ref": "#/definitions/organization/definitions/role"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/collaborator/definitions/updated_at"
+        },
+        "user": {
+          "description": "identity of collaborated account",
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      }
+    },
+    "organization-member": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "An organization member is an individual with access to an organization",
+      "title": "Heroku Platform API - Organization Member",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when organization-member was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "email": {
+          "description": "email address of the organization member",
+          "example": "someone@example.org",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/organization-member/definitions/email"
+        },
+        "updated_at": {
+          "description": "when organization-member was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new organization member, or update their role.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
+          "method": "PUT",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/organization-member/definitions/email"
+              },
+              "role": {
+                "$ref": "#/definitions/organization/definitions/role"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Create or Update"
+        },
+        {
+          "description": "Delete an existing organization-member.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Forganization-member%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "title": "Delete"
+        },
+        {
+          "description": "List existing organization-members.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/organization-member/definitions/created_at"
+        },
+        "email": {
+          "$ref": "#/definitions/organization-member/definitions/email"
+        },
+        "role": {
+          "$ref": "#/definitions/organization/definitions/role"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/organization-member/definitions/updated_at"
+        }
+      },
+      "id": "schema/organization-member"
+    },
+    "organization": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Organizations allow you to manage access to a shared group of applications across your development team.",
+      "id": "schema/organization",
+      "stability": "prototype",
+      "title": "Heroku Platform API - Organization",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "credit_card_collections": {
+          "description": "whether charges incurred by the org are paid by credit card.",
+          "example": "true",
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "default": {
+          "description": "whether to use this organization when none is specified",
+          "example": "true",
+          "readOnly": false,
+          "type": [
+            "boolean"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of organization",
+          "example": "example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "provisioned_licenses": {
+          "description": "whether the org is provisioned licenses by salesforce.",
+          "example": "true",
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "role": {
+          "description": "role in the organization",
+          "enum": [
+            "admin",
+            "member",
+            "collaborator"
+          ],
+          "example": "admin",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List existing organizations.",
+          "href": "/organizations",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
+        },
+        {
+          "description": "Set/Unset the organization as the default organization.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "default": {
+                "$ref": "#/definitions/organization/definitions/default"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Update Default"
+        }
+      ],
+      "properties": {
+        "credit_card_collections": {
+          "$ref": "#/definitions/organization/definitions/default"
+        },
+        "default": {
+          "$ref": "#/definitions/organization/definitions/default"
+        },
+        "name": {
+          "$ref": "#/definitions/organization/definitions/name"
+        },
+        "provisioned_licenses": {
+          "$ref": "#/definitions/organization/definitions/default"
+        },
+        "role": {
+          "$ref": "#/definitions/organization/definitions/role"
         }
       }
     },
@@ -3271,6 +3835,7 @@
         "description": {
           "description": "description of changes in this release",
           "example": "Added new feature",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -3343,6 +3908,9 @@
             },
             "required": [
               "slug"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -3360,6 +3928,9 @@
             },
             "required": [
               "release"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Rollback"
@@ -3483,8 +4054,19 @@
               ]
             }
           },
+          "readOnly": false,
           "type": [
             "object"
+          ]
+        },
+        "size": {
+          "default": null,
+          "description": "size of slug, in bytes",
+          "example": 2048,
+          "readOnly": true,
+          "type": [
+            "integer",
+            "null"
           ]
         },
         "updated_at": {
@@ -3532,6 +4114,9 @@
             },
             "required": [
               "process_types"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -3567,6 +4152,9 @@
         "process_types": {
           "$ref": "#/definitions/slug/definitions/process_types"
         },
+        "size": {
+          "$ref": "#/definitions/slug/definitions/size"
+        },
         "updated_at": {
           "$ref": "#/definitions/slug/definitions/updated_at"
         }
@@ -3575,6 +4163,7 @@
     "ssl-endpoint": {
       "description": "[SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` addon installed before it can provision an SSL Endpoint using these APIs.",
       "id": "schema/ssl-endpoint",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Heroku Platform API - SSL Endpoint",
       "stability": "development",
       "type": [
@@ -3584,6 +4173,7 @@
         "certificate_chain": {
           "description": "raw contents of the public certificate chain (eg: .crt or .pem file)",
           "example": "-----BEGIN CERTIFICATE----- ...",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -3591,6 +4181,7 @@
         "cname": {
           "description": "canonical name record, the address to point a domain at",
           "example": "example.herokussl.com",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -3635,6 +4226,7 @@
         "private_key": {
           "description": "contents of the private key (eg .key file)",
           "example": "-----BEGIN RSA PRIVATE KEY----- ...",
+          "readOnly": false,
           "type": [
             "string"
           ]
@@ -3643,6 +4235,7 @@
           "default": false,
           "description": "indicates that a rollback should be performed",
           "example": false,
+          "readOnly": false,
           "type": [
             "boolean"
           ]
@@ -3675,6 +4268,9 @@
             "required": [
               "certificate_chain",
               "private_key"
+            ],
+            "type": [
+              "object"
             ]
           },
           "title": "Create"
@@ -3716,7 +4312,10 @@
               "rollback": {
                 "$ref": "#/definitions/ssl-endpoint/definitions/rollback"
               }
-            }
+            },
+            "type": [
+              "object"
+            ]
           },
           "title": "Update"
         }
@@ -3783,6 +4382,7 @@
         "name": {
           "description": "unique name of stack",
           "example": "cedar",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -3790,6 +4390,7 @@
         "state": {
           "description": "availability of this stack: beta, deprecated or public",
           "example": "public",
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -3896,6 +4497,18 @@
     },
     "oauth-token": {
       "$ref": "#/definitions/oauth-token"
+    },
+    "organization-app": {
+      "$ref": "#/definitions/organization-app"
+    },
+    "organization-collaborator": {
+      "$ref": "#/definitions/organization-collaborator"
+    },
+    "organization-member": {
+      "$ref": "#/definitions/organization-member"
+    },
+    "organization": {
+      "$ref": "#/definitions/organization"
     },
     "plan": {
       "$ref": "#/definitions/plan"
