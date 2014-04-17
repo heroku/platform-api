@@ -3,7 +3,6 @@ module PlatformAPI
   def self.connect_oauth(oauth_token, options={})
     options = default_options.merge(options)
     url = "https://#{options[:host]}"
-    cache = Moneta.new(:File, dir: "#{Dir.home}/.heroku/platform-api")
     schema_json = File.read("#{File.dirname(__FILE__)}/schema.json")
     schema = Heroics::Schema.new(MultiJson.decode(schema_json))
     Heroics.oauth_client_from_schema(oauth_token, schema, url, options)
@@ -16,18 +15,14 @@ module PlatformAPI
   def self.connect(token, options={})
     options = default_options.merge(options)
     url = "https://:#{token}@#{options[:host]}"
-    cache = Moneta.new(:File, dir: "#{Dir.home}/.heroku/platform-api")
     schema_json = File.read("#{File.dirname(__FILE__)}/schema.json")
     schema = Heroics::Schema.new(MultiJson.decode(schema_json))
     Heroics.client_from_schema(schema, url, options)
   end
 
-  def self.default_headers
-    {'Accept' => 'application/vnd.heroku+json; version=3'}
-  end
-  private_class_method :default_headers
-
   def self.default_options
+    default_headers = {'Accept' => 'application/vnd.heroku+json; version=3'}
+    cache = Moneta.new(:File, dir: "#{Dir.home}/.heroku/platform-api")
 
     {
       default_headers: default_headers,
