@@ -264,6 +264,16 @@ can start your program or an `irb` session with the `EXCON_DEBUG=1`
 environment variable to cause request and response data to be written to
 `STDERR`.
 
+### Building API documentation
+
+Build documentation with:
+
+```
+rake yard
+```
+
+And then visit `docs/index.html` to read it.
+
 ## Contributing
 
 1. [Fork the repository](https://github.com/heroku/platform-api/fork).
