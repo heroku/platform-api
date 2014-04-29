@@ -35,21 +35,17 @@ Add-on, Config Vars, Formation, etc.  Each resource includes detailed
 information about the support actions.  For example, the [Formation](https://devcenter.heroku.com/articles/platform-api-reference#formation)
 resource has [Info](https://devcenter.heroku.com/articles/platform-api-reference#formation-info), [List](https://devcenter.heroku.com/articles/platform-api-reference#formation-list), [Batch update](https://devcenter.heroku.com/articles/platform-api-reference#formation-batch-update), and [Update](https://devcenter.heroku.com/articles/platform-api-reference#formation-update) actions.
 
-You can easily map any resource and its related action client methods.  The
-formation actions above are accessed as `heroku.formation.info`,
-`heroku.formation.list`, `heroku.formation.batch_update` and
-`heroku.formation.update`.  When the URL for one of these actions includes
-parameters they should be passed as arguments to the method.  When the request
-expects a request payload it should be passed as a Ruby Hash in the final
-argument to the method.
+Resources and their related actions are available as methods on the client.
+When the URL for an action includes parameters they're passed as arguments to
+the method.  When the request expects a request payload it's passed as a Hash
+in the final argument to the method.
 
 For example, to get information about the `web` formation on the `sushi` app
 you'd invoke `heroku.formation.info('sushi', 'web')` and it would return a
 Ruby object that matches the one given in the [response example](https://devcenter.heroku.com/articles/platform-api-reference#formation-info).
 
-Once you get used to these basic patterns using the client is quite easy
-because it maps directly to the documentation.  Below we'll go through some
-more detailed examples to give a better idea about how it works.
+The [API documentation] contains a description of all available resources and
+methods.
 
 ### Handling errors
 
@@ -258,9 +254,8 @@ heroku.formation.update('floating-retreat-4255', 'web', {"size" => "1X"})
     "updated_at"=>"2014-03-13T04:24:46Z"}
 ```
 
-Hopefully this has given you a taste of how the client works and an
-understanding of how resources and actions are mapped from the documentation.
-If you have questions please feel free to file issues.
+Hopefully this has given you a taste of how the client works.  If you have
+questions please feel free to file issues.
 
 ### Debugging
 
@@ -268,6 +263,16 @@ Sometimes it helps to see more information about the requests flying by.  You
 can start your program or an `irb` session with the `EXCON_DEBUG=1`
 environment variable to cause request and response data to be written to
 `STDERR`.
+
+### Building API documentation
+
+Build documentation with:
+
+```
+rake yard
+```
+
+And then visit `docs/index.html` to read it.
 
 ## Contributing
 
