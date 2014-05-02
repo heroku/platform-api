@@ -11,8 +11,7 @@ task :publish do
   sh 'git checkout gh-pages'
   sh 'cp -R /tmp/platform-api-doc/* .'
   sh 'rm -rf /tmp/platform-api-doc'
-  sh './fix-links.sh'
   sh 'git add .'
-  sh 'git commit -am "Rebuilt documentation"'
+  sh 'git commit -am "Rebuild documentation"'
   sh 'git checkout master'
 end
