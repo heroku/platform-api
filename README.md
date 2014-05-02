@@ -13,13 +13,13 @@ gem 'platform-api'
 And then execute:
 
 ```
-$ bundle
+bundle
 ```
 
 Or install it yourself as:
 
 ```
-$ gem install platform-api
+gem install platform-api
 ```
 
 ## API documentation
