@@ -22,6 +22,11 @@ Or install it yourself as:
 $ gem install platform-api
 ```
 
+## API documentation
+
+Jump right to the [API documentation](http://heroku.github.io/platform-api/)
+for the nitty gritty details.
+
 ## Usage guide
 
 The best place to start using the Heroku API is the [Platform API Reference](https://devcenter.heroku.com/articles/platform-api-reference).
@@ -272,7 +277,12 @@ Build documentation with:
 rake yard
 ```
 
-And then visit `docs/index.html` to read it.
+And then visit `docs/index.html` to read it.  Alternaltely, build and publish
+it to Github Pages in one step with:
+
+```
+rake publish
+```
 
 ## Contributing
 
