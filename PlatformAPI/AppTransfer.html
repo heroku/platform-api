@@ -101,9 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An app transfer represents a two party interaction for transferring
-ownership of an app.</p>
+    <p>An app transfer represents a two party interaction for transferring ownership of an app.</p>
 
 
   </div>
@@ -143,8 +141,7 @@ ownership of an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new app transfer.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new app transfer.</p>
 </div></span>
   
 </li>
@@ -167,8 +164,7 @@ ownership of an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing app transfer.</p>
 </div></span>
   
 </li>
@@ -191,8 +187,7 @@ ownership of an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing app transfer.</p>
 </div></span>
   
 </li>
@@ -217,8 +212,7 @@ ownership of an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AppTransfer.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AppTransfer.</p>
 </div></span>
   
 </li>
@@ -241,8 +235,7 @@ ownership of an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing apps transfers.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing apps transfers.</p>
 </div></span>
   
 </li>
@@ -265,8 +258,7 @@ ownership of an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing app transfer.</p>
 </div></span>
   
 </li>
@@ -289,8 +281,7 @@ ownership of an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AppTransfer</p>
+    <p>Returns a new instance of AppTransfer</p>
 
 
   </div>
@@ -304,12 +295,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-437
-438
-439</pre>
+473
+474
+475</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 437</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 473</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -337,8 +328,7 @@ ownership of an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new app transfer.</p>
+    <p>Create a new app transfer.</p>
 
 
   </div>
@@ -357,8 +347,7 @@ ownership of an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -372,12 +361,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-444
-445
-446</pre>
+480
+481
+482</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 444</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 480</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -398,8 +387,7 @@ ownership of an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing app transfer</p>
+    <p>Delete an existing app transfer</p>
 
 
   </div>
@@ -418,8 +406,7 @@ ownership of an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
 </div>
       
     </li>
@@ -433,12 +420,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-451
-452
-453</pre>
+487
+488
+489</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 451</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 487</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
@@ -459,8 +446,7 @@ ownership of an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing app transfer.</p>
+    <p>Info for existing app transfer.</p>
 
 
   </div>
@@ -479,8 +465,7 @@ ownership of an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
 </div>
       
     </li>
@@ -494,12 +479,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-458
-459
-460</pre>
+494
+495
+496</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 458</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 494</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
@@ -520,8 +505,7 @@ ownership of an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing apps transfers.</p>
+    <p>List existing apps transfers.</p>
 
 
   </div>
@@ -535,12 +519,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-463
-464
-465</pre>
+499
+500
+501</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 463</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 499</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -561,8 +545,7 @@ ownership of an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing app transfer.</p>
+    <p>Update an existing app transfer.</p>
 
 
   </div>
@@ -581,8 +564,7 @@ ownership of an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
 </div>
       
     </li>
@@ -597,8 +579,7 @@ ownership of an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -612,12 +593,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-471
-472
-473</pre>
+507
+508
+509</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 471</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 507</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -632,7 +613,7 @@ ownership of an app.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:55 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

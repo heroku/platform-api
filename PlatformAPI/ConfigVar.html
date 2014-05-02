@@ -101,9 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Config Vars allow you to manage the configuration information provided to
-an app on Heroku.</p>
+    <p>Config Vars allow you to manage the configuration information provided to an app on Heroku.</p>
 
 
   </div>
@@ -143,8 +141,7 @@ an app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get config-vars for app.</p>
+    <span class="summary_desc"><div class='inline'><p>Get config-vars for app.</p>
 </div></span>
   
 </li>
@@ -169,8 +166,7 @@ an app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of ConfigVar.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of ConfigVar.</p>
 </div></span>
   
 </li>
@@ -193,8 +189,7 @@ an app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update config-vars for app.</p>
+    <span class="summary_desc"><div class='inline'><p>Update config-vars for app.</p>
 </div></span>
   
 </li>
@@ -217,8 +212,7 @@ an app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of ConfigVar</p>
+    <p>Returns a new instance of ConfigVar</p>
 
 
   </div>
@@ -232,12 +226,12 @@ an app on Heroku.</p>
       <pre class="lines">
 
 
-557
-558
-559</pre>
+638
+639
+640</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 557</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 638</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -265,8 +259,7 @@ an app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get config-vars for app.</p>
+    <p>Get config-vars for app.</p>
 
 
   </div>
@@ -280,12 +273,12 @@ an app on Heroku.</p>
       <pre class="lines">
 
 
-562
-563
-564</pre>
+643
+644
+645</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 562</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 643</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -306,9 +299,7 @@ an app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update config-vars for app. You can update existing config-vars by setting
-them again, and remove by setting it to <code>NULL</code>.</p>
+    <p>Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to <code>NULL</code>.</p>
 
 
   </div>
@@ -327,8 +318,7 @@ them again, and remove by setting it to <code>NULL</code>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -342,12 +332,12 @@ them again, and remove by setting it to <code>NULL</code>.</p>
       <pre class="lines">
 
 
-569
-570
-571</pre>
+650
+651
+652</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 569</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 650</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -362,7 +352,7 @@ them again, and remove by setting it to <code>NULL</code>.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:55 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

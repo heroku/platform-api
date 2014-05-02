@@ -1,0 +1,3 @@
+lib/platform-api.rb 674ffb163456728a4308cf18e4af9bae1623bccb
+lib/platform-api/client.rb 1c33305262e5500442dd6267ad3cd87202e47159
+lib/platform-api/version.rb cad2b2fa6a43f8c3f5864c2fbd8d3eff166c444c

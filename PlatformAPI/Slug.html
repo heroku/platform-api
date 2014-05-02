@@ -101,9 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A slug is a snapshot of your application code that is ready to run on the
-platform.</p>
+    <p>A slug is a snapshot of your application code that is ready to run on the platform.</p>
 
 
   </div>
@@ -143,8 +141,7 @@ platform.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new slug.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new slug.</p>
 </div></span>
   
 </li>
@@ -167,8 +164,7 @@ platform.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing slug.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing slug.</p>
 </div></span>
   
 </li>
@@ -193,8 +189,7 @@ platform.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Slug.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Slug.</p>
 </div></span>
   
 </li>
@@ -217,8 +212,7 @@ platform.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Slug</p>
+    <p>Returns a new instance of Slug</p>
 
 
   </div>
@@ -232,12 +226,12 @@ platform.</p>
       <pre class="lines">
 
 
-1104
-1105
-1106</pre>
+1185
+1186
+1187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1104</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -265,10 +259,7 @@ platform.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new slug. For more information please refer to <a
-href="https://devcenter.heroku.com/articles/platform-api-deploying-slugs?preview=1">Deploying
-Slugs using the Platform API</a>.</p>
+    <p>Create a new slug. For more information please refer to <a href="https://devcenter.heroku.com/articles/platform-api-deploying-slugs?preview=1">Deploying Slugs using the Platform API</a>.</p>
 
 
   </div>
@@ -287,8 +278,7 @@ Slugs using the Platform API</a>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -303,8 +293,7 @@ Slugs using the Platform API</a>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -318,12 +307,12 @@ Slugs using the Platform API</a>.</p>
       <pre class="lines">
 
 
-1120
-1121
-1122</pre>
+1201
+1202
+1203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1120</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_slug'>slug</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -344,8 +333,7 @@ Slugs using the Platform API</a>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing slug.</p>
+    <p>Info for existing slug.</p>
 
 
   </div>
@@ -364,8 +352,7 @@ Slugs using the Platform API</a>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -380,8 +367,7 @@ Slugs using the Platform API</a>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of slug</p>
+        <div class='inline'><p>unique identifier of slug</p>
 </div>
       
     </li>
@@ -395,12 +381,12 @@ Slugs using the Platform API</a>.</p>
       <pre class="lines">
 
 
-1112
-1113
-1114</pre>
+1193
+1194
+1195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1112</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_slug_id'>slug_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_slug'>slug</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_slug_id'>slug_id</span><span class='rparen'>)</span>
@@ -415,7 +401,7 @@ Slugs using the Platform API</a>.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:57 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

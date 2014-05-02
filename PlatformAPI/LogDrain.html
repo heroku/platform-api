@@ -101,14 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p><a href="https://devcenter.heroku.com/articles/logging#syslog-drains">Log
-drains</a> provide a way to forward your Heroku logs to an external syslog
-server for long-term archiving. This external service must be configured to
-receive syslog packets from Heroku, whereupon its URL can be added to an
-app using this API. Some addons will add a log drain when they are
-provisioned to an app. These drains can only be removed by removing the
-add-on.</p>
+    <p><a href="https://devcenter.heroku.com/articles/logging#syslog-drains">Log drains</a> provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some addons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.</p>
 
 
   </div>
@@ -148,8 +141,7 @@ add-on.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new log drain.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new log drain.</p>
 </div></span>
   
 </li>
@@ -172,8 +164,7 @@ add-on.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing log drain.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing log drain.</p>
 </div></span>
   
 </li>
@@ -196,8 +187,7 @@ add-on.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing log drain.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing log drain.</p>
 </div></span>
   
 </li>
@@ -222,8 +212,7 @@ add-on.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of LogDrain.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of LogDrain.</p>
 </div></span>
   
 </li>
@@ -246,8 +235,7 @@ add-on.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing log drains.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing log drains.</p>
 </div></span>
   
 </li>
@@ -270,8 +258,7 @@ add-on.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of LogDrain</p>
+    <p>Returns a new instance of LogDrain</p>
 
 
   </div>
@@ -285,12 +272,12 @@ add-on.</p>
       <pre class="lines">
 
 
-731
-732
-733</pre>
+812
+813
+814</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 731</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 812</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -318,8 +305,7 @@ add-on.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new log drain.</p>
+    <p>Create a new log drain.</p>
 
 
   </div>
@@ -338,8 +324,7 @@ add-on.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -354,8 +339,7 @@ add-on.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -369,12 +353,12 @@ add-on.</p>
       <pre class="lines">
 
 
-739
-740
-741</pre>
+820
+821
+822</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 739</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 820</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -395,9 +379,7 @@ add-on.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing log drain. Log drains added by add-ons can only be
-removed by removing the add-on.</p>
+    <p>Delete an existing log drain. Log drains added by add-ons can only be removed by removing the add-on.</p>
 
 
   </div>
@@ -416,8 +398,7 @@ removed by removing the add-on.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -432,8 +413,7 @@ removed by removing the add-on.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this log drain or url associated with the log drain</p>
+        <div class='inline'><p>unique identifier of this log drain or url associated with the log drain</p>
 </div>
       
     </li>
@@ -447,12 +427,12 @@ removed by removing the add-on.</p>
       <pre class="lines">
 
 
-747
-748
-749</pre>
+828
+829
+830</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 747</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 828</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
@@ -473,8 +453,7 @@ removed by removing the add-on.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing log drain.</p>
+    <p>Info for existing log drain.</p>
 
 
   </div>
@@ -493,8 +472,7 @@ removed by removing the add-on.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -509,8 +487,7 @@ removed by removing the add-on.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this log drain or url associated with the log drain</p>
+        <div class='inline'><p>unique identifier of this log drain or url associated with the log drain</p>
 </div>
       
     </li>
@@ -524,12 +501,12 @@ removed by removing the add-on.</p>
       <pre class="lines">
 
 
-755
-756
-757</pre>
+836
+837
+838</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 755</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 836</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
@@ -550,8 +527,7 @@ removed by removing the add-on.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing log drains.</p>
+    <p>List existing log drains.</p>
 
 
   </div>
@@ -570,8 +546,7 @@ removed by removing the add-on.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -585,12 +560,12 @@ removed by removing the add-on.</p>
       <pre class="lines">
 
 
-762
-763
-764</pre>
+843
+844
+845</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 762</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 843</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -605,7 +580,7 @@ removed by removing the add-on.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:55 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

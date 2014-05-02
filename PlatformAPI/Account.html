@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An account represents an individual signed up to use the Heroku platform.</p>
+    <p>An account represents an individual signed up to use the Heroku platform.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Change Email for account.</p>
+    <span class="summary_desc"><div class='inline'><p>Change Email for account.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Change Password for account.</p>
+    <span class="summary_desc"><div class='inline'><p>Change Password for account.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for account.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for account.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Account.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Account.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update account.</p>
+    <span class="summary_desc"><div class='inline'><p>Update account.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Account</p>
+    <p>Returns a new instance of Account</p>
 
 
   </div>
@@ -279,12 +272,12 @@
       <pre class="lines">
 
 
-307
-308
-309</pre>
+343
+344
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 307</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 343</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -312,8 +305,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Change Email for account.</p>
+    <p>Change Email for account.</p>
 
 
   </div>
@@ -332,8 +324,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -347,12 +338,12 @@
       <pre class="lines">
 
 
-326
-327
-328</pre>
+362
+363
+364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 326</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 362</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_change_email'>change_email</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_change_email'>change_email</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -373,8 +364,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Change Password for account.</p>
+    <p>Change Password for account.</p>
 
 
   </div>
@@ -393,8 +383,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -408,12 +397,12 @@
       <pre class="lines">
 
 
-333
-334
-335</pre>
+369
+370
+371</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 333</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 369</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_change_password'>change_password</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_change_password'>change_password</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -434,8 +423,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for account.</p>
+    <p>Info for account.</p>
 
 
   </div>
@@ -449,12 +437,12 @@
       <pre class="lines">
 
 
-312
-313
-314</pre>
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 348</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -475,8 +463,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update account.</p>
+    <p>Update account.</p>
 
 
   </div>
@@ -495,8 +482,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -510,12 +496,12 @@
       <pre class="lines">
 
 
-319
-320
-321</pre>
+355
+356
+357</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 319</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 355</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -530,7 +516,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:54 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

@@ -101,9 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An organization collaborator represents an account that has been given
-access to an organization app on Heroku.</p>
+    <p>An organization collaborator represents an account that has been given access to an organization app on Heroku.</p>
 
 
   </div>
@@ -143,8 +141,7 @@ access to an organization app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new collaborator on an organization app.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new collaborator on an organization app.</p>
 </div></span>
   
 </li>
@@ -167,8 +164,7 @@ access to an organization app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing collaborator from an organization app.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing collaborator from an organization app.</p>
 </div></span>
   
 </li>
@@ -191,8 +187,7 @@ access to an organization app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for a collaborator on an organization app.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for a collaborator on an organization app.</p>
 </div></span>
   
 </li>
@@ -217,8 +212,7 @@ access to an organization app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of OrganizationAppCollaborator.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of OrganizationAppCollaborator.</p>
 </div></span>
   
 </li>
@@ -241,8 +235,7 @@ access to an organization app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List collaborators on an organization app.</p>
+    <span class="summary_desc"><div class='inline'><p>List collaborators on an organization app.</p>
 </div></span>
   
 </li>
@@ -265,8 +258,7 @@ access to an organization app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of OrganizationAppCollaborator</p>
+    <p>Returns a new instance of OrganizationAppCollaborator</p>
 
 
   </div>
@@ -280,12 +272,12 @@ access to an organization app on Heroku.</p>
       <pre class="lines">
 
 
-879
-880
-881</pre>
+960
+961
+962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 879</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 960</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -313,12 +305,7 @@ access to an organization app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new collaborator on an organization app. Use this endpoint instead
-of the <code>/apps/{app_id_or_name}/collaborator endpoint when you want the
-collaborator to be granted
-{privileges}[https://devcenter.heroku.com/articles/org-users-access#roles]</code>
-according to their role in the organization.</p>
+    <p>Create a new collaborator on an organization app. Use this endpoint instead of the <code>/apps/{app_id_or_name}/collaborator</code> endpoint when you want the collaborator to be granted <a href="https://devcenter.heroku.com/articles/org-users-access#roles">privileges</a> according to their role in the organization.</p>
 
 
   </div>
@@ -337,8 +324,7 @@ according to their role in the organization.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -353,8 +339,7 @@ according to their role in the organization.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -368,12 +353,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-887
-888
-889</pre>
+968
+969
+970</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 887</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 968</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -394,8 +379,7 @@ according to their role in the organization.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing collaborator from an organization app.</p>
+    <p>Delete an existing collaborator from an organization app.</p>
 
 
   </div>
@@ -414,8 +398,7 @@ according to their role in the organization.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -430,8 +413,7 @@ according to their role in the organization.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>invited email address of collaborator or unique identifier of collaborator</p>
+        <div class='inline'><p>invited email address of collaborator or unique identifier of collaborator</p>
 </div>
       
     </li>
@@ -445,12 +427,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-895
-896
-897</pre>
+976
+977
+978</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 895</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 976</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -471,8 +453,7 @@ according to their role in the organization.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for a collaborator on an organization app.</p>
+    <p>Info for a collaborator on an organization app.</p>
 
 
   </div>
@@ -491,8 +472,7 @@ according to their role in the organization.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -507,8 +487,7 @@ according to their role in the organization.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>invited email address of collaborator or unique identifier of collaborator</p>
+        <div class='inline'><p>invited email address of collaborator or unique identifier of collaborator</p>
 </div>
       
     </li>
@@ -522,12 +501,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-903
-904
-905</pre>
+984
+985
+986</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 903</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 984</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -548,8 +527,7 @@ according to their role in the organization.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List collaborators on an organization app.</p>
+    <p>List collaborators on an organization app.</p>
 
 
   </div>
@@ -568,8 +546,7 @@ according to their role in the organization.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -583,12 +560,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-910
-911
-912</pre>
+991
+992
+993</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 910</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 991</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -603,7 +580,7 @@ according to their role in the organization.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:56 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

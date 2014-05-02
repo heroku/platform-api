@@ -101,11 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The formation of processes that should be maintained for an app. Update the
-formation to scale processes or change dyno sizes. Available process type
-names and commands are defined by the <code>process_types</code> attribute
-for the <a href="#slug">slug</a> currently released on an app.</p>
+    <p>The formation of processes that should be maintained for an app. Update the formation to scale processes or change dyno sizes. Available process type names and commands are defined by the <code>process_types</code> attribute for the <a href="#slug">slug</a> currently released on an app.</p>
 
 
   </div>
@@ -145,8 +141,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Batch update process types.</p>
+    <span class="summary_desc"><div class='inline'><p>Batch update process types.</p>
 </div></span>
   
 </li>
@@ -169,8 +164,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for a process type.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for a process type.</p>
 </div></span>
   
 </li>
@@ -195,8 +189,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Formation.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Formation.</p>
 </div></span>
   
 </li>
@@ -219,8 +212,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List process type formation.</p>
+    <span class="summary_desc"><div class='inline'><p>List process type formation.</p>
 </div></span>
   
 </li>
@@ -243,8 +235,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update process type.</p>
+    <span class="summary_desc"><div class='inline'><p>Update process type.</p>
 </div></span>
   
 </li>
@@ -267,8 +258,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Formation</p>
+    <p>Returns a new instance of Formation</p>
 
 
   </div>
@@ -282,12 +272,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-659
-660
-661</pre>
+740
+741
+742</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 659</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 740</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -315,8 +305,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Batch update process types</p>
+    <p>Batch update process types</p>
 
 
   </div>
@@ -335,8 +324,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -351,8 +339,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -366,12 +353,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-682
-683
-684</pre>
+763
+764
+765</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 682</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 763</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_batch_update'>batch_update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_batch_update'>batch_update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -392,8 +379,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for a process type</p>
+    <p>Info for a process type</p>
 
 
   </div>
@@ -412,8 +398,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -428,8 +413,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this process type or type of process to maintain</p>
+        <div class='inline'><p>unique identifier of this process type or type of process to maintain</p>
 </div>
       
     </li>
@@ -443,12 +427,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-667
-668
-669</pre>
+748
+749
+750</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 667</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 748</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='rparen'>)</span>
@@ -469,8 +453,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List process type formation</p>
+    <p>List process type formation</p>
 
 
   </div>
@@ -489,8 +472,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -504,12 +486,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-674
-675
-676</pre>
+755
+756
+757</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 674</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 755</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -530,8 +512,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update process type</p>
+    <p>Update process type</p>
 
 
   </div>
@@ -550,8 +531,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -566,8 +546,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this process type or type of process to maintain</p>
+        <div class='inline'><p>unique identifier of this process type or type of process to maintain</p>
 </div>
       
     </li>
@@ -582,8 +561,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -597,12 +575,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-691
-692
-693</pre>
+772
+773
+774</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 691</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 772</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -617,7 +595,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:55 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

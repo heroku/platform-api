@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Dynos encapsulate running processes of an app on Heroku.</p>
+    <p>Dynos encapsulate running processes of an app on Heroku.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new dyno.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new dyno.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing dyno.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing dyno.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Dyno.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Dyno.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing dynos.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing dynos.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Restart dyno.</p>
+    <span class="summary_desc"><div class='inline'><p>Restart dyno.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Restart all dynos.</p>
+    <span class="summary_desc"><div class='inline'><p>Restart all dynos.</p>
 </div></span>
   
 </li>
@@ -288,8 +281,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Dyno</p>
+    <p>Returns a new instance of Dyno</p>
 
 
   </div>
@@ -303,12 +295,12 @@
       <pre class="lines">
 
 
-614
-615
-616</pre>
+695
+696
+697</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 614</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 695</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -336,8 +328,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new dyno.</p>
+    <p>Create a new dyno.</p>
 
 
   </div>
@@ -356,8 +347,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -372,8 +362,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -387,12 +376,12 @@
       <pre class="lines">
 
 
-622
-623
-624</pre>
+703
+704
+705</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 622</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 703</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -413,8 +402,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing dyno.</p>
+    <p>Info for existing dyno.</p>
 
 
   </div>
@@ -433,8 +421,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -449,8 +436,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this dyno or the name of this process on this dyno</p>
+        <div class='inline'><p>unique identifier of this dyno or the name of this process on this dyno</p>
 </div>
       
     </li>
@@ -464,12 +450,12 @@
       <pre class="lines">
 
 
-645
-646
-647</pre>
+726
+727
+728</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 645</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 726</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
@@ -490,8 +476,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing dynos.</p>
+    <p>List existing dynos.</p>
 
 
   </div>
@@ -510,8 +495,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -525,12 +509,12 @@
       <pre class="lines">
 
 
-652
-653
-654</pre>
+733
+734
+735</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 652</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 733</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -551,8 +535,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Restart dyno.</p>
+    <p>Restart dyno.</p>
 
 
   </div>
@@ -571,8 +554,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -587,8 +569,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this dyno or the name of this process on this dyno</p>
+        <div class='inline'><p>unique identifier of this dyno or the name of this process on this dyno</p>
 </div>
       
     </li>
@@ -602,12 +583,12 @@
       <pre class="lines">
 
 
-630
-631
-632</pre>
+711
+712
+713</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 630</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 711</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
@@ -628,8 +609,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Restart all dynos</p>
+    <p>Restart all dynos</p>
 
 
   </div>
@@ -648,8 +628,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -663,12 +642,12 @@
       <pre class="lines">
 
 
-637
-638
-639</pre>
+718
+719
+720</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 637</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 718</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart_all'>restart_all</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_restart_all'>restart_all</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -683,7 +662,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:55 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

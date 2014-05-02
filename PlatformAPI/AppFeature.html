@@ -101,9 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An app feature represents a Heroku labs capability that can be enabled or
-disabled for an app on Heroku.</p>
+    <p>An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.</p>
 
 
   </div>
@@ -143,8 +141,7 @@ disabled for an app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an existing app feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for an existing app feature.</p>
 </div></span>
   
 </li>
@@ -169,8 +166,7 @@ disabled for an app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AppFeature.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AppFeature.</p>
 </div></span>
   
 </li>
@@ -193,8 +189,7 @@ disabled for an app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing app features.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing app features.</p>
 </div></span>
   
 </li>
@@ -217,8 +212,7 @@ disabled for an app on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing app feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing app feature.</p>
 </div></span>
   
 </li>
@@ -241,8 +235,7 @@ disabled for an app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AppFeature</p>
+    <p>Returns a new instance of AppFeature</p>
 
 
   </div>
@@ -256,12 +249,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-406
-407
-408</pre>
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 406</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 442</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -289,8 +282,7 @@ disabled for an app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for an existing app feature.</p>
+    <p>Info for an existing app feature.</p>
 
 
   </div>
@@ -309,8 +301,7 @@ disabled for an app on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -325,8 +316,7 @@ disabled for an app on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app feature or unique name of app feature</p>
+        <div class='inline'><p>unique identifier of app feature or unique name of app feature</p>
 </div>
       
     </li>
@@ -340,12 +330,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-414
-415
-416</pre>
+450
+451
+452</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 414</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 450</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='rparen'>)</span>
@@ -366,8 +356,7 @@ disabled for an app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing app features.</p>
+    <p>List existing app features.</p>
 
 
   </div>
@@ -386,8 +375,7 @@ disabled for an app on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -401,12 +389,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-421
-422
-423</pre>
+457
+458
+459</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 421</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 457</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -427,8 +415,7 @@ disabled for an app on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing app feature.</p>
+    <p>Update an existing app feature.</p>
 
 
   </div>
@@ -447,8 +434,7 @@ disabled for an app on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -463,8 +449,7 @@ disabled for an app on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app feature or unique name of app feature</p>
+        <div class='inline'><p>unique identifier of app feature or unique name of app feature</p>
 </div>
       
     </li>
@@ -479,8 +464,7 @@ disabled for an app on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -494,12 +478,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-430
-431
-432</pre>
+466
+467
+468</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 430</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 466</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -514,7 +498,7 @@ disabled for an app on Heroku.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:55 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

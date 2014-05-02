@@ -101,9 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Keys represent public SSH keys associated with an account and are used to
-authorize accounts as they are performing git operations.</p>
+    <p>Keys represent public SSH keys associated with an account and are used to authorize accounts as they are performing git operations.</p>
 
 
   </div>
@@ -143,8 +141,7 @@ authorize accounts as they are performing git operations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new key.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new key.</p>
 </div></span>
   
 </li>
@@ -167,8 +164,7 @@ authorize accounts as they are performing git operations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing key.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing key.</p>
 </div></span>
   
 </li>
@@ -191,8 +187,7 @@ authorize accounts as they are performing git operations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing key.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing key.</p>
 </div></span>
   
 </li>
@@ -217,8 +212,7 @@ authorize accounts as they are performing git operations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Key.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Key.</p>
 </div></span>
   
 </li>
@@ -241,8 +235,7 @@ authorize accounts as they are performing git operations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing keys.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing keys.</p>
 </div></span>
   
 </li>
@@ -265,8 +258,7 @@ authorize accounts as they are performing git operations.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Key</p>
+    <p>Returns a new instance of Key</p>
 
 
   </div>
@@ -280,12 +272,12 @@ authorize accounts as they are performing git operations.</p>
       <pre class="lines">
 
 
-698
-699
-700</pre>
+779
+780
+781</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 698</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 779</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -313,8 +305,7 @@ authorize accounts as they are performing git operations.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new key.</p>
+    <p>Create a new key.</p>
 
 
   </div>
@@ -333,8 +324,7 @@ authorize accounts as they are performing git operations.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -348,12 +338,12 @@ authorize accounts as they are performing git operations.</p>
       <pre class="lines">
 
 
-705
-706
-707</pre>
+786
+787
+788</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 705</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 786</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -374,8 +364,7 @@ authorize accounts as they are performing git operations.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing key</p>
+    <p>Delete an existing key</p>
 
 
   </div>
@@ -394,9 +383,7 @@ authorize accounts as they are performing git operations.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this key or a unique identifying string based on
-contents</p>
+        <div class='inline'><p>unique identifier of this key or a unique identifying string based on contents</p>
 </div>
       
     </li>
@@ -410,12 +397,12 @@ contents</p>
       <pre class="lines">
 
 
-712
-713
-714</pre>
+793
+794
+795</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 712</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 793</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
@@ -436,8 +423,7 @@ contents</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing key.</p>
+    <p>Info for existing key.</p>
 
 
   </div>
@@ -456,9 +442,7 @@ contents</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this key or a unique identifying string based on
-contents</p>
+        <div class='inline'><p>unique identifier of this key or a unique identifying string based on contents</p>
 </div>
       
     </li>
@@ -472,12 +456,12 @@ contents</p>
       <pre class="lines">
 
 
-719
-720
-721</pre>
+800
+801
+802</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 719</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 800</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
@@ -498,8 +482,7 @@ contents</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing keys.</p>
+    <p>List existing keys.</p>
 
 
   </div>
@@ -513,12 +496,12 @@ contents</p>
       <pre class="lines">
 
 
-724
-725
-726</pre>
+805
+806
+807</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 724</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 805</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -533,7 +516,7 @@ contents</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:55 2014 by
+  Generated on Fri May  2 13:32:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

@@ -101,9 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An account feature represents a Heroku labs capability that can be enabled
-or disabled for an account on Heroku.</p>
+    <p>An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.</p>
 
 
   </div>
@@ -143,8 +141,7 @@ or disabled for an account on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an existing account feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for an existing account feature.</p>
 </div></span>
   
 </li>
@@ -169,8 +166,7 @@ or disabled for an account on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AccountFeature.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AccountFeature.</p>
 </div></span>
   
 </li>
@@ -193,8 +189,7 @@ or disabled for an account on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing account features.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing account features.</p>
 </div></span>
   
 </li>
@@ -217,8 +212,7 @@ or disabled for an account on Heroku.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing account feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing account feature.</p>
 </div></span>
   
 </li>
@@ -241,8 +235,7 @@ or disabled for an account on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AccountFeature</p>
+    <p>Returns a new instance of AccountFeature</p>
 
 
   </div>
@@ -256,12 +249,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-280
-281
-282</pre>
+316
+317
+318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 280</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 316</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -289,8 +282,7 @@ or disabled for an account on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for an existing account feature.</p>
+    <p>Info for an existing account feature.</p>
 
 
   </div>
@@ -309,8 +301,7 @@ or disabled for an account on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of account feature or unique name of account feature</p>
+        <div class='inline'><p>unique identifier of account feature or unique name of account feature</p>
 </div>
       
     </li>
@@ -324,12 +315,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-287
-288
-289</pre>
+323
+324
+325</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 287</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 323</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='rparen'>)</span>
@@ -350,8 +341,7 @@ or disabled for an account on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing account features.</p>
+    <p>List existing account features.</p>
 
 
   </div>
@@ -365,12 +355,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-292
-293
-294</pre>
+328
+329
+330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -391,8 +381,7 @@ or disabled for an account on Heroku.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing account feature.</p>
+    <p>Update an existing account feature.</p>
 
 
   </div>
@@ -411,8 +400,7 @@ or disabled for an account on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of account feature or unique name of account feature</p>
+        <div class='inline'><p>unique identifier of account feature or unique name of account feature</p>
 </div>
       
     </li>
@@ -427,8 +415,7 @@ or disabled for an account on Heroku.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -442,12 +429,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-300
-301
-302</pre>
+336
+337
+338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 300</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 336</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -462,7 +449,7 @@ or disabled for an account on Heroku.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Apr 28 19:41:54 2014 by
+  Generated on Fri May  2 13:32:02 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>
