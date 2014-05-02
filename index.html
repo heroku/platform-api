@@ -74,11 +74,18 @@
 
 <p>And then execute:</p>
 
-<pre class="code ruby"><code class="ruby"></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span>
+</code></pre>
 
 <p>Or install it yourself as:</p>
 
-<pre class="code ruby"><code class="ruby"></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_platform'>platform</span><span class='op'>-</span><span class='id identifier rubyid_api'>api</span>
+</code></pre>
+
+<h2>API documentation</h2>
+
+<p>Jump right to the <a href="http://heroku.github.io/platform-api/">API documentation</a>
+for the nitty gritty details.</p>
 
 <h2>Usage guide</h2>
 
@@ -318,7 +325,11 @@ environment variable to cause request and response data to be written to
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_yard'>yard</span>
 </code></pre>
 
-<p>And then visit <code>docs/index.html</code> to read it.</p>
+<p>And then visit <code>docs/index.html</code> to read it.  Alternaltely, build and publish
+it to Github Pages in one step with:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_publish'>publish</span>
+</code></pre>
 
 <h2>Contributing</h2>
 
@@ -332,7 +343,7 @@ environment variable to cause request and response data to be written to
 </div></div>
 
     <div id="footer">
-  Generated on Fri May  2 13:52:53 2014 by
+  Generated on Fri May  2 14:00:11 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>
