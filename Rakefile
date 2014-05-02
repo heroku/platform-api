@@ -11,7 +11,7 @@ task :publish do
   sh 'git checkout gh-pages'
   sh 'cp -R /tmp/platform-api-doc/* .'
   sh 'rm -rf /tmp/platform-api-doc'
-  sh "sed -e 's/_index\.html/index\.html/g' -i `grep _index.html * -rl`"
+  sh "sed -e 's/_index\.html/index\.html/g' -i $(grep _index.html * -rl)"
   sh 'git add .'
   sh 'git commit -am "Rebuilt documentation"'
   sh 'git checkout master'
