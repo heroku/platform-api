@@ -1,5 +1,18 @@
 require 'bundler/gem_tasks'
 require 'yard'
 
-desc 'Doc the things'
+desc 'Generate API documentation'
 YARD::Rake::YardocTask.new
+
+desc 'Publish API documentation'
+task :publish do
+  sh 'rake yard'
+  sh 'cp -R doc /tmp/platform-api-doc'
+  sh 'git checkout gh-pages'
+  sh 'cp -R /tmp/platform-api-doc/* .'
+  sh 'rm -rf /tmp/platform-api-doc'
+  sh "sed -e 's/_index\.html/index\.html/g' -i `grep _index.html * -rl`"
+  sh 'git add .'
+  sh 'git commit -am "Rebuilt documentation"'
+  sh 'git checkout master'
+end
