@@ -13,5 +13,6 @@ task :publish do
   sh 'rm -rf /tmp/platform-api-doc'
   sh 'git add .'
   sh 'git commit -am "Rebuild documentation"'
+  sh 'git push origin gh-pages'
   sh 'git checkout master'
 end
