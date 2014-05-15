@@ -262,13 +262,6 @@ heroku.formation.update('floating-retreat-4255', 'web', {"size" => "1X"})
 Hopefully this has given you a taste of how the client works.  If you have
 questions please feel free to file issues.
 
-### Debugging
-
-Sometimes it helps to see more information about the requests flying by.  You
-can start your program or an `irb` session with the `EXCON_DEBUG=1`
-environment variable to cause request and response data to be written to
-`STDERR`.
-
 ### Building API documentation
 
 Build documentation with:
@@ -283,6 +276,43 @@ it to Github Pages in one step with:
 ```
 rake publish
 ```
+
+### Debugging
+
+Sometimes it helps to see more information about the requests flying by.  You
+can start your program or an `irb` session with the `EXCON_DEBUG=1`
+environment variable to cause request and response data to be written to
+`STDERR`.
+
+### Passing custom headers
+
+The various `connect` methods take an options hash that you can use to include
+custom headers to include with every request:
+
+```ruby
+client = PlatformAPI.connect('my-api-key', default_headers: {'Foo' => 'Bar'})
+```
+
+### Using a custom cache
+
+By default, the `platform-api` will cache data in `~/.heroics/platform-api`.
+Use a different caching by passing in the [Moneta](https://github.com/minad/moneta)
+instance you want to use:
+
+```ruby
+client = PlatformAPI.connect('my-api-key', cache: Moneta.new(:Memory))
+```
+
+### Connecting to a different host
+
+Connect to a different host by passing a host option:
+
+```ruby
+client = PlatformAPI.connect('my-api-key', host: 'api.example.com')
+```
+
+Connections are always made using HTTPS and certificates verification is
+always enabled.
 
 ## Contributing
 
