@@ -101,7 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An organization app encapsulates the organization specific functionality of Heroku apps.</p>
+    
+<p>An organization app encapsulates the organization specific functionality of
+Heroku apps.</p>
 
 
   </div>
@@ -141,7 +143,32 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new organization app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new organization app.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(app_id_or_app_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Info for an organization app.</p>
 </div></span>
   
 </li>
@@ -166,7 +193,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of OrganizationApp.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of OrganizationApp.</p>
 </div></span>
   
 </li>
@@ -189,7 +217,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List organization apps.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List organization apps.</p>
 </div></span>
   
 </li>
@@ -212,7 +241,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Transfer an existing organization app to another Heroku account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Transfer an existing organization app to another Heroku account.</p>
 </div></span>
   
 </li>
@@ -235,7 +265,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Transfer an existing organization app to another organization.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Transfer an existing organization app to another organization.</p>
 </div></span>
   
 </li>
@@ -258,7 +289,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Lock or unlock an organization app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Lock or unlock an organization app.</p>
 </div></span>
   
 </li>
@@ -281,7 +313,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of OrganizationApp</p>
+    
+<p>Returns a new instance of OrganizationApp</p>
 
 
   </div>
@@ -295,12 +328,12 @@
       <pre class="lines">
 
 
-998
-999
-1000</pre>
+1030
+1031
+1032</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 998</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1030</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +361,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new organization app. Use this endpoint instead of the <code>/apps</code> endpoint when you want to create an app that will be owned by an organization in which you are a member, rather than your personal account.</p>
+    
+<p>Create a new organization app. Use this endpoint instead of the
+<code>/apps</code> endpoint when you want to create an app that will be
+owned by an organization in which you are a member, rather than your
+personal account.</p>
 
 
   </div>
@@ -347,7 +384,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of organization</p>
+        <div class='inline'>
+<p>unique name of organization</p>
 </div>
       
     </li>
@@ -362,7 +400,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -376,15 +415,76 @@
       <pre class="lines">
 
 
-1006
-1007
-1008</pre>
+1038
+1039
+1040</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1006</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1038</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="info-instance_method">
+  
+    - (<tt>Object</tt>) <strong>info</strong>(app_id_or_app_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Info for an organization app.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1052
+1053
+1054</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1052</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -402,7 +502,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List organization apps.</p>
+    
+<p>List organization apps.</p>
 
 
   </div>
@@ -421,7 +522,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of organization</p>
+        <div class='inline'>
+<p>unique name of organization</p>
 </div>
       
     </li>
@@ -435,12 +537,12 @@
       <pre class="lines">
 
 
-1013
-1014
-1015</pre>
+1045
+1046
+1047</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1013</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1045</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
@@ -461,7 +563,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Transfer an existing organization app to another Heroku account.</p>
+    
+<p>Transfer an existing organization app to another Heroku account.</p>
 
 
   </div>
@@ -480,7 +583,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -495,7 +599,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -509,12 +614,12 @@
       <pre class="lines">
 
 
-1029
-1030
-1031</pre>
+1068
+1069
+1070</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1029</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1068</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -535,7 +640,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Transfer an existing organization app to another organization.</p>
+    
+<p>Transfer an existing organization app to another organization.</p>
 
 
   </div>
@@ -554,7 +660,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -569,7 +676,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -583,12 +691,12 @@
       <pre class="lines">
 
 
-1037
-1038
-1039</pre>
+1076
+1077
+1078</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1037</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1076</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_organization'>transfer_to_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_organization'>transfer_to_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -609,7 +717,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Lock or unlock an organization app.</p>
+    
+<p>Lock or unlock an organization app.</p>
 
 
   </div>
@@ -628,7 +737,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -643,7 +753,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -657,12 +768,12 @@
       <pre class="lines">
 
 
-1021
-1022
-1023</pre>
+1060
+1061
+1062</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1021</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1060</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -677,7 +788,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 14:00:12 2014 by
+  Generated on Thu May 15 15:41:41 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

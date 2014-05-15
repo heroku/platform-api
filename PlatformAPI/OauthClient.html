@@ -101,7 +101,12 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>OAuth clients are applications that Heroku users can authorize to automate, customize or extend their usage of the platform. For more information please refer to the <a href="https://devcenter.heroku.com/articles/oauth">Heroku OAuth documentation</a>.</p>
+    
+<p>OAuth clients are applications that Heroku users can authorize to automate,
+customize or extend their usage of the platform. For more information
+please refer to the <a
+href="https://devcenter.heroku.com/articles/oauth">Heroku OAuth
+documentation</a>.</p>
 
 
   </div>
@@ -141,7 +146,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new OAuth client.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new OAuth client.</p>
 </div></span>
   
 </li>
@@ -164,7 +170,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete OAuth client.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete OAuth client.</p>
 </div></span>
   
 </li>
@@ -187,7 +194,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for an OAuth client.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for an OAuth client.</p>
 </div></span>
   
 </li>
@@ -212,7 +220,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of OauthClient.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of OauthClient.</p>
 </div></span>
   
 </li>
@@ -235,7 +244,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List OAuth clients.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List OAuth clients.</p>
 </div></span>
   
 </li>
@@ -258,7 +268,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update OAuth client.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update OAuth client.</p>
 </div></span>
   
 </li>
@@ -281,7 +292,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of OauthClient</p>
+    
+<p>Returns a new instance of OauthClient</p>
 
 
   </div>
@@ -295,12 +307,12 @@
       <pre class="lines">
 
 
-898
-899
-900</pre>
+930
+931
+932</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 898</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 930</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +340,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new OAuth client.</p>
+    
+<p>Create a new OAuth client.</p>
 
 
   </div>
@@ -347,7 +360,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -361,12 +375,12 @@
       <pre class="lines">
 
 
-905
-906
-907</pre>
+937
+938
+939</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 905</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 937</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -387,7 +401,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete OAuth client.</p>
+    
+<p>Delete OAuth client.</p>
 
 
   </div>
@@ -406,7 +421,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this OAuth client</p>
+        <div class='inline'>
+<p>unique identifier of this OAuth client</p>
 </div>
       
     </li>
@@ -420,12 +436,12 @@
       <pre class="lines">
 
 
-912
-913
-914</pre>
+944
+945
+946</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 912</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 944</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
@@ -446,7 +462,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for an OAuth client</p>
+    
+<p>Info for an OAuth client</p>
 
 
   </div>
@@ -465,7 +482,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this OAuth client</p>
+        <div class='inline'>
+<p>unique identifier of this OAuth client</p>
 </div>
       
     </li>
@@ -479,12 +497,12 @@
       <pre class="lines">
 
 
-919
-920
-921</pre>
+951
+952
+953</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 919</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 951</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
@@ -505,7 +523,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List OAuth clients</p>
+    
+<p>List OAuth clients</p>
 
 
   </div>
@@ -519,12 +538,12 @@
       <pre class="lines">
 
 
-924
-925
-926</pre>
+956
+957
+958</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 924</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 956</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -545,7 +564,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update OAuth client</p>
+    
+<p>Update OAuth client</p>
 
 
   </div>
@@ -564,7 +584,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this OAuth client</p>
+        <div class='inline'>
+<p>unique identifier of this OAuth client</p>
 </div>
       
     </li>
@@ -579,7 +600,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -593,12 +615,12 @@
       <pre class="lines">
 
 
-932
-933
-934</pre>
+964
+965
+966</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 932</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 964</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -613,7 +635,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 14:00:12 2014 by
+  Generated on Thu May 15 15:41:40 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

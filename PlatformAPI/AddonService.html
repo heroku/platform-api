@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Add-on services represent add-ons that may be provisioned for apps.</p>
+    
+<p>Add-on services represent add-ons that may be provisioned for apps.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing addon-service.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing addon-service.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of AddonService.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AddonService.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing addon-services.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing addon-services.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of AddonService</p>
+    
+<p>Returns a new instance of AddonService</p>
 
 
   </div>
@@ -226,12 +231,12 @@
       <pre class="lines">
 
 
-376
-377
-378</pre>
+387
+388
+389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 376</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 387</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing addon-service.</p>
+    
+<p>Info for existing addon-service.</p>
 
 
   </div>
@@ -278,7 +284,9 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this addon-service or unique name of this addon-service</p>
+        <div class='inline'>
+<p>unique identifier of this addon-service or unique name of this
+addon-service</p>
 </div>
       
     </li>
@@ -292,12 +300,12 @@
       <pre class="lines">
 
 
-383
-384
-385</pre>
+394
+395
+396</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 383</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 394</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_service'>addon_service</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
@@ -318,7 +326,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing addon-services.</p>
+    
+<p>List existing addon-services.</p>
 
 
   </div>
@@ -332,12 +341,12 @@
       <pre class="lines">
 
 
-388
-389
-390</pre>
+399
+400
+401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 388</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 399</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_service'>addon_service</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -352,7 +361,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 14:00:11 2014 by
+  Generated on Thu May 15 15:41:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

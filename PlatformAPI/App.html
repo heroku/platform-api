@@ -101,7 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An app represents the program that you would like to deploy and run on Heroku.</p>
+    
+<p>An app represents the program that you would like to deploy and run on
+Heroku.</p>
 
 
   </div>
@@ -141,7 +143,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new app.</p>
 </div></span>
   
 </li>
@@ -164,7 +167,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing app.</p>
 </div></span>
   
 </li>
@@ -187,7 +191,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing app.</p>
 </div></span>
   
 </li>
@@ -212,7 +217,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of App.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of App.</p>
 </div></span>
   
 </li>
@@ -235,7 +241,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing apps.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing apps.</p>
 </div></span>
   
 </li>
@@ -258,7 +265,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update an existing app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing app.</p>
 </div></span>
   
 </li>
@@ -281,7 +289,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of App</p>
+    
+<p>Returns a new instance of App</p>
 
 
   </div>
@@ -295,12 +304,12 @@
       <pre class="lines">
 
 
-514
-515
-516</pre>
+546
+547
+548</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 546</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +337,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new app.</p>
+    
+<p>Create a new app.</p>
 
 
   </div>
@@ -347,7 +357,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -361,12 +372,12 @@
       <pre class="lines">
 
 
-521
-522
-523</pre>
+553
+554
+555</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 521</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 553</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -387,7 +398,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete an existing app.</p>
+    
+<p>Delete an existing app.</p>
 
 
   </div>
@@ -406,7 +418,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -420,12 +433,12 @@
       <pre class="lines">
 
 
-528
-529
-530</pre>
+560
+561
+562</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 528</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 560</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -446,7 +459,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing app.</p>
+    
+<p>Info for existing app.</p>
 
 
   </div>
@@ -465,7 +479,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -479,12 +494,12 @@
       <pre class="lines">
 
 
-535
-536
-537</pre>
+567
+568
+569</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 535</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 567</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -505,7 +520,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing apps.</p>
+    
+<p>List existing apps.</p>
 
 
   </div>
@@ -519,12 +535,12 @@
       <pre class="lines">
 
 
-540
-541
-542</pre>
+572
+573
+574</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 540</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 572</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -545,7 +561,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update an existing app.</p>
+    
+<p>Update an existing app.</p>
 
 
   </div>
@@ -564,7 +581,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -579,7 +597,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -593,12 +612,12 @@
       <pre class="lines">
 
 
-548
-549
-550</pre>
+580
+581
+582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 548</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 580</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -613,7 +632,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 14:00:11 2014 by
+  Generated on Thu May 15 15:41:39 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>

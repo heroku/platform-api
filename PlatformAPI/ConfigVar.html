@@ -101,7 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Config Vars allow you to manage the configuration information provided to an app on Heroku.</p>
+    
+<p>Config Vars allow you to manage the configuration information provided to
+an app on Heroku.</p>
 
 
   </div>
@@ -141,7 +143,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get config-vars for app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get config-vars for app.</p>
 </div></span>
   
 </li>
@@ -166,7 +169,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of ConfigVar.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of ConfigVar.</p>
 </div></span>
   
 </li>
@@ -189,7 +193,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update config-vars for app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update config-vars for app.</p>
 </div></span>
   
 </li>
@@ -212,7 +217,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of ConfigVar</p>
+    
+<p>Returns a new instance of ConfigVar</p>
 
 
   </div>
@@ -226,12 +232,12 @@
       <pre class="lines">
 
 
-638
-639
-640</pre>
+670
+671
+672</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 638</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 670</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +265,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get config-vars for app.</p>
+    
+<p>Get config-vars for app.</p>
 
 
   </div>
@@ -273,12 +280,12 @@
       <pre class="lines">
 
 
-643
-644
-645</pre>
+675
+676
+677</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 643</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 675</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -299,7 +306,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to <code>NULL</code>.</p>
+    
+<p>Update config-vars for app. You can update existing config-vars by setting
+them again, and remove by setting it to <code>NULL</code>.</p>
 
 
   </div>
@@ -318,7 +327,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -332,12 +342,12 @@
       <pre class="lines">
 
 
-650
-651
-652</pre>
+682
+683
+684</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 650</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 682</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -352,7 +362,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 14:00:12 2014 by
+  Generated on Thu May 15 15:41:39 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>
