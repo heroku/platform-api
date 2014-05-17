@@ -314,6 +314,15 @@ client = PlatformAPI.connect('my-api-key', host: 'api.example.com')
 Connections are always made using HTTPS and certificates verification is
 always enabled.
 
+## Generating from Heroics
+
+The platform API client can be re-generated from a raw schema with [Heroics](https://github.com/interagent/heroics):
+
+```
+$ curl -o schema.json -H "Accept: application/vnd.heroku+json; version=3" https://api.heroku.com/schema
+$ bin/heroics-generate -H "Accept: application/vnd.heroku+json; version=3" -c "#{Dir.home}/.heroics/platform-api" PlatformAPI schema.json https://api.heroku.com > lib/platform-api/client.rb
+```
+
 ## Contributing
 
 1. [Fork the repository](https://github.com/heroku/platform-api/fork).
