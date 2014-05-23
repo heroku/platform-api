@@ -326,18 +326,6 @@ type:</p>
 have
 questions please feel free to file issues.</p>
 
-<h3 id="label-Building+API+documentation">Building API documentation</h3>
-
-<p>Build documentation with:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_yard'>yard</span></code></pre>
-
-<p>And then visit <code>docs/index.html</code> to read it. Alternaltely, build
-and publish
-it to Github Pages in one step with:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_publish'>publish</span></code></pre>
-
 <h3 id="label-Debugging">Debugging</h3>
 
 <p>Sometimes it helps to see more information about the requests flying by.
@@ -371,14 +359,43 @@ to use:</p>
 
 <h3 id="label-Connecting+to+a+different+host">Connecting to a different host</h3>
 
-<p>Connect to a different host by passing a host option:</p>
+<p>Connect to a different host by passing a <code>url</code> option:</p>
 
-<pre class="ruby"><span class="ruby-identifier">client</span> = <span class="ruby-constant">PlatformAPI</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-string">&#39;my-api-key&#39;</span>, <span class="ruby-identifier">host</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;api.example.com&#39;</span>)
+<pre class="ruby"><span class="ruby-identifier">client</span> = <span class="ruby-constant">PlatformAPI</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-string">&#39;my-api-key&#39;</span>, <span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;https://api.example.com&#39;</span>)
 </pre>
 
-<p>Connections are always made using HTTPS and certificates verification
-is
-always enabled.</p>
+<h2 id="label-Building+and+releasing">Building and releasing</h2>
+
+<h3 id="label-Generate+a+new+client">Generate a new client</h3>
+
+<p>Generate a new client from the Heroku Platform API JSON schema:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_build'>build</span></code></pre>
+
+<p>Remember to commit and push the changes to Github.</p>
+
+<h3 id="label-Release+a+new+gem">Release a new gem</h3>
+
+<p>Bump the version in <code>lib/platform-api/version.rb</code> and push a new
+release to
+Rubygems:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_release'>release</span></code></pre>
+
+<h3 id="label-Building+API+documentation">Building API documentation</h3>
+
+<p>Build documentation with:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_yard'>yard</span></code></pre>
+
+<p>And then visit <code>docs/index.html</code> to read it. Alternaltely, build
+and publish
+it to Github Pages in one step with:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_publish'>publish</span></code></pre>
+
+<p>You can see it live on <a
+href="http://heroku.github.io/platform-api/">Github Pages</a>.</p>
 
 <h2 id="label-Contributing">Contributing</h2>
 <ol><li>
@@ -396,7 +413,7 @@ repository</a>.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Thu May 15 15:41:37 2014 by
+  Generated on Fri May 23 16:29:25 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-2.0.0).
 </div>
