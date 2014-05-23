@@ -14,13 +14,15 @@ module PlatformAPI
   # @param api_key [String] The API key to use when connecting.
   # @param options [Hash<Symbol,String>] Optionally, custom settings
   #   to use with the client.  Allowed options are `default_headers`,
-  #   `cache` and `host`.
+  #   `cache` and `url`.
   # @return [Client] A client configured to use the API with HTTP Basic
   #   authentication.
   def self.connect(api_key, options=nil)
     options = custom_options(options)
-    url = "https://:#{api_key}@#{options[:host]}"
-    client = Heroics.client_from_schema(SCHEMA, url, options)
+    uri = URI.parse(options[:url])
+    uri.user = 'user'
+    uri.password = api_key
+    client = Heroics.client_from_schema(SCHEMA, uri.to_s, options)
     Client.new(client)
   end
 
@@ -29,12 +31,12 @@ module PlatformAPI
   # @param oauth_token [String] The OAuth token to use with the API.
   # @param options [Hash<Symbol,String>] Optionally, custom settings
   #   to use with the client.  Allowed options are `default_headers`,
-  #   `cache` and `host`.
+  #   `cache` and `url`.
   # @return [Client] A client configured to use the API with OAuth
   #   authentication.
   def self.connect_oauth(oauth_token, options=nil)
     options = custom_options(options)
-    url = "https://api.heroku.com"
+    url = options[:url]
     client = Heroics.oauth_client_from_schema(oauth_token, SCHEMA, url, options)
     Client.new(client)
   end
@@ -44,12 +46,12 @@ module PlatformAPI
   # @param token [String] The token to use with the API.
   # @param options [Hash<Symbol,String>] Optionally, custom settings
   #   to use with the client.  Allowed options are `default_headers`,
-  #   `cache` and `host`.
+  #   `cache` and `url`.
   # @return [Client] A client configured to use the API with OAuth
   #   authentication.
   def self.connect_token(token, options=nil)
     options = custom_options(options)
-    url = "https://api.heroku.com"
+    url = options[:url]
     client = Heroics.token_client_from_schema(token, SCHEMA, url, options)
     Client.new(client)
   end
@@ -63,7 +65,7 @@ module PlatformAPI
       final_options[:default_headers].merge!(options[:default_headers])
     end
     final_options[:cache] = options[:cache] if options[:cache]
-    final_options[:host] = options[:host] if options[:host]
+    final_options[:url] = options[:url] if options[:url]
     final_options
   end
 
@@ -71,11 +73,10 @@ module PlatformAPI
   def self.default_options
     default_headers = {"Accept"=>"application/vnd.heroku+json; version=3"}
     cache = Moneta.new(:File, dir: "#{Dir.home}/.heroics/platform-api")
-    uri = URI.parse("https://api.heroku.com")
     {
       default_headers: default_headers,
       cache:           cache,
-      host:            uri.host
+      url:             "https://api.heroku.com"
     }
   end
 
@@ -671,15 +672,18 @@ module PlatformAPI
     end
 
     # Get config-vars for app.
-    def info()
-      @client.config_var.info()
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def info(app_id_or_app_name)
+      @client.config_var.info(app_id_or_app_name)
     end
 
     # Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `NULL`.
     #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def update(body)
-      @client.config_var.update(body)
+    def update(app_id_or_app_name, body)
+      @client.config_var.update(app_id_or_app_name, body)
     end
   end
 

@@ -306,6 +306,8 @@ Generate a new client from the Heroku Platform API JSON schema:
 rake build
 ```
 
+Remember to commit and push the changes to Github.
+
 ### Release a new gem
 
 Bump the version in `lib/platform-api/version.rb` and push a new release to
@@ -329,6 +331,8 @@ it to Github Pages in one step with:
 ```
 rake publish
 ```
+
+You can see it live on [Github Pages](http://heroku.github.io/platform-api/).
 
 ## Contributing
 
