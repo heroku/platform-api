@@ -305,14 +305,11 @@ client = PlatformAPI.connect('my-api-key', cache: Moneta.new(:Memory))
 
 ### Connecting to a different host
 
-Connect to a different host by passing a host option:
+Connect to a different host by passing a `url` option:
 
 ```ruby
-client = PlatformAPI.connect('my-api-key', host: 'api.example.com')
+client = PlatformAPI.connect('my-api-key', url: 'https://api.example.com')
 ```
-
-Connections are always made using HTTPS and certificates verification is
-always enabled.
 
 ### Generate a new client
 
