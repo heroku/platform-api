@@ -314,6 +314,14 @@ client = PlatformAPI.connect('my-api-key', host: 'api.example.com')
 Connections are always made using HTTPS and certificates verification is
 always enabled.
 
+### Generate a new client
+
+Generate a new client from the Heroku Platform API JSON schema:
+
+```
+rake build
+```
+
 ## Contributing
 
 1. [Fork the repository](https://github.com/heroku/platform-api/fork).
