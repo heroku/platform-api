@@ -262,21 +262,6 @@ heroku.formation.update('floating-retreat-4255', 'web', {"size" => "1X"})
 Hopefully this has given you a taste of how the client works.  If you have
 questions please feel free to file issues.
 
-### Building API documentation
-
-Build documentation with:
-
-```
-rake yard
-```
-
-And then visit `docs/index.html` to read it.  Alternaltely, build and publish
-it to Github Pages in one step with:
-
-```
-rake publish
-```
-
 ### Debugging
 
 Sometimes it helps to see more information about the requests flying by.  You
@@ -311,12 +296,38 @@ Connect to a different host by passing a `url` option:
 client = PlatformAPI.connect('my-api-key', url: 'https://api.example.com')
 ```
 
+## Building and releasing
+
 ### Generate a new client
 
 Generate a new client from the Heroku Platform API JSON schema:
 
 ```
 rake build
+```
+
+### Release a new gem
+
+Bump the version in `lib/platform-api/version.rb` and push a new release to
+Rubygems:
+
+```
+rake release
+```
+
+### Building API documentation
+
+Build documentation with:
+
+```
+rake yard
+```
+
+And then visit `docs/index.html` to read it.  Alternaltely, build and publish
+it to Github Pages in one step with:
+
+```
+rake publish
 ```
 
 ## Contributing
