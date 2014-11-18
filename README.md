@@ -81,7 +81,7 @@ require 'platform-api'
 heroku = PlatformAPI.connect_oauth('e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2')
 ```
 
-The [OAuth article]()https://devcenter.heroku.com/articles/oauth has more information about OAuth tokens, including how to
+The [OAuth article](https://devcenter.heroku.com/articles/oauth) has more information about OAuth tokens, including how to
 create tokens with specific scopes.
 
 Now let's create an app:
