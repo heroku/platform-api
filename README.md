@@ -325,7 +325,7 @@ Build documentation with:
 rake yard
 ```
 
-And then visit `docs/index.html` to read it.  Alternaltely, build and publish
+And then visit `doc/index.html` to read it. Alternately, build and publish
 it to Github Pages in one step with:
 
 ```
