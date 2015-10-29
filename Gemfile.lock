@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     platform-api (0.3.0)
-      heroics (~> 0.0.10)
+      heroics
 
 GEM
   remote: https://rubygems.org/
@@ -16,7 +16,7 @@ GEM
       multi_json (>= 1.9.2)
       netrc
     moneta (0.8.0)
-    multi_json (1.11.0)
+    multi_json (1.11.2)
     netrc (0.10.3)
     rake (10.2.2)
     yard (0.8.7.2)

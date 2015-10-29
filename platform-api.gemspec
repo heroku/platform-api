@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'yard'
 
-  spec.add_dependency 'heroics', '~> 0.0.10'
+  spec.add_dependency 'heroics'
 end
