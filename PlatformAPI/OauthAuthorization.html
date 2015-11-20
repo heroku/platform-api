@@ -251,6 +251,30 @@ documentation</a></p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#regenerate-instance_method" title="#regenerate (instance method)">- (Object) <strong>regenerate</strong>(oauth_authorization_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regenerate OAuth tokens.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -283,12 +307,12 @@ documentation</a></p>
       <pre class="lines">
 
 
-900
-901
-902</pre>
+1228
+1229
+1230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 900</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1228</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -351,12 +375,12 @@ documentation</a></p>
       <pre class="lines">
 
 
-907
-908
-909</pre>
+1235
+1236
+1237</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 907</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -412,12 +436,12 @@ documentation</a></p>
       <pre class="lines">
 
 
-914
-915
-916</pre>
+1242
+1243
+1244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 914</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1242</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
@@ -473,12 +497,12 @@ documentation</a></p>
       <pre class="lines">
 
 
-921
-922
-923</pre>
+1249
+1250
+1251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 921</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1249</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
@@ -514,15 +538,77 @@ documentation</a></p>
       <pre class="lines">
 
 
-926
-927
-928</pre>
+1254
+1255
+1256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 926</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1254</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="regenerate-instance_method">
+  
+    - (<tt>Object</tt>) <strong>regenerate</strong>(oauth_authorization_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regenerate OAuth tokens. This endpoint is only available to direct
+authorizations or privileged OAuth clients.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>oauth_authorization_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of OAuth authorization</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1261
+1262
+1263</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1261</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_regenerate'>regenerate</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_regenerate'>regenerate</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -534,9 +620,9 @@ documentation</a></p>
 </div>
 
     <div id="footer">
-  Generated on Fri May 23 16:29:29 2014 by
+  Generated on Fri Nov 20 09:53:40 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.2 (ruby-2.2.3).
 </div>
 
   </body>

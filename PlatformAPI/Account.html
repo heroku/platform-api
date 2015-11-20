@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#change_email-instance_method" title="#change_email (instance method)">- (Object) <strong>change_email</strong>(body) </a>
+      <a href="#change_email-instance_method" title="#change_email (instance method)">- (Object) <strong>change_email</strong>(account_email_or_account_id, body) </a>
     
 
     
@@ -152,7 +152,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#change_password-instance_method" title="#change_password (instance method)">- (Object) <strong>change_password</strong>(body) </a>
+      <a href="#change_password-instance_method" title="#change_password (instance method)">- (Object) <strong>change_password</strong>(account_email_or_account_id, body) </a>
     
 
     
@@ -176,7 +176,31 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong> </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(account_email_or_account_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete account.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(account_email_or_account_id) </a>
     
 
     
@@ -226,7 +250,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(account_email_or_account_id, body) </a>
     
 
     
@@ -279,12 +303,12 @@
       <pre class="lines">
 
 
-354
-355
-356</pre>
+482
+483
+484</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 354</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 482</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -304,7 +328,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="change_email-instance_method">
   
-    - (<tt>Object</tt>) <strong>change_email</strong>(body) 
+    - (<tt>Object</tt>) <strong>change_email</strong>(account_email_or_account_id, body) 
   
 
   
@@ -324,6 +348,22 @@
   
     <li>
       
+        <span class='name'>account_email_or_account_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>body:</span>
       
       
@@ -347,15 +387,15 @@
       <pre class="lines">
 
 
-373
-374
-375</pre>
+505
+506
+507</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 373</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 505</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_change_email'>change_email</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_change_email'>change_email</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_change_email'>change_email</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_change_email'>change_email</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -365,7 +405,7 @@
       <div class="method_details ">
   <h3 class="signature " id="change_password-instance_method">
   
-    - (<tt>Object</tt>) <strong>change_password</strong>(body) 
+    - (<tt>Object</tt>) <strong>change_password</strong>(account_email_or_account_id, body) 
   
 
   
@@ -385,7 +425,7 @@
   
     <li>
       
-        <span class='name'>body:</span>
+        <span class='name'>account_email_or_account_id:</span>
       
       
         <span class='type'></span>
@@ -394,96 +434,10 @@
       
         &mdash;
         <div class='inline'>
-<p>the object to pass as the request payload</p>
+<p>unique email address of account or unique identifier of an account</p>
 </div>
       
     </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-380
-381
-382</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 380</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_change_password'>change_password</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_change_password'>change_password</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="info-instance_method">
-  
-    - (<tt>Object</tt>) <strong>info</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Info for account.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-359
-360
-361</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 359</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update-instance_method">
-  
-    - (<tt>Object</tt>) <strong>update</strong>(body) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Update account.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
     <li>
       
@@ -510,15 +464,214 @@
       <pre class="lines">
 
 
-366
-367
-368</pre>
+513
+514
+515</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 366</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 513</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_change_password'>change_password</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_change_password'>change_password</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete</strong>(account_email_or_account_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete account. Note that this action cannot be undone.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>account_email_or_account_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+520
+521
+522</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 520</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="info-instance_method">
+  
+    - (<tt>Object</tt>) <strong>info</strong>(account_email_or_account_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Info for account.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>account_email_or_account_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+489
+490
+491</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 489</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update</strong>(account_email_or_account_id, body) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update account.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>account_email_or_account_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>body:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+497
+498
+499</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 497</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -530,9 +683,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May 23 16:29:27 2014 by
+  Generated on Fri Nov 20 09:53:38 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.2 (ruby-2.2.3).
 </div>
 
   </body>

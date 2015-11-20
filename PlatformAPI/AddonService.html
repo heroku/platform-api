@@ -102,7 +102,8 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Add-on services represent add-ons that may be provisioned for apps.</p>
+<p>Add-on services represent add-ons that may be provisioned for apps.
+Endpoints under add-on services can be accessed without authentication.</p>
 
 
   </div>
@@ -231,12 +232,12 @@
       <pre class="lines">
 
 
-387
-388
-389</pre>
+582
+583
+584</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 387</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 582</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -300,12 +301,12 @@ addon-service</p>
       <pre class="lines">
 
 
-394
-395
-396</pre>
+589
+590
+591</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 394</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 589</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_service'>addon_service</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
@@ -341,12 +342,12 @@ addon-service</p>
       <pre class="lines">
 
 
-399
-400
-401</pre>
+594
+595
+596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 399</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 594</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_service'>addon_service</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -361,9 +362,9 @@ addon-service</p>
 </div>
 
     <div id="footer">
-  Generated on Fri May 23 16:29:27 2014 by
+  Generated on Fri Nov 20 09:53:39 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.2 (ruby-2.2.3).
 </div>
 
   </body>

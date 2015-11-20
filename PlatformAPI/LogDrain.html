@@ -102,13 +102,12 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p><a href="https://devcenter.heroku.com/articles/logging#syslog-drains">Log
-drains</a> provide a way to forward your Heroku logs to an external syslog
-server for long-term archiving. This external service must be configured to
-receive syslog packets from Heroku, whereupon its URL can be added to an
-app using this API. Some addons will add a log drain when they are
-provisioned to an app. These drains can only be removed by removing the
-add-on.</p>
+<p><a href="https://devcenter.heroku.com/articles/log-drains">Log drains</a>
+provide a way to forward your Heroku logs to an external syslog server for
+long-term archiving. This external service must be configured to receive
+syslog packets from Heroku, whereupon its URL can be added to an app using
+this API. Some addons will add a log drain when they are provisioned to an
+app. These drains can only be removed by removing the add-on.</p>
 
 
   </div>
@@ -285,12 +284,12 @@ add-on.</p>
       <pre class="lines">
 
 
-847
-848
-849</pre>
+1175
+1176
+1177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 847</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -369,12 +368,12 @@ add-on.</p>
       <pre class="lines">
 
 
-855
-856
-857</pre>
+1183
+1184
+1185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 855</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1183</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -447,12 +446,12 @@ removed by removing the add-on.</p>
       <pre class="lines">
 
 
-863
-864
-865</pre>
+1191
+1192
+1193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 863</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
@@ -524,12 +523,12 @@ removed by removing the add-on.</p>
       <pre class="lines">
 
 
-871
-872
-873</pre>
+1199
+1200
+1201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 871</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url'>log_drain_id_or_log_drain_url</span><span class='rparen'>)</span>
@@ -585,12 +584,12 @@ removed by removing the add-on.</p>
       <pre class="lines">
 
 
-878
-879
-880</pre>
+1206
+1207
+1208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 878</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1206</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -605,9 +604,9 @@ removed by removing the add-on.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri May 23 16:29:28 2014 by
+  Generated on Fri Nov 20 09:53:40 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.2 (ruby-2.2.3).
 </div>
 
   </body>

@@ -103,7 +103,8 @@
   <div class="discussion">
     
 <p>Plans represent different configurations of add-ons that may be added to
-apps.</p>
+apps. Endpoints under add-on services can be accessed without
+authentication.</p>
 
 
   </div>
@@ -232,12 +233,12 @@ apps.</p>
       <pre class="lines">
 
 
-1140
-1141
-1142</pre>
+1586
+1587
+1588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1140</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1586</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -317,12 +318,12 @@ addon-service</p>
       <pre class="lines">
 
 
-1148
-1149
-1150</pre>
+1594
+1595
+1596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1148</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1594</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='comma'>,</span> <span class='id identifier rubyid_plan_id_or_plan_name'>plan_id_or_plan_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_plan'>plan</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='comma'>,</span> <span class='id identifier rubyid_plan_id_or_plan_name'>plan_id_or_plan_name</span><span class='rparen'>)</span>
@@ -379,12 +380,12 @@ addon-service</p>
       <pre class="lines">
 
 
-1155
-1156
-1157</pre>
+1601
+1602
+1603</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1155</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1601</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_plan'>plan</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
@@ -399,9 +400,9 @@ addon-service</p>
 </div>
 
     <div id="footer">
-  Generated on Fri May 23 16:29:30 2014 by
+  Generated on Fri Nov 20 09:53:41 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.2 (ruby-2.2.3).
 </div>
 
   </body>

@@ -193,7 +193,33 @@ or disabled for an account on Heroku.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Add-ons represent add-ons that have been provisioned for an app.</p>
+<p>Add-ons represent add-ons that have been provisioned and attached to one or
+more apps.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#addon_attachment-instance_method" title="#addon_attachment (instance method)">- (AddonAttachment) <strong>addon_attachment</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An add-on attachment represents a connection between an app and an add-on
+that it has been given access to.</p>
 </div></span>
   
 </li>
@@ -374,6 +400,31 @@ ownership of an app.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#buildpack_installation-instance_method" title="#buildpack_installation (instance method)">- (BuildpackInstallation) <strong>buildpack_installation</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A buildpack installation represents a buildpack that will be run against an
+app.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#collaborator-instance_method" title="#collaborator (instance method)">- (Collaborator) <strong>collaborator</strong> </a>
     
 
@@ -424,6 +475,31 @@ an app on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#credit-instance_method" title="#credit (instance method)">- (Credit) <strong>credit</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A credit represents value that will be used up before further charges are
+assigned to an account.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#domain-instance_method" title="#domain (instance method)">- (Domain) <strong>domain</strong> </a>
     
 
@@ -464,6 +540,55 @@ an app on Heroku.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Dynos encapsulate running processes of an app on Heroku.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#event-instance_method" title="#event (instance method)">- (Event) <strong>event</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An event represents an action performed on another API resource.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failed_event-instance_method" title="#failed_event (instance method)">- (FailedEvent) <strong>failed_event</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A failed event represents a failure of an action performed on another API
+resource.</p>
 </div></span>
   
 </li>
@@ -522,6 +647,81 @@ an app on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#invitation-instance_method" title="#invitation (instance method)">- (Invitation) <strong>invitation</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An invitation represents an invite sent to a user to use the Heroku
+platform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#invoice-instance_method" title="#invoice (instance method)">- (Invoice) <strong>invoice</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An invoice is an itemized bill of goods for an account which includes
+pricing and charges.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#invoice_address-instance_method" title="#invoice_address (instance method)">- (InvoiceAddress) <strong>invoice_address</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An invoice address represents the address that should be listed on an
+invoice.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#key-instance_method" title="#key (instance method)">- (Key) <strong>key</strong> </a>
     
 
@@ -562,9 +762,9 @@ authorize accounts as they are performing git operations.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p><a href="https://devcenter.heroku.com/articles/logging#syslog-drains">Log
-drains</a> provide a way to forward your Heroku logs to an external syslog
-server for long-term archiving.</p>
+<p><a href="https://devcenter.heroku.com/articles/log-drains">Log drains</a>
+provide a way to forward your Heroku logs to an external syslog server for
+long-term archiving.</p>
 </div></span>
   
 </li>
@@ -771,6 +971,31 @@ access to an organization app on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#organization_invoice-instance_method" title="#organization_invoice (instance method)">- (OrganizationInvoice) <strong>organization_invoice</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An organization invoice is an itemized bill of goods for an organization
+which includes pricing and charges.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#organization_member-instance_method" title="#organization_member (instance method)">- (OrganizationMember) <strong>organization_member</strong> </a>
     
 
@@ -787,6 +1012,103 @@ access to an organization app on Heroku.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>An organization member is an individual with access to an organization.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#organization_payment_method-instance_method" title="#organization_payment_method (instance method)">- (OrganizationPaymentMethod) <strong>organization_payment_method</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The on file payment method for an account.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#otp_secret-instance_method" title="#otp_secret (instance method)">- (OtpSecret) <strong>otp_secret</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>This renders a secret that clients can use to build a one-time password to
+be supplied as a 2nd factor of authentication.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#payment-instance_method" title="#payment (instance method)">- (Payment) <strong>payment</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A payment represents money collected for an account.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#payment_method-instance_method" title="#payment_method (instance method)">- (PaymentMethod) <strong>payment_method</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The on file payment method for an account.</p>
 </div></span>
   
 </li>
@@ -836,6 +1158,31 @@ apps.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Rate Limit represents the number of request tokens each account holds.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#recovery_code-instance_method" title="#recovery_code (instance method)">- (RecoveryCode) <strong>recovery_code</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Recovery codes grant access to accounts with two-factor authentication
+enabled.</p>
 </div></span>
   
 </li>
@@ -919,6 +1266,56 @@ platform.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#sms_number-instance_method" title="#sms_number (instance method)">- (SmsNumber) <strong>sms_number</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>SMS numbers are used for recovery on accounts with two-factor
+authentication enabled.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#source-instance_method" title="#source (instance method)">- (Source) <strong>source</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A source is a location for uploading and downloading an application&#39;s
+source code.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#ssl_endpoint-instance_method" title="#ssl_endpoint (instance method)">- (SSLEndpoint) <strong>ssl_endpoint</strong> </a>
     
 
@@ -967,6 +1364,55 @@ the Heroku platform.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_app-instance_method" title="#user_app (instance method)">- (UserApp) <strong>user_app</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An app represents the program that you would like to deploy and run on
+Heroku.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_preferences-instance_method" title="#user_preferences (instance method)">- (UserPreferences) <strong>user_preferences</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Tracks a user&#39;s preferences and message dismissals.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -999,12 +1445,12 @@ the Heroku platform.</p>
       <pre class="lines">
 
 
-87
-88
-89</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -1060,12 +1506,12 @@ the Heroku platform.</p>
       <pre class="lines">
 
 
-101
-102
-103</pre>
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_account'>account</span>
   <span class='ivar'>@account_resource</span> <span class='op'>||=</span> <span class='const'>Account</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1115,12 +1561,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-94
-95
-96</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_account_feature'>account_feature</span>
   <span class='ivar'>@account_feature_resource</span> <span class='op'>||=</span> <span class='const'>AccountFeature</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1142,7 +1588,8 @@ or disabled for an account on Heroku.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Add-ons represent add-ons that have been provisioned for an app.</p>
+<p>Add-ons represent add-ons that have been provisioned and attached to one or
+more apps.</p>
 
 
   </div>
@@ -1169,15 +1616,70 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-115
-116
-117</pre>
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_addon'>addon</span>
   <span class='ivar'>@addon_resource</span> <span class='op'>||=</span> <span class='const'>Addon</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="addon_attachment-instance_method">
+  
+    - (<tt><span class='object_link'><a href="AddonAttachment.html" title="PlatformAPI::AddonAttachment (class)">AddonAttachment</a></span></tt>) <strong>addon_attachment</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An add-on attachment represents a connection between an app and an add-on
+that it has been given access to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="AddonAttachment.html" title="PlatformAPI::AddonAttachment (class)">AddonAttachment</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_addon_attachment'>addon_attachment</span>
+  <span class='ivar'>@addon_attachment_resource</span> <span class='op'>||=</span> <span class='const'>AddonAttachment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1196,7 +1698,8 @@ or disabled for an account on Heroku.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Add-on services represent add-ons that may be provisioned for apps.</p>
+<p>Add-on services represent add-ons that may be provisioned for apps.
+Endpoints under add-on services can be accessed without authentication.</p>
 
 
   </div>
@@ -1223,12 +1726,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_addon_service'>addon_service</span>
   <span class='ivar'>@addon_service_resource</span> <span class='op'>||=</span> <span class='const'>AddonService</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1278,12 +1781,12 @@ Heroku.</p>
       <pre class="lines">
 
 
-143
-144
-145</pre>
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app'>app</span>
   <span class='ivar'>@app_resource</span> <span class='op'>||=</span> <span class='const'>App</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1333,12 +1836,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-122
-123
-124</pre>
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_feature'>app_feature</span>
   <span class='ivar'>@app_feature_resource</span> <span class='op'>||=</span> <span class='const'>AppFeature</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1388,12 +1891,12 @@ environment, addons, and scripts described in an app.json manifest file.</p>
       <pre class="lines">
 
 
-129
-130
-131</pre>
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_setup'>app_setup</span>
   <span class='ivar'>@app_setup_resource</span> <span class='op'>||=</span> <span class='const'>AppSetup</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1443,12 +1946,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-136
-137
-138</pre>
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_transfer'>app_transfer</span>
   <span class='ivar'>@app_transfer_resource</span> <span class='op'>||=</span> <span class='const'>AppTransfer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1497,12 +2000,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-157
-158
-159</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span>
   <span class='ivar'>@build_resource</span> <span class='op'>||=</span> <span class='const'>Build</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1551,15 +2054,70 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-150
-151
-152</pre>
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 159</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build_result'>build_result</span>
   <span class='ivar'>@build_result_resource</span> <span class='op'>||=</span> <span class='const'>BuildResult</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="buildpack_installation-instance_method">
+  
+    - (<tt><span class='object_link'><a href="BuildpackInstallation.html" title="PlatformAPI::BuildpackInstallation (class)">BuildpackInstallation</a></span></tt>) <strong>buildpack_installation</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A buildpack installation represents a buildpack that will be run against an
+app.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BuildpackInstallation.html" title="PlatformAPI::BuildpackInstallation (class)">BuildpackInstallation</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_buildpack_installation'>buildpack_installation</span>
+  <span class='ivar'>@buildpack_installation_resource</span> <span class='op'>||=</span> <span class='const'>BuildpackInstallation</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1606,12 +2164,12 @@ on Heroku.</p>
       <pre class="lines">
 
 
-164
-165
-166</pre>
+180
+181
+182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_collaborator'>collaborator</span>
   <span class='ivar'>@collaborator_resource</span> <span class='op'>||=</span> <span class='const'>Collaborator</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1661,15 +2219,70 @@ an app on Heroku.</p>
       <pre class="lines">
 
 
-171
-172
-173</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config_var'>config_var</span>
   <span class='ivar'>@config_var_resource</span> <span class='op'>||=</span> <span class='const'>ConfigVar</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="credit-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Credit.html" title="PlatformAPI::Credit (class)">Credit</a></span></tt>) <strong>credit</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A credit represents value that will be used up before further charges are
+assigned to an account.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Credit.html" title="PlatformAPI::Credit (class)">Credit</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+194
+195
+196</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 194</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_credit'>credit</span>
+  <span class='ivar'>@credit_resource</span> <span class='op'>||=</span> <span class='const'>Credit</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1715,12 +2328,12 @@ an app on Heroku.</p>
       <pre class="lines">
 
 
-178
-179
-180</pre>
+201
+202
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_domain'>domain</span>
   <span class='ivar'>@domain_resource</span> <span class='op'>||=</span> <span class='const'>Domain</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1769,15 +2382,124 @@ an app on Heroku.</p>
       <pre class="lines">
 
 
-185
-186
-187</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dyno'>dyno</span>
   <span class='ivar'>@dyno_resource</span> <span class='op'>||=</span> <span class='const'>Dyno</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="event-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Event.html" title="PlatformAPI::Event (class)">Event</a></span></tt>) <strong>event</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An event represents an action performed on another API resource.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Event.html" title="PlatformAPI::Event (class)">Event</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215
+216
+217</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_event'>event</span>
+  <span class='ivar'>@event_resource</span> <span class='op'>||=</span> <span class='const'>Event</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="failed_event-instance_method">
+  
+    - (<tt><span class='object_link'><a href="FailedEvent.html" title="PlatformAPI::FailedEvent (class)">FailedEvent</a></span></tt>) <strong>failed_event</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A failed event represents a failure of an action performed on another API
+resource.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="FailedEvent.html" title="PlatformAPI::FailedEvent (class)">FailedEvent</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+222
+223
+224</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 222</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failed_event'>failed_event</span>
+  <span class='ivar'>@failed_event_resource</span> <span class='op'>||=</span> <span class='const'>FailedEvent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1826,15 +2548,180 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-192
-193
-194</pre>
+229
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 229</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_formation'>formation</span>
   <span class='ivar'>@formation_resource</span> <span class='op'>||=</span> <span class='const'>Formation</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="invitation-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Invitation.html" title="PlatformAPI::Invitation (class)">Invitation</a></span></tt>) <strong>invitation</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An invitation represents an invite sent to a user to use the Heroku
+platform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Invitation.html" title="PlatformAPI::Invitation (class)">Invitation</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 236</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_invitation'>invitation</span>
+  <span class='ivar'>@invitation_resource</span> <span class='op'>||=</span> <span class='const'>Invitation</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="invoice-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Invoice.html" title="PlatformAPI::Invoice (class)">Invoice</a></span></tt>) <strong>invoice</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An invoice is an itemized bill of goods for an account which includes
+pricing and charges.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Invoice.html" title="PlatformAPI::Invoice (class)">Invoice</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 250</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_invoice'>invoice</span>
+  <span class='ivar'>@invoice_resource</span> <span class='op'>||=</span> <span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="invoice_address-instance_method">
+  
+    - (<tt><span class='object_link'><a href="InvoiceAddress.html" title="PlatformAPI::InvoiceAddress (class)">InvoiceAddress</a></span></tt>) <strong>invoice_address</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An invoice address represents the address that should be listed on an
+invoice.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="InvoiceAddress.html" title="PlatformAPI::InvoiceAddress (class)">InvoiceAddress</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+243
+244
+245</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 243</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_invoice_address'>invoice_address</span>
+  <span class='ivar'>@invoice_address_resource</span> <span class='op'>||=</span> <span class='const'>InvoiceAddress</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1881,12 +2768,12 @@ authorize accounts as they are performing git operations.</p>
       <pre class="lines">
 
 
-199
-200
-201</pre>
+257
+258
+259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 257</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_key'>key</span>
   <span class='ivar'>@key_resource</span> <span class='op'>||=</span> <span class='const'>Key</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1908,13 +2795,12 @@ authorize accounts as they are performing git operations.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p><a href="https://devcenter.heroku.com/articles/logging#syslog-drains">Log
-drains</a> provide a way to forward your Heroku logs to an external syslog
-server for long-term archiving. This external service must be configured to
-receive syslog packets from Heroku, whereupon its URL can be added to an
-app using this API. Some addons will add a log drain when they are
-provisioned to an app. These drains can only be removed by removing the
-add-on.</p>
+<p><a href="https://devcenter.heroku.com/articles/log-drains">Log drains</a>
+provide a way to forward your Heroku logs to an external syslog server for
+long-term archiving. This external service must be configured to receive
+syslog packets from Heroku, whereupon its URL can be added to an app using
+this API. Some addons will add a log drain when they are provisioned to an
+app. These drains can only be removed by removing the add-on.</p>
 
 
   </div>
@@ -1941,12 +2827,12 @@ add-on.</p>
       <pre class="lines">
 
 
-206
-207
-208</pre>
+264
+265
+266</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 264</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_drain'>log_drain</span>
   <span class='ivar'>@log_drain_resource</span> <span class='op'>||=</span> <span class='const'>LogDrain</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1995,12 +2881,12 @@ add-on.</p>
       <pre class="lines">
 
 
-213
-214
-215</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_session'>log_session</span>
   <span class='ivar'>@log_session_resource</span> <span class='op'>||=</span> <span class='const'>LogSession</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2053,12 +2939,12 @@ documentation</a></p>
       <pre class="lines">
 
 
-220
-221
-222</pre>
+278
+279
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 278</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span>
   <span class='ivar'>@oauth_authorization_resource</span> <span class='op'>||=</span> <span class='const'>OauthAuthorization</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2111,12 +2997,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-227
-228
-229</pre>
+285
+286
+287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 285</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_client'>oauth_client</span>
   <span class='ivar'>@oauth_client_resource</span> <span class='op'>||=</span> <span class='const'>OauthClient</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2168,12 +3054,12 @@ documentation</a></p>
       <pre class="lines">
 
 
-234
-235
-236</pre>
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 234</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_grant'>oauth_grant</span>
   <span class='ivar'>@oauth_grant_resource</span> <span class='op'>||=</span> <span class='const'>OauthGrant</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2226,12 +3112,12 @@ documentation</a></p>
       <pre class="lines">
 
 
-241
-242
-243</pre>
+299
+300
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 241</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 299</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_token'>oauth_token</span>
   <span class='ivar'>@oauth_token_resource</span> <span class='op'>||=</span> <span class='const'>OauthToken</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2281,12 +3167,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-269
-270
-271</pre>
+341
+342
+343</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 341</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_organization'>organization</span>
   <span class='ivar'>@organization_resource</span> <span class='op'>||=</span> <span class='const'>Organization</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2336,12 +3222,12 @@ Heroku apps.</p>
       <pre class="lines">
 
 
-255
-256
-257</pre>
+313
+314
+315</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 255</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 313</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_organization_app'>organization_app</span>
   <span class='ivar'>@organization_app_resource</span> <span class='op'>||=</span> <span class='const'>OrganizationApp</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2391,15 +3277,70 @@ access to an organization app on Heroku.</p>
       <pre class="lines">
 
 
-248
-249
-250</pre>
+306
+307
+308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 248</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 306</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span>
   <span class='ivar'>@organization_app_collaborator_resource</span> <span class='op'>||=</span> <span class='const'>OrganizationAppCollaborator</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="organization_invoice-instance_method">
+  
+    - (<tt><span class='object_link'><a href="OrganizationInvoice.html" title="PlatformAPI::OrganizationInvoice (class)">OrganizationInvoice</a></span></tt>) <strong>organization_invoice</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An organization invoice is an itemized bill of goods for an organization
+which includes pricing and charges.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OrganizationInvoice.html" title="PlatformAPI::OrganizationInvoice (class)">OrganizationInvoice</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+320
+321
+322</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 320</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_organization_invoice'>organization_invoice</span>
+  <span class='ivar'>@organization_invoice_resource</span> <span class='op'>||=</span> <span class='const'>OrganizationInvoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2445,15 +3386,232 @@ access to an organization app on Heroku.</p>
       <pre class="lines">
 
 
-262
-263
-264</pre>
+327
+328
+329</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 327</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_organization_member'>organization_member</span>
   <span class='ivar'>@organization_member_resource</span> <span class='op'>||=</span> <span class='const'>OrganizationMember</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="organization_payment_method-instance_method">
+  
+    - (<tt><span class='object_link'><a href="OrganizationPaymentMethod.html" title="PlatformAPI::OrganizationPaymentMethod (class)">OrganizationPaymentMethod</a></span></tt>) <strong>organization_payment_method</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The on file payment method for an account</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OrganizationPaymentMethod.html" title="PlatformAPI::OrganizationPaymentMethod (class)">OrganizationPaymentMethod</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+334
+335
+336</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 334</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_organization_payment_method'>organization_payment_method</span>
+  <span class='ivar'>@organization_payment_method_resource</span> <span class='op'>||=</span> <span class='const'>OrganizationPaymentMethod</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="otp_secret-instance_method">
+  
+    - (<tt><span class='object_link'><a href="OtpSecret.html" title="PlatformAPI::OtpSecret (class)">OtpSecret</a></span></tt>) <strong>otp_secret</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>This renders a secret that clients can use to build a one-time password to
+be supplied as a 2nd factor of authentication.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OtpSecret.html" title="PlatformAPI::OtpSecret (class)">OtpSecret</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+348
+349
+350</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 348</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_otp_secret'>otp_secret</span>
+  <span class='ivar'>@otp_secret_resource</span> <span class='op'>||=</span> <span class='const'>OtpSecret</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="payment-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Payment.html" title="PlatformAPI::Payment (class)">Payment</a></span></tt>) <strong>payment</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A payment represents money collected for an account</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Payment.html" title="PlatformAPI::Payment (class)">Payment</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+362
+363
+364</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 362</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_payment'>payment</span>
+  <span class='ivar'>@payment_resource</span> <span class='op'>||=</span> <span class='const'>Payment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="payment_method-instance_method">
+  
+    - (<tt><span class='object_link'><a href="PaymentMethod.html" title="PlatformAPI::PaymentMethod (class)">PaymentMethod</a></span></tt>) <strong>payment_method</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The on file payment method for an account</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="PaymentMethod.html" title="PlatformAPI::PaymentMethod (class)">PaymentMethod</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+355
+356
+357</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 355</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_payment_method'>payment_method</span>
+  <span class='ivar'>@payment_method_resource</span> <span class='op'>||=</span> <span class='const'>PaymentMethod</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2473,7 +3631,8 @@ access to an organization app on Heroku.</p>
   <div class="discussion">
     
 <p>Plans represent different configurations of add-ons that may be added to
-apps.</p>
+apps. Endpoints under add-on services can be accessed without
+authentication.</p>
 
 
   </div>
@@ -2500,12 +3659,12 @@ apps.</p>
       <pre class="lines">
 
 
-276
-277
-278</pre>
+369
+370
+371</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 276</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 369</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_plan'>plan</span>
   <span class='ivar'>@plan_resource</span> <span class='op'>||=</span> <span class='const'>Plan</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2555,15 +3714,70 @@ Requests to this endpoint do not count towards the rate limit.</p>
       <pre class="lines">
 
 
-283
-284
-285</pre>
+376
+377
+378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 376</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rate_limit'>rate_limit</span>
   <span class='ivar'>@rate_limit_resource</span> <span class='op'>||=</span> <span class='const'>RateLimit</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="recovery_code-instance_method">
+  
+    - (<tt><span class='object_link'><a href="RecoveryCode.html" title="PlatformAPI::RecoveryCode (class)">RecoveryCode</a></span></tt>) <strong>recovery_code</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Recovery codes grant access to accounts with two-factor authentication
+enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="RecoveryCode.html" title="PlatformAPI::RecoveryCode (class)">RecoveryCode</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+383
+384
+385</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 383</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_recovery_code'>recovery_code</span>
+  <span class='ivar'>@recovery_code_resource</span> <span class='op'>||=</span> <span class='const'>RecoveryCode</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2610,12 +3824,12 @@ run.</p>
       <pre class="lines">
 
 
-290
-291
-292</pre>
+390
+391
+392</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 290</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 390</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_region'>region</span>
   <span class='ivar'>@region_resource</span> <span class='op'>||=</span> <span class='const'>Region</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2665,12 +3879,12 @@ app on Heroku.</p>
       <pre class="lines">
 
 
-297
-298
-299</pre>
+397
+398
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 397</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_release'>release</span>
   <span class='ivar'>@release_resource</span> <span class='op'>||=</span> <span class='const'>Release</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2720,15 +3934,125 @@ platform.</p>
       <pre class="lines">
 
 
-304
-305
-306</pre>
+404
+405
+406</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 304</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 404</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_slug'>slug</span>
   <span class='ivar'>@slug_resource</span> <span class='op'>||=</span> <span class='const'>Slug</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sms_number-instance_method">
+  
+    - (<tt><span class='object_link'><a href="SmsNumber.html" title="PlatformAPI::SmsNumber (class)">SmsNumber</a></span></tt>) <strong>sms_number</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>SMS numbers are used for recovery on accounts with two-factor
+authentication enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="SmsNumber.html" title="PlatformAPI::SmsNumber (class)">SmsNumber</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+411
+412
+413</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 411</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sms_number'>sms_number</span>
+  <span class='ivar'>@sms_number_resource</span> <span class='op'>||=</span> <span class='const'>SmsNumber</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="source-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Source.html" title="PlatformAPI::Source (class)">Source</a></span></tt>) <strong>source</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A source is a location for uploading and downloading an application&#39;s
+source code.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Source.html" title="PlatformAPI::Source (class)">Source</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+418
+419
+420</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 418</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_source'>source</span>
+  <span class='ivar'>@source_resource</span> <span class='op'>||=</span> <span class='const'>Source</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2777,12 +4101,12 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
       <pre class="lines">
 
 
-311
-312
-313</pre>
+425
+426
+427</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 311</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 425</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssl_endpoint'>ssl_endpoint</span>
   <span class='ivar'>@ssl_endpoint_resource</span> <span class='op'>||=</span> <span class='const'>SSLEndpoint</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2832,15 +4156,124 @@ the Heroku platform.</p>
       <pre class="lines">
 
 
-318
-319
-320</pre>
+432
+433
+434</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 318</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 432</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stack'>stack</span>
   <span class='ivar'>@stack_resource</span> <span class='op'>||=</span> <span class='const'>Stack</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="user_app-instance_method">
+  
+    - (<tt><span class='object_link'><a href="UserApp.html" title="PlatformAPI::UserApp (class)">UserApp</a></span></tt>) <strong>user_app</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An app represents the program that you would like to deploy and run on
+Heroku.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="UserApp.html" title="PlatformAPI::UserApp (class)">UserApp</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+439
+440
+441</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 439</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_user_app'>user_app</span>
+  <span class='ivar'>@user_app_resource</span> <span class='op'>||=</span> <span class='const'>UserApp</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="user_preferences-instance_method">
+  
+    - (<tt><span class='object_link'><a href="UserPreferences.html" title="PlatformAPI::UserPreferences (class)">UserPreferences</a></span></tt>) <strong>user_preferences</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Tracks a user&#39;s preferences and message dismissals</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="UserPreferences.html" title="PlatformAPI::UserPreferences (class)">UserPreferences</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+446
+447
+448</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 446</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_user_preferences'>user_preferences</span>
+  <span class='ivar'>@user_preferences_resource</span> <span class='op'>||=</span> <span class='const'>UserPreferences</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2852,9 +4285,9 @@ the Heroku platform.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri May 23 16:29:26 2014 by
+  Generated on Fri Nov 20 09:53:38 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.2 (ruby-2.2.3).
 </div>
 
   </body>
