@@ -1603,14 +1603,14 @@ module PlatformAPI
 
     # Retrieve Organization Preferences
     #
-    # @param organization_preferences_identity: 
+    # @param organization_preferences_identity:
     def list(organization_preferences_identity)
       @client.organization_preferences.list(organization_preferences_identity)
     end
 
     # Update Organization Preferences
     #
-    # @param organization_preferences_identity: 
+    # @param organization_preferences_identity:
     # @param body: the object to pass as the request payload
     def update(organization_preferences_identity, body)
       @client.organization_preferences.update(organization_preferences_identity, body)
