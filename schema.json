@@ -288,6 +288,16 @@
             "null"
           ]
         },
+        "delinquent_at": {
+          "description": "when account became delinquent",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "two_factor_authentication": {
           "description": "whether two-factor auth is enabled on the account",
           "example": false,
@@ -544,6 +554,9 @@
         },
         "suspended_at": {
           "$ref": "#/definitions/account/definitions/suspended_at"
+        },
+        "delinquent_at": {
+          "$ref": "#/definitions/account/definitions/delinquent_at"
         },
         "two_factor_authentication": {
           "$ref": "#/definitions/account/definitions/two_factor_authentication"
@@ -2273,6 +2286,21 @@
         "slug_size": {
           "$ref": "#/definitions/app/definitions/slug_size"
         },
+        "space": {
+          "description": "identity of space",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/space/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/space/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
         "stack": {
           "description": "identity of app stack",
           "properties": {
@@ -3661,6 +3689,9 @@
               "$ref": "#/definitions/addon"
             },
             {
+              "$ref": "#/definitions/addon-attachment"
+            },
+            {
               "$ref": "#/definitions/app"
             },
             {
@@ -3726,6 +3757,7 @@
           "description": "the type of resource affected",
           "enum": [
             "addon",
+            "addon-attachment",
             "app",
             "app-setup",
             "app-transfer",
@@ -4189,6 +4221,169 @@
         },
         "updated_at": {
           "$ref": "#/definitions/formation/definitions/updated_at"
+        }
+      }
+    },
+    "inbound-ruleset": {
+      "description": "An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Inbound Ruleset",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "action": {
+          "description": "states whether the connection is allowed or denied",
+          "example": "allow",
+          "readOnly": false,
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "allow",
+            "deny"
+          ]
+        },
+        "source": {
+          "description": "is the request’s source in CIDR notation",
+          "example": "1.1.1.1/1",
+          "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when inbound-ruleset was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of an inbound-ruleset",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/inbound-ruleset/definitions/id"
+            }
+          ]
+        },
+        "rule": {
+          "description": "the combination of an IP address in CIDR notation and whether to allow or deny it's traffic.",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "action": {
+              "$ref": "#/definitions/inbound-ruleset/definitions/action"
+            },
+            "source": {
+              "$ref": "#/definitions/inbound-ruleset/definitions/source"
+            }
+          },
+          "required": [
+            "source",
+            "action"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Current inbound ruleset for a space",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/inbound-ruleset",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/inbound-ruleset"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Info on an existing Inbound Ruleset",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/inbound-rulesets/{(%23%2Fdefinitions%2Finbound-ruleset%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/inbound-ruleset"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List all inbound rulesets for a space",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/inbound-rulesets",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/inbound-ruleset"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Create a new inbound ruleset",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/inbound-ruleset",
+          "method": "PUT",
+          "rel": "create",
+          "schema": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "rules": {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/inbound-ruleset/definitions/rule"
+                }
+              },
+              "default_action": {
+                "$ref": "#/definitions/inbound-ruleset/definitions/action"
+              }
+            },
+            "required": [
+              "default_action"
+            ]
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/inbound-ruleset/definitions/id"
+        },
+        "created_at": {
+          "$ref": "#/definitions/inbound-ruleset/definitions/created_at"
+        },
+        "rules": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/inbound-ruleset/definitions/rule"
+          }
+        },
+        "default_action": {
+          "$ref": "#/definitions/inbound-ruleset/definitions/action"
+        },
+        "created_by": {
+          "$ref": "#/definitions/account/definitions/email"
         }
       }
     },
@@ -5816,6 +6011,32 @@
         }
       }
     },
+    "organization-addon": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "A list of add-ons the Organization uses across all apps",
+      "stability": "production",
+      "title": "Heroku Platform API - Organization Add-on",
+      "type": [
+        "object"
+      ],
+      "links": [
+        {
+          "description": "List add-ons used across all Organization apps",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/addons",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List For Organization"
+        }
+      ]
+    },
     "organization-app-collaborator": {
       "description": "An organization collaborator represents an account that has been given access to an organization app on Heroku.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -6030,6 +6251,9 @@
               "region": {
                 "$ref": "#/definitions/region/definitions/name"
               },
+              "space": {
+                "$ref": "#/definitions/space/definitions/name"
+              },
               "stack": {
                 "$ref": "#/definitions/stack/definitions/name"
               }
@@ -6221,6 +6445,21 @@
         },
         "slug_size": {
           "$ref": "#/definitions/app/definitions/slug_size"
+        },
+        "space": {
+          "description": "identity of space",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/space/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/space/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "stack": {
           "description": "identity of app stack",
@@ -6869,6 +7108,64 @@
         }
       }
     },
+    "organization-preferences": {
+      "description": "Tracks an organization's preferences",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Organization Preferences",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "identity": {
+          "$ref": "#/definitions/organization/definitions/identity"
+        },
+        "whitelisting-enabled": {
+          "description": "Whether whitelisting rules should be applied to add-on installations",
+          "example": true,
+          "readOnly": false,
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Retrieve Organization Preferences",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-preferences"
+          },
+          "title": "List"
+        },
+        {
+          "description": "Update Organization Preferences",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "whitelisting-enabled": {
+                "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
+              }
+            }
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization-preferences"
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "whitelisting-enabled": {
+          "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
+        }
+      }
+    },
     "organization": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "Organizations allow you to manage access to a shared group of applications across your development team.",
@@ -7105,6 +7402,109 @@
         },
         "url": {
           "$ref": "#/definitions/otp-secret/definitions/url"
+        }
+      }
+    },
+    "password-reset": {
+      "description": "A password reset represents a in-process password reset attempt.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "production",
+      "strictProperties": true,
+      "title": "Heroku Platform API - PasswordReset",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when password reset was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/account/definitions/email"
+            }
+          ]
+        },
+        "password_confirmation": {
+          "description": "confirmation of the new password",
+          "example": "newpassword",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "reset_password_token": {
+          "description": "unique identifier of a password reset attempt",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Reset account's password. This will send a reset password link to the user's email address.",
+          "href": "/password-resets",
+          "method": "POST",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/account/definitions/email"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Reset Password"
+        },
+        {
+          "description": "Complete password reset.",
+          "href": "/password-resets/{(%23%2Fdefinitions%2Fpassword-reset%2Fdefinitions%2Freset_password_token)}/actions/finalize",
+          "method": "POST",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "password": {
+                "$ref": "#/definitions/account/definitions/password"
+              },
+              "password_confirmation": {
+                "$ref": "#/definitions/password-reset/definitions/password_confirmation"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Complete Reset Password"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/password-reset/definitions/created_at"
+        },
+        "user": {
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
         }
       }
     },
@@ -7773,6 +8173,14 @@
         "object"
       ],
       "definitions": {
+        "country": {
+          "description": "country where the region exists",
+          "example": "United States",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "created_at": {
           "description": "when region was created",
           "example": "2012-01-01T12:00:00Z",
@@ -7809,6 +8217,14 @@
             }
           ]
         },
+        "locale": {
+          "description": "area in the country where the region exists",
+          "example": "Virginia",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "name": {
           "description": "unique name of region",
           "example": "us",
@@ -7816,6 +8232,39 @@
           "type": [
             "string"
           ]
+        },
+        "private_capable": {
+          "description": "whether or not region is available for creating a private space",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "provider": {
+          "description": "provider of underlying substrate",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "name": {
+              "description": "name of provider",
+              "example": "amazon-web-services",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "region": {
+              "description": "region name used by provider",
+              "example": "us-east-1",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "readOnly": true
         },
         "updated_at": {
           "description": "when region was updated",
@@ -7855,6 +8304,9 @@
         }
       ],
       "properties": {
+        "country": {
+          "$ref": "#/definitions/region/definitions/country"
+        },
         "created_at": {
           "$ref": "#/definitions/region/definitions/created_at"
         },
@@ -7864,8 +8316,17 @@
         "id": {
           "$ref": "#/definitions/region/definitions/id"
         },
+        "locale": {
+          "$ref": "#/definitions/region/definitions/locale"
+        },
         "name": {
           "$ref": "#/definitions/region/definitions/name"
+        },
+        "private_capable": {
+          "$ref": "#/definitions/region/definitions/private_capable"
+        },
+        "provider": {
+          "$ref": "#/definitions/region/definitions/provider"
         },
         "updated_at": {
           "$ref": "#/definitions/region/definitions/updated_at"
@@ -8421,6 +8882,291 @@
         }
       }
     },
+    "space-nat": {
+      "description": "Network address translation (NAT) for stable outbound IP addresses from a space",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Space Network Address Translation",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when network address translation for a space was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "ip_v4_address": {
+          "example": "123.123.123.123",
+          "format": "ipv4",
+          "pattern": "^(([01]?\\d?\\d|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d?\\d|2[0-4]\\d|25[0-5])$",
+          "type": [
+            "string"
+          ]
+        },
+        "sources": {
+          "description": "potential IPs from which outbound network traffic will originate",
+          "readOnly": true,
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/space-nat/definitions/ip_v4_address"
+          }
+        },
+        "state": {
+          "description": "availability of network address translation for a space",
+          "enum": [
+            "disabled",
+            "updating",
+            "enabled"
+          ],
+          "example": "enabled",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when network address translation for a space was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Current state of network address translation for a space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/nat",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/space-nat"
+          },
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/space-nat/definitions/created_at"
+        },
+        "sources": {
+          "$ref": "#/definitions/space-nat/definitions/sources"
+        },
+        "state": {
+          "$ref": "#/definitions/space-nat/definitions/state"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/space-nat/definitions/updated_at"
+        }
+      }
+    },
+    "space": {
+      "description": "A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Space",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when space was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of space",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/space/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/space/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of space",
+          "example": "nasa",
+          "readOnly": false,
+          "pattern": "^[a-z0-9](?:[a-z0-9]|-(?!-))+[a-z0-9]$",
+          "type": [
+            "string"
+          ]
+        },
+        "state": {
+          "description": "availability of this space",
+          "enum": [
+            "allocating",
+            "allocated",
+            "deleting"
+          ],
+          "example": "allocated",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when space was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List existing spaces.",
+          "href": "/spaces",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/space"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Info for existing space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/space"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Update an existing space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/space/definitions/name"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/space"
+          },
+          "title": "Update"
+        },
+        {
+          "description": "Delete an existing space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/space"
+          },
+          "title": "Delete"
+        },
+        {
+          "description": "Create a new space.",
+          "href": "/spaces",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/space/definitions/name"
+              },
+              "region": {
+                "$ref": "#/definitions/region/definitions/identity"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/space"
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/space/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/space/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/space/definitions/name"
+        },
+        "organization": {
+          "description": "organization that owns this space",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "region": {
+          "description": "identity of space region",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/region/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/region/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "state": {
+          "$ref": "#/definitions/space/definitions/state"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/space/definitions/updated_at"
+        }
+      }
+    },
     "ssl-endpoint": {
       "description": "[SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` addon installed before it can provision an SSL Endpoint using these APIs.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -8879,6 +9625,21 @@
         "slug_size": {
           "$ref": "#/definitions/app/definitions/slug_size"
         },
+        "space": {
+          "description": "identity of space",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/space/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/space/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
         "stack": {
           "description": "identity of app stack",
           "properties": {
@@ -9142,6 +9903,9 @@
     "formation": {
       "$ref": "#/definitions/formation"
     },
+    "inbound-ruleset": {
+      "$ref": "#/definitions/inbound-ruleset"
+    },
     "invitation": {
       "$ref": "#/definitions/invitation"
     },
@@ -9172,6 +9936,9 @@
     "oauth-token": {
       "$ref": "#/definitions/oauth-token"
     },
+    "organization-addon": {
+      "$ref": "#/definitions/organization-addon"
+    },
     "organization-app-collaborator": {
       "$ref": "#/definitions/organization-app-collaborator"
     },
@@ -9187,11 +9954,17 @@
     "organization-payment-method": {
       "$ref": "#/definitions/organization-payment-method"
     },
+    "organization-preferences": {
+      "$ref": "#/definitions/organization-preferences"
+    },
     "organization": {
       "$ref": "#/definitions/organization"
     },
     "otp-secret": {
       "$ref": "#/definitions/otp-secret"
+    },
+    "password-reset": {
+      "$ref": "#/definitions/password-reset"
     },
     "payment-method": {
       "$ref": "#/definitions/payment-method"
@@ -9222,6 +9995,12 @@
     },
     "source": {
       "$ref": "#/definitions/source"
+    },
+    "space-nat": {
+      "$ref": "#/definitions/space-nat"
+    },
+    "space": {
+      "$ref": "#/definitions/space"
     },
     "ssl-endpoint": {
       "$ref": "#/definitions/ssl-endpoint"
