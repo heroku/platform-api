@@ -231,6 +231,9 @@
             },
             {
               "$ref": "#/definitions/account/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/account/definitions/self"
             }
           ]
         },
@@ -264,6 +267,17 @@
         "password": {
           "description": "current password on the account",
           "example": "currentpassword",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "self": {
+          "description": "Implicit reference to currently authorized user",
+          "enum": [
+            "~"
+          ],
+          "example": "~",
           "readOnly": true,
           "type": [
             "string"
@@ -2099,21 +2113,6 @@
           "type": [
             "string"
           ]
-        },
-        "process_tier": {
-          "description": "Process tier for the app",
-          "enum": [
-            "traditional",
-            "free",
-            "hobby",
-            "production",
-            "private"
-          ],
-          "example": "hobby",
-          "readOnly": false,
-          "type": [
-            "string"
-          ]
         }
       },
       "links": [
@@ -2182,6 +2181,26 @@
             ]
           },
           "title": "List"
+        },
+        {
+          "description": "List owned and collaborated apps (excludes organization apps).",
+          "href": "/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}/apps",
+          "method": "GET",
+          "ranges": [
+            "id",
+            "name",
+            "updated_at"
+          ],
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/app"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List Owned and Collaborated"
         },
         {
           "description": "Update an existing app.",
@@ -2321,9 +2340,6 @@
         },
         "web_url": {
           "$ref": "#/definitions/app/definitions/web_url"
-        },
-        "process_tier": {
-          "$ref": "#/definitions/app/definitions/process_tier"
         }
       }
     },
@@ -6480,9 +6496,6 @@
         },
         "web_url": {
           "$ref": "#/definitions/app/definitions/web_url"
-        },
-        "process_tier": {
-          "$ref": "#/definitions/app/definitions/process_tier"
         }
       }
     },
@@ -8552,6 +8565,15 @@
             "string"
           ]
         },
+        "checksum": {
+          "description": "an optional checksum of the slug for verifying its integrity",
+          "example": "SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "readOnly": true,
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "commit": {
           "description": "identification of the code with your version control system (eg: SHA of the git HEAD)",
           "example": "60883d9e8947a57e04dc9124f25df004866a2051",
@@ -8672,6 +8694,7 @@
                 "url": "https://api.heroku.com/slugs/1234.tgz"
               },
               "buildpack_provided_description": "Ruby/Rack",
+              "checksum": "SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
               "commit": "60883d9e8947a57e04dc9124f25df004866a2051",
               "commit_description": "fixed a bug with API documentation",
               "created_at": "2012-01-01T12:00:00Z",
@@ -8689,6 +8712,9 @@
             "properties": {
               "buildpack_provided_description": {
                 "$ref": "#/definitions/slug/definitions/buildpack_provided_description"
+              },
+              "checksum": {
+                "$ref": "#/definitions/slug/definitions/checksum"
               },
               "commit": {
                 "$ref": "#/definitions/slug/definitions/commit"
@@ -8734,6 +8760,9 @@
         },
         "buildpack_provided_description": {
           "$ref": "#/definitions/slug/definitions/buildpack_provided_description"
+        },
+        "checksum": {
+          "$ref": "#/definitions/slug/definitions/checksum"
         },
         "commit": {
           "$ref": "#/definitions/slug/definitions/commit"
@@ -9492,180 +9521,6 @@
         }
       }
     },
-    "user-app": {
-      "description": "An app represents the program that you would like to deploy and run on Heroku.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
-      "strictProperties": true,
-      "title": "Heroku Platform API - App",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            {
-              "$ref": "#/definitions/account/definitions/id"
-            },
-            {
-              "$ref": "#/definitions/user-app/definitions/self"
-            }
-          ]
-        },
-        "self": {
-          "description": "Implicit reference to currently authorized user",
-          "enum": [
-            "~"
-          ],
-          "example": "~",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "List owned and collaborated apps (excludes organization apps).",
-          "href": "/users/{(%23%2Fdefinitions%2Fuser-app%2Fdefinitions%2Fidentity)}/apps",
-          "method": "GET",
-          "ranges": [
-            "id",
-            "name",
-            "updated_at"
-          ],
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/user-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        }
-      ],
-      "properties": {
-        "archived_at": {
-          "$ref": "#/definitions/app/definitions/archived_at"
-        },
-        "buildpack_provided_description": {
-          "$ref": "#/definitions/app/definitions/buildpack_provided_description"
-        },
-        "build_stack": {
-          "description": "identity of the stack that will be used for new builds",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/stack/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/stack/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "created_at": {
-          "$ref": "#/definitions/app/definitions/created_at"
-        },
-        "git_url": {
-          "$ref": "#/definitions/app/definitions/git_url"
-        },
-        "id": {
-          "$ref": "#/definitions/app/definitions/id"
-        },
-        "maintenance": {
-          "$ref": "#/definitions/app/definitions/maintenance"
-        },
-        "name": {
-          "$ref": "#/definitions/app/definitions/name"
-        },
-        "owner": {
-          "description": "identity of app owner",
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "region": {
-          "description": "identity of app region",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/region/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/region/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "released_at": {
-          "$ref": "#/definitions/app/definitions/released_at"
-        },
-        "repo_size": {
-          "$ref": "#/definitions/app/definitions/repo_size"
-        },
-        "slug_size": {
-          "$ref": "#/definitions/app/definitions/slug_size"
-        },
-        "space": {
-          "description": "identity of space",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/space/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/space/definitions/name"
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "stack": {
-          "description": "identity of app stack",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/stack/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/stack/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "updated_at": {
-          "$ref": "#/definitions/app/definitions/updated_at"
-        },
-        "web_url": {
-          "$ref": "#/definitions/app/definitions/web_url"
-        },
-        "process_tier": {
-          "$ref": "#/definitions/app/definitions/process_tier"
-        }
-      }
-    },
     "user-preferences": {
       "description": "Tracks a user's preferences and message dismissals",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -9840,6 +9695,147 @@
           "$ref": "#/definitions/user-preferences/definitions/dismissed-sms-banner"
         }
       }
+    },
+    "whitelisted-addon-service": {
+      "description": "Entities that have been whitelisted to be used by an Organization",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Whitelisted Entity",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "added_at": {
+          "description": "when the add-on service was whitelisted",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "added_by": {
+          "description": "the user which whitelisted the Add-on Service",
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            }
+          },
+          "readOnly": true,
+          "type": [
+            "object"
+          ]
+        },
+        "addon_service": {
+          "description": "the Add-on Service whitelisted for use",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/addon-service/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/addon-service/definitions/name"
+            },
+            "human_name": {
+              "$ref": "#/definitions/addon-service/definitions/human_name"
+            }
+          },
+          "readOnly": true,
+          "type": [
+            "object"
+          ]
+        },
+        "id": {
+          "description": "unique identifier for this whitelisting entity",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/whitelisted-addon-service/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/addon-service/definitions/name"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List all whitelisted Add-on Services for an Organization",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/whitelisted-addon-service"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Whitelist an Add-on Service",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "addon": {
+                "description": "name of one or more Add-ons to whitelist",
+                "example": "heroku-postgresql",
+                "type": [
+                  "array",
+                  "string"
+                ]
+              }
+            }
+          },
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/whitelisted-addon-service"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Remove a whitelisted entity",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-addon-service%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/whitelisted-addon-service"
+          },
+          "title": "Delete"
+        }
+      ],
+      "properties": {
+        "added_at": {
+          "$ref": "#/definitions/whitelisted-addon-service/definitions/added_at"
+        },
+        "added_by": {
+          "$ref": "#/definitions/whitelisted-addon-service/definitions/added_by"
+        },
+        "addon_service": {
+          "$ref": "#/definitions/whitelisted-addon-service/definitions/addon_service"
+        },
+        "id": {
+          "$ref": "#/definitions/whitelisted-addon-service/definitions/id"
+        }
+      }
     }
   },
   "properties": {
@@ -10008,11 +10004,11 @@
     "stack": {
       "$ref": "#/definitions/stack"
     },
-    "user-app": {
-      "$ref": "#/definitions/user-app"
-    },
     "user-preferences": {
       "$ref": "#/definitions/user-preferences"
+    },
+    "whitelisted-addon-service": {
+      "$ref": "#/definitions/whitelisted-addon-service"
     }
   },
   "description": "The platform API empowers developers to automate, extend and combine Heroku with other services.",
