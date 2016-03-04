@@ -63,26 +63,17 @@ module PlatformAPI
 
     final_options = default_options
     if options[:default_headers]
-      final_options[:default_headers].merge!(options[:default_headers])
+      final_options[:default_headers].merge!({
+        "Accept"=>"application/vnd.heroku+json; version=3"
+      })
     end
-    final_options[:cache] = options[:cache] if options[:cache]
-    final_options[:url] = options[:url] if options[:url]
-    final_options[:user] = options[:user] if options[:user]
+    final_options[:cache] = options[:cache] || Moneta.new(:File, dir: "#{Dir.home}/.heroics/platform-api")
+    final_options[:url] = options[:url]     || "http://api.heroku.com"
+    final_options[:user] = options[:user]   if options[:user]
     final_options
   end
 
-  # Get the default options.
-  def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3"}
-    cache = Moneta.new(:File, dir: "#{Dir.home}/.heroics/platform-api")
-    {
-      default_headers: default_headers,
-      cache:           cache,
-      url:             "https://api.heroku.com"
-    }
-  end
-
-  private_class_method :default_options, :custom_options
+  private_class_method :custom_options
 
   # The platform API empowers developers to automate, extend and combine Heroku with other services.
   class Client
