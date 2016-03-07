@@ -4112,19 +4112,19 @@
           "additionalProperties": false,
           "description": "Properties to update a process type",
           "properties": {
-            "process": {
-              "$ref": "#/definitions/formation/definitions/identity"
-            },
             "quantity": {
               "$ref": "#/definitions/formation/definitions/quantity"
             },
             "size": {
               "$ref": "#/definitions/formation/definitions/size"
+            },
+            "type": {
+              "$ref": "#/definitions/formation/definitions/type"
             }
           },
           "readOnly": false,
           "required": [
-            "process"
+            "type"
           ],
           "type": [
             "object"
@@ -4171,16 +4171,7 @@
                 "items": {
                   "$ref": "#/definitions/formation/definitions/update"
                 },
-                "description": "Array with formation updates. Each element must have \"type\", the id or name of the process type to be updated, and can optionally update its \"quantity\" or \"size\".",
-                "example": [
-                  {
-                    "quantity": 1,
-                    "size": "standard-2X",
-                    "type": [
-                      "web"
-                    ]
-                  }
-                ]
+                "description": "Array with formation updates. Each element must have \"type\", the id or name of the process type to be updated, and can optionally update its \"quantity\" or \"size\"."
               }
             },
             "required": [
