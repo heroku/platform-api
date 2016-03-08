@@ -9,7 +9,7 @@ GEM
   specs:
     erubis (2.7.0)
     excon (0.48.0)
-    heroics (0.0.15)
+    heroics (0.0.16)
       erubis (~> 2.0)
       excon
       moneta

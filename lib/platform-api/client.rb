@@ -66,8 +66,8 @@ module PlatformAPI
     if options[:default_headers]
       final_options[:default_headers].merge!(options[:default_headers])
     end
-    final_options[:cache] = options[:cache] if options[:cache]
-    final_options[:url] = options[:url] || Moneta.new(:File, dir: "#{Dir.home}/.heroics/platform-api")
+    final_options[:cache] = options[:cache] || Moneta.new(:File, dir: "#{Dir.home}/.heroics/platform-api")
+    final_options[:url] = options[:url] if options[:url]
     final_options[:user] = options[:user] if options[:user]
     final_options
   end
