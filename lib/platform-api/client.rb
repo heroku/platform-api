@@ -6005,6 +6005,9 @@ module PlatformAPI
             },
             {
               "$ref": "#/definitions/release"
+            },
+            {
+              "$ref": "#/definitions/space"
             }
           ],
           "readOnly": true,
@@ -6053,6 +6056,7 @@ module PlatformAPI
             "failed-event",
             "formation",
             "release",
+            "space",
             "user"
           ],
           "example": "app",
@@ -11660,27 +11664,6 @@ module PlatformAPI
           "method": "POST",
           "rel": "create",
           "schema": {
-            "example": {
-              "blob": {
-                "method": "PUT",
-                "url": "https://api.heroku.com/slugs/1234.tgz"
-              },
-              "buildpack_provided_description": "Ruby/Rack",
-              "checksum": "SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-              "commit": "60883d9e8947a57e04dc9124f25df004866a2051",
-              "commit_description": "fixed a bug with API documentation",
-              "created_at": "2012-01-01T12:00:00Z",
-              "id": "01234567-89ab-cdef-0123-456789abcdef",
-              "process_types": {
-                "web": "./bin/web -p $PORT"
-              },
-              "size": 2048,
-              "stack": {
-                "id": "01234567-89ab-cdef-0123-456789abcdef",
-                "name": "cedar-14"
-              },
-              "updated_at\"": "2012-01-01T12:00:00Z"
-            },
             "properties": {
               "buildpack_provided_description": {
                 "$ref": "#/definitions/slug/definitions/buildpack_provided_description"
@@ -11709,7 +11692,28 @@ module PlatformAPI
             ]
           },
           "targetSchema": {
-            "$ref": "#/definitions/slug"
+            "$ref": "#/definitions/slug",
+            "example": {
+              "blob": {
+                "method": "PUT",
+                "url": "https://api.heroku.com/slugs/1234.tgz"
+              },
+              "buildpack_provided_description": "Ruby/Rack",
+              "checksum": "SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "commit": "60883d9e8947a57e04dc9124f25df004866a2051",
+              "commit_description": "fixed a bug with API documentation",
+              "created_at": "2012-01-01T12:00:00Z",
+              "id": "01234567-89ab-cdef-0123-456789abcdef",
+              "process_types": {
+                "web": "./bin/web -p $PORT"
+              },
+              "size": 2048,
+              "stack": {
+                "id": "01234567-89ab-cdef-0123-456789abcdef",
+                "name": "cedar-14"
+              },
+              "updated_at": "2012-01-01T12:00:00Z"
+            }
           },
           "title": "Create"
         }
