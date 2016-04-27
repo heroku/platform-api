@@ -103,11 +103,25 @@ module PlatformAPI
       @account_resource ||= Account.new(@client)
     end
 
+    # Add-on Actions are Provider functionality for specific add-on installations
+    #
+    # @return [AddonAction]
+    def addon_action
+      @addon_action_resource ||= AddonAction.new(@client)
+    end
+
     # An add-on attachment represents a connection between an app and an add-on that it has been given access to.
     #
     # @return [AddonAttachment]
     def addon_attachment
       @addon_attachment_resource ||= AddonAttachment.new(@client)
+    end
+
+    # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region
+    #
+    # @return [AddonRegionCapability]
+    def addon_region_capability
+      @addon_region_capability_resource ||= AddonRegionCapability.new(@client)
     end
 
     # Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.
@@ -201,7 +215,7 @@ module PlatformAPI
       @domain_resource ||= Domain.new(@client)
     end
 
-    # Dynos encapsulate running processes of an app on Heroku.
+    # Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
     #
     # @return [Dyno]
     def dyno
@@ -220,6 +234,13 @@ module PlatformAPI
     # @return [FailedEvent]
     def failed_event
       @failed_event_resource ||= FailedEvent.new(@client)
+    end
+
+    # Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
+    #
+    # @return [FilterApps]
+    def filter_apps
+      @filter_apps_resource ||= FilterApps.new(@client)
     end
 
     # The formation of processes that should be maintained for an app. Update the formation to scale processes or change dyno sizes. Available process type names and commands are defined by the `process_types` attribute for the [slug](#slug) currently released on an app.
@@ -474,7 +495,7 @@ module PlatformAPI
       @source_resource ||= Source.new(@client)
     end
 
-    # Space access represents the privileges a particular user has on a particular space.
+    # Space access represents the permissions a particular user has on a particular space.
     #
     # @return [SpaceAppAccess]
     def space_app_access
@@ -598,6 +619,13 @@ module PlatformAPI
     end
   end
 
+  # Add-on Actions are Provider functionality for specific add-on installations
+  class AddonAction
+    def initialize(client)
+      @client = client
+    end
+  end
+
   # An add-on attachment represents a connection between an app and an add-on that it has been given access to.
   class AddonAttachment
     def initialize(client)
@@ -650,6 +678,27 @@ module PlatformAPI
     # @param addon_attachment_id_or_addon_attachment_name: unique identifier of this add-on attachment or unique name for this add-on attachment to this app
     def info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
       @client.addon_attachment.info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
+    end
+  end
+
+  # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region
+  class AddonRegionCapability
+    def initialize(client)
+      @client = client
+    end
+
+    # List existing add-on region capabilities for a region.
+    #
+    # @param region_id_or_region_name: unique identifier of region or unique name of region
+    def list(region_id_or_region_name)
+      @client.addon_region_capability.list(region_id_or_region_name)
+    end
+
+    # List existing add-on region capabilities for an addon-service
+    #
+    # @param addon_service_id_or_addon_service_name: unique identifier of this addon-service or unique name of this addon-service
+    def list_by_add_on_service(addon_service_id_or_addon_service_name)
+      @client.addon_region_capability.list_by_add_on_service(addon_service_id_or_addon_service_name)
     end
   end
 
@@ -1055,7 +1104,7 @@ module PlatformAPI
     end
   end
 
-  # Dynos encapsulate running processes of an app on Heroku.
+  # Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
   class Dyno
     def initialize(client)
       @client = client
@@ -1111,6 +1160,20 @@ module PlatformAPI
   class FailedEvent
     def initialize(client)
       @client = client
+    end
+  end
+
+  # Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
+  class FilterApps
+    def initialize(client)
+      @client = client
+    end
+
+    # Request an apps list filtered by app id.
+    #
+    # @param body: the object to pass as the request payload
+    def apps(body)
+      @client.filter_apps.apps(body)
     end
   end
 
@@ -1415,6 +1478,13 @@ module PlatformAPI
     def update(oauth_client_id, body)
       @client.oauth_client.update(oauth_client_id, body)
     end
+
+    # Rotate credentials for an OAuth client
+    #
+    # @param oauth_client_id: unique identifier of this OAuth client
+    def rotate_credentials(oauth_client_id)
+      @client.oauth_client.rotate_credentials(oauth_client_id)
+    end
   end
 
   # OAuth grants are used to obtain authorizations on behalf of a user. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
@@ -1465,7 +1535,7 @@ module PlatformAPI
       @client = client
     end
 
-    # Create a new collaborator on an organization app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [privileges] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-privileges) according to their role in the organization.
+    # Create a new collaborator on an organization app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the organization.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
@@ -2037,13 +2107,13 @@ module PlatformAPI
     end
   end
 
-  # Space access represents the privileges a particular user has on a particular space.
+  # Space access represents the permissions a particular user has on a particular space.
   class SpaceAppAccess
     def initialize(client)
       @client = client
     end
 
-    # List privileges for a given user on a given space.
+    # List permissions for a given user on a given space.
     #
     # @param space_id_or_space_name: unique identifier of space or unique name of space
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
@@ -2051,7 +2121,7 @@ module PlatformAPI
       @client.space_app_access.info(space_id_or_space_name, account_email_or_account_id_or_account_self)
     end
 
-    # Update an existing user's set of privileges on a space.
+    # Update an existing user's set of permissions on a space.
     #
     # @param space_id_or_space_name: unique identifier of space or unique name of space
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
@@ -2060,7 +2130,7 @@ module PlatformAPI
       @client.space_app_access.update(space_id_or_space_name, account_email_or_account_id_or_account_self, body)
     end
 
-    # List all users and their privileges on a space.
+    # List all users and their permissions on a space.
     #
     # @param space_id_or_space_name: unique identifier of space or unique name of space
     def list(space_id_or_space_name)
@@ -2843,6 +2913,79 @@ module PlatformAPI
         }
       }
     },
+    "addon-action": {
+      "description": "Add-on Actions are Provider functionality for specific add-on installations",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Add-on Action",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "a unique identifier",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/addon-action/definitions/id"
+        },
+        "label": {
+          "description": "the display text shown in Dashboard",
+          "example": "Example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "action": {
+          "description": "identifier of the action to take that is sent via SSO",
+          "example": "example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "url": {
+          "description": "absolute URL to use instead of an action",
+          "example": "http://example.com?resource_id=:resource_id",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "requires_owner": {
+          "description": "if the action requires the user to own the app",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/addon-action/definitions/id"
+        },
+        "label": {
+          "$ref": "#/definitions/addon-action/definitions/label"
+        },
+        "action": {
+          "$ref": "#/definitions/addon-action/definitions/action"
+        },
+        "url": {
+          "$ref": "#/definitions/addon-action/definitions/url"
+        },
+        "requires_owner": {
+          "$ref": "#/definitions/addon-action/definitions/requires_owner"
+        }
+      }
+    },
     "addon-attachment": {
       "description": "An add-on attachment represents a connection between an app and an add-on that it has been given access to.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -3098,6 +3241,98 @@ module PlatformAPI
         }
       }
     },
+    "addon-region-capability": {
+      "description": "Add-on region capabilities represent the relationship between an Add-on Service and a specific Region",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "production",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Add-on Region Capability",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of this addon-region-capability",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "supports_private_networking": {
+          "description": "whether the add-on can be installed to a Space",
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/addon-region-capability/definitions/id"
+        }
+      },
+      "links": [
+        {
+          "description": "List all existing add-on region capabilities.",
+          "href": "/addon-region-capabilities",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon-region-capability"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "List existing add-on region capabilities for an addon-service",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}/region-capabilities",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon-region-capability"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List by Add-on Service"
+        },
+        {
+          "description": "List existing add-on region capabilities for a region.",
+          "href": "/regions/{(%23%2Fdefinitions%2Fregion%2Fdefinitions%2Fidentity)}/addon-region-capabilities",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon-region-capability"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/addon-region-capability/definitions/id"
+        },
+        "supports_private_networking": {
+          "$ref": "#/definitions/addon-region-capability/definitions/supports_private_networking"
+        },
+        "addon_service": {
+          "$ref": "#/definitions/addon-service"
+        },
+        "region": {
+          "$ref": "#/definitions/region"
+        }
+      }
+    },
     "addon-service": {
       "description": "Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -3270,6 +3505,35 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "actions": {
+          "description": "provider actions for this specific add-on",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "type": [
+              "object"
+            ]
+          },
+          "readOnly": true,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/addon-action/definitions/id"
+            },
+            "label": {
+              "$ref": "#/definitions/addon-action/definitions/label"
+            },
+            "action": {
+              "$ref": "#/definitions/addon-action/definitions/action"
+            },
+            "url": {
+              "$ref": "#/definitions/addon-action/definitions/url"
+            },
+            "requires_owner": {
+              "$ref": "#/definitions/addon-action/definitions/requires_owner"
+            }
+          }
+        },
         "config_vars": {
           "description": "config vars exposed to the owning app by this add-on",
           "example": [
@@ -3486,6 +3750,9 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "actions": {
+          "$ref": "#/definitions/addon/definitions/actions"
+        },
         "addon_service": {
           "description": "identity of add-on service",
           "properties": {
@@ -3939,7 +4206,6 @@ module PlatformAPI
               },
               "source_blob": {
                 "description": "gzipped tarball of source code containing app.json manifest file",
-                "example": "https://example.com/source.tgz?token=xyz",
                 "properties": {
                   "checksum": {
                     "description": "an optional checksum of the gzipped tarball for verifying its integrity",
@@ -5662,7 +5928,7 @@ module PlatformAPI
       }
     },
     "dyno": {
-      "description": "Dynos encapsulate running processes of an app on Heroku.",
+      "description": "Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -5752,6 +6018,15 @@ module PlatformAPI
             "string"
           ]
         },
+        "force_no_tty": {
+          "description": "force an attached one-off dyno to not run in a tty",
+          "example": null,
+          "readOnly": false,
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
         "size": {
           "description": "dyno size (default: \"standard-1X\")",
           "example": "standard-1X",
@@ -5802,6 +6077,9 @@ module PlatformAPI
               },
               "env": {
                 "$ref": "#/definitions/dyno/definitions/env"
+              },
+              "force_no_tty": {
+                "$ref": "#/definitions/dyno/definitions/force_no_tty"
               },
               "size": {
                 "$ref": "#/definitions/dyno/definitions/size"
@@ -6004,6 +6282,9 @@ module PlatformAPI
               "$ref": "#/definitions/formation"
             },
             {
+              "$ref": "#/definitions/organization"
+            },
+            {
               "$ref": "#/definitions/release"
             },
             {
@@ -6055,6 +6336,7 @@ module PlatformAPI
             "dyno",
             "failed-event",
             "formation",
+            "organization",
             "release",
             "space",
             "user"
@@ -6278,6 +6560,70 @@ module PlatformAPI
           ]
         }
       }
+    },
+    "filter-apps": {
+      "description": "Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "title": "Heroku Platform API - Filters",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "filter": {
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "in": {
+              "$ref": "#/definitions/filter-apps/definitions/in"
+            }
+          }
+        },
+        "in": {
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/filter-apps/definitions/id"
+            }
+          }
+        },
+        "id": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/app/definitions/id"
+          }
+        }
+      },
+      "links": [
+        {
+          "description": "Request an apps list filtered by app id.",
+          "title": "Apps",
+          "href": "/filters/apps",
+          "method": "POST",
+          "ranges": [
+            "id",
+            "name",
+            "updated_at"
+          ],
+          "rel": "instances",
+          "schema": {
+            "$ref": "#/definitions/filter-apps/definitions/filter"
+          },
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-app"
+            },
+            "type": [
+              "array"
+            ]
+          }
+        }
+      ]
     },
     "formation": {
       "description": "The formation of processes that should be maintained for an app. Update the formation to scale processes or change dyno sizes. Available process type names and commands are defined by the `process_types` attribute for the [slug](#slug) currently released on an app.",
@@ -7979,6 +8325,16 @@ module PlatformAPI
             "$ref": "#/definitions/oauth-client"
           },
           "title": "Update"
+        },
+        {
+          "description": "Rotate credentials for an OAuth client",
+          "href": "/oauth/clients/{(%23%2Fdefinitions%2Foauth-client%2Fdefinitions%2Fidentity)}/actions/rotate-credentials",
+          "method": "POST",
+          "rel": "update",
+          "targetSchema": {
+            "$ref": "#/definitions/oauth-client"
+          },
+          "title": "Rotate Credentials"
         }
       ],
       "properties": {
@@ -8348,7 +8704,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Create a new collaborator on an organization app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [privileges] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-privileges) according to their role in the organization.",
+          "description": "Create a new collaborator on an organization app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the organization.",
           "href": "/organizations/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators",
           "method": "POST",
           "rel": "create",
@@ -9528,11 +9884,13 @@ module PlatformAPI
             "admin",
             "collaborator",
             "member",
-            "owner"
+            "owner",
+            null
           ],
           "example": "admin",
           "readOnly": true,
           "type": [
+            "null",
             "string"
           ]
         },
@@ -10272,7 +10630,7 @@ module PlatformAPI
       "links": [
         {
           "description": "List couplings for a pipeline",
-          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fidentity)}/pipeline-couplings",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/pipeline-couplings",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
@@ -10311,7 +10669,7 @@ module PlatformAPI
                 "$ref": "#/definitions/app/definitions/identity"
               },
               "pipeline": {
-                "$ref": "#/definitions/pipeline/definitions/identity"
+                "$ref": "#/definitions/pipeline/definitions/id"
               },
               "stage": {
                 "$ref": "#/definitions/pipeline-coupling/definitions/stage"
@@ -11888,7 +12246,7 @@ module PlatformAPI
       }
     },
     "space-app-access": {
-      "description": "Space access represents the privileges a particular user has on a particular space.",
+      "description": "Space access represents the permissions a particular user has on a particular space.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
       "title": "Heroku Platform API - Space Access",
@@ -11897,7 +12255,7 @@ module PlatformAPI
       ],
       "definitions": {
         "id": {
-          "description": "unique identifier of the space a user has privileges on",
+          "description": "unique identifier of the space a user has permissions on",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
@@ -11915,7 +12273,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "List privileges for a given user on a given space.",
+          "description": "List permissions for a given user on a given space.",
           "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
@@ -11925,13 +12283,13 @@ module PlatformAPI
           "title": "Info"
         },
         {
-          "description": "Update an existing user's set of privileges on a space.",
+          "description": "Update an existing user's set of permissions on a space.",
           "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}",
           "method": "PATCH",
           "rel": "update",
           "schema": {
             "properties": {
-              "privileges": {
+              "permissions": {
                 "type": [
                   "array"
                 ],
@@ -11956,7 +12314,7 @@ module PlatformAPI
           "title": "Update"
         },
         {
-          "description": "List all users and their privileges on a space.",
+          "description": "List all users and their permissions on a space.",
           "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/members",
           "method": "GET",
           "rel": "instances",
@@ -11993,8 +12351,8 @@ module PlatformAPI
         "id": {
           "$ref": "#/definitions/space/definitions/id"
         },
-        "privileges": {
-          "description": "user space privileges",
+        "permissions": {
+          "description": "user space permissions",
           "type": [
             "array"
           ],
@@ -12133,6 +12491,32 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "regime": {
+          "description": "compliance requirements a space must adhere to",
+          "readOnly": true,
+          "example": "HIPAA",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "HIPAA",
+            "PCI"
+          ]
+        },
+        "compliance": {
+          "description": "the compliance regimes applied to a space",
+          "example": [
+            "HIPAA"
+          ],
+          "readOnly": false,
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/space/definitions/regime"
+          }
+        },
         "created_at": {
           "description": "when space was created",
           "example": "2012-01-01T12:00:00Z",
@@ -12261,6 +12645,9 @@ module PlatformAPI
               },
               "region": {
                 "$ref": "#/definitions/region/definitions/identity"
+              },
+              "compliance": {
+                "$ref": "#/definitions/space/definitions/compliance"
               }
             },
             "required": [
@@ -12277,6 +12664,9 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "compliance": {
+          "$ref": "#/definitions/space/definitions/compliance"
+        },
         "created_at": {
           "$ref": "#/definitions/space/definitions/created_at"
         },
@@ -13007,8 +13397,14 @@ module PlatformAPI
     "account": {
       "$ref": "#/definitions/account"
     },
+    "addon-action": {
+      "$ref": "#/definitions/addon-action"
+    },
     "addon-attachment": {
       "$ref": "#/definitions/addon-attachment"
+    },
+    "addon-region-capability": {
+      "$ref": "#/definitions/addon-region-capability"
     },
     "addon-service": {
       "$ref": "#/definitions/addon-service"
@@ -13057,6 +13453,9 @@ module PlatformAPI
     },
     "failed-event": {
       "$ref": "#/definitions/failed-event"
+    },
+    "filter-apps": {
+      "$ref": "#/definitions/filter-apps"
     },
     "formation": {
       "$ref": "#/definitions/formation"
