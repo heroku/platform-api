@@ -310,12 +310,10 @@ Remember to commit and push the changes to Github.
 
 ### Release a new gem
 
-Bump the version in `lib/platform-api/version.rb` and push a new release to
-Rubygems:
-
-```
-rake release
-```
+* Bump the version in `lib/platform-api/version.rb`
+* `bundle install` to update Gemfile.lock
+* `git commit -m 'vX.Y.Z' to stage the version and Gemfile.lock changes
+* `rake release` to push git changes and to release to Rubygems
 
 ### Building API documentation
 
