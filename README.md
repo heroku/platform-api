@@ -87,7 +87,7 @@ create tokens with specific scopes.
 Now let's create an app:
 
 ```ruby
-heroku.app.create
+heroku.app.create({})
 => {"id"=>22979756,
     "name"=>"floating-retreat-4255",
     "dynos"=>0,
