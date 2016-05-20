@@ -24,7 +24,7 @@ gem install platform-api
 
 ## API documentation
 
-Jump right to the [API documentation](http://heroku.github.io/platform-api/)
+Jump right to the [API documentation](http://heroku.github.io/platform-api/_index.html)
 for the nitty gritty details.
 
 ## Usage guide
@@ -49,8 +49,8 @@ For example, to get information about the `web` formation on the `sushi` app
 you'd invoke `heroku.formation.info('sushi', 'web')` and it would return a
 Ruby object that matches the one given in the [response example](https://devcenter.heroku.com/articles/platform-api-reference#formation-info).
 
-The [API documentation] contains a description of all available resources and
-methods.
+The [API documentation](http://heroku.github.io/platform-api/_index.html) contains a 
+description of all available resources and methods.
 
 ### Handling errors
 
