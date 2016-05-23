@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.README.html";
 </script>
 
 
@@ -61,11 +61,12 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h1>Platform API</h1>
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Platform+API">Platform API</h1>
 
 <p>Ruby HTTP client for the Heroku API.</p>
 
-<h2>Installation</h2>
+<h2 id="label-Installation">Installation</h2>
 
 <p>Add this line to your application&#39;s Gemfile:</p>
 
@@ -74,57 +75,81 @@
 
 <p>And then execute:</p>
 
-<pre class="code ruby"><code class="ruby"></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span>
+</code></pre>
 
 <p>Or install it yourself as:</p>
 
-<pre class="code ruby"><code class="ruby"></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_platform'>platform</span><span class='op'>-</span><span class='id identifier rubyid_api'>api</span>
+</code></pre>
 
-<h2>Usage guide</h2>
+<h2 id="label-API+documentation">API documentation</h2>
 
-<p>The best place to start using the Heroku API is the <a href="https://devcenter.heroku.com/articles/platform-api-reference">Platform API Reference</a>.
-It has detailed descriptions of the HTTP API, including general information
-about authentication, caching, object identifiers, rate limits, etc.  It also
-includes detailed information about each supported resource and the actions
-available for them.</p>
+<p>Jump right to the <a
+href="http://heroku.github.io/platform-api/_index.html">API
+documentation</a> for the nitty gritty details.</p>
 
-<p>The table of contents lists all the resources that are supported, such as App,
-Add-on, Config Vars, Formation, etc.  Each resource includes detailed
-information about the support actions.  For example, the <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation">Formation</a>
-resource has <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">Info</a>, <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-list">List</a>, <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-batch-update">Batch update</a>, and <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-update">Update</a> actions.</p>
+<h2 id="label-Usage+guide">Usage guide</h2>
+
+<p>The best place to start using the Heroku API is the <a
+href="https://devcenter.heroku.com/articles/platform-api-reference">Platform
+API Reference</a>. It has detailed descriptions of the HTTP API, including
+general information about authentication, caching, object identifiers, rate
+limits, etc. It also includes detailed information about each supported
+resource and the actions available for them.</p>
+
+<p>The table of contents lists all the resources that are supported, such as
+App, Add-on, Config Vars, Formation, etc. Each resource includes detailed
+information about the support actions. For example, the <a
+href="https://devcenter.heroku.com/articles/platform-api-reference#formation">Formation</a>
+resource has <a
+href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">Info</a>,
+<a
+href="https://devcenter.heroku.com/articles/platform-api-reference#formation-list">List</a>,
+<a
+href="https://devcenter.heroku.com/articles/platform-api-reference#formation-batch-update">Batch
+update</a>, and <a
+href="https://devcenter.heroku.com/articles/platform-api-reference#formation-update">Update</a>
+actions.</p>
 
 <p>Resources and their related actions are available as methods on the client.
-When the URL for an action includes parameters they&#39;re passed as arguments to
-the method.  When the request expects a request payload it&#39;s passed as a Hash
-in the final argument to the method.</p>
+When the URL for an action includes parameters they&#39;re passed as
+arguments to the method. When the request expects a request payload
+it&#39;s passed as a Hash in the final argument to the method.</p>
 
-<p>For example, to get information about the <code>web</code> formation on the <code>sushi</code> app
-you&#39;d invoke <code>heroku.formation.info(&#39;sushi&#39;, &#39;web&#39;)</code> and it would return a
-Ruby object that matches the one given in the <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">response example</a>.</p>
+<p>For example, to get information about the <code>web</code> formation on the
+<code>sushi</code> app you&#39;d invoke
+<code>heroku.formation.info(&#39;sushi&#39;, &#39;web&#39;)</code> and it
+would return a Ruby object that matches the one given in the <a
+href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">response
+example</a>.</p>
 
-<p>The [API documentation] contains a description of all available resources and
+<p>The <a href="http://heroku.github.io/platform-api/_index.html">API
+documentation</a> contains a description of all available resources and
 methods.</p>
 
-<h3>Handling errors</h3>
+<h3 id="label-Handling+errors">Handling errors</h3>
 
-<p>The client uses <a href="https://github.com/geemus/excon">Excon</a> under the hood and
-raises <code>Excon::Error</code> exceptions when errors occur.  You can catch specific
-<a href="https://github.com/geemus/excon/blob/master/lib/excon/errors.rb">Excon error types</a> if you want.</p>
+<p>The client uses <a href="https://github.com/geemus/excon">Excon</a> under
+the hood and raises <code>Excon::Error</code> exceptions when errors occur.
+You can catch specific <a
+href="https://github.com/geemus/excon/blob/master/lib/excon/errors.rb">Excon
+error types</a> if you want.</p>
 
-<h3>A real world example</h3>
+<h3 id="label-A+real+world+example">A real world example</h3>
 
-<p>Let&#39;s go through an example of creating an app and using the API to work with
-it.  The first thing you need is a client setup with an OAuth token.  You can
-create an OAuth token using the <code>heroku-oauth</code> toolbelt plugin:</p>
+<p>Let&#39;s go through an example of creating an app and using the API to
+work with it. The first thing you need is a client setup with an OAuth
+token. You can create an OAuth token using the <code>heroku-oauth</code>
+toolbelt plugin:</p>
 
-<pre class="code bash"><code class="bash">$ heroku plugins:install git@github.com:heroku/heroku-oauth.git
+<pre class="code ruby"><code class="ruby">$ heroku plugins:install git@github.com:heroku/heroku-oauth.git
 $ heroku authorizations:create -d &quot;Platform API example token&quot;
 Created OAuth authorization.
   ID:          2f01aac0-e9d3-4773-af4e-3e510aa006ca
   Description: Platform API example token
   Scope:       global
-  Token:       e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2
-</code></pre>
+  Token:       e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2</code></pre>
 
 <p>Use the <code>Token</code> value when instantiating a client:</p>
 
@@ -132,12 +157,13 @@ Created OAuth authorization.
 <span class='id identifier rubyid_heroku'>heroku</span> <span class='op'>=</span> <span class='const'>PlatformAPI</span><span class='period'>.</span><span class='id identifier rubyid_connect_oauth'>connect_oauth</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 </code></pre>
 
-<p>The <a href="">OAuth article</a><a href="https://devcenter.heroku.com/articles/oauth">https://devcenter.heroku.com/articles/oauth</a> has more information about OAuth tokens, including how to
-create tokens with specific scopes.</p>
+<p>The <a href="https://devcenter.heroku.com/articles/oauth">OAuth article</a>
+has more information about OAuth tokens, including how to create tokens
+with specific scopes.</p>
 
 <p>Now let&#39;s create an app:</p>
 
-<pre class="code ruby"><code class="ruby">heroku.app.create
+<pre class="code ruby"><code class="ruby">heroku.app.create({})
 =&gt; {&quot;id&quot;=&gt;22979756,
     &quot;name&quot;=&gt;&quot;floating-retreat-4255&quot;,
     &quot;dynos&quot;=&gt;0,
@@ -217,27 +243,29 @@ create tokens with specific scopes.</p>
     &quot;updated_at&quot;=&gt;&quot;2014-03-13T00:28:55Z&quot;}
 </code></pre>
 
-<p>Excellent!  That will have added a config var which we can now see:</p>
+<p>Excellent! That will have added a config var which we can now see:</p>
 
 <pre class="code ruby"><code class="ruby">heroku.config_var.info(&#39;floating-retreat-4255&#39;)
 =&gt; {&quot;HEROKU_POSTGRESQL_COBALT_URL&quot;=&gt;&quot;postgres://&lt;redacted&gt;&quot;}
 </code></pre>
 
-<p>And there we go, we have the config var.  Let&#39;s set an additional config var,
-which will also demonstrate how to make a request that needs a payload:</p>
+<p>And there we go, we have the config var. Let&#39;s set an additional config
+var, which will also demonstrate how to make a request that needs a
+payload:</p>
 
 <pre class="code ruby"><code class="ruby">heroku.config_var.update(&#39;floating-retreat-4255&#39;, {&#39;MYAPP&#39; =&gt; &#39;ROCKS&#39;})
 =&gt; {&quot;HEROKU_POSTGRESQL_COBALT_URL&quot;=&gt;&quot;postgres://&lt;redacted&gt;&quot;,
     &quot;MYAPP&quot;=&gt;&quot;ROCKS&quot;}
 </code></pre>
 
-<p>As you can see, any action that needs a request body takes it as a plain Ruby
-object, as the final parameter of the method call.</p>
+<p>As you can see, any action that needs a request body takes it as a plain
+Ruby object, as the final parameter of the method call.</p>
 
-<p>Let&#39;s continue by deploying a sample app.  We&#39;ll use the
-<a href="https://github.com/heroku-examples/geosockets">Geosockets</a> example app:</p>
+<p>Let&#39;s continue by deploying a sample app. We&#39;ll use the <a
+href="https://github.com/heroku-examples/geosockets">Geosockets</a> example
+app:</p>
 
-<pre class="code bash"><code class="bash">$ git clone https://github.com/heroku-examples/geosockets.git
+<pre class="code ruby"><code class="ruby">$ git clone https://github.com/heroku-examples/geosockets.git
 Cloning into &#39;geosockets&#39;...
 remote: Reusing existing pack: 489, done.
 remote: Total 489 (delta 0), reused 0 (delta 0)
@@ -257,8 +285,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (229/229), done.
 Writing objects: 100% (489/489), 1.95 MiB | 243.00 KiB/s, done.
 Total 489 (delta 244), reused 489 (delta 244)
-8&lt; snip 8&lt;
-</code></pre>
+8&lt; snip 8&lt;</code></pre>
 
 <p>We can now use the API to see our <code>web</code> process running:</p>
 
@@ -288,7 +315,7 @@ Total 489 (delta 244), reused 489 (delta 244)
 </code></pre>
 
 <p>We could have included a number of different kinds of processes in the last
-command.  We can use the singular update action to modify a single formation
+command. We can use the singular update action to modify a single formation
 type:</p>
 
 <pre class="code ruby"><code class="ruby">heroku.formation.update(&#39;floating-retreat-4255&#39;, &#39;web&#39;, {&quot;size&quot; =&gt; &quot;1X&quot;})
@@ -301,40 +328,99 @@ type:</p>
     &quot;updated_at&quot;=&gt;&quot;2014-03-13T04:24:46Z&quot;}
 </code></pre>
 
-<p>Hopefully this has given you a taste of how the client works.  If you have
+<p>Hopefully this has given you a taste of how the client works. If you have
 questions please feel free to file issues.</p>
 
-<h3>Debugging</h3>
+<h3 id="label-Debugging">Debugging</h3>
 
-<p>Sometimes it helps to see more information about the requests flying by.  You
-can start your program or an <code>irb</code> session with the <code>EXCON_DEBUG=1</code>
-environment variable to cause request and response data to be written to
-<code>STDERR</code>.</p>
+<p>Sometimes it helps to see more information about the requests flying by.
+You can start your program or an <code>irb</code> session with the
+<code>EXCON_DEBUG=1</code> environment variable to cause request and
+response data to be written to <code>STDERR</code>.</p>
 
-<h3>Building API documentation</h3>
+<h3 id="label-Passing+custom+headers">Passing custom headers</h3>
+
+<p>The various <code>connect</code> methods take an options hash that you can
+use to include custom headers to include with every request:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>PlatformAPI</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>my-api-key</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>default_headers:</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Foo</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-Using+a+custom+cache">Using a custom cache</h3>
+
+<p>By default, the <code>platform-api</code> will cache data in
+<code>~/.heroics/platform-api</code>. Use a different caching by passing in
+the <a href="https://github.com/minad/moneta">Moneta</a> instance you want
+to use:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>PlatformAPI</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>my-api-key</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>cache:</span> <span class='const'>Moneta</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:Memory</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-Connecting+to+a+different+host">Connecting to a different host</h3>
+
+<p>Connect to a different host by passing a <code>url</code> option:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>PlatformAPI</span><span class='period'>.</span><span class='id identifier rubyid_connect'>connect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>my-api-key</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://api.example.com</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Building+and+releasing">Building and releasing</h2>
+
+<h3 id="label-Generate+a+new+client">Generate a new client</h3>
+
+<p>Generate a new client from the Heroku Platform API JSON schema:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_build'>build</span>
+</code></pre>
+
+<p>Remember to commit and push the changes to Github.</p>
+
+<h3 id="label-Release+a+new+gem">Release a new gem</h3>
+<ul><li>
+<p>Bump the version in <code>lib/platform-api/version.rb</code></p>
+</li><li>
+<p><code>bundle install</code> to update Gemfile.lock</p>
+</li><li>
+<p>`git commit -m &#39;vX.Y.Z&#39; to stage the version and Gemfile.lock
+changes</p>
+</li><li>
+<p><code>rake release</code> to push git changes and to release to Rubygems</p>
+</li></ul>
+
+<h3 id="label-Building+API+documentation">Building API documentation</h3>
 
 <p>Build documentation with:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_yard'>yard</span>
 </code></pre>
 
-<p>And then visit <code>docs/index.html</code> to read it.</p>
+<p>And then visit <code>doc/index.html</code> to read it. Alternately, build
+and publish it to Github Pages in one step with:</p>
 
-<h2>Contributing</h2>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_publish'>publish</span>
+</code></pre>
 
-<ol>
-<li><a href="https://github.com/heroku/platform-api/fork">Fork the repository</a>.</li>
-<li>Create your feature branch: <code>git checkout -b my-new-feature</code></li>
-<li>Commit your changes: <code>git commit -am &#39;Add some feature&#39;</code></li>
-<li>Push to the branch: <code>git push origin my-new-feature</code></li>
-<li>Create new pull request.</li>
-</ol>
+<p>You can see it live on <a
+href="http://heroku.github.io/platform-api/">Github Pages</a>.</p>
+
+<h2 id="label-Contributing">Contributing</h2>
+<ol><li>
+<p><a href="https://github.com/heroku/platform-api/fork">Fork the
+repository</a>.</p>
+</li><li>
+<p>Create your feature branch: <code>git checkout -b my-new-feature</code></p>
+</li><li>
+<p>Commit your changes: <code>git commit -am &#39;Add some feature&#39;</code></p>
+</li><li>
+<p>Push to the branch: <code>git push origin my-new-feature</code></p>
+</li><li>
+<p>Create new pull request.</p>
+</li></ol>
 </div></div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:00 2014 by
+  Generated on Mon May 23 09:10:56 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

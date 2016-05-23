@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::OauthClient
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/OauthClient.html";
 </script>
 
 
@@ -254,6 +254,30 @@ documentation</a>.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#rotate_credentials-instance_method" title="#rotate_credentials (instance method)">- (Object) <strong>rotate_credentials</strong>(oauth_client_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Rotate credentials for an OAuth client.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(oauth_client_id, body) </a>
     
 
@@ -307,12 +331,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1268
-1269
-1270</pre>
+1444
+1445
+1446</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1268</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1444</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -375,12 +399,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1275
-1276
-1277</pre>
+1451
+1452
+1453</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1275</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1451</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -436,12 +460,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1282
-1283
-1284</pre>
+1458
+1459
+1460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1282</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1458</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
@@ -497,12 +521,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1289
-1290
-1291</pre>
+1465
+1466
+1467</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1289</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1465</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
@@ -538,15 +562,76 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1294
-1295
-1296</pre>
+1470
+1471
+1472</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1294</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1470</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rotate_credentials-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rotate_credentials</strong>(oauth_client_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Rotate credentials for an OAuth client</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>oauth_client_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of this OAuth client</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1485
+1486
+1487</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1485</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rotate_credentials'>rotate_credentials</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_rotate_credentials'>rotate_credentials</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -615,12 +700,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1302
-1303
-1304</pre>
+1478
+1479
+1480</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1302</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1478</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -635,9 +720,9 @@ documentation</a>.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Nov 20 09:53:40 2015 by
+  Generated on Mon May 23 09:07:34 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.2.3).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

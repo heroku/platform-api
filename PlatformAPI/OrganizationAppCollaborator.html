@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::OrganizationAppCollaborator
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/OrganizationAppCollaborator.html";
 </script>
 
 
@@ -304,12 +304,12 @@ access to an organization app on Heroku.</p>
       <pre class="lines">
 
 
-1337
-1338
-1339</pre>
+1534
+1535
+1536</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1337</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1534</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -341,7 +341,7 @@ access to an organization app on Heroku.</p>
 <p>Create a new collaborator on an organization app. Use this endpoint instead
 of the <code>/apps/{app_id_or_name}/collaborator endpoint when you want the
 collaborator to be granted
-{privileges}[https://devcenter.heroku.com/articles/org-users-access#roles-and-app-privileges]</code>
+{permissions}[https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions]</code>
 according to their role in the organization.</p>
 
 
@@ -392,12 +392,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-1345
-1346
-1347</pre>
+1542
+1543
+1544</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1345</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1542</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -469,12 +469,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-1353
-1354
-1355</pre>
+1550
+1551
+1552</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1353</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1550</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
@@ -546,12 +546,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-1361
-1362
-1363</pre>
+1558
+1559
+1560</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1361</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1558</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
@@ -607,12 +607,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-1376
-1377
-1378</pre>
+1573
+1574
+1575</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1376</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1573</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
@@ -684,12 +684,12 @@ according to their role in the organization.</p>
       <pre class="lines">
 
 
-1369
-1370
-1371</pre>
+1566
+1567
+1568</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1369</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1566</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
@@ -704,9 +704,9 @@ according to their role in the organization.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Nov 20 09:53:40 2015 by
+  Generated on Mon May 23 09:07:34 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.2.3).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

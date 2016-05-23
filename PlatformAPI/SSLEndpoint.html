@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::SSLEndpoint
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/SSLEndpoint.html";
 </script>
 
 
@@ -306,12 +306,12 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
       <pre class="lines">
 
 
-1754
-1755
-1756</pre>
+2198
+2199
+2200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1754</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -390,12 +390,12 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
       <pre class="lines">
 
 
-1762
-1763
-1764</pre>
+2206
+2207
+2208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1762</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2206</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_ssl_endpoint'>ssl_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -467,12 +467,12 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
       <pre class="lines">
 
 
-1770
-1771
-1772</pre>
+2214
+2215
+2216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1770</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2214</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_endpoint_id_or_ssl_endpoint_name'>ssl_endpoint_id_or_ssl_endpoint_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_ssl_endpoint'>ssl_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_endpoint_id_or_ssl_endpoint_name'>ssl_endpoint_id_or_ssl_endpoint_name</span><span class='rparen'>)</span>
@@ -544,12 +544,12 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
       <pre class="lines">
 
 
-1778
-1779
-1780</pre>
+2222
+2223
+2224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1778</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2222</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_endpoint_id_or_ssl_endpoint_name'>ssl_endpoint_id_or_ssl_endpoint_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_ssl_endpoint'>ssl_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_endpoint_id_or_ssl_endpoint_name'>ssl_endpoint_id_or_ssl_endpoint_name</span><span class='rparen'>)</span>
@@ -605,12 +605,12 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
       <pre class="lines">
 
 
-1785
-1786
-1787</pre>
+2229
+2230
+2231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1785</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2229</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_ssl_endpoint'>ssl_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -698,12 +698,12 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
       <pre class="lines">
 
 
-1794
-1795
-1796</pre>
+2238
+2239
+2240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1794</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_endpoint_id_or_ssl_endpoint_name'>ssl_endpoint_id_or_ssl_endpoint_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_ssl_endpoint'>ssl_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_ssl_endpoint_id_or_ssl_endpoint_name'>ssl_endpoint_id_or_ssl_endpoint_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -718,9 +718,9 @@ addon installed before it can provision an SSL Endpoint using these APIs.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Nov 20 09:53:41 2015 by
+  Generated on Mon May 23 09:07:36 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.2.3).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

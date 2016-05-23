@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::OrganizationAppCollaborator
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/OrganizationAppCollaborator.html";
 </script>
 
 
@@ -101,7 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An organization collaborator represents an account that has been given access to an organization app on Heroku.</p>
+    
+<p>An organization collaborator represents an account that has been given
+access to an organization app on Heroku.</p>
 
 
   </div>
@@ -141,7 +143,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new collaborator on an organization app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new collaborator on an organization app.</p>
 </div></span>
   
 </li>
@@ -150,7 +153,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(app_id_or_app_name, collaborator_email_or_collaborator_id) </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(app_name, collaborator_email) </a>
     
 
     
@@ -164,7 +167,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing collaborator from an organization app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing collaborator from an organization app.</p>
 </div></span>
   
 </li>
@@ -173,7 +177,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(app_id_or_app_name, collaborator_email_or_collaborator_id) </a>
+      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(app_name, collaborator_email) </a>
     
 
     
@@ -187,7 +191,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for a collaborator on an organization app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for a collaborator on an organization app.</p>
 </div></span>
   
 </li>
@@ -212,7 +217,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of OrganizationAppCollaborator.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of OrganizationAppCollaborator.</p>
 </div></span>
   
 </li>
@@ -221,7 +227,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list-instance_method" title="#list (instance method)">- (Object) <strong>list</strong>(app_id_or_app_name) </a>
+      <a href="#list-instance_method" title="#list (instance method)">- (Object) <strong>list</strong>(app_name) </a>
     
 
     
@@ -235,7 +241,32 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List collaborators on an organization app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List collaborators on an organization app.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_name, collaborator_email) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing collaborator from an organization app.</p>
 </div></span>
   
 </li>
@@ -258,7 +289,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of OrganizationAppCollaborator</p>
+    
+<p>Returns a new instance of OrganizationAppCollaborator</p>
 
 
   </div>
@@ -272,12 +304,12 @@
       <pre class="lines">
 
 
-960
-961
-962</pre>
+1534
+1535
+1536</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 960</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1534</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -305,7 +337,12 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new collaborator on an organization app. Use this endpoint instead of the <code>/apps/{app_id_or_name}/collaborator</code> endpoint when you want the collaborator to be granted <a href="https://devcenter.heroku.com/articles/org-users-access#roles">privileges</a> according to their role in the organization.</p>
+    
+<p>Create a new collaborator on an organization app. Use this endpoint instead
+of the <code>/apps/{app_id_or_name}/collaborator endpoint when you want the
+collaborator to be granted
+{permissions}[https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions]</code>
+according to their role in the organization.</p>
 
 
   </div>
@@ -324,7 +361,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -339,7 +377,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -353,12 +392,12 @@
       <pre class="lines">
 
 
-968
-969
-970</pre>
+1542
+1543
+1544</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 968</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1542</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -371,7 +410,7 @@
       <div class="method_details ">
   <h3 class="signature " id="delete-instance_method">
   
-    - (<tt>Object</tt>) <strong>delete</strong>(app_id_or_app_name, collaborator_email_or_collaborator_id) 
+    - (<tt>Object</tt>) <strong>delete</strong>(app_name, collaborator_email) 
   
 
   
@@ -379,7 +418,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete an existing collaborator from an organization app.</p>
+    
+<p>Delete an existing collaborator from an organization app.</p>
 
 
   </div>
@@ -390,7 +430,7 @@
   
     <li>
       
-        <span class='name'>app_id_or_app_name:</span>
+        <span class='name'>app_name:</span>
       
       
         <span class='type'></span>
@@ -398,14 +438,15 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique name of app</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>collaborator_email_or_collaborator_id:</span>
+        <span class='name'>collaborator_email:</span>
       
       
         <span class='type'></span>
@@ -413,7 +454,8 @@
       
       
         &mdash;
-        <div class='inline'><p>invited email address of collaborator or unique identifier of collaborator</p>
+        <div class='inline'>
+<p>invited email address of collaborator</p>
 </div>
       
     </li>
@@ -427,15 +469,15 @@
       <pre class="lines">
 
 
-976
-977
-978</pre>
+1550
+1551
+1552</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 976</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1550</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -445,7 +487,7 @@
       <div class="method_details ">
   <h3 class="signature " id="info-instance_method">
   
-    - (<tt>Object</tt>) <strong>info</strong>(app_id_or_app_name, collaborator_email_or_collaborator_id) 
+    - (<tt>Object</tt>) <strong>info</strong>(app_name, collaborator_email) 
   
 
   
@@ -453,7 +495,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for a collaborator on an organization app.</p>
+    
+<p>Info for a collaborator on an organization app.</p>
 
 
   </div>
@@ -464,7 +507,7 @@
   
     <li>
       
-        <span class='name'>app_id_or_app_name:</span>
+        <span class='name'>app_name:</span>
       
       
         <span class='type'></span>
@@ -472,14 +515,15 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique name of app</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>collaborator_email_or_collaborator_id:</span>
+        <span class='name'>collaborator_email:</span>
       
       
         <span class='type'></span>
@@ -487,7 +531,8 @@
       
       
         &mdash;
-        <div class='inline'><p>invited email address of collaborator or unique identifier of collaborator</p>
+        <div class='inline'>
+<p>invited email address of collaborator</p>
 </div>
       
     </li>
@@ -501,15 +546,15 @@
       <pre class="lines">
 
 
-984
-985
-986</pre>
+1558
+1559
+1560</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 984</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1558</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -519,7 +564,7 @@
       <div class="method_details ">
   <h3 class="signature " id="list-instance_method">
   
-    - (<tt>Object</tt>) <strong>list</strong>(app_id_or_app_name) 
+    - (<tt>Object</tt>) <strong>list</strong>(app_name) 
   
 
   
@@ -527,7 +572,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List collaborators on an organization app.</p>
+    
+<p>List collaborators on an organization app.</p>
 
 
   </div>
@@ -538,7 +584,7 @@
   
     <li>
       
-        <span class='name'>app_id_or_app_name:</span>
+        <span class='name'>app_name:</span>
       
       
         <span class='type'></span>
@@ -546,7 +592,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique name of app</p>
 </div>
       
     </li>
@@ -560,15 +607,92 @@
       <pre class="lines">
 
 
-991
-992
-993</pre>
+1573
+1574
+1575</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 991</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1573</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update</strong>(app_name, collaborator_email) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update an existing collaborator from an organization app.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of app</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>collaborator_email:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>invited email address of collaborator</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1566
+1567
+1568</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1566</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app_collaborator'>organization_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -580,9 +704,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:00 2014 by
+  Generated on Mon May 23 09:11:00 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

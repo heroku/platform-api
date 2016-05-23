@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::LogSession
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/LogSession.html";
 </script>
 
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A log session is a reference to the http based log stream for an app.</p>
+    
+<p>A log session is a reference to the http based log stream for an app.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new log session.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new log session.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of LogSession.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of LogSession.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of LogSession</p>
+    
+<p>Returns a new instance of LogSession</p>
 
 
   </div>
@@ -203,12 +207,12 @@
       <pre class="lines">
 
 
-850
-851
-852</pre>
+1389
+1390
+1391</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 850</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1389</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -236,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new log session.</p>
+    
+<p>Create a new log session.</p>
 
 
   </div>
@@ -255,7 +260,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -270,7 +276,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -284,12 +291,12 @@
       <pre class="lines">
 
 
-858
-859
-860</pre>
+1397
+1398
+1399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 858</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1397</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_session'>log_session</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -304,9 +311,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:00 2014 by
+  Generated on Mon May 23 09:11:00 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

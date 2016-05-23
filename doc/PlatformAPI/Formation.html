@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Formation
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/Formation.html";
 </script>
 
 
@@ -101,7 +101,11 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The formation of processes that should be maintained for an app. Update the formation to scale processes or change dyno sizes. Available process type names and commands are defined by the <code>process_types</code> attribute for the <a href="#slug">slug</a> currently released on an app.</p>
+    
+<p>The formation of processes that should be maintained for an app. Update the
+formation to scale processes or change dyno sizes. Available process type
+names and commands are defined by the <code>process_types</code> attribute
+for the <a href="#slug">slug</a> currently released on an app.</p>
 
 
   </div>
@@ -141,7 +145,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Batch update process types.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Batch update process types.</p>
 </div></span>
   
 </li>
@@ -164,7 +169,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for a process type.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for a process type.</p>
 </div></span>
   
 </li>
@@ -189,7 +195,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Formation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Formation.</p>
 </div></span>
   
 </li>
@@ -212,7 +219,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List process type formation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List process type formation.</p>
 </div></span>
   
 </li>
@@ -235,7 +243,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update process type.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update process type.</p>
 </div></span>
   
 </li>
@@ -258,7 +267,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Formation</p>
+    
+<p>Returns a new instance of Formation</p>
 
 
   </div>
@@ -272,12 +282,12 @@
       <pre class="lines">
 
 
-740
-741
-742</pre>
+1182
+1183
+1184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 740</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -305,7 +315,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Batch update process types</p>
+    
+<p>Batch update process types</p>
 
 
   </div>
@@ -324,7 +335,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -339,7 +351,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -353,12 +366,12 @@
       <pre class="lines">
 
 
-763
-764
-765</pre>
+1205
+1206
+1207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 763</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_batch_update'>batch_update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_batch_update'>batch_update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -379,7 +392,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for a process type</p>
+    
+<p>Info for a process type</p>
 
 
   </div>
@@ -398,7 +412,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -413,7 +428,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this process type or type of process to maintain</p>
+        <div class='inline'>
+<p>unique identifier of this process type or type of process to maintain</p>
 </div>
       
     </li>
@@ -427,12 +443,12 @@
       <pre class="lines">
 
 
-748
-749
-750</pre>
+1190
+1191
+1192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 748</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='rparen'>)</span>
@@ -453,7 +469,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List process type formation</p>
+    
+<p>List process type formation</p>
 
 
   </div>
@@ -472,7 +489,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -486,12 +504,12 @@
       <pre class="lines">
 
 
-755
-756
-757</pre>
+1197
+1198
+1199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 755</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1197</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -512,7 +530,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update process type</p>
+    
+<p>Update process type</p>
 
 
   </div>
@@ -531,7 +550,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -546,7 +566,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this process type or type of process to maintain</p>
+        <div class='inline'>
+<p>unique identifier of this process type or type of process to maintain</p>
 </div>
       
     </li>
@@ -561,7 +582,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -575,12 +597,12 @@
       <pre class="lines">
 
 
-772
-773
-774</pre>
+1214
+1215
+1216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 772</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1214</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -595,9 +617,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:00 2014 by
+  Generated on Mon May 23 09:10:59 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

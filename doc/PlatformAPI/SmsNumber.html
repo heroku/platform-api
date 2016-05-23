@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::SmsNumber
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/SmsNumber.html";
 </script>
 
 
@@ -129,7 +129,7 @@ authentication enabled.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#confirm-instance_method" title="#confirm (instance method)">- (Object) <strong>confirm</strong>(account_email_or_account_id) </a>
+      <a href="#confirm-instance_method" title="#confirm (instance method)">- (Object) <strong>confirm</strong>(account_email_or_account_id_or_account_self) </a>
     
 
     
@@ -179,7 +179,7 @@ authentication enabled.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#recover-instance_method" title="#recover (instance method)">- (Object) <strong>recover</strong>(account_email_or_account_id) </a>
+      <a href="#recover-instance_method" title="#recover (instance method)">- (Object) <strong>recover</strong>(account_email_or_account_id_or_account_self) </a>
     
 
     
@@ -203,7 +203,7 @@ authentication enabled.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sms_number-instance_method" title="#sms_number (instance method)">- (Object) <strong>sms_number</strong>(account_email_or_account_id) </a>
+      <a href="#sms_number-instance_method" title="#sms_number (instance method)">- (Object) <strong>sms_number</strong>(account_email_or_account_id_or_account_self) </a>
     
 
     
@@ -256,12 +256,12 @@ authentication enabled.</p>
       <pre class="lines">
 
 
-1712
-1713
-1714</pre>
+2070
+2071
+2072</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1712</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2070</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -281,7 +281,7 @@ authentication enabled.</p>
       <div class="method_details first">
   <h3 class="signature first" id="confirm-instance_method">
   
-    - (<tt>Object</tt>) <strong>confirm</strong>(account_email_or_account_id) 
+    - (<tt>Object</tt>) <strong>confirm</strong>(account_email_or_account_id_or_account_self) 
   
 
   
@@ -301,7 +301,7 @@ authentication enabled.</p>
   
     <li>
       
-        <span class='name'>account_email_or_account_id:</span>
+        <span class='name'>account_email_or_account_id_or_account_self:</span>
       
       
         <span class='type'></span>
@@ -310,7 +310,8 @@ authentication enabled.</p>
       
         &mdash;
         <div class='inline'>
-<p>unique email address of account or unique identifier of an account</p>
+<p>unique email address of account or unique identifier of an account or
+Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -324,15 +325,15 @@ authentication enabled.</p>
       <pre class="lines">
 
 
-1733
-1734
-1735</pre>
+2091
+2092
+2093</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1733</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2091</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_confirm'>confirm</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_confirm'>confirm</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_confirm'>confirm</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_confirm'>confirm</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -342,7 +343,7 @@ authentication enabled.</p>
       <div class="method_details ">
   <h3 class="signature " id="recover-instance_method">
   
-    - (<tt>Object</tt>) <strong>recover</strong>(account_email_or_account_id) 
+    - (<tt>Object</tt>) <strong>recover</strong>(account_email_or_account_id_or_account_self) 
   
 
   
@@ -362,7 +363,7 @@ authentication enabled.</p>
   
     <li>
       
-        <span class='name'>account_email_or_account_id:</span>
+        <span class='name'>account_email_or_account_id_or_account_self:</span>
       
       
         <span class='type'></span>
@@ -371,7 +372,8 @@ authentication enabled.</p>
       
         &mdash;
         <div class='inline'>
-<p>unique email address of account or unique identifier of an account</p>
+<p>unique email address of account or unique identifier of an account or
+Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -385,15 +387,15 @@ authentication enabled.</p>
       <pre class="lines">
 
 
-1726
-1727
-1728</pre>
+2084
+2085
+2086</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1726</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2084</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_recover'>recover</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_recover'>recover</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_recover'>recover</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_recover'>recover</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -403,7 +405,7 @@ authentication enabled.</p>
       <div class="method_details ">
   <h3 class="signature " id="sms_number-instance_method">
   
-    - (<tt>Object</tt>) <strong>sms_number</strong>(account_email_or_account_id) 
+    - (<tt>Object</tt>) <strong>sms_number</strong>(account_email_or_account_id_or_account_self) 
   
 
   
@@ -423,7 +425,7 @@ authentication enabled.</p>
   
     <li>
       
-        <span class='name'>account_email_or_account_id:</span>
+        <span class='name'>account_email_or_account_id_or_account_self:</span>
       
       
         <span class='type'></span>
@@ -432,7 +434,8 @@ authentication enabled.</p>
       
         &mdash;
         <div class='inline'>
-<p>unique email address of account or unique identifier of an account</p>
+<p>unique email address of account or unique identifier of an account or
+Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -446,15 +449,15 @@ authentication enabled.</p>
       <pre class="lines">
 
 
-1719
-1720
-1721</pre>
+2077
+2078
+2079</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1719</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2077</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_sms_number'>sms_number</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_sms_number'>sms_number</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -466,9 +469,9 @@ authentication enabled.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Nov 20 09:53:41 2015 by
+  Generated on Mon May 23 09:11:01 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.2.3).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

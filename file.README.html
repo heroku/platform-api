@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.README.html";
 </script>
 
 
@@ -85,7 +85,8 @@
 
 <h2 id="label-API+documentation">API documentation</h2>
 
-<p>Jump right to the <a href="http://heroku.github.io/platform-api/">API
+<p>Jump right to the <a
+href="http://heroku.github.io/platform-api/_index.html">API
 documentation</a> for the nitty gritty details.</p>
 
 <h2 id="label-Usage+guide">Usage guide</h2>
@@ -123,8 +124,9 @@ would return a Ruby object that matches the one given in the <a
 href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">response
 example</a>.</p>
 
-<p>The [API documentation] contains a description of all available resources
-and methods.</p>
+<p>The <a href="http://heroku.github.io/platform-api/_index.html">API
+documentation</a> contains a description of all available resources and
+methods.</p>
 
 <h3 id="label-Handling+errors">Handling errors</h3>
 
@@ -141,7 +143,13 @@ work with it. The first thing you need is a client setup with an OAuth
 token. You can create an OAuth token using the <code>heroku-oauth</code>
 toolbelt plugin:</p>
 
-<pre class="code ruby"><code class="ruby"></code></pre>
+<pre class="code ruby"><code class="ruby">$ heroku plugins:install git@github.com:heroku/heroku-oauth.git
+$ heroku authorizations:create -d &quot;Platform API example token&quot;
+Created OAuth authorization.
+  ID:          2f01aac0-e9d3-4773-af4e-3e510aa006ca
+  Description: Platform API example token
+  Scope:       global
+  Token:       e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2</code></pre>
 
 <p>Use the <code>Token</code> value when instantiating a client:</p>
 
@@ -155,7 +163,7 @@ with specific scopes.</p>
 
 <p>Now let&#39;s create an app:</p>
 
-<pre class="code ruby"><code class="ruby">heroku.app.create
+<pre class="code ruby"><code class="ruby">heroku.app.create({})
 =&gt; {&quot;id&quot;=&gt;22979756,
     &quot;name&quot;=&gt;&quot;floating-retreat-4255&quot;,
     &quot;dynos&quot;=&gt;0,
@@ -257,7 +265,27 @@ Ruby object, as the final parameter of the method call.</p>
 href="https://github.com/heroku-examples/geosockets">Geosockets</a> example
 app:</p>
 
-<pre class="code ruby"><code class="ruby"></code></pre>
+<pre class="code ruby"><code class="ruby">$ git clone https://github.com/heroku-examples/geosockets.git
+Cloning into &#39;geosockets&#39;...
+remote: Reusing existing pack: 489, done.
+remote: Total 489 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (489/489), 1.95 MiB | 1.14 MiB/s, done.
+Resolving deltas: 100% (244/244), done.
+Checking connectivity... done.
+$ cd geosockets
+$ git remote add heroku git@heroku.com:floating-retreat-4255.git
+$ heroku labs:enable websockets
+$ heroku addons:add openredis:micro # $10/month
+Adding openredis:micro on floating-retreat-4255... done, v10 ($10/mo)
+Use `heroku addons:docs openredis` to view documentation.
+$ git push heroku master
+Initializing repository, done.
+Counting objects: 489, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (229/229), done.
+Writing objects: 100% (489/489), 1.95 MiB | 243.00 KiB/s, done.
+Total 489 (delta 244), reused 489 (delta 244)
+8&lt; snip 8&lt;</code></pre>
 
 <p>We can now use the API to see our <code>web</code> process running:</p>
 
@@ -347,12 +375,16 @@ to use:</p>
 <p>Remember to commit and push the changes to Github.</p>
 
 <h3 id="label-Release+a+new+gem">Release a new gem</h3>
-
-<p>Bump the version in <code>lib/platform-api/version.rb</code> and push a new
-release to Rubygems:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_release'>release</span>
-</code></pre>
+<ul><li>
+<p>Bump the version in <code>lib/platform-api/version.rb</code></p>
+</li><li>
+<p><code>bundle install</code> to update Gemfile.lock</p>
+</li><li>
+<p>`git commit -m &#39;vX.Y.Z&#39; to stage the version and Gemfile.lock
+changes</p>
+</li><li>
+<p><code>rake release</code> to push git changes and to release to Rubygems</p>
+</li></ul>
 
 <h3 id="label-Building+API+documentation">Building API documentation</h3>
 
@@ -386,9 +418,9 @@ repository</a>.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Fri Nov 20 09:53:37 2015 by
+  Generated on Mon May 23 09:07:30 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.2.3).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

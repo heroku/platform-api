@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Stack
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/Stack.html";
 </script>
 
 
@@ -101,7 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Stacks are the different application execution environments available in the Heroku platform.</p>
+    
+<p>Stacks are the different application execution environments available in
+the Heroku platform.</p>
 
 
   </div>
@@ -141,7 +143,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Stack info.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Stack info.</p>
 </div></span>
   
 </li>
@@ -166,7 +169,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Stack.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Stack.</p>
 </div></span>
   
 </li>
@@ -189,7 +193,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List available stacks.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List available stacks.</p>
 </div></span>
   
 </li>
@@ -212,7 +217,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Stack</p>
+    
+<p>Returns a new instance of Stack</p>
 
 
   </div>
@@ -226,12 +232,12 @@
       <pre class="lines">
 
 
-1255
-1256
-1257</pre>
+2245
+2246
+2247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1255</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +265,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Stack info.</p>
+    
+<p>Stack info.</p>
 
 
   </div>
@@ -278,7 +285,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of stack or unique identifier of stack</p>
+        <div class='inline'>
+<p>unique name of stack or unique identifier of stack</p>
 </div>
       
     </li>
@@ -292,12 +300,12 @@
       <pre class="lines">
 
 
-1262
-1263
-1264</pre>
+2252
+2253
+2254</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1262</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2252</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_stack_name_or_stack_id'>stack_name_or_stack_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_stack_name_or_stack_id'>stack_name_or_stack_id</span><span class='rparen'>)</span>
@@ -318,7 +326,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List available stacks.</p>
+    
+<p>List available stacks.</p>
 
 
   </div>
@@ -332,12 +341,12 @@
       <pre class="lines">
 
 
-1267
-1268
-1269</pre>
+2257
+2258
+2259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1267</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2257</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -352,9 +361,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:01 2014 by
+  Generated on Mon May 23 09:11:02 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

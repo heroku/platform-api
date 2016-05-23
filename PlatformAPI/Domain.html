@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Domain
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/Domain.html";
 </script>
 
 
@@ -279,12 +279,12 @@
       <pre class="lines">
 
 
-939
-940
-941</pre>
+1071
+1072
+1073</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 939</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1071</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -363,12 +363,12 @@
       <pre class="lines">
 
 
-947
-948
-949</pre>
+1079
+1080
+1081</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 947</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1079</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -440,12 +440,12 @@
       <pre class="lines">
 
 
-955
-956
-957</pre>
+1087
+1088
+1089</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 955</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1087</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
@@ -517,12 +517,12 @@
       <pre class="lines">
 
 
-963
-964
-965</pre>
+1095
+1096
+1097</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 963</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1095</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
@@ -578,12 +578,12 @@
       <pre class="lines">
 
 
-970
-971
-972</pre>
+1102
+1103
+1104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 970</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -598,9 +598,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Nov 20 09:53:39 2015 by
+  Generated on Mon May 23 09:07:33 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.2.3).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

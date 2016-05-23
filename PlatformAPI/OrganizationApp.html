@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::OrganizationApp
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/OrganizationApp.html";
 </script>
 
 
@@ -354,12 +354,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1383
-1384
-1385</pre>
+1580
+1581
+1582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1383</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1580</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -423,12 +423,12 @@ if unspecified, or in personal account, if default organization is not set.</p>
       <pre class="lines">
 
 
-1390
-1391
-1392</pre>
+1587
+1588
+1589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1390</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1587</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -484,12 +484,12 @@ if unspecified, or in personal account, if default organization is not set.</p>
       <pre class="lines">
 
 
-1409
-1410
-1411</pre>
+1606
+1607
+1608</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1409</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1606</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
@@ -526,12 +526,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1395
-1396
-1397</pre>
+1592
+1593
+1594</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1395</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1592</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -587,12 +587,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1402
-1403
-1404</pre>
+1599
+1600
+1601</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1402</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1599</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_for_organization'>list_for_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_list_for_organization'>list_for_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
@@ -664,12 +664,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1425
-1426
-1427</pre>
+1622
+1623
+1624</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1425</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1622</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -741,12 +741,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1433
-1434
-1435</pre>
+1630
+1631
+1632</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1433</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1630</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_organization'>transfer_to_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_organization'>transfer_to_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -818,12 +818,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1417
-1418
-1419</pre>
+1614
+1615
+1616</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1417</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1614</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -838,9 +838,9 @@ organization is not set.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Nov 20 09:53:40 2015 by
+  Generated on Mon May 23 09:07:34 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.2.3).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

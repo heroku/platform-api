@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::OrganizationMember
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/OrganizationMember.html";
 </script>
 
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An organization member is an individual with access to an organization.</p>
+    
+<p>An organization member is an individual with access to an organization.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new organization member, or update their role.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new organization member, or update their role.</p>
 </div></span>
   
 </li>
@@ -150,7 +152,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(organization_name, organization_member_email) </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(organization_name, organization_member_email_or_app_id) </a>
     
 
     
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Remove a member from the organization.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Remove a member from the organization.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of OrganizationMember.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of OrganizationMember.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List members of the organization.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List members of the organization.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of OrganizationMember</p>
+    
+<p>Returns a new instance of OrganizationMember</p>
 
 
   </div>
@@ -249,12 +255,12 @@
       <pre class="lines">
 
 
-1044
-1045
-1046</pre>
+1659
+1660
+1661</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1044</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1659</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -282,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new organization member, or update their role.</p>
+    
+<p>Create a new organization member, or update their role.</p>
 
 
   </div>
@@ -301,7 +308,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of organization</p>
+        <div class='inline'>
+<p>unique name of organization</p>
 </div>
       
     </li>
@@ -316,7 +324,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -330,12 +339,12 @@
       <pre class="lines">
 
 
-1052
-1053
-1054</pre>
+1667
+1668
+1669</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1052</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1667</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_or_update'>create_or_update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_member'>organization_member</span><span class='period'>.</span><span class='id identifier rubyid_create_or_update'>create_or_update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -348,7 +357,7 @@
       <div class="method_details ">
   <h3 class="signature " id="delete-instance_method">
   
-    - (<tt>Object</tt>) <strong>delete</strong>(organization_name, organization_member_email) 
+    - (<tt>Object</tt>) <strong>delete</strong>(organization_name, organization_member_email_or_app_id) 
   
 
   
@@ -356,7 +365,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Remove a member from the organization.</p>
+    
+<p>Remove a member from the organization.</p>
 
 
   </div>
@@ -375,14 +385,15 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of organization</p>
+        <div class='inline'>
+<p>unique name of organization</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>organization_member_email:</span>
+        <span class='name'>organization_member_email_or_app_id:</span>
       
       
         <span class='type'></span>
@@ -390,7 +401,8 @@
       
       
         &mdash;
-        <div class='inline'><p>email address of the organization member</p>
+        <div class='inline'>
+<p>email address of the organization member or unique identifier of app</p>
 </div>
       
     </li>
@@ -404,15 +416,15 @@
       <pre class="lines">
 
 
-1060
-1061
-1062</pre>
+1675
+1676
+1677</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1060</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1675</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_member_email'>organization_member_email</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_member'>organization_member</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_member_email'>organization_member_email</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_member_email_or_app_id'>organization_member_email_or_app_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_member'>organization_member</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_member_email_or_app_id'>organization_member_email_or_app_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -430,7 +442,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List members of the organization.</p>
+    
+<p>List members of the organization.</p>
 
 
   </div>
@@ -449,7 +462,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of organization</p>
+        <div class='inline'>
+<p>unique name of organization</p>
 </div>
       
     </li>
@@ -463,12 +477,12 @@
       <pre class="lines">
 
 
-1067
-1068
-1069</pre>
+1682
+1683
+1684</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1067</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1682</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_member'>organization_member</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
@@ -483,9 +497,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:00 2014 by
+  Generated on Mon May 23 09:11:00 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

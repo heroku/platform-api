@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Key
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/Key.html";
 </script>
 
 
@@ -101,7 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Keys represent public SSH keys associated with an account and are used to authorize accounts as they are performing git operations.</p>
+    
+<p>Keys represent public SSH keys associated with an account and are used to
+authorize accounts as they are performing git operations.</p>
 
 
   </div>
@@ -141,7 +143,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new key.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new key.</p>
 </div></span>
   
 </li>
@@ -164,7 +167,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing key.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing key.</p>
 </div></span>
   
 </li>
@@ -187,7 +191,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing key.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing key.</p>
 </div></span>
   
 </li>
@@ -212,7 +217,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Key.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Key.</p>
 </div></span>
   
 </li>
@@ -235,7 +241,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing keys.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing keys.</p>
 </div></span>
   
 </li>
@@ -258,7 +265,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Key</p>
+    
+<p>Returns a new instance of Key</p>
 
 
   </div>
@@ -272,12 +280,12 @@
       <pre class="lines">
 
 
-779
-780
-781</pre>
+1318
+1319
+1320</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 779</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1318</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -305,7 +313,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new key.</p>
+    
+<p>Create a new key.</p>
 
 
   </div>
@@ -324,7 +333,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -338,12 +348,12 @@
       <pre class="lines">
 
 
-786
-787
-788</pre>
+1325
+1326
+1327</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 786</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1325</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -364,7 +374,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete an existing key</p>
+    
+<p>Delete an existing key</p>
 
 
   </div>
@@ -383,7 +394,9 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this key or a unique identifying string based on contents</p>
+        <div class='inline'>
+<p>unique identifier of this key or a unique identifying string based on
+contents</p>
 </div>
       
     </li>
@@ -397,12 +410,12 @@
       <pre class="lines">
 
 
-793
-794
-795</pre>
+1332
+1333
+1334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 793</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1332</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
@@ -423,7 +436,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing key.</p>
+    
+<p>Info for existing key.</p>
 
 
   </div>
@@ -442,7 +456,9 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this key or a unique identifying string based on contents</p>
+        <div class='inline'>
+<p>unique identifier of this key or a unique identifying string based on
+contents</p>
 </div>
       
     </li>
@@ -456,12 +472,12 @@
       <pre class="lines">
 
 
-800
-801
-802</pre>
+1339
+1340
+1341</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 800</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1339</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
@@ -482,7 +498,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing keys.</p>
+    
+<p>List existing keys.</p>
 
 
   </div>
@@ -496,12 +513,12 @@
       <pre class="lines">
 
 
-805
-806
-807</pre>
+1344
+1345
+1346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 805</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1344</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -516,9 +533,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:00 2014 by
+  Generated on Mon May 23 09:10:59 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

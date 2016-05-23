@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AppTransfer
   
-    &mdash; Documentation by YARD 0.8.7.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!PlatformAPI/AppTransfer.html";
 </script>
 
 
@@ -101,7 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An app transfer represents a two party interaction for transferring ownership of an app.</p>
+    
+<p>An app transfer represents a two party interaction for transferring
+ownership of an app.</p>
 
 
   </div>
@@ -141,7 +143,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new app transfer.</p>
 </div></span>
   
 </li>
@@ -164,7 +167,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing app transfer.</p>
 </div></span>
   
 </li>
@@ -187,7 +191,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing app transfer.</p>
 </div></span>
   
 </li>
@@ -212,7 +217,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of AppTransfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AppTransfer.</p>
 </div></span>
   
 </li>
@@ -235,7 +241,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing apps transfers.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing apps transfers.</p>
 </div></span>
   
 </li>
@@ -258,7 +265,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update an existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing app transfer.</p>
 </div></span>
   
 </li>
@@ -281,7 +289,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of AppTransfer</p>
+    
+<p>Returns a new instance of AppTransfer</p>
 
 
   </div>
@@ -295,12 +304,12 @@
       <pre class="lines">
 
 
-473
-474
-475</pre>
+829
+830
+831</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 473</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 829</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +337,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new app transfer.</p>
+    
+<p>Create a new app transfer.</p>
 
 
   </div>
@@ -347,7 +357,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -361,12 +372,12 @@
       <pre class="lines">
 
 
-480
-481
-482</pre>
+836
+837
+838</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 480</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 836</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -387,7 +398,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete an existing app transfer</p>
+    
+<p>Delete an existing app transfer</p>
 
 
   </div>
@@ -406,7 +418,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app transfer or unique name of app</p>
 </div>
       
     </li>
@@ -420,12 +433,12 @@
       <pre class="lines">
 
 
-487
-488
-489</pre>
+843
+844
+845</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 487</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 843</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
@@ -446,7 +459,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing app transfer.</p>
+    
+<p>Info for existing app transfer.</p>
 
 
   </div>
@@ -465,7 +479,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app transfer or unique name of app</p>
 </div>
       
     </li>
@@ -479,12 +494,12 @@
       <pre class="lines">
 
 
-494
-495
-496</pre>
+850
+851
+852</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 494</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 850</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
@@ -505,7 +520,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing apps transfers.</p>
+    
+<p>List existing apps transfers.</p>
 
 
   </div>
@@ -519,12 +535,12 @@
       <pre class="lines">
 
 
-499
-500
-501</pre>
+855
+856
+857</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 499</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 855</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -545,7 +561,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update an existing app transfer.</p>
+    
+<p>Update an existing app transfer.</p>
 
 
   </div>
@@ -564,7 +581,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app transfer or unique name of app</p>
 </div>
       
     </li>
@@ -579,7 +597,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -593,12 +612,12 @@
       <pre class="lines">
 
 
-507
-508
-509</pre>
+863
+864
+865</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 507</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 863</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -613,9 +632,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri May  2 13:51:00 2014 by
+  Generated on Mon May 23 09:10:58 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.2 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>
