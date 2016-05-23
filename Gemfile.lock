@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     platform-api (0.7.0)
-      heroics
+      heroics (~> 0.0.16)
 
 GEM
   remote: https://rubygems.org/
