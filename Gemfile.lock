@@ -2,21 +2,21 @@ PATH
   remote: .
   specs:
     platform-api (0.7.0)
-      heroics (~> 0.0.16)
+      heroics (~> 0.0.17)
 
 GEM
   remote: https://rubygems.org/
   specs:
     erubis (2.7.0)
     excon (0.49.0)
-    heroics (0.0.16)
+    heroics (0.0.17)
       erubis (~> 2.0)
       excon
       moneta
       multi_json (>= 1.9.2)
       netrc
     moneta (0.8.0)
-    multi_json (1.11.2)
+    multi_json (1.12.1)
     netrc (0.11.0)
     rake (10.5.0)
     yard (0.8.7.6)

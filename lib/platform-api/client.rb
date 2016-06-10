@@ -11,19 +11,27 @@ require 'heroics'
 require 'uri'
 
 module PlatformAPI
-  # Get a Client configured to use HTTP Basic authentication.
+  # Get a Client configured to use HTTP Basic or header-based authentication.
   #
   # @param api_key [String] The API key to use when connecting.
   # @param options [Hash<Symbol,String>] Optionally, custom settings
   #   to use with the client.  Allowed options are `default_headers`,
   #   `cache`, `user` and `url`.
   # @return [Client] A client configured to use the API with HTTP Basic
-  #   authentication.
+  #   or header-based authentication.
   def self.connect(api_key, options=nil)
     options = custom_options(options)
     uri = URI.parse(options[:url])
-    uri.user = URI.encode_www_form_component options.fetch(:user, 'user')
-    uri.password = api_key
+
+    if options[:user]
+      uri.user = URI.encode_www_form_component options[:user]
+    end
+
+    if api_key
+      uri.user ||= 'user'
+      uri.password = api_key
+    end
+
     client = Heroics.client_from_schema(SCHEMA, uri.to_s, options)
     Client.new(client)
   end
@@ -115,6 +123,13 @@ module PlatformAPI
     # @return [AddonAttachment]
     def addon_attachment
       @addon_attachment_resource ||= AddonAttachment.new(@client)
+    end
+
+    # Configuration of an Add-on
+    #
+    # @return [AddonConfig]
+    def addon_config
+      @addon_config_resource ||= AddonConfig.new(@client)
     end
 
     # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region
@@ -390,6 +405,13 @@ module PlatformAPI
       @otp_secret_resource ||= OtpSecret.new(@client)
     end
 
+    # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
+    #
+    # @return [OutboundRuleset]
+    def outbound_ruleset
+      @outbound_ruleset_resource ||= OutboundRuleset.new(@client)
+    end
+
     # A password reset represents a in-process password reset attempt.
     #
     # @return [PasswordReset]
@@ -569,7 +591,7 @@ module PlatformAPI
     #
     # @param account_feature_id_or_account_feature_name: unique identifier of account feature or unique name of account feature
     # @param body: the object to pass as the request payload
-    def update(account_feature_id_or_account_feature_name, body)
+    def update(account_feature_id_or_account_feature_name, body = {})
       @client.account_feature.update(account_feature_id_or_account_feature_name, body)
     end
   end
@@ -591,7 +613,7 @@ module PlatformAPI
     #
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
     # @param body: the object to pass as the request payload
-    def update(account_email_or_account_id_or_account_self, body)
+    def update(account_email_or_account_id_or_account_self, body = {})
       @client.account.update(account_email_or_account_id_or_account_self, body)
     end
 
@@ -599,7 +621,7 @@ module PlatformAPI
     #
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
     # @param body: the object to pass as the request payload
-    def change_email(account_email_or_account_id_or_account_self, body)
+    def change_email(account_email_or_account_id_or_account_self, body = {})
       @client.account.change_email(account_email_or_account_id_or_account_self, body)
     end
 
@@ -607,7 +629,7 @@ module PlatformAPI
     #
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
     # @param body: the object to pass as the request payload
-    def change_password(account_email_or_account_id_or_account_self, body)
+    def change_password(account_email_or_account_id_or_account_self, body = {})
       @client.account.change_password(account_email_or_account_id_or_account_self, body)
     end
 
@@ -635,7 +657,7 @@ module PlatformAPI
     # Create a new add-on attachment.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.addon_attachment.create(body)
     end
 
@@ -678,6 +700,28 @@ module PlatformAPI
     # @param addon_attachment_id_or_addon_attachment_name: unique identifier of this add-on attachment or unique name for this add-on attachment to this app
     def info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
       @client.addon_attachment.info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
+    end
+  end
+
+  # Configuration of an Add-on
+  class AddonConfig
+    def initialize(client)
+      @client = client
+    end
+
+    # Get an add-on's config
+    #
+    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
+    def list(addon_id_or_addon_name)
+      @client.addon_config.list(addon_id_or_addon_name)
+    end
+
+    # Update an add-on's config.
+    #
+    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
+    # @param body: the object to pass as the request payload
+    def update(addon_id_or_addon_name, body = {})
+      @client.addon_config.update(addon_id_or_addon_name, body)
     end
   end
 
@@ -731,7 +775,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.addon.create(app_id_or_app_name, body)
     end
 
@@ -767,7 +811,7 @@ module PlatformAPI
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, addon_id_or_addon_name, body)
+    def update(app_id_or_app_name, addon_id_or_addon_name, body = {})
       @client.addon.update(app_id_or_app_name, addon_id_or_addon_name, body)
     end
   end
@@ -798,7 +842,7 @@ module PlatformAPI
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param app_feature_id_or_app_feature_name: unique identifier of app feature or unique name of app feature
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, app_feature_id_or_app_feature_name, body)
+    def update(app_id_or_app_name, app_feature_id_or_app_feature_name, body = {})
       @client.app_feature.update(app_id_or_app_name, app_feature_id_or_app_feature_name, body)
     end
   end
@@ -812,7 +856,7 @@ module PlatformAPI
     # Create a new app setup from a gzipped tar archive containing an app.json manifest file.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.app_setup.create(body)
     end
 
@@ -833,7 +877,7 @@ module PlatformAPI
     # Create a new app transfer.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.app_transfer.create(body)
     end
 
@@ -860,7 +904,7 @@ module PlatformAPI
     #
     # @param app_transfer_id_or_app_name: unique identifier of app transfer or unique name of app
     # @param body: the object to pass as the request payload
-    def update(app_transfer_id_or_app_name, body)
+    def update(app_transfer_id_or_app_name, body = {})
       @client.app_transfer.update(app_transfer_id_or_app_name, body)
     end
   end
@@ -874,7 +918,7 @@ module PlatformAPI
     # Create a new app.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.app.create(body)
     end
 
@@ -908,7 +952,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, body)
+    def update(app_id_or_app_name, body = {})
       @client.app.update(app_id_or_app_name, body)
     end
   end
@@ -938,7 +982,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.build.create(app_id_or_app_name, body)
     end
 
@@ -968,7 +1012,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, body)
+    def update(app_id_or_app_name, body = {})
       @client.buildpack_installation.update(app_id_or_app_name, body)
     end
 
@@ -990,7 +1034,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.collaborator.create(app_id_or_app_name, body)
     end
 
@@ -1031,11 +1075,11 @@ module PlatformAPI
       @client.config_var.info(app_id_or_app_name)
     end
 
-    # Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `NULL`.
+    # Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `null`.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, body)
+    def update(app_id_or_app_name, body = {})
       @client.config_var.update(app_id_or_app_name, body)
     end
   end
@@ -1049,7 +1093,7 @@ module PlatformAPI
     # Create a new credit.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.credit.create(body)
     end
 
@@ -1076,7 +1120,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.domain.create(app_id_or_app_name, body)
     end
 
@@ -1114,7 +1158,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.dyno.create(app_id_or_app_name, body)
     end
 
@@ -1172,7 +1216,7 @@ module PlatformAPI
     # Request an apps list filtered by app id.
     #
     # @param body: the object to pass as the request payload
-    def apps(body)
+    def apps(body = {})
       @client.filter_apps.apps(body)
     end
   end
@@ -1202,7 +1246,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def batch_update(app_id_or_app_name, body)
+    def batch_update(app_id_or_app_name, body = {})
       @client.formation.batch_update(app_id_or_app_name, body)
     end
 
@@ -1211,7 +1255,7 @@ module PlatformAPI
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param formation_id_or_formation_type: unique identifier of this process type or type of process to maintain
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, formation_id_or_formation_type, body)
+    def update(app_id_or_app_name, formation_id_or_formation_type, body = {})
       @client.formation.update(app_id_or_app_name, formation_id_or_formation_type, body)
     end
   end
@@ -1241,7 +1285,7 @@ module PlatformAPI
     #
     # @param space_id_or_space_name: unique identifier of space or unique name of space
     # @param body: the object to pass as the request payload
-    def create(space_id_or_space_name, body)
+    def create(space_id_or_space_name, body = {})
       @client.inbound_ruleset.create(space_id_or_space_name, body)
     end
   end
@@ -1263,14 +1307,14 @@ module PlatformAPI
     #
     # @param invitation_token: Unique identifier of an invitation
     # @param body: the object to pass as the request payload
-    def finalize_invitation(invitation_token, body)
+    def finalize_invitation(invitation_token, body = {})
       @client.invitation.finalize_invitation(invitation_token, body)
     end
 
     # Invite a user.
     #
     # @param body: the object to pass as the request payload
-    def invitation(body)
+    def invitation(body = {})
       @client.invitation.invitation(body)
     end
   end
@@ -1289,7 +1333,7 @@ module PlatformAPI
     # Update invoice address for an account.
     #
     # @param body: the object to pass as the request payload
-    def update(body)
+    def update(body = {})
       @client.invoice_address.update(body)
     end
   end
@@ -1322,7 +1366,7 @@ module PlatformAPI
     # Create a new key.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.key.create(body)
     end
 
@@ -1356,7 +1400,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.log_drain.create(app_id_or_app_name, body)
     end
 
@@ -1394,7 +1438,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.log_session.create(app_id_or_app_name, body)
     end
   end
@@ -1408,7 +1452,7 @@ module PlatformAPI
     # Create a new OAuth authorization.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.oauth_authorization.create(body)
     end
 
@@ -1448,7 +1492,7 @@ module PlatformAPI
     # Create a new OAuth client.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.oauth_client.create(body)
     end
 
@@ -1475,7 +1519,7 @@ module PlatformAPI
     #
     # @param oauth_client_id: unique identifier of this OAuth client
     # @param body: the object to pass as the request payload
-    def update(oauth_client_id, body)
+    def update(oauth_client_id, body = {})
       @client.oauth_client.update(oauth_client_id, body)
     end
 
@@ -1503,7 +1547,7 @@ module PlatformAPI
     # Create a new OAuth token.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.oauth_token.create(body)
     end
 
@@ -1539,7 +1583,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.organization_app_collaborator.create(app_id_or_app_name, body)
     end
 
@@ -1584,7 +1628,7 @@ module PlatformAPI
     # Create a new app in the specified organization, in the default organization if unspecified,  or in personal account, if default organization is not set.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.organization_app.create(body)
     end
 
@@ -1611,7 +1655,7 @@ module PlatformAPI
     #
     # @param app_name: unique name of app
     # @param body: the object to pass as the request payload
-    def update_locked(app_name, body)
+    def update_locked(app_name, body = {})
       @client.organization_app.update_locked(app_name, body)
     end
 
@@ -1619,7 +1663,7 @@ module PlatformAPI
     #
     # @param app_name: unique name of app
     # @param body: the object to pass as the request payload
-    def transfer_to_account(app_name, body)
+    def transfer_to_account(app_name, body = {})
       @client.organization_app.transfer_to_account(app_name, body)
     end
 
@@ -1627,7 +1671,7 @@ module PlatformAPI
     #
     # @param app_name: unique name of app
     # @param body: the object to pass as the request payload
-    def transfer_to_organization(app_name, body)
+    def transfer_to_organization(app_name, body = {})
       @client.organization_app.transfer_to_organization(app_name, body)
     end
   end
@@ -1664,7 +1708,7 @@ module PlatformAPI
     #
     # @param organization_name: unique name of organization
     # @param body: the object to pass as the request payload
-    def create_or_update(organization_name, body)
+    def create_or_update(organization_name, body = {})
       @client.organization_member.create_or_update(organization_name, body)
     end
 
@@ -1694,7 +1738,7 @@ module PlatformAPI
     #
     # @param organization_name: unique name of organization
     # @param body: the object to pass as the request payload
-    def update(organization_name, body)
+    def update(organization_name, body = {})
       @client.organization_payment_method.update(organization_name, body)
     end
 
@@ -1723,7 +1767,7 @@ module PlatformAPI
     #
     # @param organization_preferences_identity: 
     # @param body: the object to pass as the request payload
-    def update(organization_preferences_identity, body)
+    def update(organization_preferences_identity, body = {})
       @client.organization_preferences.update(organization_preferences_identity, body)
     end
   end
@@ -1750,7 +1794,7 @@ module PlatformAPI
     #
     # @param organization_name: unique name of organization
     # @param body: the object to pass as the request payload
-    def update(organization_name, body)
+    def update(organization_name, body = {})
       @client.organization.update(organization_name, body)
     end
   end
@@ -1767,6 +1811,36 @@ module PlatformAPI
     end
   end
 
+  # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
+  class OutboundRuleset
+    def initialize(client)
+      @client = client
+    end
+
+    # Info on an existing Outbound Ruleset
+    #
+    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    # @param outbound_ruleset_id: unique identifier of an outbound-ruleset
+    def info(space_id_or_space_name, outbound_ruleset_id)
+      @client.outbound_ruleset.info(space_id_or_space_name, outbound_ruleset_id)
+    end
+
+    # List all Outbound Rulesets for a space
+    #
+    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    def list(space_id_or_space_name)
+      @client.outbound_ruleset.list(space_id_or_space_name)
+    end
+
+    # Create a new outbound ruleset
+    #
+    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    # @param body: the object to pass as the request payload
+    def create(space_id_or_space_name, body = {})
+      @client.outbound_ruleset.create(space_id_or_space_name, body)
+    end
+  end
+
   # A password reset represents a in-process password reset attempt.
   class PasswordReset
     def initialize(client)
@@ -1776,7 +1850,7 @@ module PlatformAPI
     # Reset account's password. This will send a reset password link to the user's email address.
     #
     # @param body: the object to pass as the request payload
-    def reset_password(body)
+    def reset_password(body = {})
       @client.password_reset.reset_password(body)
     end
 
@@ -1784,7 +1858,7 @@ module PlatformAPI
     #
     # @param password_reset_reset_password_token: unique identifier of a password reset attempt
     # @param body: the object to pass as the request payload
-    def complete_reset_password(password_reset_reset_password_token, body)
+    def complete_reset_password(password_reset_reset_password_token, body = {})
       @client.password_reset.complete_reset_password(password_reset_reset_password_token, body)
     end
   end
@@ -1798,7 +1872,7 @@ module PlatformAPI
     # Update an existing payment method for an account.
     #
     # @param body: the object to pass as the request payload
-    def update(body)
+    def update(body = {})
       @client.payment_method.update(body)
     end
 
@@ -1817,7 +1891,7 @@ module PlatformAPI
     # Create a payment on an existing account
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.payment.create(body)
     end
   end
@@ -1836,7 +1910,7 @@ module PlatformAPI
     # Create a new pipeline coupling.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.pipeline_coupling.create(body)
     end
 
@@ -1858,7 +1932,7 @@ module PlatformAPI
     #
     # @param pipeline_coupling_id: unique identifier of pipeline coupling
     # @param body: the object to pass as the request payload
-    def update(pipeline_coupling_id, body)
+    def update(pipeline_coupling_id, body = {})
       @client.pipeline_coupling.update(pipeline_coupling_id, body)
     end
   end
@@ -1886,7 +1960,7 @@ module PlatformAPI
     # Create a new promotion.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.pipeline_promotion.create(body)
     end
 
@@ -1907,7 +1981,7 @@ module PlatformAPI
     # Create a new pipeline.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.pipeline.create(body)
     end
 
@@ -1929,7 +2003,7 @@ module PlatformAPI
     #
     # @param pipeline_id: unique identifier of pipeline
     # @param body: the object to pass as the request payload
-    def update(pipeline_id, body)
+    def update(pipeline_id, body = {})
       @client.pipeline.update(pipeline_id, body)
     end
 
@@ -2029,7 +2103,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.release.create(app_id_or_app_name, body)
     end
 
@@ -2037,7 +2111,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def rollback(app_id_or_app_name, body)
+    def rollback(app_id_or_app_name, body = {})
       @client.release.rollback(app_id_or_app_name, body)
     end
   end
@@ -2060,7 +2134,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.slug.create(app_id_or_app_name, body)
     end
   end
@@ -2126,7 +2200,7 @@ module PlatformAPI
     # @param space_id_or_space_name: unique identifier of space or unique name of space
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
     # @param body: the object to pass as the request payload
-    def update(space_id_or_space_name, account_email_or_account_id_or_account_self, body)
+    def update(space_id_or_space_name, account_email_or_account_id_or_account_self, body = {})
       @client.space_app_access.update(space_id_or_space_name, account_email_or_account_id_or_account_self, body)
     end
 
@@ -2174,7 +2248,7 @@ module PlatformAPI
     #
     # @param space_id_or_space_name: unique identifier of space or unique name of space
     # @param body: the object to pass as the request payload
-    def update(space_id_or_space_name, body)
+    def update(space_id_or_space_name, body = {})
       @client.space.update(space_id_or_space_name, body)
     end
 
@@ -2188,7 +2262,7 @@ module PlatformAPI
     # Create a new space.
     #
     # @param body: the object to pass as the request payload
-    def create(body)
+    def create(body = {})
       @client.space.create(body)
     end
   end
@@ -2203,7 +2277,7 @@ module PlatformAPI
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body)
+    def create(app_id_or_app_name, body = {})
       @client.ssl_endpoint.create(app_id_or_app_name, body)
     end
 
@@ -2235,7 +2309,7 @@ module PlatformAPI
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param ssl_endpoint_id_or_ssl_endpoint_name: unique identifier of this SSL endpoint or unique name for SSL endpoint
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, ssl_endpoint_id_or_ssl_endpoint_name, body)
+    def update(app_id_or_app_name, ssl_endpoint_id_or_ssl_endpoint_name, body = {})
       @client.ssl_endpoint.update(app_id_or_app_name, ssl_endpoint_id_or_ssl_endpoint_name, body)
     end
   end
@@ -2276,7 +2350,7 @@ module PlatformAPI
     #
     # @param user_preferences_self: Implicit reference to currently authorized user
     # @param body: the object to pass as the request payload
-    def update(user_preferences_self, body)
+    def update(user_preferences_self, body = {})
       @client.user_preferences.update(user_preferences_self, body)
     end
   end
@@ -2298,7 +2372,7 @@ module PlatformAPI
     #
     # @param organization_name: unique name of organization
     # @param body: the object to pass as the request payload
-    def create(organization_name, body)
+    def create(organization_name, body = {})
       @client.whitelisted_addon_service.create(organization_name, body)
     end
 
@@ -3238,6 +3312,92 @@ module PlatformAPI
         },
         "web_url": {
           "$ref": "#/definitions/addon-attachment/definitions/web_url"
+        }
+      }
+    },
+    "addon-config": {
+      "description": "Configuration of an Add-on",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Add-on Config",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/addon-config/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of the config",
+          "example": "FOO",
+          "type": [
+            "string"
+          ]
+        },
+        "value": {
+          "description": "value of the config",
+          "example": "bar",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Get an add-on's config",
+          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon-config"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Update an add-on's config.",
+          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "config": {
+                "items": {
+                  "$ref": "#/definitions/addon-config"
+                },
+                "type": [
+                  "array"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon-config"
+            }
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/addon-config/definitions/name"
+        },
+        "value": {
+          "$ref": "#/definitions/addon-config/definitions/value"
         }
       }
     },
@@ -4809,6 +4969,21 @@ module PlatformAPI
             "object"
           ]
         },
+        "organization": {
+          "description": "identity of organization",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/organization/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
         "region": {
           "description": "identity of app region",
           "properties": {
@@ -5028,6 +5203,32 @@ module PlatformAPI
             "string"
           ]
         },
+        "release": {
+          "description": "release resulting from the build",
+          "strictProperties": true,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/release/definitions/id"
+            }
+          },
+          "example": {
+            "id": "01234567-89ab-cdef-0123-456789abcdef"
+          },
+          "readOnly": true,
+          "type": [
+            "null",
+            "object"
+          ],
+          "definitions": {
+            "id": {
+              "description": "unique identifier of release",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
         "source_blob": {
           "description": "location of gzipped tarball of source code used to create build",
           "properties": {
@@ -5182,6 +5383,9 @@ module PlatformAPI
         },
         "source_blob": {
           "$ref": "#/definitions/build/definitions/source_blob"
+        },
+        "release": {
+          "$ref": "#/definitions/build/definitions/release"
         },
         "slug": {
           "description": "slug created by this build",
@@ -5560,13 +5764,13 @@ module PlatformAPI
           "title": "Info"
         },
         {
-          "description": "Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `NULL`.",
+          "description": "Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `null`.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/config-vars",
           "method": "PATCH",
           "rel": "update",
           "schema": {
             "additionalProperties": false,
-            "description": "hash of config changes – update values or delete by seting it to NULL",
+            "description": "hash of config changes – update values or delete by seting it to `null`",
             "example": {
               "FOO": "bar",
               "BAZ": "qux"
@@ -5782,6 +5986,14 @@ module PlatformAPI
             "string"
           ]
         },
+        "status": {
+          "description": "status of this record's cname",
+          "example": "pending",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "hostname": {
           "description": "full hostname",
           "example": "subdomain.example.com",
@@ -5924,6 +6136,9 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/domain/definitions/updated_at"
+        },
+        "status": {
+          "$ref": "#/definitions/domain/definitions/status"
         }
       }
     },
@@ -6046,9 +6261,17 @@ module PlatformAPI
         "type": {
           "description": "type of process",
           "example": "run",
-          "readOnly": true,
+          "readOnly": false,
           "type": [
             "string"
+          ]
+        },
+        "time_to_live": {
+          "description": "seconds until dyno expires, after which it will soon be killed",
+          "example": 1800,
+          "readOnly": false,
+          "type": [
+            "integer"
           ]
         },
         "updated_at": {
@@ -6083,6 +6306,12 @@ module PlatformAPI
               },
               "size": {
                 "$ref": "#/definitions/dyno/definitions/size"
+              },
+              "type": {
+                "$ref": "#/definitions/dyno/definitions/type"
+              },
+              "time_to_live": {
+                "$ref": "#/definitions/dyno/definitions/time_to_live"
               }
             },
             "required": [
@@ -8797,21 +9026,6 @@ module PlatformAPI
         "id": {
           "$ref": "#/definitions/collaborator/definitions/id"
         },
-        "privileges": {
-          "description": "collborator privileges",
-          "properties": {
-            "description": {
-              "type": [
-                "string"
-              ]
-            },
-            "name": {
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
         "role": {
           "$ref": "#/definitions/organization/definitions/role"
         },
@@ -9362,7 +9576,12 @@ module PlatformAPI
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "An organization member is an individual with access to an organization.",
       "stability": "prototype",
-      "strictProperties": true,
+      "additionalProperties": false,
+      "required": [
+        "created_at",
+        "email",
+        "updated_at"
+      ],
       "title": "Heroku Platform API - Organization Member",
       "type": [
         "object"
@@ -9396,7 +9615,7 @@ module PlatformAPI
           ]
         },
         "two_factor_authentication": {
-          "description": "whether the organization member has two factor authentication enabled",
+          "description": "whether the Enterprise organization member has two factor authentication enabled",
           "example": true,
           "readOnly": true,
           "type": [
@@ -10049,6 +10268,172 @@ module PlatformAPI
         },
         "url": {
           "$ref": "#/definitions/otp-secret/definitions/url"
+        }
+      }
+    },
+    "outbound-ruleset": {
+      "description": "An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. ",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Outbound Ruleset",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "target": {
+          "description": "is the target destination in CIDR notation",
+          "example": "1.1.1.1/1",
+          "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when outbound-ruleset was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of an outbound-ruleset",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "port": {
+          "description": "an endpoint of communication in an operating system.",
+          "example": 80,
+          "readOnly": false,
+          "type": [
+            "integer"
+          ]
+        },
+        "protocol": {
+          "description": "formal standards and policies comprised of rules, procedures and formats that define communication between two or more devices over a network",
+          "example": "tcp",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/outbound-ruleset/definitions/id"
+            }
+          ]
+        },
+        "rule": {
+          "description": "the combination of an IP address in CIDR notation, a from_port, to_port and protocol.",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "target": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/target"
+            },
+            "from_port": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/port"
+            },
+            "to_port": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/port"
+            },
+            "protocol": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/protocol"
+            }
+          },
+          "required": [
+            "target",
+            "from_port",
+            "to_port",
+            "protocol"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Current outbound ruleset for a space",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-ruleset",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/outbound-ruleset"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Info on an existing Outbound Ruleset",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-rulesets/{(%23%2Fdefinitions%2Foutbound-ruleset%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/outbound-ruleset"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List all Outbound Rulesets for a space",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-rulesets",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/outbound-ruleset"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Create a new outbound ruleset",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-ruleset",
+          "method": "PUT",
+          "rel": "create",
+          "schema": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "rules": {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/outbound-ruleset/definitions/rule"
+                }
+              }
+            }
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/outbound-ruleset/definitions/id"
+        },
+        "created_at": {
+          "$ref": "#/definitions/outbound-ruleset/definitions/created_at"
+        },
+        "rules": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/outbound-ruleset/definitions/rule"
+          }
+        },
+        "created_by": {
+          "$ref": "#/definitions/account/definitions/email"
         }
       }
     },
@@ -11393,6 +11778,21 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "addon_service": {
+          "description": "identity of add-on service",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/addon-service/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/addon-service/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
         "created_at": {
           "$ref": "#/definitions/plan/definitions/created_at"
         },
@@ -11702,6 +12102,19 @@ module PlatformAPI
         "description": {
           "description": "description of changes in this release",
           "example": "Added new feature",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "status": {
+          "description": "current status of the release",
+          "enum": [
+            "failed",
+            "pending",
+            "succeeded"
+          ],
+          "example": "succeeded",
           "readOnly": true,
           "type": [
             "string"
@@ -13403,6 +13816,9 @@ module PlatformAPI
     "addon-attachment": {
       "$ref": "#/definitions/addon-attachment"
     },
+    "addon-config": {
+      "$ref": "#/definitions/addon-config"
+    },
     "addon-region-capability": {
       "$ref": "#/definitions/addon-region-capability"
     },
@@ -13519,6 +13935,9 @@ module PlatformAPI
     },
     "otp-secret": {
       "$ref": "#/definitions/otp-secret"
+    },
+    "outbound-ruleset": {
+      "$ref": "#/definitions/outbound-ruleset"
     },
     "password-reset": {
       "$ref": "#/definitions/password-reset"

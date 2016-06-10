@@ -927,6 +927,92 @@
         }
       }
     },
+    "addon-config": {
+      "description": "Configuration of an Add-on",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Add-on Config",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/addon-config/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of the config",
+          "example": "FOO",
+          "type": [
+            "string"
+          ]
+        },
+        "value": {
+          "description": "value of the config",
+          "example": "bar",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Get an add-on's config",
+          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon-config"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Update an add-on's config.",
+          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "config": {
+                "items": {
+                  "$ref": "#/definitions/addon-config"
+                },
+                "type": [
+                  "array"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/addon-config"
+            }
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/addon-config/definitions/name"
+        },
+        "value": {
+          "$ref": "#/definitions/addon-config/definitions/value"
+        }
+      }
+    },
     "addon-region-capability": {
       "description": "Add-on region capabilities represent the relationship between an Add-on Service and a specific Region",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -2495,6 +2581,21 @@
             "object"
           ]
         },
+        "organization": {
+          "description": "identity of organization",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/organization/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
         "region": {
           "description": "identity of app region",
           "properties": {
@@ -2714,6 +2815,32 @@
             "string"
           ]
         },
+        "release": {
+          "description": "release resulting from the build",
+          "strictProperties": true,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/release/definitions/id"
+            }
+          },
+          "example": {
+            "id": "01234567-89ab-cdef-0123-456789abcdef"
+          },
+          "readOnly": true,
+          "type": [
+            "null",
+            "object"
+          ],
+          "definitions": {
+            "id": {
+              "description": "unique identifier of release",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
         "source_blob": {
           "description": "location of gzipped tarball of source code used to create build",
           "properties": {
@@ -2868,6 +2995,9 @@
         },
         "source_blob": {
           "$ref": "#/definitions/build/definitions/source_blob"
+        },
+        "release": {
+          "$ref": "#/definitions/build/definitions/release"
         },
         "slug": {
           "description": "slug created by this build",
@@ -3246,13 +3376,13 @@
           "title": "Info"
         },
         {
-          "description": "Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `NULL`.",
+          "description": "Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `null`.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/config-vars",
           "method": "PATCH",
           "rel": "update",
           "schema": {
             "additionalProperties": false,
-            "description": "hash of config changes – update values or delete by seting it to NULL",
+            "description": "hash of config changes – update values or delete by seting it to `null`",
             "example": {
               "FOO": "bar",
               "BAZ": "qux"
@@ -3468,6 +3598,14 @@
             "string"
           ]
         },
+        "status": {
+          "description": "status of this record's cname",
+          "example": "pending",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "hostname": {
           "description": "full hostname",
           "example": "subdomain.example.com",
@@ -3610,6 +3748,9 @@
         },
         "updated_at": {
           "$ref": "#/definitions/domain/definitions/updated_at"
+        },
+        "status": {
+          "$ref": "#/definitions/domain/definitions/status"
         }
       }
     },
@@ -3732,9 +3873,17 @@
         "type": {
           "description": "type of process",
           "example": "run",
-          "readOnly": true,
+          "readOnly": false,
           "type": [
             "string"
+          ]
+        },
+        "time_to_live": {
+          "description": "seconds until dyno expires, after which it will soon be killed",
+          "example": 1800,
+          "readOnly": false,
+          "type": [
+            "integer"
           ]
         },
         "updated_at": {
@@ -3769,6 +3918,12 @@
               },
               "size": {
                 "$ref": "#/definitions/dyno/definitions/size"
+              },
+              "type": {
+                "$ref": "#/definitions/dyno/definitions/type"
+              },
+              "time_to_live": {
+                "$ref": "#/definitions/dyno/definitions/time_to_live"
               }
             },
             "required": [
@@ -6480,21 +6635,6 @@
         "id": {
           "$ref": "#/definitions/collaborator/definitions/id"
         },
-        "privileges": {
-          "description": "collborator privileges",
-          "properties": {
-            "description": {
-              "type": [
-                "string"
-              ]
-            },
-            "name": {
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
         "role": {
           "$ref": "#/definitions/organization/definitions/role"
         },
@@ -7045,7 +7185,12 @@
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "An organization member is an individual with access to an organization.",
       "stability": "prototype",
-      "strictProperties": true,
+      "additionalProperties": false,
+      "required": [
+        "created_at",
+        "email",
+        "updated_at"
+      ],
       "title": "Heroku Platform API - Organization Member",
       "type": [
         "object"
@@ -7079,7 +7224,7 @@
           ]
         },
         "two_factor_authentication": {
-          "description": "whether the organization member has two factor authentication enabled",
+          "description": "whether the Enterprise organization member has two factor authentication enabled",
           "example": true,
           "readOnly": true,
           "type": [
@@ -7732,6 +7877,172 @@
         },
         "url": {
           "$ref": "#/definitions/otp-secret/definitions/url"
+        }
+      }
+    },
+    "outbound-ruleset": {
+      "description": "An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. ",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Outbound Ruleset",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "target": {
+          "description": "is the target destination in CIDR notation",
+          "example": "1.1.1.1/1",
+          "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when outbound-ruleset was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of an outbound-ruleset",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "port": {
+          "description": "an endpoint of communication in an operating system.",
+          "example": 80,
+          "readOnly": false,
+          "type": [
+            "integer"
+          ]
+        },
+        "protocol": {
+          "description": "formal standards and policies comprised of rules, procedures and formats that define communication between two or more devices over a network",
+          "example": "tcp",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/outbound-ruleset/definitions/id"
+            }
+          ]
+        },
+        "rule": {
+          "description": "the combination of an IP address in CIDR notation, a from_port, to_port and protocol.",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "target": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/target"
+            },
+            "from_port": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/port"
+            },
+            "to_port": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/port"
+            },
+            "protocol": {
+              "$ref": "#/definitions/outbound-ruleset/definitions/protocol"
+            }
+          },
+          "required": [
+            "target",
+            "from_port",
+            "to_port",
+            "protocol"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Current outbound ruleset for a space",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-ruleset",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/outbound-ruleset"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Info on an existing Outbound Ruleset",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-rulesets/{(%23%2Fdefinitions%2Foutbound-ruleset%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/outbound-ruleset"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List all Outbound Rulesets for a space",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-rulesets",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/outbound-ruleset"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Create a new outbound ruleset",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-ruleset",
+          "method": "PUT",
+          "rel": "create",
+          "schema": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "rules": {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/outbound-ruleset/definitions/rule"
+                }
+              }
+            }
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/outbound-ruleset/definitions/id"
+        },
+        "created_at": {
+          "$ref": "#/definitions/outbound-ruleset/definitions/created_at"
+        },
+        "rules": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/outbound-ruleset/definitions/rule"
+          }
+        },
+        "created_by": {
+          "$ref": "#/definitions/account/definitions/email"
         }
       }
     },
@@ -9076,6 +9387,21 @@
         }
       ],
       "properties": {
+        "addon_service": {
+          "description": "identity of add-on service",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/addon-service/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/addon-service/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
         "created_at": {
           "$ref": "#/definitions/plan/definitions/created_at"
         },
@@ -9385,6 +9711,19 @@
         "description": {
           "description": "description of changes in this release",
           "example": "Added new feature",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "status": {
+          "description": "current status of the release",
+          "enum": [
+            "failed",
+            "pending",
+            "succeeded"
+          ],
+          "example": "succeeded",
           "readOnly": true,
           "type": [
             "string"
@@ -11086,6 +11425,9 @@
     "addon-attachment": {
       "$ref": "#/definitions/addon-attachment"
     },
+    "addon-config": {
+      "$ref": "#/definitions/addon-config"
+    },
     "addon-region-capability": {
       "$ref": "#/definitions/addon-region-capability"
     },
@@ -11202,6 +11544,9 @@
     },
     "otp-secret": {
       "$ref": "#/definitions/otp-secret"
+    },
+    "outbound-ruleset": {
+      "$ref": "#/definitions/outbound-ruleset"
     },
     "password-reset": {
       "$ref": "#/definitions/password-reset"
