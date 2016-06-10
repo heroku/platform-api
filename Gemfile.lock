@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    platform-api (0.7.0)
+    platform-api (0.8.0)
       heroics (~> 0.0.17)
 
 GEM
