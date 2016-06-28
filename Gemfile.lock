@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     platform-api (0.8.0)
+      heroics (~> 0.0.17)
 
 GEM
   remote: https://rubygems.org/
@@ -25,7 +26,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.3)
-  heroics (~> 0.0.17)
   platform-api!
   rake
   yard
