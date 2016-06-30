@@ -65,7 +65,7 @@ it.  The first thing you need is a client setup with an OAuth token.  You can
 create an OAuth token using the `heroku-oauth` toolbelt plugin:
 
 ```bash
-$ heroku plugins:install git@github.com:heroku/heroku-oauth.git
+$ heroku plugins:install heroku-cli-oauth
 $ heroku authorizations:create -d "Platform API example token"
 Created OAuth authorization.
   ID:          2f01aac0-e9d3-4773-af4e-3e510aa006ca
