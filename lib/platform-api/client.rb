@@ -111,46 +111,53 @@ module PlatformAPI
       @account_resource ||= Account.new(@client)
     end
 
-    # Add-on Actions are Provider functionality for specific add-on installations
+    # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
     #
-    # @return [AddonAction]
-    def addon_action
-      @addon_action_resource ||= AddonAction.new(@client)
+    # @return [AddOnAction]
+    def add_on_action
+      @add_on_action_resource ||= AddOnAction.new(@client)
     end
 
     # An add-on attachment represents a connection between an app and an add-on that it has been given access to.
     #
-    # @return [AddonAttachment]
-    def addon_attachment
-      @addon_attachment_resource ||= AddonAttachment.new(@client)
+    # @return [AddOnAttachment]
+    def add_on_attachment
+      @add_on_attachment_resource ||= AddOnAttachment.new(@client)
     end
 
     # Configuration of an Add-on
     #
-    # @return [AddonConfig]
-    def addon_config
-      @addon_config_resource ||= AddonConfig.new(@client)
+    # @return [AddOnConfig]
+    def add_on_config
+      @add_on_config_resource ||= AddOnConfig.new(@client)
     end
 
-    # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region
+    # Add-on Plan Actions are Provider functionality for specific add-on installations
     #
-    # @return [AddonRegionCapability]
-    def addon_region_capability
-      @addon_region_capability_resource ||= AddonRegionCapability.new(@client)
+    # @return [AddOnPlanAction]
+    def add_on_plan_action
+      @add_on_plan_action_resource ||= AddOnPlanAction.new(@client)
+    end
+
+    # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region. Only Beta and GA add-ons are returned by these endpoints.
+    #
+    # @return [AddOnRegionCapability]
+    def add_on_region_capability
+      @add_on_region_capability_resource ||= AddOnRegionCapability.new(@client)
     end
 
     # Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.
     #
-    # @return [AddonService]
-    def addon_service
-      @addon_service_resource ||= AddonService.new(@client)
+    # @return [AddOnService]
+    def add_on_service
+      @add_on_service_resource ||= AddOnService.new(@client)
     end
 
     # Add-ons represent add-ons that have been provisioned and attached to one or more apps.
     #
-    # @return [Addon]
-    def addon
-      @addon_resource ||= Addon.new(@client)
+    # @return [AddOn]
+    def add_on
+      @add_on_resource ||= AddOn.new(@client)
     end
 
     # An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.
@@ -158,6 +165,13 @@ module PlatformAPI
     # @return [AppFeature]
     def app_feature
       @app_feature_resource ||= AppFeature.new(@client)
+    end
+
+    # App formation set describes the combination of process types with their quantities and sizes as well as application process tier
+    #
+    # @return [AppFormationSet]
+    def app_formation_set
+      @app_formation_set_resource ||= AppFormationSet.new(@client)
     end
 
     # An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.
@@ -265,6 +279,13 @@ module PlatformAPI
       @formation_resource ||= Formation.new(@client)
     end
 
+    # Identity Providers represent the SAML configuration of an Organization.
+    #
+    # @return [IdentityProvider]
+    def identity_provider
+      @identity_provider_resource ||= IdentityProvider.new(@client)
+    end
+
     # An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.
     #
     # @return [InboundRuleset]
@@ -300,7 +321,7 @@ module PlatformAPI
       @key_resource ||= Key.new(@client)
     end
 
-    # [Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some addons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.
+    # [Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some add-ons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.
     #
     # @return [LogDrain]
     def log_drain
@@ -344,9 +365,9 @@ module PlatformAPI
 
     # A list of add-ons the Organization uses across all apps
     #
-    # @return [OrganizationAddon]
-    def organization_addon
-      @organization_addon_resource ||= OrganizationAddon.new(@client)
+    # @return [OrganizationAddOn]
+    def organization_add_on
+      @organization_add_on_resource ||= OrganizationAddOn.new(@client)
     end
 
     # An organization collaborator represents an account that has been given access to an organization app on Heroku.
@@ -363,6 +384,20 @@ module PlatformAPI
       @organization_app_resource ||= OrganizationApp.new(@client)
     end
 
+    # An organization feature represents a feature enabled on an organization account.
+    #
+    # @return [OrganizationFeature]
+    def organization_feature
+      @organization_feature_resource ||= OrganizationFeature.new(@client)
+    end
+
+    # An organization invitation represents an invite to an organization.
+    #
+    # @return [OrganizationInvitation]
+    def organization_invitation
+      @organization_invitation_resource ||= OrganizationInvitation.new(@client)
+    end
+
     # An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
     #
     # @return [OrganizationInvoice]
@@ -377,7 +412,7 @@ module PlatformAPI
       @organization_member_resource ||= OrganizationMember.new(@client)
     end
 
-    # The on file payment method for an account
+    # The on file payment method for an organization account.
     #
     # @return [OrganizationPaymentMethod]
     def organization_payment_method
@@ -431,6 +466,13 @@ module PlatformAPI
     # @return [Payment]
     def payment
       @payment_resource ||= Payment.new(@client)
+    end
+
+    # An organization app permission is a behavior that is assigned to a user in an organization app.
+    #
+    # @return [OrganizationAppPermission]
+    def organization_app_permission
+      @organization_app_permission_resource ||= OrganizationAppPermission.new(@client)
     end
 
     # Information about an app's coupling to a pipeline
@@ -510,6 +552,13 @@ module PlatformAPI
       @sms_number_resource ||= SmsNumber.new(@client)
     end
 
+    # SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.
+    #
+    # @return [SniEndpoint]
+    def sni_endpoint
+      @sni_endpoint_resource ||= SniEndpoint.new(@client)
+    end
+
     # A source is a location for uploading and downloading an application's source code.
     #
     # @return [Source]
@@ -538,7 +587,7 @@ module PlatformAPI
       @space_resource ||= Space.new(@client)
     end
 
-    # [SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` addon installed before it can provision an SSL Endpoint using these APIs.
+    # [SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` add-on installed before it can provision an SSL Endpoint using these APIs.
     #
     # @return [SSLEndpoint]
     def ssl_endpoint
@@ -561,9 +610,9 @@ module PlatformAPI
 
     # Entities that have been whitelisted to be used by an Organization
     #
-    # @return [WhitelistedAddonService]
-    def whitelisted_addon_service
-      @whitelisted_addon_service_resource ||= WhitelistedAddonService.new(@client)
+    # @return [WhitelistedAddOnService]
+    def whitelisted_add_on_service
+      @whitelisted_add_on_service_resource ||= WhitelistedAddOnService.new(@client)
     end
   end
 
@@ -641,15 +690,29 @@ module PlatformAPI
     end
   end
 
-  # Add-on Actions are Provider functionality for specific add-on installations
-  class AddonAction
+  # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
+  class AddOnAction
     def initialize(client)
       @client = client
+    end
+
+    # Mark an add-on as provisioned for use.
+    #
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
+    def create___provision(add_on_id_or_add_on_name)
+      @client.add_on_action.create___provision(add_on_id_or_add_on_name)
+    end
+
+    # Mark an add-on as deprovisioned.
+    #
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
+    def create___deprovision(add_on_id_or_add_on_name)
+      @client.add_on_action.create___deprovision(add_on_id_or_add_on_name)
     end
   end
 
   # An add-on attachment represents a connection between an app and an add-on that it has been given access to.
-  class AddonAttachment
+  class AddOnAttachment
     def initialize(client)
       @client = client
     end
@@ -658,75 +721,82 @@ module PlatformAPI
     #
     # @param body: the object to pass as the request payload
     def create(body = {})
-      @client.addon_attachment.create(body)
+      @client.add_on_attachment.create(body)
     end
 
     # Delete an existing add-on attachment.
     #
-    # @param addon_attachment_id: unique identifier of this add-on attachment
-    def delete(addon_attachment_id)
-      @client.addon_attachment.delete(addon_attachment_id)
+    # @param add_on_attachment_id: unique identifier of this add-on attachment
+    def delete(add_on_attachment_id)
+      @client.add_on_attachment.delete(add_on_attachment_id)
     end
 
     # Info for existing add-on attachment.
     #
-    # @param addon_attachment_id: unique identifier of this add-on attachment
-    def info(addon_attachment_id)
-      @client.addon_attachment.info(addon_attachment_id)
+    # @param add_on_attachment_id: unique identifier of this add-on attachment
+    def info(add_on_attachment_id)
+      @client.add_on_attachment.info(add_on_attachment_id)
     end
 
     # List existing add-on attachments.
     def list()
-      @client.addon_attachment.list()
+      @client.add_on_attachment.list()
     end
 
     # List existing add-on attachments for an add-on.
     #
-    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    def list_by_add_on(addon_id_or_addon_name)
-      @client.addon_attachment.list_by_add_on(addon_id_or_addon_name)
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
+    def list_by_add_on(add_on_id_or_add_on_name)
+      @client.add_on_attachment.list_by_add_on(add_on_id_or_add_on_name)
     end
 
     # List existing add-on attachments for an app.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     def list_by_app(app_id_or_app_name)
-      @client.addon_attachment.list_by_app(app_id_or_app_name)
+      @client.add_on_attachment.list_by_app(app_id_or_app_name)
     end
 
     # Info for existing add-on attachment for an app.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    # @param addon_attachment_id_or_addon_attachment_name: unique identifier of this add-on attachment or unique name for this add-on attachment to this app
-    def info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
-      @client.addon_attachment.info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
+    # @param add_on_attachment_id_or_add_on_attachment_name: unique identifier of this add-on attachment or unique name for this add-on attachment to this app
+    def info_by_app(app_id_or_app_name, add_on_attachment_id_or_add_on_attachment_name)
+      @client.add_on_attachment.info_by_app(app_id_or_app_name, add_on_attachment_id_or_add_on_attachment_name)
     end
   end
 
   # Configuration of an Add-on
-  class AddonConfig
+  class AddOnConfig
     def initialize(client)
       @client = client
     end
 
     # Get an add-on's config
     #
-    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    def list(addon_id_or_addon_name)
-      @client.addon_config.list(addon_id_or_addon_name)
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
+    def list(add_on_id_or_add_on_name)
+      @client.add_on_config.list(add_on_id_or_add_on_name)
     end
 
     # Update an add-on's config.
     #
-    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
     # @param body: the object to pass as the request payload
-    def update(addon_id_or_addon_name, body = {})
-      @client.addon_config.update(addon_id_or_addon_name, body)
+    def update(add_on_id_or_add_on_name, body = {})
+      @client.add_on_config.update(add_on_id_or_add_on_name, body)
     end
   end
 
-  # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region
-  class AddonRegionCapability
+  # Add-on Plan Actions are Provider functionality for specific add-on installations
+  class AddOnPlanAction
+    def initialize(client)
+      @client = client
+    end
+  end
+
+  # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region. Only Beta and GA add-ons are returned by these endpoints.
+  class AddOnRegionCapability
     def initialize(client)
       @client = client
     end
@@ -735,38 +805,38 @@ module PlatformAPI
     #
     # @param region_id_or_region_name: unique identifier of region or unique name of region
     def list(region_id_or_region_name)
-      @client.addon_region_capability.list(region_id_or_region_name)
+      @client.add_on_region_capability.list(region_id_or_region_name)
     end
 
-    # List existing add-on region capabilities for an addon-service
+    # List existing add-on region capabilities for an add-on-service
     #
-    # @param addon_service_id_or_addon_service_name: unique identifier of this addon-service or unique name of this addon-service
-    def list_by_add_on_service(addon_service_id_or_addon_service_name)
-      @client.addon_region_capability.list_by_add_on_service(addon_service_id_or_addon_service_name)
+    # @param add_on_service_id_or_add_on_service_name: unique identifier of this add-on-service or unique name of this add-on-service
+    def list_by_add_on_service(add_on_service_id_or_add_on_service_name)
+      @client.add_on_region_capability.list_by_add_on_service(add_on_service_id_or_add_on_service_name)
     end
   end
 
   # Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.
-  class AddonService
+  class AddOnService
     def initialize(client)
       @client = client
     end
 
-    # Info for existing addon-service.
+    # Info for existing add-on-service.
     #
-    # @param addon_service_id_or_addon_service_name: unique identifier of this addon-service or unique name of this addon-service
-    def info(addon_service_id_or_addon_service_name)
-      @client.addon_service.info(addon_service_id_or_addon_service_name)
+    # @param add_on_service_id_or_add_on_service_name: unique identifier of this add-on-service or unique name of this add-on-service
+    def info(add_on_service_id_or_add_on_service_name)
+      @client.add_on_service.info(add_on_service_id_or_add_on_service_name)
     end
 
-    # List existing addon-services.
+    # List existing add-on-services.
     def list()
-      @client.addon_service.list()
+      @client.add_on_service.list()
     end
   end
 
   # Add-ons represent add-ons that have been provisioned and attached to one or more apps.
-  class Addon
+  class AddOn
     def initialize(client)
       @client = client
     end
@@ -776,43 +846,50 @@ module PlatformAPI
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
     def create(app_id_or_app_name, body = {})
-      @client.addon.create(app_id_or_app_name, body)
+      @client.add_on.create(app_id_or_app_name, body)
     end
 
     # Delete an existing add-on.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    def delete(app_id_or_app_name, addon_id_or_addon_name)
-      @client.addon.delete(app_id_or_app_name, addon_id_or_addon_name)
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
+    def delete(app_id_or_app_name, add_on_id_or_add_on_name)
+      @client.add_on.delete(app_id_or_app_name, add_on_id_or_add_on_name)
     end
 
     # Info for an existing add-on.
     #
-    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    def info(addon_id_or_addon_name)
-      @client.addon.info(addon_id_or_addon_name)
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
+    def info(add_on_id_or_add_on_name)
+      @client.add_on.info(add_on_id_or_add_on_name)
     end
 
     # List all existing add-ons.
     def list()
-      @client.addon.list()
+      @client.add_on.list()
+    end
+
+    # List all existing add-ons a user has access to
+    #
+    # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
+    def list_by_user(account_email_or_account_id_or_account_self)
+      @client.add_on.list_by_user(account_email_or_account_id_or_account_self)
     end
 
     # List existing add-ons for an app.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     def list_by_app(app_id_or_app_name)
-      @client.addon.list_by_app(app_id_or_app_name)
+      @client.add_on.list_by_app(app_id_or_app_name)
     end
 
     # Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
+    # @param add_on_id_or_add_on_name: unique identifier of add-on or globally unique name of the add-on
     # @param body: the object to pass as the request payload
-    def update(app_id_or_app_name, addon_id_or_addon_name, body = {})
-      @client.addon.update(app_id_or_app_name, addon_id_or_addon_name, body)
+    def update(app_id_or_app_name, add_on_id_or_add_on_name, body = {})
+      @client.add_on.update(app_id_or_app_name, add_on_id_or_add_on_name, body)
     end
   end
 
@@ -844,6 +921,13 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def update(app_id_or_app_name, app_feature_id_or_app_feature_name, body = {})
       @client.app_feature.update(app_id_or_app_name, app_feature_id_or_app_feature_name, body)
+    end
+  end
+
+  # App formation set describes the combination of process types with their quantities and sizes as well as application process tier
+  class AppFormationSet
+    def initialize(client)
+      @client = client
     end
   end
 
@@ -1071,8 +1155,16 @@ module PlatformAPI
     # Get config-vars for app.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    def info(app_id_or_app_name)
-      @client.config_var.info(app_id_or_app_name)
+    def info_for_app(app_id_or_app_name)
+      @client.config_var.info_for_app(app_id_or_app_name)
+    end
+
+    # Get config-vars for a release.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param release_id_or_release_version: unique identifier of release or unique version assigned to the release
+    def info_for_app_release(app_id_or_app_name, release_id_or_release_version)
+      @client.config_var.info_for_app_release(app_id_or_app_name, release_id_or_release_version)
     end
 
     # Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `null`.
@@ -1170,11 +1262,19 @@ module PlatformAPI
       @client.dyno.restart(app_id_or_app_name, dyno_id_or_dyno_name)
     end
 
-    # Restart all dynos
+    # Restart all dynos.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     def restart_all(app_id_or_app_name)
       @client.dyno.restart_all(app_id_or_app_name)
+    end
+
+    # Stop dyno.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param dyno_id_or_dyno_name: unique identifier of this dyno or the name of this process on this dyno
+    def stop(app_id_or_app_name, dyno_id_or_dyno_name)
+      @client.dyno.stop(app_id_or_app_name, dyno_id_or_dyno_name)
     end
 
     # Info for existing dyno.
@@ -1260,6 +1360,45 @@ module PlatformAPI
     end
   end
 
+  # Identity Providers represent the SAML configuration of an Organization.
+  class IdentityProvider
+    def initialize(client)
+      @client = client
+    end
+
+    # Get a list of an organization's Identity Providers
+    #
+    # @param organization_name: unique name of organization
+    def list(organization_name)
+      @client.identity_provider.list(organization_name)
+    end
+
+    # Create an Identity Provider for an organization
+    #
+    # @param organization_name: unique name of organization
+    # @param body: the object to pass as the request payload
+    def create(organization_name, body = {})
+      @client.identity_provider.create(organization_name, body)
+    end
+
+    # Update an organization's Identity Provider
+    #
+    # @param organization_name: unique name of organization
+    # @param identity_provider_id: unique identifier of this identity provider
+    # @param body: the object to pass as the request payload
+    def update(organization_name, identity_provider_id, body = {})
+      @client.identity_provider.update(organization_name, identity_provider_id, body)
+    end
+
+    # Delete an organization's Identity Provider
+    #
+    # @param organization_name: unique name of organization
+    # @param identity_provider_id: unique identifier of this identity provider
+    def delete(organization_name, identity_provider_id)
+      @client.identity_provider.delete(organization_name, identity_provider_id)
+    end
+  end
+
   # An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.
   class InboundRuleset
     def initialize(client)
@@ -1303,19 +1442,35 @@ module PlatformAPI
       @client.invitation.info(invitation_token)
     end
 
+    # Invite a user.
+    #
+    # @param body: the object to pass as the request payload
+    def create(body = {})
+      @client.invitation.create(body)
+    end
+
+    # Send a verification code for an invitation via SMS/phone call.
+    #
+    # @param invitation_token: Unique identifier of an invitation
+    # @param body: the object to pass as the request payload
+    def send_verification_code(invitation_token, body = {})
+      @client.invitation.send_verification_code(invitation_token, body)
+    end
+
+    # Verify an invitation using a verification code.
+    #
+    # @param invitation_token: Unique identifier of an invitation
+    # @param body: the object to pass as the request payload
+    def verify(invitation_token, body = {})
+      @client.invitation.verify(invitation_token, body)
+    end
+
     # Finalize Invitation and Create Account.
     #
     # @param invitation_token: Unique identifier of an invitation
     # @param body: the object to pass as the request payload
-    def finalize_invitation(invitation_token, body = {})
-      @client.invitation.finalize_invitation(invitation_token, body)
-    end
-
-    # Invite a user.
-    #
-    # @param body: the object to pass as the request payload
-    def invitation(body = {})
-      @client.invitation.invitation(body)
+    def finalize(invitation_token, body = {})
+      @client.invitation.finalize(invitation_token, body)
     end
   end
 
@@ -1390,7 +1545,7 @@ module PlatformAPI
     end
   end
 
-  # [Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some addons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.
+  # [Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some add-ons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.
   class LogDrain
     def initialize(client)
       @client = client
@@ -1407,17 +1562,17 @@ module PlatformAPI
     # Delete an existing log drain. Log drains added by add-ons can only be removed by removing the add-on.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    # @param log_drain_id_or_log_drain_url: unique identifier of this log drain or url associated with the log drain
-    def delete(app_id_or_app_name, log_drain_id_or_log_drain_url)
-      @client.log_drain.delete(app_id_or_app_name, log_drain_id_or_log_drain_url)
+    # @param log_drain_id_or_log_drain_url_or_log_drain_token: unique identifier of this log drain or url associated with the log drain or token associated with the log drain
+    def delete(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
+      @client.log_drain.delete(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
     end
 
     # Info for existing log drain.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    # @param log_drain_id_or_log_drain_url: unique identifier of this log drain or url associated with the log drain
-    def info(app_id_or_app_name, log_drain_id_or_log_drain_url)
-      @client.log_drain.info(app_id_or_app_name, log_drain_id_or_log_drain_url)
+    # @param log_drain_id_or_log_drain_url_or_log_drain_token: unique identifier of this log drain or url associated with the log drain or token associated with the log drain
+    def info(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
+      @client.log_drain.info(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
     end
 
     # List existing log drains.
@@ -1560,16 +1715,16 @@ module PlatformAPI
   end
 
   # A list of add-ons the Organization uses across all apps
-  class OrganizationAddon
+  class OrganizationAddOn
     def initialize(client)
       @client = client
     end
 
     # List add-ons used across all Organization apps
     #
-    # @param organization_name: unique name of organization
-    def list_for_organization(organization_name)
-      @client.organization_addon.list_for_organization(organization_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def list_for_organization(organization_name_or_organization_id)
+      @client.organization_add_on.list_for_organization(organization_name_or_organization_id)
     end
   end
 
@@ -1639,9 +1794,9 @@ module PlatformAPI
 
     # List organization apps.
     #
-    # @param organization_name: unique name of organization
-    def list_for_organization(organization_name)
-      @client.organization_app.list_for_organization(organization_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def list_for_organization(organization_name_or_organization_id)
+      @client.organization_app.list_for_organization(organization_name_or_organization_id)
     end
 
     # Info for an organization app.
@@ -1676,6 +1831,72 @@ module PlatformAPI
     end
   end
 
+  # An organization feature represents a feature enabled on an organization account.
+  class OrganizationFeature
+    def initialize(client)
+      @client = client
+    end
+
+    # Info for an existing account feature.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param organization_feature_id_or_organization_feature_name: unique identifier of organization feature or unique name of organization feature
+    def info(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name)
+      @client.organization_feature.info(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name)
+    end
+
+    # List existing organization features.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def list(organization_name_or_organization_id)
+      @client.organization_feature.list(organization_name_or_organization_id)
+    end
+  end
+
+  # An organization invitation represents an invite to an organization.
+  class OrganizationInvitation
+    def initialize(client)
+      @client = client
+    end
+
+    # Get a list of an organization's Identity Providers
+    #
+    # @param organization_name: unique name of organization
+    def list(organization_name)
+      @client.organization_invitation.list(organization_name)
+    end
+
+    # Create Organization Invitation
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param body: the object to pass as the request payload
+    def create(organization_name_or_organization_id, body = {})
+      @client.organization_invitation.create(organization_name_or_organization_id, body)
+    end
+
+    # Revoke an organization invitation.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param organization_invitation_id: Unique identifier of an invitation
+    def revoke(organization_name_or_organization_id, organization_invitation_id)
+      @client.organization_invitation.revoke(organization_name_or_organization_id, organization_invitation_id)
+    end
+
+    # Get an invitation by its token
+    #
+    # @param organization_invitation_token: Special token for invitation
+    def get(organization_invitation_token)
+      @client.organization_invitation.get(organization_invitation_token)
+    end
+
+    # Accept Organization Invitation
+    #
+    # @param organization_invitation_token: Special token for invitation
+    def accept(organization_invitation_token)
+      @client.organization_invitation.accept(organization_invitation_token)
+    end
+  end
+
   # An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
   class OrganizationInvoice
     def initialize(client)
@@ -1684,17 +1905,17 @@ module PlatformAPI
 
     # Info for existing invoice.
     #
-    # @param organization_name: unique name of organization
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
     # @param organization_invoice_number: human readable invoice number
-    def info(organization_name, organization_invoice_number)
-      @client.organization_invoice.info(organization_name, organization_invoice_number)
+    def info(organization_name_or_organization_id, organization_invoice_number)
+      @client.organization_invoice.info(organization_name_or_organization_id, organization_invoice_number)
     end
 
     # List existing invoices.
     #
-    # @param organization_name: unique name of organization
-    def list(organization_name)
-      @client.organization_invoice.list(organization_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def list(organization_name_or_organization_id)
+      @client.organization_invoice.list(organization_name_or_organization_id)
     end
   end
 
@@ -1706,47 +1927,64 @@ module PlatformAPI
 
     # Create a new organization member, or update their role.
     #
-    # @param organization_name: unique name of organization
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
     # @param body: the object to pass as the request payload
-    def create_or_update(organization_name, body = {})
-      @client.organization_member.create_or_update(organization_name, body)
+    def create_or_update(organization_name_or_organization_id, body = {})
+      @client.organization_member.create_or_update(organization_name_or_organization_id, body)
+    end
+
+    # Create a new organization member.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param body: the object to pass as the request payload
+    def create(organization_name_or_organization_id, body = {})
+      @client.organization_member.create(organization_name_or_organization_id, body)
+    end
+
+    # Update an organization member.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param body: the object to pass as the request payload
+    def update(organization_name_or_organization_id, body = {})
+      @client.organization_member.update(organization_name_or_organization_id, body)
     end
 
     # Remove a member from the organization.
     #
-    # @param organization_name: unique name of organization
-    # @param organization_member_email_or_app_id: email address of the organization member or unique identifier of app
-    def delete(organization_name, organization_member_email_or_app_id)
-      @client.organization_member.delete(organization_name, organization_member_email_or_app_id)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param organization_member_email_or_organization_member_id: email address of the organization member or unique identifier of organization member
+    def delete(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
+      @client.organization_member.delete(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
     end
 
-    # List members of the organization.
+    # List the apps of a member.
     #
-    # @param organization_name: unique name of organization
-    def list(organization_name)
-      @client.organization_member.list(organization_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param organization_member_email_or_organization_member_id: email address of the organization member or unique identifier of organization member
+    def list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
+      @client.organization_member.list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
     end
   end
 
-  # The on file payment method for an account
+  # The on file payment method for an organization account.
   class OrganizationPaymentMethod
     def initialize(client)
       @client = client
     end
 
-    # Update an existing payment method for an account.
+    # Update an existing payment method for an organization account.
     #
-    # @param organization_name: unique name of organization
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
     # @param body: the object to pass as the request payload
-    def update(organization_name, body = {})
-      @client.organization_payment_method.update(organization_name, body)
+    def update(organization_name_or_organization_id, body = {})
+      @client.organization_payment_method.update(organization_name_or_organization_id, body)
     end
 
-    # Get the current payment method for an account.
+    # Get the current payment method for an organization account.
     #
-    # @param organization_name: unique name of organization
-    def get(organization_name)
-      @client.organization_payment_method.get(organization_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def get(organization_name_or_organization_id)
+      @client.organization_payment_method.get(organization_name_or_organization_id)
     end
   end
 
@@ -1785,17 +2023,31 @@ module PlatformAPI
 
     # Info for an organization.
     #
-    # @param organization_name: unique name of organization
-    def info(organization_name)
-      @client.organization.info(organization_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def info(organization_name_or_organization_id)
+      @client.organization.info(organization_name_or_organization_id)
     end
 
-    # Set or unset the organization as your default organization.
+    # Update organization properties.
     #
-    # @param organization_name: unique name of organization
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
     # @param body: the object to pass as the request payload
-    def update(organization_name, body = {})
-      @client.organization.update(organization_name, body)
+    def update(organization_name_or_organization_id, body = {})
+      @client.organization.update(organization_name_or_organization_id, body)
+    end
+
+    # Create a new organization.
+    #
+    # @param body: the object to pass as the request payload
+    def create(body = {})
+      @client.organization.create(body)
+    end
+
+    # Delete an existing organization.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def delete(organization_name_or_organization_id)
+      @client.organization.delete(organization_name_or_organization_id)
     end
   end
 
@@ -1893,6 +2145,18 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def create(body = {})
       @client.payment.create(body)
+    end
+  end
+
+  # An organization app permission is a behavior that is assigned to a user in an organization app.
+  class OrganizationAppPermission
+    def initialize(client)
+      @client = client
+    end
+
+    # Lists permissions available to organizations.
+    def list()
+      @client.organization_app_permission.list()
     end
   end
 
@@ -2021,17 +2285,17 @@ module PlatformAPI
 
     # Info for existing plan.
     #
-    # @param addon_service_id_or_addon_service_name: unique identifier of this addon-service or unique name of this addon-service
+    # @param add_on_service_id_or_add_on_service_name: unique identifier of this add-on-service or unique name of this add-on-service
     # @param plan_id_or_plan_name: unique identifier of this plan or unique name of this plan
-    def info(addon_service_id_or_addon_service_name, plan_id_or_plan_name)
-      @client.plan.info(addon_service_id_or_addon_service_name, plan_id_or_plan_name)
+    def info(add_on_service_id_or_add_on_service_name, plan_id_or_plan_name)
+      @client.plan.info(add_on_service_id_or_add_on_service_name, plan_id_or_plan_name)
     end
 
     # List existing plans.
     #
-    # @param addon_service_id_or_addon_service_name: unique identifier of this addon-service or unique name of this addon-service
-    def list(addon_service_id_or_addon_service_name)
-      @client.plan.list(addon_service_id_or_addon_service_name)
+    # @param add_on_service_id_or_add_on_service_name: unique identifier of this add-on-service or unique name of this add-on-service
+    def list(add_on_service_id_or_add_on_service_name)
+      @client.plan.list(add_on_service_id_or_add_on_service_name)
     end
   end
 
@@ -2167,6 +2431,53 @@ module PlatformAPI
     end
   end
 
+  # SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.
+  class SniEndpoint
+    def initialize(client)
+      @client = client
+    end
+
+    # Create a new SNI endpoint.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param body: the object to pass as the request payload
+    def create(app_id_or_app_name, body = {})
+      @client.sni_endpoint.create(app_id_or_app_name, body)
+    end
+
+    # Delete existing SNI endpoint.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param sni_endpoint_id_or_sni_endpoint_name: unique identifier of this SNI endpoint or unique name for SNI endpoint
+    def delete(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
+      @client.sni_endpoint.delete(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
+    end
+
+    # Info for existing SNI endpoint.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param sni_endpoint_id_or_sni_endpoint_name: unique identifier of this SNI endpoint or unique name for SNI endpoint
+    def info(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
+      @client.sni_endpoint.info(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
+    end
+
+    # List existing SNI endpoints.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def list(app_id_or_app_name)
+      @client.sni_endpoint.list(app_id_or_app_name)
+    end
+
+    # Update an existing SNI endpoint.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param sni_endpoint_id_or_sni_endpoint_name: unique identifier of this SNI endpoint or unique name for SNI endpoint
+    # @param body: the object to pass as the request payload
+    def update(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name, body = {})
+      @client.sni_endpoint.update(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name, body)
+    end
+  end
+
   # A source is a location for uploading and downloading an application's source code.
   class Source
     def initialize(client)
@@ -2174,10 +2485,15 @@ module PlatformAPI
     end
 
     # Create URLs for uploading and downloading source.
+    def create()
+      @client.source.create()
+    end
+
+    # Create URLs for uploading and downloading source. Deprecated in favor of `POST /sources`
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    def create(app_id_or_app_name)
-      @client.source.create(app_id_or_app_name)
+    def create___deprecated(app_id_or_app_name)
+      @client.source.create___deprecated(app_id_or_app_name)
     end
   end
 
@@ -2267,7 +2583,7 @@ module PlatformAPI
     end
   end
 
-  # [SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` addon installed before it can provision an SSL Endpoint using these APIs.
+  # [SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` add-on installed before it can provision an SSL Endpoint using these APIs.
   class SSLEndpoint
     def initialize(client)
       @client = client
@@ -2356,32 +2672,32 @@ module PlatformAPI
   end
 
   # Entities that have been whitelisted to be used by an Organization
-  class WhitelistedAddonService
+  class WhitelistedAddOnService
     def initialize(client)
       @client = client
     end
 
     # List all whitelisted Add-on Services for an Organization
     #
-    # @param organization_name: unique name of organization
-    def list(organization_name)
-      @client.whitelisted_addon_service.list(organization_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def list(organization_name_or_organization_id)
+      @client.whitelisted_add_on_service.list(organization_name_or_organization_id)
     end
 
     # Whitelist an Add-on Service
     #
-    # @param organization_name: unique name of organization
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
     # @param body: the object to pass as the request payload
-    def create(organization_name, body = {})
-      @client.whitelisted_addon_service.create(organization_name, body)
+    def create(organization_name_or_organization_id, body = {})
+      @client.whitelisted_add_on_service.create(organization_name_or_organization_id, body)
     end
 
     # Remove a whitelisted entity
     #
-    # @param organization_name: unique name of organization
-    # @param whitelisted_addon_service_id_or_addon_service_name: unique identifier for this whitelisting entity or unique name of this addon-service
-    def delete(organization_name, whitelisted_addon_service_id_or_addon_service_name)
-      @client.whitelisted_addon_service.delete(organization_name, whitelisted_addon_service_id_or_addon_service_name)
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param whitelisted_add_on_service_id_or_add_on_service_name: unique identifier for this whitelisting entity or unique name of this add-on-service
+    def delete(organization_name_or_organization_id, whitelisted_add_on_service_id_or_add_on_service_name)
+      @client.whitelisted_add_on_service.delete(organization_name_or_organization_id, whitelisted_add_on_service_id_or_add_on_service_name)
     end
   end
 
@@ -2601,6 +2917,14 @@ module PlatformAPI
           "readOnly": false,
           "type": [
             "string"
+          ]
+        },
+        "federated": {
+          "description": "whether the user is federated and belongs to an Identity Provider",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
           ]
         },
         "id": {
@@ -2942,8 +3266,33 @@ module PlatformAPI
         "email": {
           "$ref": "#/definitions/account/definitions/email"
         },
+        "federated": {
+          "$ref": "#/definitions/account/definitions/federated"
+        },
         "id": {
           "$ref": "#/definitions/account/definitions/id"
+        },
+        "identity_provider": {
+          "description": "Identity Provider details for federated users.",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/identity-provider/definitions/id"
+            },
+            "organization": {
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/organization/definitions/name"
+                }
+              }
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "last_login": {
           "$ref": "#/definitions/account/definitions/last_login"
@@ -2987,8 +3336,8 @@ module PlatformAPI
         }
       }
     },
-    "addon-action": {
-      "description": "Add-on Actions are Provider functionality for specific add-on installations",
+    "add-on-action": {
+      "description": "Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "development",
       "strictProperties": true,
@@ -2997,70 +3346,33 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
-        "id": {
-          "description": "a unique identifier",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "$ref": "#/definitions/addon-action/definitions/id"
-        },
-        "label": {
-          "description": "the display text shown in Dashboard",
-          "example": "Example",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "action": {
-          "description": "identifier of the action to take that is sent via SSO",
-          "example": "example",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "url": {
-          "description": "absolute URL to use instead of an action",
-          "example": "http://example.com?resource_id=:resource_id",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "requires_owner": {
-          "description": "if the action requires the user to own the app",
-          "example": true,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        }
       },
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/addon-action/definitions/id"
+      "links": [
+        {
+          "description": "Mark an add-on as provisioned for use.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/actions/provision",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/add-on"
+          },
+          "title": "Create - Provision"
         },
-        "label": {
-          "$ref": "#/definitions/addon-action/definitions/label"
-        },
-        "action": {
-          "$ref": "#/definitions/addon-action/definitions/action"
-        },
-        "url": {
-          "$ref": "#/definitions/addon-action/definitions/url"
-        },
-        "requires_owner": {
-          "$ref": "#/definitions/addon-action/definitions/requires_owner"
+        {
+          "description": "Mark an add-on as deprovisioned.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/actions/deprovision",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/add-on"
+          },
+          "title": "Create - Deprovision"
         }
+      ],
+      "properties": {
       }
     },
-    "addon-attachment": {
+    "add-on-attachment": {
       "description": "An add-on attachment represents a connection between an app and an add-on that it has been given access to.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
@@ -3100,17 +3412,17 @@ module PlatformAPI
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-attachment/definitions/id"
+              "$ref": "#/definitions/add-on-attachment/definitions/id"
             }
           ]
         },
         "scopedIdentity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-attachment/definitions/id"
+              "$ref": "#/definitions/add-on-attachment/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon-attachment/definitions/name"
+              "$ref": "#/definitions/add-on-attachment/definitions/name"
             }
           ]
         },
@@ -3151,16 +3463,16 @@ module PlatformAPI
           "schema": {
             "properties": {
               "addon": {
-                "$ref": "#/definitions/addon/definitions/identity"
+                "$ref": "#/definitions/add-on/definitions/identity"
               },
               "app": {
                 "$ref": "#/definitions/app/definitions/identity"
               },
               "force": {
-                "$ref": "#/definitions/addon-attachment/definitions/force"
+                "$ref": "#/definitions/add-on-attachment/definitions/force"
               },
               "name": {
-                "$ref": "#/definitions/addon-attachment/definitions/name"
+                "$ref": "#/definitions/add-on-attachment/definitions/name"
               }
             },
             "required": [
@@ -3172,27 +3484,27 @@ module PlatformAPI
             ]
           },
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Create"
         },
         {
           "description": "Delete an existing add-on attachment.",
-          "href": "/addon-attachments/{(%23%2Fdefinitions%2Faddon-attachment%2Fdefinitions%2Fidentity)}",
+          "href": "/addon-attachments/{(%23%2Fdefinitions%2Fadd-on-attachment%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Delete"
         },
         {
           "description": "Info for existing add-on attachment.",
-          "href": "/addon-attachments/{(%23%2Fdefinitions%2Faddon-attachment%2Fdefinitions%2Fidentity)}",
+          "href": "/addon-attachments/{(%23%2Fdefinitions%2Fadd-on-attachment%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Info"
         },
@@ -3203,7 +3515,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             "type": [
               "array"
@@ -3213,12 +3525,12 @@ module PlatformAPI
         },
         {
           "description": "List existing add-on attachments for an add-on.",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/addon-attachments",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/addon-attachments",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             "type": [
               "array"
@@ -3233,7 +3545,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             "type": [
               "array"
@@ -3243,11 +3555,11 @@ module PlatformAPI
         },
         {
           "description": "Info for existing add-on attachment for an app.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addon-attachments/{(%23%2Fdefinitions%2Faddon-attachment%2Fdefinitions%2FscopedIdentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addon-attachments/{(%23%2Fdefinitions%2Fadd-on-attachment%2Fdefinitions%2FscopedIdentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Info by App"
         }
@@ -3257,10 +3569,10 @@ module PlatformAPI
           "description": "identity of add-on",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon/definitions/id"
+              "$ref": "#/definitions/add-on/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon/definitions/name"
+              "$ref": "#/definitions/add-on/definitions/name"
             },
             "app": {
               "description": "billing application associated with this add-on",
@@ -3276,9 +3588,29 @@ module PlatformAPI
                 }
               },
               "strictProperties": true
+            },
+            "plan": {
+              "description": "identity of add-on plan",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/plan/definitions/id"
+                },
+                "name": {
+                  "$ref": "#/definitions/plan/definitions/name"
+                }
+              },
+              "strictProperties": true,
+              "type": [
+                "object"
+              ]
             }
           },
-          "strictProperties": true,
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "name",
+            "app"
+          ],
           "type": [
             "object"
           ]
@@ -3299,23 +3631,23 @@ module PlatformAPI
           ]
         },
         "created_at": {
-          "$ref": "#/definitions/addon-attachment/definitions/created_at"
+          "$ref": "#/definitions/add-on-attachment/definitions/created_at"
         },
         "id": {
-          "$ref": "#/definitions/addon-attachment/definitions/id"
+          "$ref": "#/definitions/add-on-attachment/definitions/id"
         },
         "name": {
-          "$ref": "#/definitions/addon-attachment/definitions/name"
+          "$ref": "#/definitions/add-on-attachment/definitions/name"
         },
         "updated_at": {
-          "$ref": "#/definitions/addon-attachment/definitions/updated_at"
+          "$ref": "#/definitions/add-on-attachment/definitions/updated_at"
         },
         "web_url": {
-          "$ref": "#/definitions/addon-attachment/definitions/web_url"
+          "$ref": "#/definitions/add-on-attachment/definitions/web_url"
         }
       }
     },
-    "addon-config": {
+    "add-on-config": {
       "description": "Configuration of an Add-on",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "development",
@@ -3328,7 +3660,7 @@ module PlatformAPI
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-config/definitions/name"
+              "$ref": "#/definitions/add-on-config/definitions/name"
             }
           ]
         },
@@ -3351,12 +3683,12 @@ module PlatformAPI
       "links": [
         {
           "description": "Get an add-on's config",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/config",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-config"
+              "$ref": "#/definitions/add-on-config"
             },
             "type": [
               "array"
@@ -3366,14 +3698,14 @@ module PlatformAPI
         },
         {
           "description": "Update an add-on's config.",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/config",
           "method": "PATCH",
           "rel": "update",
           "schema": {
             "properties": {
               "config": {
                 "items": {
-                  "$ref": "#/definitions/addon-config"
+                  "$ref": "#/definitions/add-on-config"
                 },
                 "type": [
                   "array"
@@ -3386,7 +3718,7 @@ module PlatformAPI
           },
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-config"
+              "$ref": "#/definitions/add-on-config"
             }
           },
           "title": "Update"
@@ -3394,15 +3726,88 @@ module PlatformAPI
       ],
       "properties": {
         "name": {
-          "$ref": "#/definitions/addon-config/definitions/name"
+          "$ref": "#/definitions/add-on-config/definitions/name"
         },
         "value": {
-          "$ref": "#/definitions/addon-config/definitions/value"
+          "$ref": "#/definitions/add-on-config/definitions/value"
         }
       }
     },
-    "addon-region-capability": {
-      "description": "Add-on region capabilities represent the relationship between an Add-on Service and a specific Region",
+    "add-on-plan-action": {
+      "description": "Add-on Plan Actions are Provider functionality for specific add-on installations",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Add-on Plan Action",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "a unique identifier",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/id"
+        },
+        "label": {
+          "description": "the display text shown in Dashboard",
+          "example": "Example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "action": {
+          "description": "identifier of the action to take that is sent via SSO",
+          "example": "example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "url": {
+          "description": "absolute URL to use instead of an action",
+          "example": "http://example.com?resource_id=:resource_id",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "requires_owner": {
+          "description": "if the action requires the user to own the app",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/id"
+        },
+        "label": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/label"
+        },
+        "action": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/action"
+        },
+        "url": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/url"
+        },
+        "requires_owner": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/requires_owner"
+        }
+      }
+    },
+    "add-on-region-capability": {
+      "description": "Add-on region capabilities represent the relationship between an Add-on Service and a specific Region. Only Beta and GA add-ons are returned by these endpoints.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -3412,7 +3817,7 @@ module PlatformAPI
       ],
       "definitions": {
         "id": {
-          "description": "unique identifier of this addon-region-capability",
+          "description": "unique identifier of this add-on-region-capability",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
@@ -3428,7 +3833,7 @@ module PlatformAPI
           ]
         },
         "identity": {
-          "$ref": "#/definitions/addon-region-capability/definitions/id"
+          "$ref": "#/definitions/add-on-region-capability/definitions/id"
         }
       },
       "links": [
@@ -3439,7 +3844,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-region-capability"
+              "$ref": "#/definitions/add-on-region-capability"
             },
             "type": [
               "array"
@@ -3448,13 +3853,13 @@ module PlatformAPI
           "title": "List"
         },
         {
-          "description": "List existing add-on region capabilities for an addon-service",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}/region-capabilities",
+          "description": "List existing add-on region capabilities for an add-on-service",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/region-capabilities",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-region-capability"
+              "$ref": "#/definitions/add-on-region-capability"
             },
             "type": [
               "array"
@@ -3469,7 +3874,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-region-capability"
+              "$ref": "#/definitions/add-on-region-capability"
             },
             "type": [
               "array"
@@ -3480,20 +3885,20 @@ module PlatformAPI
       ],
       "properties": {
         "id": {
-          "$ref": "#/definitions/addon-region-capability/definitions/id"
+          "$ref": "#/definitions/add-on-region-capability/definitions/id"
         },
         "supports_private_networking": {
-          "$ref": "#/definitions/addon-region-capability/definitions/supports_private_networking"
+          "$ref": "#/definitions/add-on-region-capability/definitions/supports_private_networking"
         },
         "addon_service": {
-          "$ref": "#/definitions/addon-service"
+          "$ref": "#/definitions/add-on-service"
         },
         "region": {
           "$ref": "#/definitions/region"
         }
       }
     },
-    "addon-service": {
+    "add-on-service": {
       "description": "Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
@@ -3513,7 +3918,7 @@ module PlatformAPI
           ]
         },
         "created_at": {
-          "description": "when addon-service was created",
+          "description": "when add-on-service was created",
           "example": "2012-01-01T12:00:00Z",
           "format": "date-time",
           "readOnly": true,
@@ -3522,7 +3927,7 @@ module PlatformAPI
           ]
         },
         "human_name": {
-          "description": "human-readable name of the addon service provider",
+          "description": "human-readable name of the add-on service provider",
           "example": "Heroku Postgres",
           "readOnly": true,
           "type": [
@@ -3530,7 +3935,7 @@ module PlatformAPI
           ]
         },
         "id": {
-          "description": "unique identifier of this addon-service",
+          "description": "unique identifier of this add-on-service",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
@@ -3541,15 +3946,15 @@ module PlatformAPI
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           ]
         },
         "name": {
-          "description": "unique name of this addon-service",
+          "description": "unique name of this add-on-service",
           "example": "heroku-postgresql",
           "readOnly": true,
           "type": [
@@ -3589,7 +3994,7 @@ module PlatformAPI
           ]
         },
         "updated_at": {
-          "description": "when addon-service was updated",
+          "description": "when add-on-service was updated",
           "example": "2012-01-01T12:00:00Z",
           "format": "date-time",
           "readOnly": true,
@@ -3600,23 +4005,23 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Info for existing addon-service.",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}",
+          "description": "Info for existing add-on-service.",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon-service"
+            "$ref": "#/definitions/add-on-service"
           },
           "title": "Info"
         },
         {
-          "description": "List existing addon-services.",
+          "description": "List existing add-on-services.",
           "href": "/addon-services",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-service"
+              "$ref": "#/definitions/add-on-service"
             },
             "type": [
               "array"
@@ -3627,35 +4032,35 @@ module PlatformAPI
       ],
       "properties": {
         "cli_plugin_name": {
-          "$ref": "#/definitions/addon-service/definitions/cli_plugin_name"
+          "$ref": "#/definitions/add-on-service/definitions/cli_plugin_name"
         },
         "created_at": {
-          "$ref": "#/definitions/addon-service/definitions/created_at"
+          "$ref": "#/definitions/add-on-service/definitions/created_at"
         },
         "human_name": {
-          "$ref": "#/definitions/addon-service/definitions/human_name"
+          "$ref": "#/definitions/add-on-service/definitions/human_name"
         },
         "id": {
-          "$ref": "#/definitions/addon-service/definitions/id"
+          "$ref": "#/definitions/add-on-service/definitions/id"
         },
         "name": {
-          "$ref": "#/definitions/addon-service/definitions/name"
+          "$ref": "#/definitions/add-on-service/definitions/name"
         },
         "state": {
-          "$ref": "#/definitions/addon-service/definitions/state"
+          "$ref": "#/definitions/add-on-service/definitions/state"
         },
         "supports_multiple_installations": {
-          "$ref": "#/definitions/addon-service/definitions/supports_multiple_installations"
+          "$ref": "#/definitions/add-on-service/definitions/supports_multiple_installations"
         },
         "supports_sharing": {
-          "$ref": "#/definitions/addon-service/definitions/supports_sharing"
+          "$ref": "#/definitions/add-on-service/definitions/supports_sharing"
         },
         "updated_at": {
-          "$ref": "#/definitions/addon-service/definitions/updated_at"
+          "$ref": "#/definitions/add-on-service/definitions/updated_at"
         }
       }
     },
-    "addon": {
+    "add-on": {
       "description": "Add-ons represent add-ons that have been provisioned and attached to one or more apps.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
@@ -3678,19 +4083,19 @@ module PlatformAPI
           "readOnly": true,
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-action/definitions/id"
+              "$ref": "#/definitions/add-on-plan-action/definitions/id"
             },
             "label": {
-              "$ref": "#/definitions/addon-action/definitions/label"
+              "$ref": "#/definitions/add-on-plan-action/definitions/label"
             },
             "action": {
-              "$ref": "#/definitions/addon-action/definitions/action"
+              "$ref": "#/definitions/add-on-plan-action/definitions/action"
             },
             "url": {
-              "$ref": "#/definitions/addon-action/definitions/url"
+              "$ref": "#/definitions/add-on-plan-action/definitions/url"
             },
             "requires_owner": {
-              "$ref": "#/definitions/addon-action/definitions/requires_owner"
+              "$ref": "#/definitions/add-on-plan-action/definitions/requires_owner"
             }
           }
         },
@@ -3731,10 +4136,10 @@ module PlatformAPI
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon/definitions/id"
+              "$ref": "#/definitions/add-on/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon/definitions/name"
+              "$ref": "#/definitions/add-on/definitions/name"
             }
           ]
         },
@@ -3750,6 +4155,19 @@ module PlatformAPI
         "provider_id": {
           "description": "id of this add-on with its provider",
           "example": "abcd1234",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "state": {
+          "description": "state in the add-on's lifecycle",
+          "enum": [
+            "provisioning",
+            "provisioned",
+            "deprovisioned"
+          ],
+          "example": "provisioned",
           "readOnly": true,
           "type": [
             "string"
@@ -3789,7 +4207,7 @@ module PlatformAPI
                   "name": "DATABASE_FOLLOWER"
                 },
                 "name": {
-                  "$ref": "#/definitions/addon-attachment/definitions/name"
+                  "$ref": "#/definitions/add-on-attachment/definitions/name"
                 },
                 "type": [
                   "object"
@@ -3824,27 +4242,27 @@ module PlatformAPI
             ]
           },
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Create"
         },
         {
           "description": "Delete an existing add-on.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Delete"
         },
         {
           "description": "Info for an existing add-on.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Info"
         },
@@ -3855,7 +4273,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             "type": [
               "array"
@@ -3865,13 +4283,28 @@ module PlatformAPI
         },
         {
           "description": "Info for an existing add-on.",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Info"
+        },
+        {
+          "description": "List all existing add-ons a user has access to",
+          "href": "/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}/addons",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List by User"
         },
         {
           "description": "List existing add-ons for an app.",
@@ -3880,7 +4313,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             "type": [
               "array"
@@ -3890,7 +4323,7 @@ module PlatformAPI
         },
         {
           "description": "Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "PATCH",
           "rel": "update",
           "schema": {
@@ -3911,16 +4344,16 @@ module PlatformAPI
       ],
       "properties": {
         "actions": {
-          "$ref": "#/definitions/addon/definitions/actions"
+          "$ref": "#/definitions/add-on/definitions/actions"
         },
         "addon_service": {
           "description": "identity of add-on service",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           },
           "strictProperties": true,
@@ -3944,16 +4377,16 @@ module PlatformAPI
           "strictProperties": true
         },
         "config_vars": {
-          "$ref": "#/definitions/addon/definitions/config_vars"
+          "$ref": "#/definitions/add-on/definitions/config_vars"
         },
         "created_at": {
-          "$ref": "#/definitions/addon/definitions/created_at"
+          "$ref": "#/definitions/add-on/definitions/created_at"
         },
         "id": {
-          "$ref": "#/definitions/addon/definitions/id"
+          "$ref": "#/definitions/add-on/definitions/id"
         },
         "name": {
-          "$ref": "#/definitions/addon/definitions/name"
+          "$ref": "#/definitions/add-on/definitions/name"
         },
         "plan": {
           "description": "identity of add-on plan",
@@ -3971,13 +4404,16 @@ module PlatformAPI
           ]
         },
         "provider_id": {
-          "$ref": "#/definitions/addon/definitions/provider_id"
+          "$ref": "#/definitions/add-on/definitions/provider_id"
+        },
+        "state": {
+          "$ref": "#/definitions/add-on/definitions/state"
         },
         "updated_at": {
-          "$ref": "#/definitions/addon/definitions/updated_at"
+          "$ref": "#/definitions/add-on/definitions/updated_at"
         },
         "web_url": {
-          "$ref": "#/definitions/addon/definitions/web_url"
+          "$ref": "#/definitions/add-on/definitions/web_url"
         }
       }
     },
@@ -4146,6 +4582,64 @@ module PlatformAPI
         }
       }
     },
+    "app-formation-set": {
+      "description": "App formation set describes the combination of process types with their quantities and sizes as well as application process tier",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Application Formation Set",
+      "type": [
+        "object"
+      ],
+      "properties": {
+        "description": {
+          "description": "a string representation of the formation set",
+          "example": "web@2:Standard-2X worker@3:Performance-M",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "process_tier": {
+          "description": "application process tier",
+          "enum": [
+            "production",
+            "traditional",
+            "free",
+            "hobby",
+            "private"
+          ],
+          "example": "production",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "app": {
+          "description": "app being described by the formation-set",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/app/definitions/name"
+            },
+            "id": {
+              "$ref": "#/definitions/app/definitions/id"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "updated_at": {
+          "description": "last time fomation-set was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      }
+    },
     "app-setup": {
       "description": "An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -4170,6 +4664,21 @@ module PlatformAPI
             {
               "$ref": "#/definitions/app-setup/definitions/id"
             }
+          ]
+        },
+        "buildpack_override": {
+          "description": "a buildpack override",
+          "properties": {
+            "url": {
+              "description": "location of the buildpack",
+              "example": "https://example.com/buildpack.tgz",
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
           ]
         },
         "created_at": {
@@ -4234,6 +4743,58 @@ module PlatformAPI
           },
           "type": [
             "array"
+          ]
+        },
+        "overrides": {
+          "description": "overrides of keys in the app.json manifest file",
+          "example": {
+            "buildpacks": [
+              {
+                "url": "https://example.com/buildpack.tgz"
+              }
+            ],
+            "env": {
+              "FOO": "bar",
+              "BAZ": "qux"
+            }
+          },
+          "properties": {
+            "buildpacks": {
+              "description": "overrides the buildpacks specified in the app.json manifest file",
+              "example": [
+                {
+                  "url": "https://example.com/buildpack.tgz"
+                }
+              ],
+              "items": {
+                "$ref": "#/definitions/app-setup/definitions/buildpack_override"
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "env": {
+              "description": "overrides of the env specified in the app.json manifest file",
+              "example": {
+                "FOO": "bar",
+                "BAZ": "qux"
+              },
+              "readOnly": true,
+              "additionalProperties": false,
+              "patternProperties": {
+                "^\\w+$": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "object"
           ]
         },
         "postdeploy": {
@@ -4356,6 +4917,9 @@ module PlatformAPI
                   "region": {
                     "$ref": "#/definitions/region/definitions/name"
                   },
+                  "space": {
+                    "$ref": "#/definitions/space/definitions/name"
+                  },
                   "stack": {
                     "$ref": "#/definitions/stack/definitions/name"
                   }
@@ -4399,37 +4963,7 @@ module PlatformAPI
                 ]
               },
               "overrides": {
-                "description": "overrides of keys in the app.json manifest file",
-                "example": {
-                  "env": {
-                    "FOO": "bar",
-                    "BAZ": "qux"
-                  }
-                },
-                "properties": {
-                  "env": {
-                    "description": "overrides of the env specified in the app.json manifest file",
-                    "example": {
-                      "FOO": "bar",
-                      "BAZ": "qux"
-                    },
-                    "readOnly": true,
-                    "additionalProperties": false,
-                    "patternProperties": {
-                      "^\\w+$": {
-                        "type": [
-                          "string"
-                        ]
-                      }
-                    },
-                    "type": [
-                      "object"
-                    ]
-                  }
-                },
-                "type": [
-                  "object"
-                ]
+                "$ref": "#/definitions/app-setup/definitions/overrides"
               }
             }
           },
@@ -4801,6 +5335,15 @@ module PlatformAPI
           "type": [
             "string"
           ]
+        },
+        "acm": {
+          "description": "ACM status of this app",
+          "default": false,
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
@@ -5170,6 +5713,24 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "buildpacks": {
+          "description": "buildpacks executed for this build, in order",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Buildpack to execute in a build",
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "url": {
+                "$ref": "#/definitions/buildpack-installation/definitions/url"
+              }
+            }
+          }
+        },
         "created_at": {
           "description": "when build was created",
           "example": "2012-01-01T12:00:00Z",
@@ -5298,6 +5859,9 @@ module PlatformAPI
               "object"
             ],
             "properties": {
+              "buildpacks": {
+                "$ref": "#/definitions/build/definitions/buildpacks"
+              },
               "source_blob": {
                 "$ref": "#/definitions/build/definitions/source_blob"
               }
@@ -5355,22 +5919,7 @@ module PlatformAPI
           ]
         },
         "buildpacks": {
-          "description": "buildpacks executed for this build, in order",
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "description": "Buildpack to execute in a build",
-            "type": [
-              "object"
-            ],
-            "properties": {
-              "url": {
-                "$ref": "#/definitions/buildpack-installation/definitions/url"
-              }
-            }
-          }
+          "$ref": "#/definitions/build/definitions/buildpacks"
         },
         "created_at": {
           "$ref": "#/definitions/build/definitions/created_at"
@@ -5548,6 +6097,14 @@ module PlatformAPI
     "collaborator": {
       "description": "A collaborator represents an account that has been given access to an app on Heroku.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "additionalProperties": false,
+      "required": [
+        "app",
+        "created_at",
+        "id",
+        "updated_at",
+        "user"
+      ],
       "stability": "production",
       "title": "Heroku Platform API - Collaborator",
       "type": [
@@ -5695,6 +6252,17 @@ module PlatformAPI
         "id": {
           "$ref": "#/definitions/collaborator/definitions/id"
         },
+        "permissions": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/organization-app-permission"
+          }
+        },
+        "role": {
+          "$ref": "#/definitions/organization/definitions/role"
+        },
         "updated_at": {
           "$ref": "#/definitions/collaborator/definitions/updated_at"
         },
@@ -5703,6 +6271,9 @@ module PlatformAPI
           "properties": {
             "email": {
               "$ref": "#/definitions/account/definitions/email"
+            },
+            "federated": {
+              "$ref": "#/definitions/account/definitions/federated"
             },
             "id": {
               "$ref": "#/definitions/account/definitions/id"
@@ -5713,14 +6284,7 @@ module PlatformAPI
             "object"
           ]
         }
-      },
-      "required": [
-        "app",
-        "created_at",
-        "id",
-        "updated_at",
-        "user"
-      ]
+      }
     },
     "config-var": {
       "description": "Config Vars allow you to manage the configuration information provided to an app on Heroku.",
@@ -5761,7 +6325,17 @@ module PlatformAPI
           "targetSchema": {
             "$ref": "#/definitions/config-var/definitions/config_vars"
           },
-          "title": "Info"
+          "title": "Info for App"
+        },
+        {
+          "description": "Get config-vars for a release.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/releases/{(%23%2Fdefinitions%2Frelease%2Fdefinitions%2Fidentity)}/config-vars",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/config-var/definitions/config_vars"
+          },
+          "title": "Info for App Release"
         },
         {
           "description": "Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `null`.",
@@ -6340,7 +6914,7 @@ module PlatformAPI
           "title": "Restart"
         },
         {
-          "description": "Restart all dynos",
+          "description": "Restart all dynos.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/dynos",
           "method": "DELETE",
           "rel": "empty",
@@ -6351,6 +6925,19 @@ module PlatformAPI
             ]
           },
           "title": "Restart all"
+        },
+        {
+          "description": "Stop dyno.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/dynos/{(%23%2Fdefinitions%2Fdyno%2Fdefinitions%2Fidentity)}/actions/stop",
+          "method": "POST",
+          "rel": "empty",
+          "targetSchema": {
+            "additionalPoperties": false,
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Stop"
         },
         {
           "description": "Info for existing dyno.",
@@ -6478,13 +7065,16 @@ module PlatformAPI
               "$ref": "#/definitions/account"
             },
             {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             {
               "$ref": "#/definitions/app"
+            },
+            {
+              "$ref": "#/definitions/app-formation-set"
             },
             {
               "$ref": "#/definitions/app-setup"
@@ -6565,6 +7155,7 @@ module PlatformAPI
             "dyno",
             "failed-event",
             "formation",
+            "formation-set",
             "organization",
             "release",
             "space",
@@ -6920,6 +7511,7 @@ module PlatformAPI
           "description": "type of process to maintain",
           "example": "web",
           "readOnly": true,
+          "pattern": "^[-\\w]{1,128}$",
           "type": [
             "string"
           ]
@@ -7078,6 +7670,202 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/formation/definitions/updated_at"
+        }
+      }
+    },
+    "identity-provider": {
+      "description": "Identity Providers represent the SAML configuration of an Organization.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "production",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Identity Provider",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "certificate": {
+          "description": "raw contents of the public certificate (eg: .crt or .pem file)",
+          "example": "-----BEGIN CERTIFICATE----- ...",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when provider record was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "entity_id": {
+          "description": "URL identifier provided by the identity provider",
+          "example": "https://customer-domain.idp.com",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of this identity provider",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "slo_target_url": {
+          "description": "single log out URL for this identity provider",
+          "example": "https://example.com/idp/logout",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "sso_target_url": {
+          "description": "single sign on URL for this identity provider",
+          "example": "https://example.com/idp/login",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when the identity provider record was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Get a list of an organization's Identity Providers",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/identity-provider"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Create an Identity Provider for an organization",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "certificate": {
+                "$ref": "#/definitions/identity-provider/definitions/certificate"
+              },
+              "entity_id": {
+                "$ref": "#/definitions/identity-provider/definitions/entity_id"
+              },
+              "slo_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
+              },
+              "sso_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
+              }
+            },
+            "required": [
+              "certificate",
+              "sso_target_url",
+              "entity_id"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/identity-provider"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Update an organization's Identity Provider",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "certificate": {
+                "$ref": "#/definitions/identity-provider/definitions/certificate"
+              },
+              "entity_id": {
+                "$ref": "#/definitions/identity-provider/definitions/entity_id"
+              },
+              "slo_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
+              },
+              "sso_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/identity-provider"
+          },
+          "title": "Update"
+        },
+        {
+          "description": "Delete an organization's Identity Provider",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/identity-provider"
+          },
+          "title": "Delete"
+        }
+      ],
+      "properties": {
+        "certificate": {
+          "$ref": "#/definitions/identity-provider/definitions/certificate"
+        },
+        "created_at": {
+          "$ref": "#/definitions/identity-provider/definitions/created_at"
+        },
+        "entity_id": {
+          "$ref": "#/definitions/identity-provider/definitions/entity_id"
+        },
+        "id": {
+          "$ref": "#/definitions/identity-provider/definitions/id"
+        },
+        "slo_target_url": {
+          "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
+        },
+        "sso_target_url": {
+          "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
+        },
+        "organization": {
+          "description": "organization associated with this identity provider",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "updated_at": {
+          "$ref": "#/definitions/identity-provider/definitions/updated_at"
         }
       }
     },
@@ -7269,11 +8057,45 @@ module PlatformAPI
             "boolean"
           ]
         },
+        "verification_required": {
+          "description": "if the invitation requires verification",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
         "token": {
           "description": "Unique identifier of an invitation",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "phone_number": {
+          "description": "Phone number to send verification code",
+          "example": "+1 123-123-1234",
+          "type": [
+            "string"
+          ]
+        },
+        "method": {
+          "description": "Transport used to send verification code",
+          "example": "sms",
+          "default": "sms",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "call",
+            "sms"
+          ]
+        },
+        "verification_code": {
+          "description": "Value used to verify invitation",
+          "example": "123456",
           "type": [
             "string"
           ]
@@ -7286,6 +8108,73 @@ module PlatformAPI
           "method": "GET",
           "rel": "self",
           "title": "Info"
+        },
+        {
+          "description": "Invite a user.",
+          "href": "/invitations",
+          "method": "POST",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/account/definitions/email"
+              },
+              "name": {
+                "$ref": "#/definitions/account/definitions/name"
+              }
+            },
+            "required": [
+              "email",
+              "name"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Send a verification code for an invitation via SMS/phone call.",
+          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}/actions/send-verification",
+          "method": "POST",
+          "rel": "empty",
+          "schema": {
+            "properties": {
+              "phone_number": {
+                "$ref": "#/definitions/invitation/definitions/phone_number"
+              },
+              "method": {
+                "$ref": "#/definitions/invitation/definitions/method"
+              }
+            },
+            "required": [
+              "phone_number"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Send Verification Code"
+        },
+        {
+          "description": "Verify an invitation using a verification code.",
+          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}/actions/verify",
+          "method": "POST",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "verification_code": {
+                "$ref": "#/definitions/invitation/definitions/verification_code"
+              }
+            },
+            "required": [
+              "verification_code"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Verify"
         },
         {
           "description": "Finalize Invitation and Create Account.",
@@ -7312,34 +8201,13 @@ module PlatformAPI
               "object"
             ]
           },
-          "title": "Finalize Invitation"
-        },
-        {
-          "description": "Invite a user.",
-          "href": "/invitations",
-          "method": "POST",
-          "rel": "self",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/account/definitions/email"
-              },
-              "name": {
-                "$ref": "#/definitions/account/definitions/name"
-              }
-            },
-            "required": [
-              "email",
-              "name"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Invitation"
+          "title": "Finalize"
         }
       ],
       "properties": {
+        "verification_required": {
+          "$ref": "#/definitions/invitation/definitions/verification_required"
+        },
         "created_at": {
           "$ref": "#/definitions/invitation/definitions/created_at"
         },
@@ -7845,7 +8713,7 @@ module PlatformAPI
       }
     },
     "log-drain": {
-      "description": "[Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some addons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.",
+      "description": "[Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some add-ons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -7855,17 +8723,17 @@ module PlatformAPI
       ],
       "definitions": {
         "addon": {
-          "description": "addon that created the drain",
+          "description": "add-on that created the drain",
           "example": {
             "id": "01234567-89ab-cdef-0123-456789abcdef",
             "name": "singing-swiftly-1242"
           },
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon/definitions/id"
+              "$ref": "#/definitions/add-on/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon/definitions/name"
+              "$ref": "#/definitions/add-on/definitions/name"
             }
           },
           "readOnly": true,
@@ -7892,11 +8760,21 @@ module PlatformAPI
             "string"
           ]
         },
-        "identity": {
+        "query_identity": {
           "anyOf": [
             {
               "$ref": "#/definitions/log-drain/definitions/id"
             },
+            {
+              "$ref": "#/definitions/log-drain/definitions/url"
+            },
+            {
+              "$ref": "#/definitions/log-drain/definitions/token"
+            }
+          ]
+        },
+        "identity": {
+          "anyOf": [
             {
               "$ref": "#/definitions/log-drain/definitions/url"
             }
@@ -7954,7 +8832,7 @@ module PlatformAPI
         },
         {
           "description": "Delete an existing log drain. Log drains added by add-ons can only be removed by removing the add-on.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fquery_identity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
@@ -7964,7 +8842,7 @@ module PlatformAPI
         },
         {
           "description": "Info for existing log drain.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fquery_identity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
@@ -8888,7 +9766,7 @@ module PlatformAPI
         }
       }
     },
-    "organization-addon": {
+    "organization-add-on": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "A list of add-ons the Organization uses across all apps",
       "stability": "production",
@@ -8904,7 +9782,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             "type": [
               "array"
@@ -9037,6 +9915,9 @@ module PlatformAPI
           "properties": {
             "email": {
               "$ref": "#/definitions/account/definitions/email"
+            },
+            "federated": {
+              "$ref": "#/definitions/account/definitions/federated"
             },
             "id": {
               "$ref": "#/definitions/account/definitions/id"
@@ -9345,6 +10226,332 @@ module PlatformAPI
         }
       }
     },
+    "organization-feature": {
+      "description": "An organization feature represents a feature enabled on an organization account.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Organization Feature",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when organization feature was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "description": "description of organization feature",
+          "example": "Causes account to example.",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "doc_url": {
+          "description": "documentation URL of organization feature",
+          "example": "http://devcenter.heroku.com/articles/example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "enabled": {
+          "description": "whether or not account feature has been enabled",
+          "example": true,
+          "readOnly": false,
+          "type": [
+            "boolean"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of organization feature",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/organization-feature/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/organization-feature/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of organization feature",
+          "example": "name",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "state": {
+          "description": "state of organization feature",
+          "example": "public",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when organization feature was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Info for an existing account feature.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features/{(%23%2Fdefinitions%2Forganization-feature%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-feature"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List existing organization features.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-feature"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/account-feature/definitions/created_at"
+        },
+        "description": {
+          "$ref": "#/definitions/account-feature/definitions/description"
+        },
+        "doc_url": {
+          "$ref": "#/definitions/account-feature/definitions/doc_url"
+        },
+        "enabled": {
+          "$ref": "#/definitions/account-feature/definitions/enabled"
+        },
+        "id": {
+          "$ref": "#/definitions/account-feature/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/account-feature/definitions/name"
+        },
+        "state": {
+          "$ref": "#/definitions/account-feature/definitions/state"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/account-feature/definitions/updated_at"
+        }
+      }
+    },
+    "organization-invitation": {
+      "description": "An organization invitation represents an invite to an organization.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Organization Invitation",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when invitation was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/organization-invitation/definitions/id"
+            }
+          ]
+        },
+        "id": {
+          "description": "Unique identifier of an invitation",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "token": {
+          "description": "Special token for invitation",
+          "example": "614ae25aa2d4802096cd7c18625b526c",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when invitation was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Get a list of an organization's Identity Providers",
+          "title": "List",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/invitations",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-invitation"
+            },
+            "type": [
+              "array"
+            ]
+          }
+        },
+        {
+          "description": "Create Organization Invitation",
+          "title": "Create",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invitations",
+          "method": "PUT",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/account/definitions/email"
+              },
+              "role": {
+                "$ref": "#/definitions/organization/definitions/role"
+              }
+            },
+            "required": [
+              "email",
+              "role"
+            ],
+            "type": [
+              "object"
+            ]
+          }
+        },
+        {
+          "description": "Revoke an organization invitation.",
+          "title": "Revoke",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "self"
+        },
+        {
+          "description": "Get an invitation by its token",
+          "title": "Get",
+          "href": "/organizations/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Ftoken)}",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-invitation"
+          }
+        },
+        {
+          "description": "Accept Organization Invitation",
+          "title": "Accept",
+          "href": "/organizations/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Ftoken)}/accept",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-member"
+          }
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/organization-invitation/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/organization-invitation/definitions/id"
+        },
+        "invited_by": {
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/account/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "organization": {
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/organization/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "role": {
+          "$ref": "#/definitions/organization/definitions/role"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/organization-invitation/definitions/updated_at"
+        },
+        "user": {
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/account/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        }
+      }
+    },
     "organization-invoice": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.",
@@ -9356,7 +10563,7 @@ module PlatformAPI
       ],
       "definitions": {
         "addons_total": {
-          "description": "total addons charges in on this invoice",
+          "description": "total add-ons charges in on this invoice",
           "example": 25000,
           "readOnly": true,
           "type": [
@@ -9580,6 +10787,7 @@ module PlatformAPI
       "required": [
         "created_at",
         "email",
+        "federated",
         "updated_at"
       ],
       "title": "Heroku Platform API - Organization Member",
@@ -9604,14 +10812,40 @@ module PlatformAPI
             "string"
           ]
         },
+        "federated": {
+          "description": "whether the user is federated and belongs to an Identity Provider",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of organization member",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
               "$ref": "#/definitions/organization-member/definitions/email"
             },
             {
-              "$ref": "#/definitions/app/definitions/id"
+              "$ref": "#/definitions/organization-member/definitions/id"
             }
+          ]
+        },
+        "name": {
+          "description": "full name of the organization member",
+          "example": "Tina Edmonds",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
           ]
         },
         "two_factor_authentication": {
@@ -9643,6 +10877,9 @@ module PlatformAPI
               "email": {
                 "$ref": "#/definitions/organization-member/definitions/email"
               },
+              "federated": {
+                "$ref": "#/definitions/organization-member/definitions/federated"
+              },
               "role": {
                 "$ref": "#/definitions/organization/definitions/role"
               }
@@ -9661,6 +10898,66 @@ module PlatformAPI
           "title": "Create or Update"
         },
         {
+          "description": "Create a new organization member.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/organization-member/definitions/email"
+              },
+              "federated": {
+                "$ref": "#/definitions/organization-member/definitions/federated"
+              },
+              "role": {
+                "$ref": "#/definitions/organization/definitions/role"
+              }
+            },
+            "required": [
+              "email",
+              "role"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization-member"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Update an organization member.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/organization-member/definitions/email"
+              },
+              "federated": {
+                "$ref": "#/definitions/organization-member/definitions/federated"
+              },
+              "role": {
+                "$ref": "#/definitions/organization/definitions/role"
+              }
+            },
+            "required": [
+              "email",
+              "role"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization-member"
+          },
+          "title": "update"
+        },
+        {
           "description": "Remove a member from the organization.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Forganization-member%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
@@ -9674,10 +10971,28 @@ module PlatformAPI
           "description": "List members of the organization.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
           "method": "GET",
+          "ranges": [
+            "email"
+          ],
           "rel": "instances",
           "targetSchema": {
             "items": {
               "$ref": "#/definitions/organization-member"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "List the apps of a member.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Forganization-member%2Fdefinitions%2Fidentity)}/apps",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-app"
             },
             "type": [
               "array"
@@ -9692,6 +11007,12 @@ module PlatformAPI
         },
         "email": {
           "$ref": "#/definitions/organization-member/definitions/email"
+        },
+        "federated": {
+          "$ref": "#/definitions/organization-member/definitions/federated"
+        },
+        "id": {
+          "$ref": "#/definitions/organization-member/definitions/id"
         },
         "role": {
           "$ref": "#/definitions/organization/definitions/role"
@@ -9710,6 +11031,9 @@ module PlatformAPI
             },
             "id": {
               "$ref": "#/definitions/account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/account/definitions/name"
             }
           },
           "strictProperties": true,
@@ -9721,9 +11045,9 @@ module PlatformAPI
     },
     "organization-payment-method": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "The on file payment method for an account",
+      "description": "The on file payment method for an organization account.",
       "stability": "prototype",
-      "title": "Heroku Vault API - Payment Method",
+      "title": "Heroku Vault API - Organization Payment Method",
       "type": [
         "object"
       ],
@@ -9853,7 +11177,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Update an existing payment method for an account.",
+          "description": "Update an existing payment method for an organization account.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/payment-method",
           "method": "PATCH",
           "rel": "update",
@@ -9920,7 +11244,7 @@ module PlatformAPI
           "title": "update"
         },
         {
-          "description": "Get the current payment method for an account.",
+          "description": "Get the current payment method for an organization account.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/payment-method",
           "method": "GET",
           "rel": "self",
@@ -9982,6 +11306,21 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "default-permission": {
+          "description": "The default permission used when adding new members to the organization",
+          "example": "member",
+          "readOnly": false,
+          "enum": [
+            "admin",
+            "member",
+            "viewer",
+            null
+          ],
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "identity": {
           "$ref": "#/definitions/organization/definitions/identity"
         },
@@ -10025,6 +11364,9 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "default-permission": {
+          "$ref": "#/definitions/organization-preferences/definitions/default-permission"
+        },
         "whitelisting-enabled": {
           "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
         }
@@ -10078,7 +11420,19 @@ module PlatformAPI
           "anyOf": [
             {
               "$ref": "#/definitions/organization/definitions/name"
+            },
+            {
+              "$ref": "#/definitions/organization/definitions/id"
             }
+          ]
+        },
+        "membership_limit": {
+          "description": "upper limit of members allowed in an organization.",
+          "example": 25,
+          "readOnly": true,
+          "type": [
+            "number",
+            "null"
           ]
         },
         "name": {
@@ -10110,6 +11464,18 @@ module PlatformAPI
           "readOnly": true,
           "type": [
             "null",
+            "string"
+          ]
+        },
+        "type": {
+          "description": "type of organization.",
+          "example": "team",
+          "enum": [
+            "enterprise",
+            "team"
+          ],
+          "readOnly": true,
+          "type": [
             "string"
           ]
         },
@@ -10147,7 +11513,7 @@ module PlatformAPI
           "title": "Info"
         },
         {
-          "description": "Set or unset the organization as your default organization.",
+          "description": "Update organization properties.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
           "method": "PATCH",
           "rel": "update",
@@ -10155,6 +11521,9 @@ module PlatformAPI
             "properties": {
               "default": {
                 "$ref": "#/definitions/organization/definitions/default"
+              },
+              "name": {
+                "$ref": "#/definitions/organization/definitions/name"
               }
             },
             "type": [
@@ -10165,9 +11534,84 @@ module PlatformAPI
             "$ref": "#/definitions/organization"
           },
           "title": "Update"
+        },
+        {
+          "description": "Create a new organization.",
+          "href": "/organizations",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/organization/definitions/name"
+              },
+              "address_1": {
+                "$ref": "#/definitions/payment-method/definitions/address_1"
+              },
+              "address_2": {
+                "$ref": "#/definitions/payment-method/definitions/address_2"
+              },
+              "card_number": {
+                "$ref": "#/definitions/payment-method/definitions/card_number"
+              },
+              "city": {
+                "$ref": "#/definitions/payment-method/definitions/city"
+              },
+              "country": {
+                "$ref": "#/definitions/payment-method/definitions/country"
+              },
+              "cvv": {
+                "$ref": "#/definitions/payment-method/definitions/cvv"
+              },
+              "expiration_month": {
+                "$ref": "#/definitions/payment-method/definitions/expiration_month"
+              },
+              "expiration_year": {
+                "$ref": "#/definitions/payment-method/definitions/expiration_year"
+              },
+              "first_name": {
+                "$ref": "#/definitions/payment-method/definitions/first_name"
+              },
+              "last_name": {
+                "$ref": "#/definitions/payment-method/definitions/last_name"
+              },
+              "other": {
+                "$ref": "#/definitions/payment-method/definitions/other"
+              },
+              "postal_code": {
+                "$ref": "#/definitions/payment-method/definitions/postal_code"
+              },
+              "state": {
+                "$ref": "#/definitions/payment-method/definitions/state"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Delete an existing organization.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/organization"
+          },
+          "title": "Delete"
         }
       ],
       "properties": {
+        "id": {
+          "$ref": "#/definitions/organization/definitions/id"
+        },
         "created_at": {
           "$ref": "#/definitions/organization/definitions/created_at"
         },
@@ -10177,6 +11621,9 @@ module PlatformAPI
         "default": {
           "$ref": "#/definitions/organization/definitions/default"
         },
+        "membership_limit": {
+          "$ref": "#/definitions/organization/definitions/membership_limit"
+        },
         "name": {
           "$ref": "#/definitions/organization/definitions/name"
         },
@@ -10185,6 +11632,9 @@ module PlatformAPI
         },
         "role": {
           "$ref": "#/definitions/organization/definitions/role"
+        },
+        "type": {
+          "$ref": "#/definitions/organization/definitions/type"
         },
         "updated_at": {
           "$ref": "#/definitions/organization/definitions/updated_at"
@@ -10955,6 +12405,65 @@ module PlatformAPI
         }
       }
     },
+    "organization-app-permission": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "An organization app permission is a behavior that is assigned to a user in an organization app.",
+      "stability": "prototype",
+      "title": "Heroku Platform API - Organization App Permission",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/organization-app-permission/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "The name of the app permission.",
+          "example": "view",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "description": "A description of what the app permission allows.",
+          "example": "Can manage config, deploy, run commands and restart the app.",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Lists permissions available to organizations.",
+          "href": "/organizations/permissions",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-app-permission"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/organization-app-permission/definitions/name"
+        },
+        "description": {
+          "$ref": "#/definitions/organization-app-permission/definitions/description"
+        }
+      }
+    },
     "pipeline-coupling": {
       "description": "Information about an app's coupling to a pipeline",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -11641,8 +13150,22 @@ module PlatformAPI
             "string"
           ]
         },
+        "compliance": {
+          "description": "the compliance regimes applied to an add-on plan",
+          "example": [
+            "HIPAA"
+          ],
+          "readOnly": false,
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/plan/definitions/regime"
+          }
+        },
         "default": {
-          "description": "whether this plan is the default for its addon service",
+          "description": "whether this plan is the default for its add-on service",
           "example": false,
           "readOnly": true,
           "type": [
@@ -11658,7 +13181,7 @@ module PlatformAPI
           ]
         },
         "human_name": {
-          "description": "human readable name of the addon plan",
+          "description": "human readable name of the add-on plan",
           "example": "Dev",
           "readOnly": true,
           "type": [
@@ -11708,6 +13231,18 @@ module PlatformAPI
             "string"
           ]
         },
+        "regime": {
+          "description": "compliance requirements an add-on plan must adhere to",
+          "readOnly": true,
+          "example": "HIPAA",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "HIPAA",
+            "PCI"
+          ]
+        },
         "cents": {
           "description": "price in cents per unit of plan",
           "example": 0,
@@ -11753,7 +13288,7 @@ module PlatformAPI
       "links": [
         {
           "description": "Info for existing plan.",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
@@ -11763,7 +13298,7 @@ module PlatformAPI
         },
         {
           "description": "List existing plans.",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}/plans",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
@@ -11782,10 +13317,10 @@ module PlatformAPI
           "description": "identity of add-on service",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           },
           "strictProperties": true,
@@ -11795,6 +13330,9 @@ module PlatformAPI
         },
         "created_at": {
           "$ref": "#/definitions/plan/definitions/created_at"
+        },
+        "compliance": {
+          "$ref": "#/definitions/plan/definitions/compliance"
         },
         "default": {
           "$ref": "#/definitions/plan/definitions/default"
@@ -12155,6 +13693,14 @@ module PlatformAPI
           "type": [
             "integer"
           ]
+        },
+        "current": {
+          "description": "indicates this release as being the current one for the app",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
@@ -12234,6 +13780,15 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "addon_plan_names": {
+          "description": "add-on plans installed on the app for this release",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/plan/definitions/name"
+          }
+        },
         "app": {
           "description": "app involved in the release",
           "properties": {
@@ -12273,6 +13828,9 @@ module PlatformAPI
             "null"
           ]
         },
+        "status": {
+          "$ref": "#/definitions/release/definitions/status"
+        },
         "user": {
           "description": "user that created the release",
           "properties": {
@@ -12290,6 +13848,9 @@ module PlatformAPI
         },
         "version": {
           "$ref": "#/definitions/release/definitions/version"
+        },
+        "current": {
+          "$ref": "#/definitions/release/definitions/current"
         }
       }
     },
@@ -12379,7 +13940,7 @@ module PlatformAPI
             "web": "./bin/web -p $PORT"
           },
           "patternProperties": {
-            "^\\w+$": {
+            "^[-\\w]{1,128}$": {
               "type": [
                 "string"
               ]
@@ -12601,6 +14162,199 @@ module PlatformAPI
         }
       }
     },
+    "sni-endpoint": {
+      "description": "SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - SNI Endpoint",
+      "stability": "development",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "certificate_chain": {
+          "description": "raw contents of the public certificate chain (eg: .crt or .pem file)",
+          "example": "-----BEGIN CERTIFICATE----- ...",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "cname": {
+          "description": "deprecated; refer to GET /apps/:id/domains for valid CNAMEs for this app",
+          "example": "example.herokussl.com",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when endpoint was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of this SNI endpoint",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/sni-endpoint/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/sni-endpoint/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name for SNI endpoint",
+          "example": "example",
+          "pattern": "^[a-z][a-z0-9-]{2,29}$",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "private_key": {
+          "description": "contents of the private key (eg .key file)",
+          "example": "-----BEGIN RSA PRIVATE KEY----- ...",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when SNI endpoint was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "certificate_chain": {
+                "$ref": "#/definitions/sni-endpoint/definitions/certificate_chain"
+              },
+              "private_key": {
+                "$ref": "#/definitions/sni-endpoint/definitions/private_key"
+              }
+            },
+            "required": [
+              "certificate_chain",
+              "private_key"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Delete existing SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints/{(%23%2Fdefinitions%2Fsni-endpoint%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Delete"
+        },
+        {
+          "description": "Info for existing SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints/{(%23%2Fdefinitions%2Fsni-endpoint%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List existing SNI endpoints.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/sni-endpoint"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Update an existing SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints/{(%23%2Fdefinitions%2Fsni-endpoint%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "certificate_chain": {
+                "$ref": "#/definitions/sni-endpoint/definitions/certificate_chain"
+              },
+              "private_key": {
+                "$ref": "#/definitions/sni-endpoint/definitions/private_key"
+              }
+            },
+            "required": [
+              "certificate_chain",
+              "private_key"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "certificate_chain": {
+          "$ref": "#/definitions/sni-endpoint/definitions/certificate_chain"
+        },
+        "cname": {
+          "$ref": "#/definitions/sni-endpoint/definitions/cname"
+        },
+        "created_at": {
+          "$ref": "#/definitions/sni-endpoint/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/sni-endpoint/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/sni-endpoint/definitions/name"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/sni-endpoint/definitions/updated_at"
+        }
+      }
+    },
     "source": {
       "description": "A source is a location for uploading and downloading an application's source code.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -12631,13 +14385,24 @@ module PlatformAPI
       "links": [
         {
           "description": "Create URLs for uploading and downloading source.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sources",
+          "href": "/sources",
           "method": "POST",
           "rel": "create",
           "targetSchema": {
             "$ref": "#/definitions/source"
           },
           "title": "Create"
+        },
+        {
+          "deactivate_on": "2017-08-01",
+          "description": "Create URLs for uploading and downloading source. Deprecated in favor of `POST /sources`",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sources",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/source"
+          },
+          "title": "Create - Deprecated"
         }
       ],
       "properties": {
@@ -12904,32 +14669,6 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
-        "regime": {
-          "description": "compliance requirements a space must adhere to",
-          "readOnly": true,
-          "example": "HIPAA",
-          "type": [
-            "string"
-          ],
-          "enum": [
-            "HIPAA",
-            "PCI"
-          ]
-        },
-        "compliance": {
-          "description": "the compliance regimes applied to a space",
-          "example": [
-            "HIPAA"
-          ],
-          "readOnly": false,
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "$ref": "#/definitions/space/definitions/regime"
-          }
-        },
         "created_at": {
           "description": "when space was created",
           "example": "2012-01-01T12:00:00Z",
@@ -12965,6 +14704,14 @@ module PlatformAPI
           "pattern": "^[a-z0-9](?:[a-z0-9]|-(?!-))+[a-z0-9]$",
           "type": [
             "string"
+          ]
+        },
+        "shield": {
+          "description": "true if this space has shield enabled",
+          "readOnly": true,
+          "example": true,
+          "type": [
+            "boolean"
           ]
         },
         "state": {
@@ -13056,15 +14803,19 @@ module PlatformAPI
               "name": {
                 "$ref": "#/definitions/space/definitions/name"
               },
+              "organization": {
+                "$ref": "#/definitions/organization/definitions/name"
+              },
               "region": {
                 "$ref": "#/definitions/region/definitions/identity"
               },
-              "compliance": {
-                "$ref": "#/definitions/space/definitions/compliance"
+              "shield": {
+                "$ref": "#/definitions/space/definitions/shield"
               }
             },
             "required": [
-              "name"
+              "name",
+              "organization"
             ],
             "type": [
               "object"
@@ -13077,9 +14828,6 @@ module PlatformAPI
         }
       ],
       "properties": {
-        "compliance": {
-          "$ref": "#/definitions/space/definitions/compliance"
-        },
         "created_at": {
           "$ref": "#/definitions/space/definitions/created_at"
         },
@@ -13097,7 +14845,6 @@ module PlatformAPI
             }
           },
           "type": [
-            "null",
             "object"
           ]
         },
@@ -13116,6 +14863,9 @@ module PlatformAPI
             "object"
           ]
         },
+        "shield": {
+          "$ref": "#/definitions/space/definitions/shield"
+        },
         "state": {
           "$ref": "#/definitions/space/definitions/state"
         },
@@ -13125,7 +14875,7 @@ module PlatformAPI
       }
     },
     "ssl-endpoint": {
-      "description": "[SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` addon installed before it can provision an SSL Endpoint using these APIs.",
+      "description": "[SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` add-on installed before it can provision an SSL Endpoint using these APIs.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Heroku Platform API - SSL Endpoint",
       "stability": "production",
@@ -13320,6 +15070,21 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "app": {
+          "description": "application associated with this ssl-endpoint",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/app/definitions/name"
+            }
+          },
+          "strictProperties": true
+        },
         "certificate_chain": {
           "$ref": "#/definitions/ssl-endpoint/definitions/certificate_chain"
         },
@@ -13662,7 +15427,7 @@ module PlatformAPI
         }
       }
     },
-    "whitelisted-addon-service": {
+    "whitelisted-add-on-service": {
       "description": "Entities that have been whitelisted to be used by an Organization",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
@@ -13685,10 +15450,18 @@ module PlatformAPI
           "description": "the user which whitelisted the Add-on Service",
           "properties": {
             "email": {
-              "$ref": "#/definitions/account/definitions/email"
+              "$ref": "#/definitions/account/definitions/email",
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "id": {
-              "$ref": "#/definitions/account/definitions/id"
+              "$ref": "#/definitions/account/definitions/id",
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
           "readOnly": true,
@@ -13700,13 +15473,13 @@ module PlatformAPI
           "description": "the Add-on Service whitelisted for use",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             },
             "human_name": {
-              "$ref": "#/definitions/addon-service/definitions/human_name"
+              "$ref": "#/definitions/add-on-service/definitions/human_name"
             }
           },
           "readOnly": true,
@@ -13726,10 +15499,10 @@ module PlatformAPI
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/whitelisted-addon-service/definitions/id"
+              "$ref": "#/definitions/whitelisted-add-on-service/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           ]
         }
@@ -13742,7 +15515,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/whitelisted-addon-service"
+              "$ref": "#/definitions/whitelisted-add-on-service"
             },
             "type": [
               "array"
@@ -13768,7 +15541,7 @@ module PlatformAPI
           },
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/whitelisted-addon-service"
+              "$ref": "#/definitions/whitelisted-add-on-service"
             },
             "type": [
               "array"
@@ -13778,27 +15551,27 @@ module PlatformAPI
         },
         {
           "description": "Remove a whitelisted entity",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-addon-service%2Fdefinitions%2Fidentity)}",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-add-on-service%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
-            "$ref": "#/definitions/whitelisted-addon-service"
+            "$ref": "#/definitions/whitelisted-add-on-service"
           },
           "title": "Delete"
         }
       ],
       "properties": {
         "added_at": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/added_at"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/added_at"
         },
         "added_by": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/added_by"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/added_by"
         },
         "addon_service": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/addon_service"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/addon_service"
         },
         "id": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/id"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/id"
         }
       }
     }
@@ -13810,26 +15583,32 @@ module PlatformAPI
     "account": {
       "$ref": "#/definitions/account"
     },
-    "addon-action": {
-      "$ref": "#/definitions/addon-action"
+    "add-on-action": {
+      "$ref": "#/definitions/add-on-action"
     },
-    "addon-attachment": {
-      "$ref": "#/definitions/addon-attachment"
+    "add-on-attachment": {
+      "$ref": "#/definitions/add-on-attachment"
     },
-    "addon-config": {
-      "$ref": "#/definitions/addon-config"
+    "add-on-config": {
+      "$ref": "#/definitions/add-on-config"
     },
-    "addon-region-capability": {
-      "$ref": "#/definitions/addon-region-capability"
+    "add-on-plan-action": {
+      "$ref": "#/definitions/add-on-plan-action"
     },
-    "addon-service": {
-      "$ref": "#/definitions/addon-service"
+    "add-on-region-capability": {
+      "$ref": "#/definitions/add-on-region-capability"
     },
-    "addon": {
-      "$ref": "#/definitions/addon"
+    "add-on-service": {
+      "$ref": "#/definitions/add-on-service"
+    },
+    "add-on": {
+      "$ref": "#/definitions/add-on"
     },
     "app-feature": {
       "$ref": "#/definitions/app-feature"
+    },
+    "app-formation-set": {
+      "$ref": "#/definitions/app-formation-set"
     },
     "app-setup": {
       "$ref": "#/definitions/app-setup"
@@ -13876,6 +15655,9 @@ module PlatformAPI
     "formation": {
       "$ref": "#/definitions/formation"
     },
+    "identity-provider": {
+      "$ref": "#/definitions/identity-provider"
+    },
     "inbound-ruleset": {
       "$ref": "#/definitions/inbound-ruleset"
     },
@@ -13909,14 +15691,20 @@ module PlatformAPI
     "oauth-token": {
       "$ref": "#/definitions/oauth-token"
     },
-    "organization-addon": {
-      "$ref": "#/definitions/organization-addon"
+    "organization-add-on": {
+      "$ref": "#/definitions/organization-add-on"
     },
     "organization-app-collaborator": {
       "$ref": "#/definitions/organization-app-collaborator"
     },
     "organization-app": {
       "$ref": "#/definitions/organization-app"
+    },
+    "organization-feature": {
+      "$ref": "#/definitions/organization-feature"
+    },
+    "organization-invitation": {
+      "$ref": "#/definitions/organization-invitation"
     },
     "organization-invoice": {
       "$ref": "#/definitions/organization-invoice"
@@ -13947,6 +15735,9 @@ module PlatformAPI
     },
     "payment": {
       "$ref": "#/definitions/payment"
+    },
+    "organization-app-permission": {
+      "$ref": "#/definitions/organization-app-permission"
     },
     "pipeline-coupling": {
       "$ref": "#/definitions/pipeline-coupling"
@@ -13981,6 +15772,9 @@ module PlatformAPI
     "sms-number": {
       "$ref": "#/definitions/sms-number"
     },
+    "sni-endpoint": {
+      "$ref": "#/definitions/sni-endpoint"
+    },
     "source": {
       "$ref": "#/definitions/source"
     },
@@ -14002,8 +15796,8 @@ module PlatformAPI
     "user-preferences": {
       "$ref": "#/definitions/user-preferences"
     },
-    "whitelisted-addon-service": {
-      "$ref": "#/definitions/whitelisted-addon-service"
+    "whitelisted-add-on-service": {
+      "$ref": "#/definitions/whitelisted-add-on-service"
     }
   },
   "description": "The platform API empowers developers to automate, extend and combine Heroku with other services.",
