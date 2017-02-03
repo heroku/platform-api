@@ -3,11 +3,11 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'platform-api/version'
+require 'heroku/platform_api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'platform-api'
-  spec.version       = PlatformAPI::VERSION
+  spec.version       = Heroku::PlatformAPI::VERSION
   spec.authors       = ['jkakar']
   spec.email         = ['jkakar@kakar.ca']
   spec.description   = 'Ruby HTTP client for the Heroku API.'

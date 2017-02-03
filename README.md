@@ -1,4 +1,4 @@
-# Platform API
+# Heroku Platform API
 
 Ruby HTTP client for the Heroku API.
 
@@ -7,7 +7,7 @@ Ruby HTTP client for the Heroku API.
 Add this line to your application's Gemfile:
 
 ```
-gem 'platform-api'
+gem 'heroku-platform_api'
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ bundle
 Or install it yourself as:
 
 ```
-gem install platform-api
+gem install heroku-platform_api
 ```
 
 ## API documentation
@@ -77,8 +77,8 @@ Created OAuth authorization.
 Use the `Token` value when instantiating a client:
 
 ```ruby
-require 'platform-api'
-heroku = PlatformAPI.connect_oauth('e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2')
+require 'heroku/platform_api'
+heroku = Heroku::PlatformAPI.connect_oauth('e7dd6ad7-3c6a-411e-a2be-c9fe52ac7ed2')
 ```
 
 The [OAuth article](https://devcenter.heroku.com/articles/oauth) has more information about OAuth tokens, including how to
@@ -275,7 +275,7 @@ The various `connect` methods take an options hash that you can use to include
 custom headers to include with every request:
 
 ```ruby
-client = PlatformAPI.connect('my-api-key', default_headers: {'Foo' => 'Bar'})
+client = Heroku::PlatformAPI.connect('my-api-key', default_headers: {'Foo' => 'Bar'})
 ```
 
 ### Using a custom cache
@@ -285,7 +285,7 @@ Use a different caching by passing in the [Moneta](https://github.com/minad/mone
 instance you want to use:
 
 ```ruby
-client = PlatformAPI.connect('my-api-key', cache: Moneta.new(:Memory))
+client = Heroku::PlatformAPI.connect('my-api-key', cache: Moneta.new(:Memory))
 ```
 
 ### Connecting to a different host
@@ -293,7 +293,7 @@ client = PlatformAPI.connect('my-api-key', cache: Moneta.new(:Memory))
 Connect to a different host by passing a `url` option:
 
 ```ruby
-client = PlatformAPI.connect('my-api-key', url: 'https://api.example.com')
+client = Heroku::PlatformAPI.connect('my-api-key', url: 'https://api.example.com')
 ```
 
 ## Building and releasing
@@ -310,7 +310,7 @@ Remember to commit and push the changes to Github.
 
 ### Release a new gem
 
-* Bump the version in `lib/platform-api/version.rb`
+* Bump the version in `lib/heroku/platform_api/version.rb`
 * `bundle install` to update Gemfile.lock
 * `git commit -m 'vX.Y.Z' to stage the version and Gemfile.lock changes
 * `rake release` to push git changes and to release to Rubygems

@@ -9,8 +9,9 @@
 
 require 'heroics'
 require 'uri'
-
-module PlatformAPI
+module Heroku
+end
+module Heroku::PlatformAPI
   # Get a Client configured to use HTTP Basic or header-based authentication.
   #
   # @param api_key [String] The API key to use when connecting.
@@ -405,7 +406,7 @@ module PlatformAPI
       @otp_secret_resource ||= OtpSecret.new(@client)
     end
 
-    # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
+    # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with.
     #
     # @return [OutboundRuleset]
     def outbound_ruleset
@@ -1758,14 +1759,14 @@ module PlatformAPI
 
     # Retrieve Organization Preferences
     #
-    # @param organization_preferences_identity: 
+    # @param organization_preferences_identity:
     def list(organization_preferences_identity)
       @client.organization_preferences.list(organization_preferences_identity)
     end
 
     # Update Organization Preferences
     #
-    # @param organization_preferences_identity: 
+    # @param organization_preferences_identity:
     # @param body: the object to pass as the request payload
     def update(organization_preferences_identity, body = {})
       @client.organization_preferences.update(organization_preferences_identity, body)
@@ -1811,7 +1812,7 @@ module PlatformAPI
     end
   end
 
-  # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
+  # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with.
   class OutboundRuleset
     def initialize(client)
       @client = client
