@@ -215,6 +215,14 @@
             "string"
           ]
         },
+        "federated": {
+          "description": "whether the user is federated and belongs to an Identity Provider",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
         "id": {
           "description": "unique identifier of an account",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
@@ -254,14 +262,6 @@
           "type": [
             "string",
             "null"
-          ]
-        },
-        "new_password": {
-          "description": "the new password for the account when changing the password",
-          "example": "newpassword",
-          "readOnly": true,
-          "type": [
-            "string"
           ]
         },
         "password": {
@@ -365,9 +365,6 @@
               },
               "name": {
                 "$ref": "#/definitions/account/definitions/name"
-              },
-              "password": {
-                "$ref": "#/definitions/account/definitions/password"
               }
             },
             "type": [
@@ -378,57 +375,6 @@
             "$ref": "#/definitions/account"
           },
           "title": "Update"
-        },
-        {
-          "description": "Change Email for account.",
-          "href": "/account",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/account/definitions/email"
-              },
-              "password": {
-                "$ref": "#/definitions/account/definitions/password"
-              }
-            },
-            "required": [
-              "password",
-              "email"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Change Email"
-        },
-        {
-          "description": "Change Password for account.",
-          "href": "/account",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "new_password": {
-                "$ref": "#/definitions/account/definitions/new_password"
-              },
-              "password": {
-                "$ref": "#/definitions/account/definitions/password"
-              }
-            },
-            "required": [
-              "new_password",
-              "password"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/account"
-          },
-          "title": "Change Password"
         },
         {
           "description": "Delete account. Note that this action cannot be undone.",
@@ -465,9 +411,6 @@
               },
               "name": {
                 "$ref": "#/definitions/account/definitions/name"
-              },
-              "password": {
-                "$ref": "#/definitions/account/definitions/password"
               }
             },
             "type": [
@@ -478,57 +421,6 @@
             "$ref": "#/definitions/account"
           },
           "title": "Update"
-        },
-        {
-          "description": "Change Email for account.",
-          "href": "/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/account/definitions/email"
-              },
-              "password": {
-                "$ref": "#/definitions/account/definitions/password"
-              }
-            },
-            "required": [
-              "password",
-              "email"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Change Email"
-        },
-        {
-          "description": "Change Password for account.",
-          "href": "/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "new_password": {
-                "$ref": "#/definitions/account/definitions/new_password"
-              },
-              "password": {
-                "$ref": "#/definitions/account/definitions/password"
-              }
-            },
-            "required": [
-              "new_password",
-              "password"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/account"
-          },
-          "title": "Change Password"
         },
         {
           "description": "Delete account. Note that this action cannot be undone.",
@@ -554,8 +446,33 @@
         "email": {
           "$ref": "#/definitions/account/definitions/email"
         },
+        "federated": {
+          "$ref": "#/definitions/account/definitions/federated"
+        },
         "id": {
           "$ref": "#/definitions/account/definitions/id"
+        },
+        "identity_provider": {
+          "description": "Identity Provider details for federated users.",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/identity-provider/definitions/id"
+            },
+            "organization": {
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/organization/definitions/name"
+                }
+              }
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "last_login": {
           "$ref": "#/definitions/account/definitions/last_login"
@@ -599,8 +516,8 @@
         }
       }
     },
-    "addon-action": {
-      "description": "Add-on Actions are Provider functionality for specific add-on installations",
+    "add-on-action": {
+      "description": "Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "development",
       "strictProperties": true,
@@ -609,70 +526,33 @@
         "object"
       ],
       "definitions": {
-        "id": {
-          "description": "a unique identifier",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "$ref": "#/definitions/addon-action/definitions/id"
-        },
-        "label": {
-          "description": "the display text shown in Dashboard",
-          "example": "Example",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "action": {
-          "description": "identifier of the action to take that is sent via SSO",
-          "example": "example",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "url": {
-          "description": "absolute URL to use instead of an action",
-          "example": "http://example.com?resource_id=:resource_id",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "requires_owner": {
-          "description": "if the action requires the user to own the app",
-          "example": true,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        }
       },
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/addon-action/definitions/id"
+      "links": [
+        {
+          "description": "Mark an add-on as provisioned for use.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/actions/provision",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/add-on"
+          },
+          "title": "Create - Provision"
         },
-        "label": {
-          "$ref": "#/definitions/addon-action/definitions/label"
-        },
-        "action": {
-          "$ref": "#/definitions/addon-action/definitions/action"
-        },
-        "url": {
-          "$ref": "#/definitions/addon-action/definitions/url"
-        },
-        "requires_owner": {
-          "$ref": "#/definitions/addon-action/definitions/requires_owner"
+        {
+          "description": "Mark an add-on as deprovisioned.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/actions/deprovision",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/add-on"
+          },
+          "title": "Create - Deprovision"
         }
+      ],
+      "properties": {
       }
     },
-    "addon-attachment": {
+    "add-on-attachment": {
       "description": "An add-on attachment represents a connection between an app and an add-on that it has been given access to.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
@@ -712,17 +592,17 @@
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-attachment/definitions/id"
+              "$ref": "#/definitions/add-on-attachment/definitions/id"
             }
           ]
         },
         "scopedIdentity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-attachment/definitions/id"
+              "$ref": "#/definitions/add-on-attachment/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon-attachment/definitions/name"
+              "$ref": "#/definitions/add-on-attachment/definitions/name"
             }
           ]
         },
@@ -763,16 +643,16 @@
           "schema": {
             "properties": {
               "addon": {
-                "$ref": "#/definitions/addon/definitions/identity"
+                "$ref": "#/definitions/add-on/definitions/identity"
               },
               "app": {
                 "$ref": "#/definitions/app/definitions/identity"
               },
               "force": {
-                "$ref": "#/definitions/addon-attachment/definitions/force"
+                "$ref": "#/definitions/add-on-attachment/definitions/force"
               },
               "name": {
-                "$ref": "#/definitions/addon-attachment/definitions/name"
+                "$ref": "#/definitions/add-on-attachment/definitions/name"
               }
             },
             "required": [
@@ -784,27 +664,27 @@
             ]
           },
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Create"
         },
         {
           "description": "Delete an existing add-on attachment.",
-          "href": "/addon-attachments/{(%23%2Fdefinitions%2Faddon-attachment%2Fdefinitions%2Fidentity)}",
+          "href": "/addon-attachments/{(%23%2Fdefinitions%2Fadd-on-attachment%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Delete"
         },
         {
           "description": "Info for existing add-on attachment.",
-          "href": "/addon-attachments/{(%23%2Fdefinitions%2Faddon-attachment%2Fdefinitions%2Fidentity)}",
+          "href": "/addon-attachments/{(%23%2Fdefinitions%2Fadd-on-attachment%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Info"
         },
@@ -815,7 +695,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             "type": [
               "array"
@@ -825,12 +705,12 @@
         },
         {
           "description": "List existing add-on attachments for an add-on.",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/addon-attachments",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/addon-attachments",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             "type": [
               "array"
@@ -845,7 +725,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             "type": [
               "array"
@@ -855,11 +735,11 @@
         },
         {
           "description": "Info for existing add-on attachment for an app.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addon-attachments/{(%23%2Fdefinitions%2Faddon-attachment%2Fdefinitions%2FscopedIdentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addon-attachments/{(%23%2Fdefinitions%2Fadd-on-attachment%2Fdefinitions%2FscopedIdentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon-attachment"
+            "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Info by App"
         }
@@ -869,10 +749,10 @@
           "description": "identity of add-on",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon/definitions/id"
+              "$ref": "#/definitions/add-on/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon/definitions/name"
+              "$ref": "#/definitions/add-on/definitions/name"
             },
             "app": {
               "description": "billing application associated with this add-on",
@@ -888,9 +768,29 @@
                 }
               },
               "strictProperties": true
+            },
+            "plan": {
+              "description": "identity of add-on plan",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/plan/definitions/id"
+                },
+                "name": {
+                  "$ref": "#/definitions/plan/definitions/name"
+                }
+              },
+              "strictProperties": true,
+              "type": [
+                "object"
+              ]
             }
           },
-          "strictProperties": true,
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "name",
+            "app"
+          ],
           "type": [
             "object"
           ]
@@ -911,23 +811,23 @@
           ]
         },
         "created_at": {
-          "$ref": "#/definitions/addon-attachment/definitions/created_at"
+          "$ref": "#/definitions/add-on-attachment/definitions/created_at"
         },
         "id": {
-          "$ref": "#/definitions/addon-attachment/definitions/id"
+          "$ref": "#/definitions/add-on-attachment/definitions/id"
         },
         "name": {
-          "$ref": "#/definitions/addon-attachment/definitions/name"
+          "$ref": "#/definitions/add-on-attachment/definitions/name"
         },
         "updated_at": {
-          "$ref": "#/definitions/addon-attachment/definitions/updated_at"
+          "$ref": "#/definitions/add-on-attachment/definitions/updated_at"
         },
         "web_url": {
-          "$ref": "#/definitions/addon-attachment/definitions/web_url"
+          "$ref": "#/definitions/add-on-attachment/definitions/web_url"
         }
       }
     },
-    "addon-config": {
+    "add-on-config": {
       "description": "Configuration of an Add-on",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "development",
@@ -940,7 +840,7 @@
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-config/definitions/name"
+              "$ref": "#/definitions/add-on-config/definitions/name"
             }
           ]
         },
@@ -962,13 +862,13 @@
       },
       "links": [
         {
-          "description": "Get an add-on's config",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "description": "Get an add-on's config. Accessible by customers with access and by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/config",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-config"
+              "$ref": "#/definitions/add-on-config"
             },
             "type": [
               "array"
@@ -977,15 +877,15 @@
           "title": "List"
         },
         {
-          "description": "Update an add-on's config.",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}/config",
+          "description": "Update an add-on's config. Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/config",
           "method": "PATCH",
           "rel": "update",
           "schema": {
             "properties": {
               "config": {
                 "items": {
-                  "$ref": "#/definitions/addon-config"
+                  "$ref": "#/definitions/add-on-config"
                 },
                 "type": [
                   "array"
@@ -998,7 +898,7 @@
           },
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-config"
+              "$ref": "#/definitions/add-on-config"
             }
           },
           "title": "Update"
@@ -1006,15 +906,88 @@
       ],
       "properties": {
         "name": {
-          "$ref": "#/definitions/addon-config/definitions/name"
+          "$ref": "#/definitions/add-on-config/definitions/name"
         },
         "value": {
-          "$ref": "#/definitions/addon-config/definitions/value"
+          "$ref": "#/definitions/add-on-config/definitions/value"
         }
       }
     },
-    "addon-region-capability": {
-      "description": "Add-on region capabilities represent the relationship between an Add-on Service and a specific Region",
+    "add-on-plan-action": {
+      "description": "Add-on Plan Actions are Provider functionality for specific add-on installations",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Add-on Plan Action",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "a unique identifier",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/id"
+        },
+        "label": {
+          "description": "the display text shown in Dashboard",
+          "example": "Example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "action": {
+          "description": "identifier of the action to take that is sent via SSO",
+          "example": "example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "url": {
+          "description": "absolute URL to use instead of an action",
+          "example": "http://example.com?resource_id=:resource_id",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "requires_owner": {
+          "description": "if the action requires the user to own the app",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/id"
+        },
+        "label": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/label"
+        },
+        "action": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/action"
+        },
+        "url": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/url"
+        },
+        "requires_owner": {
+          "$ref": "#/definitions/add-on-plan-action/definitions/requires_owner"
+        }
+      }
+    },
+    "add-on-region-capability": {
+      "description": "Add-on region capabilities represent the relationship between an Add-on Service and a specific Region. Only Beta and GA add-ons are returned by these endpoints.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -1024,7 +997,7 @@
       ],
       "definitions": {
         "id": {
-          "description": "unique identifier of this addon-region-capability",
+          "description": "unique identifier of this add-on-region-capability",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
@@ -1040,7 +1013,7 @@
           ]
         },
         "identity": {
-          "$ref": "#/definitions/addon-region-capability/definitions/id"
+          "$ref": "#/definitions/add-on-region-capability/definitions/id"
         }
       },
       "links": [
@@ -1051,7 +1024,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-region-capability"
+              "$ref": "#/definitions/add-on-region-capability"
             },
             "type": [
               "array"
@@ -1060,13 +1033,13 @@
           "title": "List"
         },
         {
-          "description": "List existing add-on region capabilities for an addon-service",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}/region-capabilities",
+          "description": "List existing add-on region capabilities for an add-on-service",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/region-capabilities",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-region-capability"
+              "$ref": "#/definitions/add-on-region-capability"
             },
             "type": [
               "array"
@@ -1081,7 +1054,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-region-capability"
+              "$ref": "#/definitions/add-on-region-capability"
             },
             "type": [
               "array"
@@ -1092,20 +1065,20 @@
       ],
       "properties": {
         "id": {
-          "$ref": "#/definitions/addon-region-capability/definitions/id"
+          "$ref": "#/definitions/add-on-region-capability/definitions/id"
         },
         "supports_private_networking": {
-          "$ref": "#/definitions/addon-region-capability/definitions/supports_private_networking"
+          "$ref": "#/definitions/add-on-region-capability/definitions/supports_private_networking"
         },
         "addon_service": {
-          "$ref": "#/definitions/addon-service"
+          "$ref": "#/definitions/add-on-service"
         },
         "region": {
           "$ref": "#/definitions/region"
         }
       }
     },
-    "addon-service": {
+    "add-on-service": {
       "description": "Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
@@ -1125,7 +1098,7 @@
           ]
         },
         "created_at": {
-          "description": "when addon-service was created",
+          "description": "when add-on-service was created",
           "example": "2012-01-01T12:00:00Z",
           "format": "date-time",
           "readOnly": true,
@@ -1134,7 +1107,7 @@
           ]
         },
         "human_name": {
-          "description": "human-readable name of the addon service provider",
+          "description": "human-readable name of the add-on service provider",
           "example": "Heroku Postgres",
           "readOnly": true,
           "type": [
@@ -1142,7 +1115,7 @@
           ]
         },
         "id": {
-          "description": "unique identifier of this addon-service",
+          "description": "unique identifier of this add-on-service",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
@@ -1153,15 +1126,15 @@
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           ]
         },
         "name": {
-          "description": "unique name of this addon-service",
+          "description": "unique name of this add-on-service",
           "example": "heroku-postgresql",
           "readOnly": true,
           "type": [
@@ -1201,7 +1174,7 @@
           ]
         },
         "updated_at": {
-          "description": "when addon-service was updated",
+          "description": "when add-on-service was updated",
           "example": "2012-01-01T12:00:00Z",
           "format": "date-time",
           "readOnly": true,
@@ -1212,23 +1185,23 @@
       },
       "links": [
         {
-          "description": "Info for existing addon-service.",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}",
+          "description": "Info for existing add-on-service.",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon-service"
+            "$ref": "#/definitions/add-on-service"
           },
           "title": "Info"
         },
         {
-          "description": "List existing addon-services.",
+          "description": "List existing add-on-services.",
           "href": "/addon-services",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon-service"
+              "$ref": "#/definitions/add-on-service"
             },
             "type": [
               "array"
@@ -1239,35 +1212,35 @@
       ],
       "properties": {
         "cli_plugin_name": {
-          "$ref": "#/definitions/addon-service/definitions/cli_plugin_name"
+          "$ref": "#/definitions/add-on-service/definitions/cli_plugin_name"
         },
         "created_at": {
-          "$ref": "#/definitions/addon-service/definitions/created_at"
+          "$ref": "#/definitions/add-on-service/definitions/created_at"
         },
         "human_name": {
-          "$ref": "#/definitions/addon-service/definitions/human_name"
+          "$ref": "#/definitions/add-on-service/definitions/human_name"
         },
         "id": {
-          "$ref": "#/definitions/addon-service/definitions/id"
+          "$ref": "#/definitions/add-on-service/definitions/id"
         },
         "name": {
-          "$ref": "#/definitions/addon-service/definitions/name"
+          "$ref": "#/definitions/add-on-service/definitions/name"
         },
         "state": {
-          "$ref": "#/definitions/addon-service/definitions/state"
+          "$ref": "#/definitions/add-on-service/definitions/state"
         },
         "supports_multiple_installations": {
-          "$ref": "#/definitions/addon-service/definitions/supports_multiple_installations"
+          "$ref": "#/definitions/add-on-service/definitions/supports_multiple_installations"
         },
         "supports_sharing": {
-          "$ref": "#/definitions/addon-service/definitions/supports_sharing"
+          "$ref": "#/definitions/add-on-service/definitions/supports_sharing"
         },
         "updated_at": {
-          "$ref": "#/definitions/addon-service/definitions/updated_at"
+          "$ref": "#/definitions/add-on-service/definitions/updated_at"
         }
       }
     },
-    "addon": {
+    "add-on": {
       "description": "Add-ons represent add-ons that have been provisioned and attached to one or more apps.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
@@ -1290,19 +1263,19 @@
           "readOnly": true,
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-action/definitions/id"
+              "$ref": "#/definitions/add-on-plan-action/definitions/id"
             },
             "label": {
-              "$ref": "#/definitions/addon-action/definitions/label"
+              "$ref": "#/definitions/add-on-plan-action/definitions/label"
             },
             "action": {
-              "$ref": "#/definitions/addon-action/definitions/action"
+              "$ref": "#/definitions/add-on-plan-action/definitions/action"
             },
             "url": {
-              "$ref": "#/definitions/addon-action/definitions/url"
+              "$ref": "#/definitions/add-on-plan-action/definitions/url"
             },
             "requires_owner": {
-              "$ref": "#/definitions/addon-action/definitions/requires_owner"
+              "$ref": "#/definitions/add-on-plan-action/definitions/requires_owner"
             }
           }
         },
@@ -1343,10 +1316,10 @@
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/addon/definitions/id"
+              "$ref": "#/definitions/add-on/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon/definitions/name"
+              "$ref": "#/definitions/add-on/definitions/name"
             }
           ]
         },
@@ -1362,6 +1335,19 @@
         "provider_id": {
           "description": "id of this add-on with its provider",
           "example": "abcd1234",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "state": {
+          "description": "state in the add-on's lifecycle",
+          "enum": [
+            "provisioning",
+            "provisioned",
+            "deprovisioned"
+          ],
+          "example": "provisioned",
           "readOnly": true,
           "type": [
             "string"
@@ -1401,7 +1387,7 @@
                   "name": "DATABASE_FOLLOWER"
                 },
                 "name": {
-                  "$ref": "#/definitions/addon-attachment/definitions/name"
+                  "$ref": "#/definitions/add-on-attachment/definitions/name"
                 },
                 "type": [
                   "object"
@@ -1436,27 +1422,27 @@
             ]
           },
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Create"
         },
         {
           "description": "Delete an existing add-on.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Delete"
         },
         {
           "description": "Info for an existing add-on.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Info"
         },
@@ -1467,7 +1453,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             "type": [
               "array"
@@ -1477,13 +1463,28 @@
         },
         {
           "description": "Info for an existing add-on.",
-          "href": "/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
-            "$ref": "#/definitions/addon"
+            "$ref": "#/definitions/add-on"
           },
           "title": "Info"
+        },
+        {
+          "description": "List all existing add-ons a user has access to",
+          "href": "/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}/addons",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List by User"
         },
         {
           "description": "List existing add-ons for an app.",
@@ -1492,7 +1493,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             "type": [
               "array"
@@ -1502,7 +1503,7 @@
         },
         {
           "description": "Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Faddon%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method": "PATCH",
           "rel": "update",
           "schema": {
@@ -1523,16 +1524,16 @@
       ],
       "properties": {
         "actions": {
-          "$ref": "#/definitions/addon/definitions/actions"
+          "$ref": "#/definitions/add-on/definitions/actions"
         },
         "addon_service": {
           "description": "identity of add-on service",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           },
           "strictProperties": true,
@@ -1556,16 +1557,16 @@
           "strictProperties": true
         },
         "config_vars": {
-          "$ref": "#/definitions/addon/definitions/config_vars"
+          "$ref": "#/definitions/add-on/definitions/config_vars"
         },
         "created_at": {
-          "$ref": "#/definitions/addon/definitions/created_at"
+          "$ref": "#/definitions/add-on/definitions/created_at"
         },
         "id": {
-          "$ref": "#/definitions/addon/definitions/id"
+          "$ref": "#/definitions/add-on/definitions/id"
         },
         "name": {
-          "$ref": "#/definitions/addon/definitions/name"
+          "$ref": "#/definitions/add-on/definitions/name"
         },
         "plan": {
           "description": "identity of add-on plan",
@@ -1583,13 +1584,16 @@
           ]
         },
         "provider_id": {
-          "$ref": "#/definitions/addon/definitions/provider_id"
+          "$ref": "#/definitions/add-on/definitions/provider_id"
+        },
+        "state": {
+          "$ref": "#/definitions/add-on/definitions/state"
         },
         "updated_at": {
-          "$ref": "#/definitions/addon/definitions/updated_at"
+          "$ref": "#/definitions/add-on/definitions/updated_at"
         },
         "web_url": {
-          "$ref": "#/definitions/addon/definitions/web_url"
+          "$ref": "#/definitions/add-on/definitions/web_url"
         }
       }
     },
@@ -1758,6 +1762,64 @@
         }
       }
     },
+    "app-formation-set": {
+      "description": "App formation set describes the combination of process types with their quantities and sizes as well as application process tier",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Application Formation Set",
+      "type": [
+        "object"
+      ],
+      "properties": {
+        "description": {
+          "description": "a string representation of the formation set",
+          "example": "web@2:Standard-2X worker@3:Performance-M",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "process_tier": {
+          "description": "application process tier",
+          "enum": [
+            "production",
+            "traditional",
+            "free",
+            "hobby",
+            "private"
+          ],
+          "example": "production",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "app": {
+          "description": "app being described by the formation-set",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/app/definitions/name"
+            },
+            "id": {
+              "$ref": "#/definitions/app/definitions/id"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "updated_at": {
+          "description": "last time fomation-set was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      }
+    },
     "app-setup": {
       "description": "An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -1782,6 +1844,21 @@
             {
               "$ref": "#/definitions/app-setup/definitions/id"
             }
+          ]
+        },
+        "buildpack_override": {
+          "description": "a buildpack override",
+          "properties": {
+            "url": {
+              "description": "location of the buildpack",
+              "example": "https://example.com/buildpack.tgz",
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
           ]
         },
         "created_at": {
@@ -1846,6 +1923,58 @@
           },
           "type": [
             "array"
+          ]
+        },
+        "overrides": {
+          "description": "overrides of keys in the app.json manifest file",
+          "example": {
+            "buildpacks": [
+              {
+                "url": "https://example.com/buildpack.tgz"
+              }
+            ],
+            "env": {
+              "FOO": "bar",
+              "BAZ": "qux"
+            }
+          },
+          "properties": {
+            "buildpacks": {
+              "description": "overrides the buildpacks specified in the app.json manifest file",
+              "example": [
+                {
+                  "url": "https://example.com/buildpack.tgz"
+                }
+              ],
+              "items": {
+                "$ref": "#/definitions/app-setup/definitions/buildpack_override"
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "env": {
+              "description": "overrides of the env specified in the app.json manifest file",
+              "example": {
+                "FOO": "bar",
+                "BAZ": "qux"
+              },
+              "readOnly": true,
+              "additionalProperties": false,
+              "patternProperties": {
+                "^\\w+$": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "object"
           ]
         },
         "postdeploy": {
@@ -1968,6 +2097,9 @@
                   "region": {
                     "$ref": "#/definitions/region/definitions/name"
                   },
+                  "space": {
+                    "$ref": "#/definitions/space/definitions/name"
+                  },
                   "stack": {
                     "$ref": "#/definitions/stack/definitions/name"
                   }
@@ -2011,37 +2143,7 @@
                 ]
               },
               "overrides": {
-                "description": "overrides of keys in the app.json manifest file",
-                "example": {
-                  "env": {
-                    "FOO": "bar",
-                    "BAZ": "qux"
-                  }
-                },
-                "properties": {
-                  "env": {
-                    "description": "overrides of the env specified in the app.json manifest file",
-                    "example": {
-                      "FOO": "bar",
-                      "BAZ": "qux"
-                    },
-                    "readOnly": true,
-                    "additionalProperties": false,
-                    "patternProperties": {
-                      "^\\w+$": {
-                        "type": [
-                          "string"
-                        ]
-                      }
-                    },
-                    "type": [
-                      "object"
-                    ]
-                  }
-                },
-                "type": [
-                  "object"
-                ]
+                "$ref": "#/definitions/app-setup/definitions/overrides"
               }
             }
           },
@@ -2413,6 +2515,15 @@
           "type": [
             "string"
           ]
+        },
+        "acm": {
+          "description": "ACM status of this app",
+          "default": false,
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
@@ -2628,6 +2739,9 @@
             },
             "name": {
               "$ref": "#/definitions/space/definitions/name"
+            },
+            "shield": {
+              "$ref": "#/definitions/space/definitions/shield"
             }
           },
           "type": [
@@ -2782,6 +2896,24 @@
         "object"
       ],
       "definitions": {
+        "buildpacks": {
+          "description": "buildpacks executed for this build, in order",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Buildpack to execute in a build",
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "url": {
+                "$ref": "#/definitions/buildpack-installation/definitions/url"
+              }
+            }
+          }
+        },
         "created_at": {
           "description": "when build was created",
           "example": "2012-01-01T12:00:00Z",
@@ -2910,6 +3042,9 @@
               "object"
             ],
             "properties": {
+              "buildpacks": {
+                "$ref": "#/definitions/build/definitions/buildpacks"
+              },
               "source_blob": {
                 "$ref": "#/definitions/build/definitions/source_blob"
               }
@@ -2967,22 +3102,7 @@
           ]
         },
         "buildpacks": {
-          "description": "buildpacks executed for this build, in order",
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "description": "Buildpack to execute in a build",
-            "type": [
-              "object"
-            ],
-            "properties": {
-              "url": {
-                "$ref": "#/definitions/buildpack-installation/definitions/url"
-              }
-            }
-          }
+          "$ref": "#/definitions/build/definitions/buildpacks"
         },
         "created_at": {
           "$ref": "#/definitions/build/definitions/created_at"
@@ -3160,6 +3280,14 @@
     "collaborator": {
       "description": "A collaborator represents an account that has been given access to an app on Heroku.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "additionalProperties": false,
+      "required": [
+        "app",
+        "created_at",
+        "id",
+        "updated_at",
+        "user"
+      ],
       "stability": "production",
       "title": "Heroku Platform API - Collaborator",
       "type": [
@@ -3307,6 +3435,17 @@
         "id": {
           "$ref": "#/definitions/collaborator/definitions/id"
         },
+        "permissions": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/organization-app-permission"
+          }
+        },
+        "role": {
+          "$ref": "#/definitions/organization/definitions/role"
+        },
         "updated_at": {
           "$ref": "#/definitions/collaborator/definitions/updated_at"
         },
@@ -3315,6 +3454,9 @@
           "properties": {
             "email": {
               "$ref": "#/definitions/account/definitions/email"
+            },
+            "federated": {
+              "$ref": "#/definitions/account/definitions/federated"
             },
             "id": {
               "$ref": "#/definitions/account/definitions/id"
@@ -3325,14 +3467,7 @@
             "object"
           ]
         }
-      },
-      "required": [
-        "app",
-        "created_at",
-        "id",
-        "updated_at",
-        "user"
-      ]
+      }
     },
     "config-var": {
       "description": "Config Vars allow you to manage the configuration information provided to an app on Heroku.",
@@ -3373,7 +3508,17 @@
           "targetSchema": {
             "$ref": "#/definitions/config-var/definitions/config_vars"
           },
-          "title": "Info"
+          "title": "Info for App"
+        },
+        {
+          "description": "Get config-vars for a release.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/releases/{(%23%2Fdefinitions%2Frelease%2Fdefinitions%2Fidentity)}/config-vars",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/config-var/definitions/config_vars"
+          },
+          "title": "Info for App Release"
         },
         {
           "description": "Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `null`.",
@@ -3754,6 +3899,164 @@
         }
       }
     },
+    "dyno-size": {
+      "description": "Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Dyno Size",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "compute": {
+          "description": "minimum vCPUs, non-dedicated may get more depending on load",
+          "example": 1,
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "dedicated": {
+          "description": "whether this dyno will be dedicated to one user",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of this dyno size",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/dyno-size/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/dyno-size/definitions/name"
+            }
+          ]
+        },
+        "memory": {
+          "description": "amount of RAM in GB",
+          "example": 0.5,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "name": {
+          "description": "the name of this dyno-size",
+          "example": "free",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "cost": {
+          "description": "price information for this dyno size",
+          "readOnly": true,
+          "type": [
+            "null",
+            "object"
+          ],
+          "definitions": {
+            "cents": {
+              "description": "price in cents per unit time",
+              "example": 0,
+              "readOnly": true,
+              "type": [
+                "integer"
+              ]
+            },
+            "unit": {
+              "description": "unit of price for dyno",
+              "readOnly": true,
+              "example": "month",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "dyno_units": {
+          "description": "unit of consumption for Heroku Enterprise customers",
+          "example": 0,
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "private_space_only": {
+          "description": "whether this dyno can only be provisioned in a private space",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Info for existing dyno size.",
+          "href": "/dyno-sizes/{(%23%2Fdefinitions%2Fdyno-size%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/dyno-size"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List existing dyno sizes.",
+          "href": "/dyno-sizes",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/dyno-size"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "compute": {
+          "$ref": "#/definitions/dyno-size/definitions/compute"
+        },
+        "cost": {
+          "$ref": "#/definitions/dyno-size/definitions/cost"
+        },
+        "dedicated": {
+          "$ref": "#/definitions/dyno-size/definitions/dedicated"
+        },
+        "dyno_units": {
+          "$ref": "#/definitions/dyno-size/definitions/dyno_units"
+        },
+        "id": {
+          "$ref": "#/definitions/dyno-size/definitions/id"
+        },
+        "memory": {
+          "$ref": "#/definitions/dyno-size/definitions/memory"
+        },
+        "name": {
+          "$ref": "#/definitions/dyno-size/definitions/name"
+        },
+        "private_space_only": {
+          "$ref": "#/definitions/dyno-size/definitions/private_space_only"
+        }
+      }
+    },
     "dyno": {
       "description": "Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -3952,7 +4255,7 @@
           "title": "Restart"
         },
         {
-          "description": "Restart all dynos",
+          "description": "Restart all dynos.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/dynos",
           "method": "DELETE",
           "rel": "empty",
@@ -3963,6 +4266,19 @@
             ]
           },
           "title": "Restart all"
+        },
+        {
+          "description": "Stop dyno.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/dynos/{(%23%2Fdefinitions%2Fdyno%2Fdefinitions%2Fidentity)}/actions/stop",
+          "method": "POST",
+          "rel": "empty",
+          "targetSchema": {
+            "additionalPoperties": false,
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Stop"
         },
         {
           "description": "Info for existing dyno.",
@@ -4090,13 +4406,16 @@
               "$ref": "#/definitions/account"
             },
             {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             {
-              "$ref": "#/definitions/addon-attachment"
+              "$ref": "#/definitions/add-on-attachment"
             },
             {
               "$ref": "#/definitions/app"
+            },
+            {
+              "$ref": "#/definitions/app-formation-set"
             },
             {
               "$ref": "#/definitions/app-setup"
@@ -4121,6 +4440,9 @@
             },
             {
               "$ref": "#/definitions/formation"
+            },
+            {
+              "$ref": "#/definitions/inbound-ruleset"
             },
             {
               "$ref": "#/definitions/organization"
@@ -4177,6 +4499,8 @@
             "dyno",
             "failed-event",
             "formation",
+            "formation-set",
+            "inbound-ruleset",
             "organization",
             "release",
             "space",
@@ -4530,6 +4854,7 @@
           "description": "type of process to maintain",
           "example": "web",
           "readOnly": true,
+          "pattern": "^[-\\w]{1,128}$",
           "type": [
             "string"
           ]
@@ -4688,6 +5013,202 @@
         },
         "updated_at": {
           "$ref": "#/definitions/formation/definitions/updated_at"
+        }
+      }
+    },
+    "identity-provider": {
+      "description": "Identity Providers represent the SAML configuration of an Organization.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "production",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Identity Provider",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "certificate": {
+          "description": "raw contents of the public certificate (eg: .crt or .pem file)",
+          "example": "-----BEGIN CERTIFICATE----- ...",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when provider record was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "entity_id": {
+          "description": "URL identifier provided by the identity provider",
+          "example": "https://customer-domain.idp.com",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of this identity provider",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "slo_target_url": {
+          "description": "single log out URL for this identity provider",
+          "example": "https://example.com/idp/logout",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "sso_target_url": {
+          "description": "single sign on URL for this identity provider",
+          "example": "https://example.com/idp/login",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when the identity provider record was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Get a list of an organization's Identity Providers",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/identity-provider"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Create an Identity Provider for an organization",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "certificate": {
+                "$ref": "#/definitions/identity-provider/definitions/certificate"
+              },
+              "entity_id": {
+                "$ref": "#/definitions/identity-provider/definitions/entity_id"
+              },
+              "slo_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
+              },
+              "sso_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
+              }
+            },
+            "required": [
+              "certificate",
+              "sso_target_url",
+              "entity_id"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/identity-provider"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Update an organization's Identity Provider",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "certificate": {
+                "$ref": "#/definitions/identity-provider/definitions/certificate"
+              },
+              "entity_id": {
+                "$ref": "#/definitions/identity-provider/definitions/entity_id"
+              },
+              "slo_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
+              },
+              "sso_target_url": {
+                "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/identity-provider"
+          },
+          "title": "Update"
+        },
+        {
+          "description": "Delete an organization's Identity Provider",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/identity-provider"
+          },
+          "title": "Delete"
+        }
+      ],
+      "properties": {
+        "certificate": {
+          "$ref": "#/definitions/identity-provider/definitions/certificate"
+        },
+        "created_at": {
+          "$ref": "#/definitions/identity-provider/definitions/created_at"
+        },
+        "entity_id": {
+          "$ref": "#/definitions/identity-provider/definitions/entity_id"
+        },
+        "id": {
+          "$ref": "#/definitions/identity-provider/definitions/id"
+        },
+        "slo_target_url": {
+          "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
+        },
+        "sso_target_url": {
+          "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
+        },
+        "organization": {
+          "description": "organization associated with this identity provider",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "updated_at": {
+          "$ref": "#/definitions/identity-provider/definitions/updated_at"
         }
       }
     },
@@ -4879,11 +5400,45 @@
             "boolean"
           ]
         },
+        "verification_required": {
+          "description": "if the invitation requires verification",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
         "token": {
           "description": "Unique identifier of an invitation",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "phone_number": {
+          "description": "Phone number to send verification code",
+          "example": "+1 123-123-1234",
+          "type": [
+            "string"
+          ]
+        },
+        "method": {
+          "description": "Transport used to send verification code",
+          "example": "sms",
+          "default": "sms",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "call",
+            "sms"
+          ]
+        },
+        "verification_code": {
+          "description": "Value used to verify invitation",
+          "example": "123456",
           "type": [
             "string"
           ]
@@ -4896,6 +5451,73 @@
           "method": "GET",
           "rel": "self",
           "title": "Info"
+        },
+        {
+          "description": "Invite a user.",
+          "href": "/invitations",
+          "method": "POST",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/account/definitions/email"
+              },
+              "name": {
+                "$ref": "#/definitions/account/definitions/name"
+              }
+            },
+            "required": [
+              "email",
+              "name"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Send a verification code for an invitation via SMS/phone call.",
+          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}/actions/send-verification",
+          "method": "POST",
+          "rel": "empty",
+          "schema": {
+            "properties": {
+              "phone_number": {
+                "$ref": "#/definitions/invitation/definitions/phone_number"
+              },
+              "method": {
+                "$ref": "#/definitions/invitation/definitions/method"
+              }
+            },
+            "required": [
+              "phone_number"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Send Verification Code"
+        },
+        {
+          "description": "Verify an invitation using a verification code.",
+          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}/actions/verify",
+          "method": "POST",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "verification_code": {
+                "$ref": "#/definitions/invitation/definitions/verification_code"
+              }
+            },
+            "required": [
+              "verification_code"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Verify"
         },
         {
           "description": "Finalize Invitation and Create Account.",
@@ -4922,34 +5544,13 @@
               "object"
             ]
           },
-          "title": "Finalize Invitation"
-        },
-        {
-          "description": "Invite a user.",
-          "href": "/invitations",
-          "method": "POST",
-          "rel": "self",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/account/definitions/email"
-              },
-              "name": {
-                "$ref": "#/definitions/account/definitions/name"
-              }
-            },
-            "required": [
-              "email",
-              "name"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Invitation"
+          "title": "Finalize"
         }
       ],
       "properties": {
+        "verification_required": {
+          "$ref": "#/definitions/invitation/definitions/verification_required"
+        },
         "created_at": {
           "$ref": "#/definitions/invitation/definitions/created_at"
         },
@@ -5372,39 +5973,6 @@
       },
       "links": [
         {
-          "description": "Create a new key.",
-          "href": "/account/keys",
-          "method": "POST",
-          "rel": "create",
-          "schema": {
-            "properties": {
-              "public_key": {
-                "$ref": "#/definitions/key/definitions/public_key"
-              }
-            },
-            "required": [
-              "public_key"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/key"
-          },
-          "title": "Create"
-        },
-        {
-          "description": "Delete an existing key",
-          "href": "/account/keys/{(%23%2Fdefinitions%2Fkey%2Fdefinitions%2Fidentity)}",
-          "method": "DELETE",
-          "rel": "destroy",
-          "targetSchema": {
-            "$ref": "#/definitions/key"
-          },
-          "title": "Delete"
-        },
-        {
           "description": "Info for existing key.",
           "href": "/account/keys/{(%23%2Fdefinitions%2Fkey%2Fdefinitions%2Fidentity)}",
           "method": "GET",
@@ -5455,7 +6023,7 @@
       }
     },
     "log-drain": {
-      "description": "[Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some addons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.",
+      "description": "[Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some add-ons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -5465,17 +6033,17 @@
       ],
       "definitions": {
         "addon": {
-          "description": "addon that created the drain",
+          "description": "add-on that created the drain",
           "example": {
             "id": "01234567-89ab-cdef-0123-456789abcdef",
             "name": "singing-swiftly-1242"
           },
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon/definitions/id"
+              "$ref": "#/definitions/add-on/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon/definitions/name"
+              "$ref": "#/definitions/add-on/definitions/name"
             }
           },
           "readOnly": true,
@@ -5502,11 +6070,21 @@
             "string"
           ]
         },
-        "identity": {
+        "query_identity": {
           "anyOf": [
             {
               "$ref": "#/definitions/log-drain/definitions/id"
             },
+            {
+              "$ref": "#/definitions/log-drain/definitions/url"
+            },
+            {
+              "$ref": "#/definitions/log-drain/definitions/token"
+            }
+          ]
+        },
+        "identity": {
+          "anyOf": [
             {
               "$ref": "#/definitions/log-drain/definitions/url"
             }
@@ -5564,7 +6142,7 @@
         },
         {
           "description": "Delete an existing log drain. Log drains added by add-ons can only be removed by removing the add-on.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fquery_identity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
@@ -5574,7 +6152,7 @@
         },
         {
           "description": "Info for existing log drain.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fidentity)}",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fquery_identity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
@@ -6497,7 +7075,7 @@
         }
       }
     },
-    "organization-addon": {
+    "organization-add-on": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "A list of add-ons the Organization uses across all apps",
       "stability": "production",
@@ -6513,7 +7091,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/addon"
+              "$ref": "#/definitions/add-on"
             },
             "type": [
               "array"
@@ -6646,6 +7224,9 @@
           "properties": {
             "email": {
               "$ref": "#/definitions/account/definitions/email"
+            },
+            "federated": {
+              "$ref": "#/definitions/account/definitions/federated"
             },
             "id": {
               "$ref": "#/definitions/account/definitions/id"
@@ -6954,6 +7535,332 @@
         }
       }
     },
+    "organization-feature": {
+      "description": "An organization feature represents a feature enabled on an organization account.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Organization Feature",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when organization feature was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "description": "description of organization feature",
+          "example": "Causes account to example.",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "doc_url": {
+          "description": "documentation URL of organization feature",
+          "example": "http://devcenter.heroku.com/articles/example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "enabled": {
+          "description": "whether or not account feature has been enabled",
+          "example": true,
+          "readOnly": false,
+          "type": [
+            "boolean"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of organization feature",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/organization-feature/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/organization-feature/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of organization feature",
+          "example": "name",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "state": {
+          "description": "state of organization feature",
+          "example": "public",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when organization feature was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Info for an existing account feature.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features/{(%23%2Fdefinitions%2Forganization-feature%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-feature"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List existing organization features.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-feature"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/account-feature/definitions/created_at"
+        },
+        "description": {
+          "$ref": "#/definitions/account-feature/definitions/description"
+        },
+        "doc_url": {
+          "$ref": "#/definitions/account-feature/definitions/doc_url"
+        },
+        "enabled": {
+          "$ref": "#/definitions/account-feature/definitions/enabled"
+        },
+        "id": {
+          "$ref": "#/definitions/account-feature/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/account-feature/definitions/name"
+        },
+        "state": {
+          "$ref": "#/definitions/account-feature/definitions/state"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/account-feature/definitions/updated_at"
+        }
+      }
+    },
+    "organization-invitation": {
+      "description": "An organization invitation represents an invite to an organization.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Organization Invitation",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when invitation was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/organization-invitation/definitions/id"
+            }
+          ]
+        },
+        "id": {
+          "description": "Unique identifier of an invitation",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "token": {
+          "description": "Special token for invitation",
+          "example": "614ae25aa2d4802096cd7c18625b526c",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when invitation was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Get a list of an organization's Identity Providers",
+          "title": "List",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/invitations",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-invitation"
+            },
+            "type": [
+              "array"
+            ]
+          }
+        },
+        {
+          "description": "Create Organization Invitation",
+          "title": "Create",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invitations",
+          "method": "PUT",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/account/definitions/email"
+              },
+              "role": {
+                "$ref": "#/definitions/organization/definitions/role"
+              }
+            },
+            "required": [
+              "email",
+              "role"
+            ],
+            "type": [
+              "object"
+            ]
+          }
+        },
+        {
+          "description": "Revoke an organization invitation.",
+          "title": "Revoke",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "self"
+        },
+        {
+          "description": "Get an invitation by its token",
+          "title": "Get",
+          "href": "/organizations/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Ftoken)}",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-invitation"
+          }
+        },
+        {
+          "description": "Accept Organization Invitation",
+          "title": "Accept",
+          "href": "/organizations/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Ftoken)}/accept",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-member"
+          }
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/organization-invitation/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/organization-invitation/definitions/id"
+        },
+        "invited_by": {
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/account/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "organization": {
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/organization/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "role": {
+          "$ref": "#/definitions/organization/definitions/role"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/organization-invitation/definitions/updated_at"
+        },
+        "user": {
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/account/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        }
+      }
+    },
     "organization-invoice": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.",
@@ -6965,7 +7872,7 @@
       ],
       "definitions": {
         "addons_total": {
-          "description": "total addons charges in on this invoice",
+          "description": "total add-ons charges in on this invoice",
           "example": 25000,
           "readOnly": true,
           "type": [
@@ -7189,6 +8096,7 @@
       "required": [
         "created_at",
         "email",
+        "federated",
         "updated_at"
       ],
       "title": "Heroku Platform API - Organization Member",
@@ -7213,14 +8121,40 @@
             "string"
           ]
         },
+        "federated": {
+          "description": "whether the user is federated and belongs to an Identity Provider",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of organization member",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
               "$ref": "#/definitions/organization-member/definitions/email"
             },
             {
-              "$ref": "#/definitions/app/definitions/id"
+              "$ref": "#/definitions/organization-member/definitions/id"
             }
+          ]
+        },
+        "name": {
+          "description": "full name of the organization member",
+          "example": "Tina Edmonds",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
           ]
         },
         "two_factor_authentication": {
@@ -7252,6 +8186,9 @@
               "email": {
                 "$ref": "#/definitions/organization-member/definitions/email"
               },
+              "federated": {
+                "$ref": "#/definitions/organization-member/definitions/federated"
+              },
               "role": {
                 "$ref": "#/definitions/organization/definitions/role"
               }
@@ -7270,6 +8207,66 @@
           "title": "Create or Update"
         },
         {
+          "description": "Create a new organization member.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/organization-member/definitions/email"
+              },
+              "federated": {
+                "$ref": "#/definitions/organization-member/definitions/federated"
+              },
+              "role": {
+                "$ref": "#/definitions/organization/definitions/role"
+              }
+            },
+            "required": [
+              "email",
+              "role"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization-member"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Update an organization member.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/organization-member/definitions/email"
+              },
+              "federated": {
+                "$ref": "#/definitions/organization-member/definitions/federated"
+              },
+              "role": {
+                "$ref": "#/definitions/organization/definitions/role"
+              }
+            },
+            "required": [
+              "email",
+              "role"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization-member"
+          },
+          "title": "update"
+        },
+        {
           "description": "Remove a member from the organization.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Forganization-member%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
@@ -7283,10 +8280,28 @@
           "description": "List members of the organization.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
           "method": "GET",
+          "ranges": [
+            "email"
+          ],
           "rel": "instances",
           "targetSchema": {
             "items": {
               "$ref": "#/definitions/organization-member"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "List the apps of a member.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Forganization-member%2Fdefinitions%2Fidentity)}/apps",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/organization-app"
             },
             "type": [
               "array"
@@ -7301,6 +8316,12 @@
         },
         "email": {
           "$ref": "#/definitions/organization-member/definitions/email"
+        },
+        "federated": {
+          "$ref": "#/definitions/organization-member/definitions/federated"
+        },
+        "id": {
+          "$ref": "#/definitions/organization-member/definitions/id"
         },
         "role": {
           "$ref": "#/definitions/organization/definitions/role"
@@ -7319,6 +8340,9 @@
             },
             "id": {
               "$ref": "#/definitions/account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/account/definitions/name"
             }
           },
           "strictProperties": true,
@@ -7328,15 +8352,136 @@
         }
       }
     },
-    "organization-payment-method": {
+    "organization-preferences": {
+      "description": "Tracks an organization's preferences",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "The on file payment method for an account",
       "stability": "prototype",
-      "title": "Heroku Vault API - Payment Method",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Organization Preferences",
       "type": [
         "object"
       ],
       "definitions": {
+        "default-permission": {
+          "description": "The default permission used when adding new members to the organization",
+          "example": "member",
+          "readOnly": false,
+          "enum": [
+            "admin",
+            "member",
+            "viewer",
+            null
+          ],
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/organization/definitions/identity"
+        },
+        "whitelisting-enabled": {
+          "description": "Whether whitelisting rules should be applied to add-on installations",
+          "example": true,
+          "readOnly": false,
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Retrieve Organization Preferences",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/organization-preferences"
+          },
+          "title": "List"
+        },
+        {
+          "description": "Update Organization Preferences",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "whitelisting-enabled": {
+                "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
+              }
+            }
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization-preferences"
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "default-permission": {
+          "$ref": "#/definitions/organization-preferences/definitions/default-permission"
+        },
+        "whitelisting-enabled": {
+          "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
+        }
+      }
+    },
+    "organization": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Organizations allow you to manage access to a shared group of applications across your development team.",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Organization",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when the organization was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "credit_card_collections": {
+          "description": "whether charges incurred by the org are paid by credit card.",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "default": {
+          "description": "whether to use this organization when none is specified",
+          "example": true,
+          "readOnly": false,
+          "type": [
+            "boolean"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of organization",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/organization/definitions/name"
+            },
+            {
+              "$ref": "#/definitions/organization/definitions/id"
+            }
+          ]
+        },
         "address_1": {
           "type": [
             "string"
@@ -7428,266 +8573,13 @@
           "description": "state",
           "example": "CA"
         },
-        "card_last4": {
+        "membership_limit": {
+          "description": "upper limit of members allowed in an organization.",
+          "example": 25,
+          "readOnly": true,
           "type": [
-            "string"
-          ],
-          "description": "last 4 digits of credit card number",
-          "example": "1234",
-          "readOnly": true
-        },
-        "card_type": {
-          "type": [
-            "string"
-          ],
-          "description": "name of credit card issuer",
-          "example": "VISA",
-          "readOnly": true
-        },
-        "heroku_id": {
-          "type": [
-            "string"
-          ],
-          "description": "heroku_id identifier reference",
-          "example": "user930223902@heroku.com",
-          "readOnly": true
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/invoice-address/definitions/heroku_id"
-            }
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Update an existing payment method for an account.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/payment-method",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "address_1": {
-                "$ref": "#/definitions/organization-payment-method/definitions/address_1"
-              },
-              "address_2": {
-                "$ref": "#/definitions/organization-payment-method/definitions/address_2"
-              },
-              "card_number": {
-                "$ref": "#/definitions/organization-payment-method/definitions/card_number"
-              },
-              "city": {
-                "$ref": "#/definitions/organization-payment-method/definitions/city"
-              },
-              "country": {
-                "$ref": "#/definitions/organization-payment-method/definitions/country"
-              },
-              "cvv": {
-                "$ref": "#/definitions/organization-payment-method/definitions/cvv"
-              },
-              "expiration_month": {
-                "$ref": "#/definitions/organization-payment-method/definitions/expiration_month"
-              },
-              "expiration_year": {
-                "$ref": "#/definitions/organization-payment-method/definitions/expiration_year"
-              },
-              "first_name": {
-                "$ref": "#/definitions/organization-payment-method/definitions/first_name"
-              },
-              "last_name": {
-                "$ref": "#/definitions/organization-payment-method/definitions/last_name"
-              },
-              "other": {
-                "$ref": "#/definitions/organization-payment-method/definitions/other"
-              },
-              "postal_code": {
-                "$ref": "#/definitions/organization-payment-method/definitions/postal_code"
-              },
-              "state": {
-                "$ref": "#/definitions/organization-payment-method/definitions/state"
-              }
-            },
-            "required": [
-              "address_1",
-              "address_2",
-              "card_number",
-              "city",
-              "country",
-              "cvv",
-              "expiration_month",
-              "expiration_year",
-              "first_name",
-              "last_name",
-              "postal_code",
-              "state"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "update"
-        },
-        {
-          "description": "Get the current payment method for an account.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/payment-method",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-payment-method"
-          },
-          "title": "get"
-        }
-      ],
-      "properties": {
-        "address_1": {
-          "$ref": "#/definitions/organization-payment-method/definitions/address_1"
-        },
-        "address_2": {
-          "$ref": "#/definitions/organization-payment-method/definitions/address_2"
-        },
-        "card_last4": {
-          "$ref": "#/definitions/organization-payment-method/definitions/card_last4"
-        },
-        "card_type": {
-          "$ref": "#/definitions/organization-payment-method/definitions/card_type"
-        },
-        "city": {
-          "$ref": "#/definitions/organization-payment-method/definitions/city"
-        },
-        "country": {
-          "$ref": "#/definitions/organization-payment-method/definitions/country"
-        },
-        "expiration_month": {
-          "$ref": "#/definitions/organization-payment-method/definitions/expiration_month"
-        },
-        "expiration_year": {
-          "$ref": "#/definitions/organization-payment-method/definitions/expiration_year"
-        },
-        "first_name": {
-          "$ref": "#/definitions/organization-payment-method/definitions/first_name"
-        },
-        "last_name": {
-          "$ref": "#/definitions/organization-payment-method/definitions/last_name"
-        },
-        "other": {
-          "$ref": "#/definitions/organization-payment-method/definitions/other"
-        },
-        "postal_code": {
-          "$ref": "#/definitions/organization-payment-method/definitions/postal_code"
-        },
-        "state": {
-          "$ref": "#/definitions/organization-payment-method/definitions/state"
-        }
-      }
-    },
-    "organization-preferences": {
-      "description": "Tracks an organization's preferences",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Organization Preferences",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "identity": {
-          "$ref": "#/definitions/organization/definitions/identity"
-        },
-        "whitelisting-enabled": {
-          "description": "Whether whitelisting rules should be applied to add-on installations",
-          "example": true,
-          "readOnly": false,
-          "type": [
-            "boolean",
+            "number",
             "null"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Retrieve Organization Preferences",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-preferences"
-          },
-          "title": "List"
-        },
-        {
-          "description": "Update Organization Preferences",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "whitelisting-enabled": {
-                "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
-              }
-            }
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-preferences"
-          },
-          "title": "Update"
-        }
-      ],
-      "properties": {
-        "whitelisting-enabled": {
-          "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
-        }
-      }
-    },
-    "organization": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "Organizations allow you to manage access to a shared group of applications across your development team.",
-      "stability": "prototype",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Organization",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "created_at": {
-          "description": "when the organization was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "credit_card_collections": {
-          "description": "whether charges incurred by the org are paid by credit card.",
-          "example": true,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        },
-        "default": {
-          "description": "whether to use this organization when none is specified",
-          "example": true,
-          "readOnly": false,
-          "type": [
-            "boolean"
-          ]
-        },
-        "id": {
-          "description": "unique identifier of organization",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/organization/definitions/name"
-            }
           ]
         },
         "name": {
@@ -7719,6 +8611,18 @@
           "readOnly": true,
           "type": [
             "null",
+            "string"
+          ]
+        },
+        "type": {
+          "description": "type of organization.",
+          "example": "team",
+          "enum": [
+            "enterprise",
+            "team"
+          ],
+          "readOnly": true,
+          "type": [
             "string"
           ]
         },
@@ -7756,7 +8660,7 @@
           "title": "Info"
         },
         {
-          "description": "Set or unset the organization as your default organization.",
+          "description": "Update organization properties.",
           "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
           "method": "PATCH",
           "rel": "update",
@@ -7764,6 +8668,9 @@
             "properties": {
               "default": {
                 "$ref": "#/definitions/organization/definitions/default"
+              },
+              "name": {
+                "$ref": "#/definitions/organization/definitions/name"
               }
             },
             "type": [
@@ -7774,9 +8681,84 @@
             "$ref": "#/definitions/organization"
           },
           "title": "Update"
+        },
+        {
+          "description": "Create a new organization.",
+          "href": "/organizations",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/organization/definitions/name"
+              },
+              "address_1": {
+                "$ref": "#/definitions/organization/definitions/address_1"
+              },
+              "address_2": {
+                "$ref": "#/definitions/organization/definitions/address_2"
+              },
+              "card_number": {
+                "$ref": "#/definitions/organization/definitions/card_number"
+              },
+              "city": {
+                "$ref": "#/definitions/organization/definitions/city"
+              },
+              "country": {
+                "$ref": "#/definitions/organization/definitions/country"
+              },
+              "cvv": {
+                "$ref": "#/definitions/organization/definitions/cvv"
+              },
+              "expiration_month": {
+                "$ref": "#/definitions/organization/definitions/expiration_month"
+              },
+              "expiration_year": {
+                "$ref": "#/definitions/organization/definitions/expiration_year"
+              },
+              "first_name": {
+                "$ref": "#/definitions/organization/definitions/first_name"
+              },
+              "last_name": {
+                "$ref": "#/definitions/organization/definitions/last_name"
+              },
+              "other": {
+                "$ref": "#/definitions/organization/definitions/other"
+              },
+              "postal_code": {
+                "$ref": "#/definitions/organization/definitions/postal_code"
+              },
+              "state": {
+                "$ref": "#/definitions/organization/definitions/state"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/organization"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Delete an existing organization.",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/organization"
+          },
+          "title": "Delete"
         }
       ],
       "properties": {
+        "id": {
+          "$ref": "#/definitions/organization/definitions/id"
+        },
         "created_at": {
           "$ref": "#/definitions/organization/definitions/created_at"
         },
@@ -7785,6 +8767,9 @@
         },
         "default": {
           "$ref": "#/definitions/organization/definitions/default"
+        },
+        "membership_limit": {
+          "$ref": "#/definitions/organization/definitions/membership_limit"
         },
         "name": {
           "$ref": "#/definitions/organization/definitions/name"
@@ -7795,88 +8780,11 @@
         "role": {
           "$ref": "#/definitions/organization/definitions/role"
         },
+        "type": {
+          "$ref": "#/definitions/organization/definitions/type"
+        },
         "updated_at": {
           "$ref": "#/definitions/organization/definitions/updated_at"
-        }
-      }
-    },
-    "otp-secret": {
-      "description": "This renders a secret that clients can use to build a one-time password to be supplied as a 2nd factor of authentication.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "development",
-      "strictProperties": true,
-      "title": "Heroku Platform API - OTP Secret",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "created_at": {
-          "description": "when OTP secret was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "id": {
-          "description": "unique identifier of OTP secret",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/otp-secret/definitions/id"
-            }
-          ]
-        },
-        "updated_at": {
-          "description": "when OTP secret was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "url": {
-          "description": "OTP secret rendered in URL format",
-          "example": "otpauth://totp/username@example.com?issuer=Heroku&secret=abcd1234",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Create new OTP secret. This invalidates any existing OTP secrets on the account.",
-          "href": "/account/otp-secret",
-          "method": "POST",
-          "rel": "create",
-          "targetSchema": {
-            "$ref": "#/definitions/otp-secret"
-          },
-          "title": "Create"
-        }
-      ],
-      "properties": {
-        "created_at": {
-          "$ref": "#/definitions/otp-secret/definitions/created_at"
-        },
-        "id": {
-          "$ref": "#/definitions/otp-secret/definitions/id"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/otp-secret/definitions/updated_at"
-        },
-        "url": {
-          "$ref": "#/definitions/otp-secret/definitions/url"
         }
       }
     },
@@ -8149,418 +9057,62 @@
         }
       }
     },
-    "payment-method": {
+    "organization-app-permission": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "The on file payment method for an account",
+      "description": "An organization app permission is a behavior that is assigned to a user in an organization app.",
       "stability": "prototype",
-      "title": "Heroku Vault API - Payment Method",
+      "title": "Heroku Platform API - Organization App Permission",
       "type": [
         "object"
       ],
       "definitions": {
-        "address_1": {
-          "type": [
-            "string"
-          ],
-          "description": "street address line 1",
-          "example": "40 Hickory Lane"
-        },
-        "address_2": {
-          "type": [
-            "string"
-          ],
-          "description": "street address line 2",
-          "example": "Suite 103"
-        },
-        "card_number": {
-          "type": [
-            "string"
-          ],
-          "description": "encrypted card number of payment method",
-          "example": "encrypted-card-number"
-        },
-        "city": {
-          "type": [
-            "string"
-          ],
-          "description": "city",
-          "example": "San Francisco"
-        },
-        "country": {
-          "type": [
-            "string"
-          ],
-          "description": "country",
-          "example": "US"
-        },
-        "cvv": {
-          "type": [
-            "string"
-          ],
-          "description": "card verification value",
-          "example": "123"
-        },
-        "expiration_month": {
-          "type": [
-            "string"
-          ],
-          "description": "expiration month",
-          "example": "11"
-        },
-        "expiration_year": {
-          "type": [
-            "string"
-          ],
-          "description": "expiration year",
-          "example": "2014"
-        },
-        "first_name": {
-          "type": [
-            "string"
-          ],
-          "description": "the first name for payment method",
-          "example": "Jason"
-        },
-        "last_name": {
-          "type": [
-            "string"
-          ],
-          "description": "the last name for payment method",
-          "example": "Walker"
-        },
-        "other": {
-          "type": [
-            "string"
-          ],
-          "description": "metadata",
-          "example": "Additional information for payment method"
-        },
-        "postal_code": {
-          "type": [
-            "string"
-          ],
-          "description": "postal code",
-          "example": "90210"
-        },
-        "state": {
-          "type": [
-            "string"
-          ],
-          "description": "state",
-          "example": "CA"
-        },
-        "card_last4": {
-          "type": [
-            "string"
-          ],
-          "description": "last 4 digits of credit card number",
-          "example": "1234",
-          "readOnly": true
-        },
-        "card_type": {
-          "type": [
-            "string"
-          ],
-          "description": "name of credit card issuer",
-          "example": "VISA",
-          "readOnly": true
-        },
-        "heroku_id": {
-          "type": [
-            "string"
-          ],
-          "description": "heroku_id identifier reference",
-          "example": "user930223902@heroku.com",
-          "readOnly": true
-        },
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/invoice-address/definitions/heroku_id"
+              "$ref": "#/definitions/organization-app-permission/definitions/name"
             }
+          ]
+        },
+        "name": {
+          "description": "The name of the app permission.",
+          "example": "view",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "description": "A description of what the app permission allows.",
+          "example": "Can manage config, deploy, run commands and restart the app.",
+          "readOnly": true,
+          "type": [
+            "string"
           ]
         }
       },
       "links": [
         {
-          "description": "Update an existing payment method for an account.",
-          "href": "/account/payment-method",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "address_1": {
-                "$ref": "#/definitions/payment-method/definitions/address_1"
-              },
-              "address_2": {
-                "$ref": "#/definitions/payment-method/definitions/address_2"
-              },
-              "card_number": {
-                "$ref": "#/definitions/payment-method/definitions/card_number"
-              },
-              "city": {
-                "$ref": "#/definitions/payment-method/definitions/city"
-              },
-              "country": {
-                "$ref": "#/definitions/payment-method/definitions/country"
-              },
-              "cvv": {
-                "$ref": "#/definitions/payment-method/definitions/cvv"
-              },
-              "expiration_month": {
-                "$ref": "#/definitions/payment-method/definitions/expiration_month"
-              },
-              "expiration_year": {
-                "$ref": "#/definitions/payment-method/definitions/expiration_year"
-              },
-              "first_name": {
-                "$ref": "#/definitions/payment-method/definitions/first_name"
-              },
-              "last_name": {
-                "$ref": "#/definitions/payment-method/definitions/last_name"
-              },
-              "other": {
-                "$ref": "#/definitions/payment-method/definitions/other"
-              },
-              "postal_code": {
-                "$ref": "#/definitions/payment-method/definitions/postal_code"
-              },
-              "state": {
-                "$ref": "#/definitions/payment-method/definitions/state"
-              }
-            },
-            "required": [
-              "address_1",
-              "address_2",
-              "card_number",
-              "city",
-              "country",
-              "cvv",
-              "expiration_month",
-              "expiration_year",
-              "first_name",
-              "last_name",
-              "postal_code",
-              "state"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "update"
-        },
-        {
-          "description": "Get the current payment method for an account.",
-          "href": "/account/payment-method",
+          "description": "Lists permissions available to organizations.",
+          "href": "/organizations/permissions",
           "method": "GET",
-          "rel": "self",
+          "rel": "instances",
           "targetSchema": {
-            "$ref": "#/definitions/payment-method"
-          },
-          "title": "get"
-        }
-      ],
-      "properties": {
-        "address_1": {
-          "$ref": "#/definitions/payment-method/definitions/address_1"
-        },
-        "address_2": {
-          "$ref": "#/definitions/payment-method/definitions/address_2"
-        },
-        "card_last4": {
-          "$ref": "#/definitions/payment-method/definitions/card_last4"
-        },
-        "card_type": {
-          "$ref": "#/definitions/payment-method/definitions/card_type"
-        },
-        "city": {
-          "$ref": "#/definitions/payment-method/definitions/city"
-        },
-        "country": {
-          "$ref": "#/definitions/payment-method/definitions/country"
-        },
-        "expiration_month": {
-          "$ref": "#/definitions/payment-method/definitions/expiration_month"
-        },
-        "expiration_year": {
-          "$ref": "#/definitions/payment-method/definitions/expiration_year"
-        },
-        "first_name": {
-          "$ref": "#/definitions/payment-method/definitions/first_name"
-        },
-        "last_name": {
-          "$ref": "#/definitions/payment-method/definitions/last_name"
-        },
-        "other": {
-          "$ref": "#/definitions/payment-method/definitions/other"
-        },
-        "postal_code": {
-          "$ref": "#/definitions/payment-method/definitions/postal_code"
-        },
-        "state": {
-          "$ref": "#/definitions/payment-method/definitions/state"
-        }
-      }
-    },
-    "payment": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "A payment represents money collected for an account",
-      "title": "Heroku Vault API - Payments",
-      "stability": "prototype",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "account_id": {
-          "type": [
-            "integer"
-          ],
-          "description": "account that payment belongs to",
-          "example": 8403923,
-          "readOnly": true
-        },
-        "amount": {
-          "type": [
-            "number"
-          ],
-          "description": "amount of payment in cents",
-          "example": 50000,
-          "readOnly": false
-        },
-        "created_at": {
-          "description": "when payment was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "integer"
-          ],
-          "description": "legacy unique identifier of payment",
-          "example": 9403943,
-          "readOnly": true
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/payment/definitions/id"
-            }
-          ]
-        },
-        "state": {
-          "enum": [
-            "failure",
-            "pending",
-            "success"
-          ],
-          "type": [
-            "string"
-          ],
-          "description": "state of the payment",
-          "example": "pending",
-          "readOnly": true
-        },
-        "updated_at": {
-          "description": "when credit was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "uuid": {
-          "description": "unique identifier for a payment transaction",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": false,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Create a payment on an existing account",
-          "href": "/account/payments",
-          "method": "POST",
-          "rel": "self",
-          "schema": {
-            "properties": {
-              "amount": {
-                "$ref": "#/definitions/payment/definitions/amount"
-              },
-              "invoice": {
-                "$ref": "#/definitions/invoice/definitions/identity"
-              },
-              "uuid": {
-                "$ref": "#/definitions/payment/definitions/uuid"
-              }
+            "items": {
+              "$ref": "#/definitions/organization-app-permission"
             },
-            "required": [
-              "amount",
-              "invoice",
-              "uuid"
-            ],
             "type": [
-              "object"
+              "array"
             ]
           },
-          "targetSchema": {
-            "$ref": "#/definitions/payment"
-          },
-          "title": "create"
+          "title": "List"
         }
       ],
       "properties": {
-        "amount": {
-          "$ref": "#/definitions/payment/definitions/amount"
+        "name": {
+          "$ref": "#/definitions/organization-app-permission/definitions/name"
         },
-        "created_at": {
-          "$ref": "#/definitions/payment/definitions/created_at"
-        },
-        "id": {
-          "$ref": "#/definitions/payment/definitions/id"
-        },
-        "invoice": {
-          "description": "identity of invoice",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/invoice/definitions/id"
-            },
-            "number": {
-              "$ref": "#/definitions/invoice/definitions/number"
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "updated_at": {
-          "$ref": "#/definitions/payment/definitions/updated_at"
-        },
-        "user": {
-          "description": "identity of user issuing payment",
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "state": {
-          "$ref": "#/definitions/payment/definitions/state"
+        "description": {
+          "$ref": "#/definitions/organization-app-permission/definitions/description"
         }
       }
     },
@@ -8602,6 +9154,7 @@
           "description": "target pipeline stage",
           "example": "production",
           "enum": [
+            "test",
             "review",
             "development",
             "staging",
@@ -9250,8 +9803,22 @@
             "string"
           ]
         },
+        "compliance": {
+          "description": "the compliance regimes applied to an add-on plan",
+          "example": [
+            "HIPAA"
+          ],
+          "readOnly": false,
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/plan/definitions/regime"
+          }
+        },
         "default": {
-          "description": "whether this plan is the default for its addon service",
+          "description": "whether this plan is the default for its add-on service",
           "example": false,
           "readOnly": true,
           "type": [
@@ -9267,7 +9834,7 @@
           ]
         },
         "human_name": {
-          "description": "human readable name of the addon plan",
+          "description": "human readable name of the add-on plan",
           "example": "Dev",
           "readOnly": true,
           "type": [
@@ -9317,6 +9884,18 @@
             "string"
           ]
         },
+        "regime": {
+          "description": "compliance requirements an add-on plan must adhere to",
+          "readOnly": true,
+          "example": "HIPAA",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "HIPAA",
+            "PCI"
+          ]
+        },
         "cents": {
           "description": "price in cents per unit of plan",
           "example": 0,
@@ -9357,12 +9936,20 @@
           "type": [
             "string"
           ]
+        },
+        "visible": {
+          "description": "whether this plan is publicly visible",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
         {
           "description": "Info for existing plan.",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
@@ -9372,7 +9959,7 @@
         },
         {
           "description": "List existing plans.",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Faddon-service%2Fdefinitions%2Fidentity)}/plans",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
@@ -9391,10 +9978,10 @@
           "description": "identity of add-on service",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           },
           "strictProperties": true,
@@ -9404,6 +9991,9 @@
         },
         "created_at": {
           "$ref": "#/definitions/plan/definitions/created_at"
+        },
+        "compliance": {
+          "$ref": "#/definitions/plan/definitions/compliance"
         },
         "default": {
           "$ref": "#/definitions/plan/definitions/default"
@@ -9449,6 +10039,9 @@
         },
         "updated_at": {
           "$ref": "#/definitions/plan/definitions/updated_at"
+        },
+        "visible": {
+          "$ref": "#/definitions/plan/definitions/visible"
         }
       }
     },
@@ -9490,34 +10083,6 @@
           "$ref": "#/definitions/rate-limit/definitions/remaining"
         }
       }
-    },
-    "recovery-code": {
-      "description": "Recovery codes grant access to accounts with two-factor authentication enabled.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "development",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Recovery Code",
-      "type": [
-        "array"
-      ],
-      "items": {
-        "example": "0123456789abcdef",
-        "type": [
-          "string"
-        ]
-      },
-      "links": [
-        {
-          "description": "Generate new recovery codes. This invalidates any existing codes on the account.",
-          "href": "/account/recovery-codes",
-          "method": "POST",
-          "rel": "create",
-          "targetSchema": {
-            "$ref": "#/definitions/recovery-code"
-          },
-          "title": "Create"
-        }
-      ]
     },
     "region": {
       "description": "A region represents a geographic location in which your application may run.",
@@ -9764,6 +10329,14 @@
           "type": [
             "integer"
           ]
+        },
+        "current": {
+          "description": "indicates this release as being the current one for the app",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
@@ -9843,6 +10416,15 @@
         }
       ],
       "properties": {
+        "addon_plan_names": {
+          "description": "add-on plans installed on the app for this release",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/plan/definitions/name"
+          }
+        },
         "app": {
           "description": "app involved in the release",
           "properties": {
@@ -9882,6 +10464,9 @@
             "null"
           ]
         },
+        "status": {
+          "$ref": "#/definitions/release/definitions/status"
+        },
         "user": {
           "description": "user that created the release",
           "properties": {
@@ -9899,6 +10484,9 @@
         },
         "version": {
           "$ref": "#/definitions/release/definitions/version"
+        },
+        "current": {
+          "$ref": "#/definitions/release/definitions/current"
         }
       }
     },
@@ -9988,7 +10576,7 @@
             "web": "./bin/web -p $PORT"
           },
           "patternProperties": {
-            "^\\w+$": {
+            "^[-\\w]{1,128}$": {
               "type": [
                 "string"
               ]
@@ -10210,6 +10798,199 @@
         }
       }
     },
+    "sni-endpoint": {
+      "description": "SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - SNI Endpoint",
+      "stability": "development",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "certificate_chain": {
+          "description": "raw contents of the public certificate chain (eg: .crt or .pem file)",
+          "example": "-----BEGIN CERTIFICATE----- ...",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "cname": {
+          "description": "deprecated; refer to GET /apps/:id/domains for valid CNAMEs for this app",
+          "example": "example.herokussl.com",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when endpoint was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of this SNI endpoint",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/sni-endpoint/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/sni-endpoint/definitions/name"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name for SNI endpoint",
+          "example": "example",
+          "pattern": "^[a-z][a-z0-9-]{2,29}$",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "private_key": {
+          "description": "contents of the private key (eg .key file)",
+          "example": "-----BEGIN RSA PRIVATE KEY----- ...",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when SNI endpoint was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "certificate_chain": {
+                "$ref": "#/definitions/sni-endpoint/definitions/certificate_chain"
+              },
+              "private_key": {
+                "$ref": "#/definitions/sni-endpoint/definitions/private_key"
+              }
+            },
+            "required": [
+              "certificate_chain",
+              "private_key"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Delete existing SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints/{(%23%2Fdefinitions%2Fsni-endpoint%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Delete"
+        },
+        {
+          "description": "Info for existing SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints/{(%23%2Fdefinitions%2Fsni-endpoint%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List existing SNI endpoints.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/sni-endpoint"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Update an existing SNI endpoint.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sni-endpoints/{(%23%2Fdefinitions%2Fsni-endpoint%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "certificate_chain": {
+                "$ref": "#/definitions/sni-endpoint/definitions/certificate_chain"
+              },
+              "private_key": {
+                "$ref": "#/definitions/sni-endpoint/definitions/private_key"
+              }
+            },
+            "required": [
+              "certificate_chain",
+              "private_key"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/sni-endpoint"
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "certificate_chain": {
+          "$ref": "#/definitions/sni-endpoint/definitions/certificate_chain"
+        },
+        "cname": {
+          "$ref": "#/definitions/sni-endpoint/definitions/cname"
+        },
+        "created_at": {
+          "$ref": "#/definitions/sni-endpoint/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/sni-endpoint/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/sni-endpoint/definitions/name"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/sni-endpoint/definitions/updated_at"
+        }
+      }
+    },
     "source": {
       "description": "A source is a location for uploading and downloading an application's source code.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -10240,13 +11021,24 @@
       "links": [
         {
           "description": "Create URLs for uploading and downloading source.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sources",
+          "href": "/sources",
           "method": "POST",
           "rel": "create",
           "targetSchema": {
             "$ref": "#/definitions/source"
           },
           "title": "Create"
+        },
+        {
+          "deactivate_on": "2017-08-01",
+          "description": "Create URLs for uploading and downloading source. Deprecated in favor of `POST /sources`",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/sources",
+          "method": "POST",
+          "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/source"
+          },
+          "title": "Create - Deprecated"
         }
       ],
       "properties": {
@@ -10513,32 +11305,6 @@
         "object"
       ],
       "definitions": {
-        "regime": {
-          "description": "compliance requirements a space must adhere to",
-          "readOnly": true,
-          "example": "HIPAA",
-          "type": [
-            "string"
-          ],
-          "enum": [
-            "HIPAA",
-            "PCI"
-          ]
-        },
-        "compliance": {
-          "description": "the compliance regimes applied to a space",
-          "example": [
-            "HIPAA"
-          ],
-          "readOnly": false,
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "$ref": "#/definitions/space/definitions/regime"
-          }
-        },
         "created_at": {
           "description": "when space was created",
           "example": "2012-01-01T12:00:00Z",
@@ -10574,6 +11340,14 @@
           "pattern": "^[a-z0-9](?:[a-z0-9]|-(?!-))+[a-z0-9]$",
           "type": [
             "string"
+          ]
+        },
+        "shield": {
+          "description": "true if this space has shield enabled",
+          "readOnly": true,
+          "example": true,
+          "type": [
+            "boolean"
           ]
         },
         "state": {
@@ -10665,15 +11439,19 @@
               "name": {
                 "$ref": "#/definitions/space/definitions/name"
               },
+              "organization": {
+                "$ref": "#/definitions/organization/definitions/name"
+              },
               "region": {
                 "$ref": "#/definitions/region/definitions/identity"
               },
-              "compliance": {
-                "$ref": "#/definitions/space/definitions/compliance"
+              "shield": {
+                "$ref": "#/definitions/space/definitions/shield"
               }
             },
             "required": [
-              "name"
+              "name",
+              "organization"
             ],
             "type": [
               "object"
@@ -10686,9 +11464,6 @@
         }
       ],
       "properties": {
-        "compliance": {
-          "$ref": "#/definitions/space/definitions/compliance"
-        },
         "created_at": {
           "$ref": "#/definitions/space/definitions/created_at"
         },
@@ -10706,7 +11481,6 @@
             }
           },
           "type": [
-            "null",
             "object"
           ]
         },
@@ -10725,6 +11499,9 @@
             "object"
           ]
         },
+        "shield": {
+          "$ref": "#/definitions/space/definitions/shield"
+        },
         "state": {
           "$ref": "#/definitions/space/definitions/state"
         },
@@ -10734,7 +11511,7 @@
       }
     },
     "ssl-endpoint": {
-      "description": "[SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` addon installed before it can provision an SSL Endpoint using these APIs.",
+      "description": "[SSL Endpoint](https://devcenter.heroku.com/articles/ssl-endpoint) is a public address serving custom SSL cert for HTTPS traffic to a Heroku app. Note that an app must have the `ssl:endpoint` add-on installed before it can provision an SSL Endpoint using these APIs.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Heroku Platform API - SSL Endpoint",
       "stability": "production",
@@ -10929,6 +11706,21 @@
         }
       ],
       "properties": {
+        "app": {
+          "description": "application associated with this ssl-endpoint",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/app/definitions/name"
+            }
+          },
+          "strictProperties": true
+        },
         "certificate_chain": {
           "$ref": "#/definitions/ssl-endpoint/definitions/certificate_chain"
         },
@@ -11271,7 +12063,7 @@
         }
       }
     },
-    "whitelisted-addon-service": {
+    "whitelisted-add-on-service": {
       "description": "Entities that have been whitelisted to be used by an Organization",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
@@ -11294,10 +12086,18 @@
           "description": "the user which whitelisted the Add-on Service",
           "properties": {
             "email": {
-              "$ref": "#/definitions/account/definitions/email"
+              "$ref": "#/definitions/account/definitions/email",
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "id": {
-              "$ref": "#/definitions/account/definitions/id"
+              "$ref": "#/definitions/account/definitions/id",
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
           "readOnly": true,
@@ -11309,13 +12109,13 @@
           "description": "the Add-on Service whitelisted for use",
           "properties": {
             "id": {
-              "$ref": "#/definitions/addon-service/definitions/id"
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             },
             "human_name": {
-              "$ref": "#/definitions/addon-service/definitions/human_name"
+              "$ref": "#/definitions/add-on-service/definitions/human_name"
             }
           },
           "readOnly": true,
@@ -11335,10 +12135,10 @@
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/whitelisted-addon-service/definitions/id"
+              "$ref": "#/definitions/whitelisted-add-on-service/definitions/id"
             },
             {
-              "$ref": "#/definitions/addon-service/definitions/name"
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
           ]
         }
@@ -11351,7 +12151,7 @@
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/whitelisted-addon-service"
+              "$ref": "#/definitions/whitelisted-add-on-service"
             },
             "type": [
               "array"
@@ -11377,7 +12177,7 @@
           },
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/whitelisted-addon-service"
+              "$ref": "#/definitions/whitelisted-add-on-service"
             },
             "type": [
               "array"
@@ -11387,27 +12187,27 @@
         },
         {
           "description": "Remove a whitelisted entity",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-addon-service%2Fdefinitions%2Fidentity)}",
+          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-add-on-service%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
-            "$ref": "#/definitions/whitelisted-addon-service"
+            "$ref": "#/definitions/whitelisted-add-on-service"
           },
           "title": "Delete"
         }
       ],
       "properties": {
         "added_at": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/added_at"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/added_at"
         },
         "added_by": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/added_by"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/added_by"
         },
         "addon_service": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/addon_service"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/addon_service"
         },
         "id": {
-          "$ref": "#/definitions/whitelisted-addon-service/definitions/id"
+          "$ref": "#/definitions/whitelisted-add-on-service/definitions/id"
         }
       }
     }
@@ -11419,26 +12219,32 @@
     "account": {
       "$ref": "#/definitions/account"
     },
-    "addon-action": {
-      "$ref": "#/definitions/addon-action"
+    "add-on-action": {
+      "$ref": "#/definitions/add-on-action"
     },
-    "addon-attachment": {
-      "$ref": "#/definitions/addon-attachment"
+    "add-on-attachment": {
+      "$ref": "#/definitions/add-on-attachment"
     },
-    "addon-config": {
-      "$ref": "#/definitions/addon-config"
+    "add-on-config": {
+      "$ref": "#/definitions/add-on-config"
     },
-    "addon-region-capability": {
-      "$ref": "#/definitions/addon-region-capability"
+    "add-on-plan-action": {
+      "$ref": "#/definitions/add-on-plan-action"
     },
-    "addon-service": {
-      "$ref": "#/definitions/addon-service"
+    "add-on-region-capability": {
+      "$ref": "#/definitions/add-on-region-capability"
     },
-    "addon": {
-      "$ref": "#/definitions/addon"
+    "add-on-service": {
+      "$ref": "#/definitions/add-on-service"
+    },
+    "add-on": {
+      "$ref": "#/definitions/add-on"
     },
     "app-feature": {
       "$ref": "#/definitions/app-feature"
+    },
+    "app-formation-set": {
+      "$ref": "#/definitions/app-formation-set"
     },
     "app-setup": {
       "$ref": "#/definitions/app-setup"
@@ -11470,6 +12276,9 @@
     "domain": {
       "$ref": "#/definitions/domain"
     },
+    "dyno-size": {
+      "$ref": "#/definitions/dyno-size"
+    },
     "dyno": {
       "$ref": "#/definitions/dyno"
     },
@@ -11484,6 +12293,9 @@
     },
     "formation": {
       "$ref": "#/definitions/formation"
+    },
+    "identity-provider": {
+      "$ref": "#/definitions/identity-provider"
     },
     "inbound-ruleset": {
       "$ref": "#/definitions/inbound-ruleset"
@@ -11518,8 +12330,8 @@
     "oauth-token": {
       "$ref": "#/definitions/oauth-token"
     },
-    "organization-addon": {
-      "$ref": "#/definitions/organization-addon"
+    "organization-add-on": {
+      "$ref": "#/definitions/organization-add-on"
     },
     "organization-app-collaborator": {
       "$ref": "#/definitions/organization-app-collaborator"
@@ -11527,14 +12339,17 @@
     "organization-app": {
       "$ref": "#/definitions/organization-app"
     },
+    "organization-feature": {
+      "$ref": "#/definitions/organization-feature"
+    },
+    "organization-invitation": {
+      "$ref": "#/definitions/organization-invitation"
+    },
     "organization-invoice": {
       "$ref": "#/definitions/organization-invoice"
     },
     "organization-member": {
       "$ref": "#/definitions/organization-member"
-    },
-    "organization-payment-method": {
-      "$ref": "#/definitions/organization-payment-method"
     },
     "organization-preferences": {
       "$ref": "#/definitions/organization-preferences"
@@ -11542,20 +12357,14 @@
     "organization": {
       "$ref": "#/definitions/organization"
     },
-    "otp-secret": {
-      "$ref": "#/definitions/otp-secret"
-    },
     "outbound-ruleset": {
       "$ref": "#/definitions/outbound-ruleset"
     },
     "password-reset": {
       "$ref": "#/definitions/password-reset"
     },
-    "payment-method": {
-      "$ref": "#/definitions/payment-method"
-    },
-    "payment": {
-      "$ref": "#/definitions/payment"
+    "organization-app-permission": {
+      "$ref": "#/definitions/organization-app-permission"
     },
     "pipeline-coupling": {
       "$ref": "#/definitions/pipeline-coupling"
@@ -11575,9 +12384,6 @@
     "rate-limit": {
       "$ref": "#/definitions/rate-limit"
     },
-    "recovery-code": {
-      "$ref": "#/definitions/recovery-code"
-    },
     "region": {
       "$ref": "#/definitions/region"
     },
@@ -11589,6 +12395,9 @@
     },
     "sms-number": {
       "$ref": "#/definitions/sms-number"
+    },
+    "sni-endpoint": {
+      "$ref": "#/definitions/sni-endpoint"
     },
     "source": {
       "$ref": "#/definitions/source"
@@ -11611,8 +12420,8 @@
     "user-preferences": {
       "$ref": "#/definitions/user-preferences"
     },
-    "whitelisted-addon-service": {
-      "$ref": "#/definitions/whitelisted-addon-service"
+    "whitelisted-add-on-service": {
+      "$ref": "#/definitions/whitelisted-add-on-service"
     }
   },
   "description": "The platform API empowers developers to automate, extend and combine Heroku with other services.",

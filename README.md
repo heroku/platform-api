@@ -310,6 +310,8 @@ Remember to commit and push the changes to Github.
 
 ### Release a new gem
 
+* This project follows [semver](http://semver.org) from version 1.0.0. Please
+  be sure to keep this in mind if you're the project maintainer.
 * Bump the version in `lib/platform-api/version.rb`
 * `bundle install` to update Gemfile.lock
 * `git commit -m 'vX.Y.Z' to stage the version and Gemfile.lock changes

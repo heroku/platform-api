@@ -11,6 +11,8 @@ New contributors are always welcome, when it doubt please ask questions. We stri
 * Fork the project, add your changes and tests to cover them in a topic branch.
 * Commit your changes and rebase against `heroku/platform` to ensure everything is up to date.
 * [Submit a pull request](https://github.com/heroku/platform/compare/).
+* This project follows [semver](http://semver.org) from version 1.0.0. Please
+  be sure to keep this in mind if you're the project maintainer.
 
 ### Non-Coding
 

@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    platform-api (0.8.0)
-      heroics (~> 0.0.17)
+    platform-api (1.0.0)
+      heroics (~> 0.0.20)
       moneta (~> 0.8.1)
 
 GEM
@@ -10,7 +10,7 @@ GEM
   specs:
     erubis (2.7.0)
     excon (0.55.0)
-    heroics (0.0.18)
+    heroics (0.0.20)
       erubis (~> 2.0)
       excon
       multi_json (>= 1.9.2)
@@ -29,4 +29,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.13.7
+   1.14.4

@@ -7,7 +7,7 @@ YARD::Rake::YardocTask.new
 desc 'Download the latest schema and build a new client'
 task :build do
   sh 'curl -o schema.json -H "Accept: application/vnd.heroku+json; version=3" https://api.heroku.com/schema'
-  sh 'bundle exec heroics-generate -H "Accept: application/vnd.heroku+json; version=3" -c "#{Dir.home}/.heroics/platform-api" PlatformAPI schema.json https://api.heroku.com > lib/platform-api/client.rb'
+  sh 'bundle exec heroics-generate ./config/client-config.rb > lib/platform-api/client.rb'
 end
 
 desc 'Publish API documentation'
