@@ -131,8 +131,8 @@ methods.</p>
 <h3 id="label-Handling+errors">Handling errors</h3>
 
 <p>The client uses <a href="https://github.com/geemus/excon">Excon</a> under
-the hood and raises <code>Excon::Error</code> exceptions when errors occur.
-You can catch specific <a
+the hood and raises <code>Excon::Errors::Error</code> exceptions when
+errors occur. You can catch specific <a
 href="https://github.com/geemus/excon/blob/master/lib/excon/errors.rb">Excon
 error types</a> if you want.</p>
 
@@ -143,7 +143,7 @@ work with it. The first thing you need is a client setup with an OAuth
 token. You can create an OAuth token using the <code>heroku-oauth</code>
 toolbelt plugin:</p>
 
-<pre class="code ruby"><code class="ruby">$ heroku plugins:install git@github.com:heroku/heroku-oauth.git
+<pre class="code ruby"><code class="ruby">$ heroku plugins:install heroku-cli-oauth
 $ heroku authorizations:create -d &quot;Platform API example token&quot;
 Created OAuth authorization.
   ID:          2f01aac0-e9d3-4773-af4e-3e510aa006ca
@@ -376,6 +376,10 @@ to use:</p>
 
 <h3 id="label-Release+a+new+gem">Release a new gem</h3>
 <ul><li>
+<p>This project follows <a href="http://semver.org">semver</a> from version
+1.0.0. Please  be sure to keep this in mind if you&#39;re the project
+maintainer.</p>
+</li><li>
 <p>Bump the version in <code>lib/platform-api/version.rb</code></p>
 </li><li>
 <p><code>bundle install</code> to update Gemfile.lock</p>
@@ -418,9 +422,9 @@ repository</a>.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:30 2016 by
+  Generated on Thu Feb 23 14:19:23 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

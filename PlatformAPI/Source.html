@@ -129,7 +129,31 @@ source code.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create URLs for uploading and downloading source.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_deprecated-instance_method" title="#create_deprecated (instance method)">- (Object) <strong>create_deprecated</strong>(app_id_or_app_name) </a>
     
 
     
@@ -208,12 +232,12 @@ source code.</p>
       <pre class="lines">
 
 
-2098
-2099
-2100</pre>
+2365
+2366
+2367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2098</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2365</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -233,7 +257,7 @@ source code.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name) 
+    - (<tt>Object</tt>) <strong>create</strong> 
   
 
   
@@ -243,6 +267,48 @@ source code.</p>
   <div class="discussion">
     
 <p>Create URLs for uploading and downloading source.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2370
+2371
+2372</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2370</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_deprecated-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_deprecated</strong>(app_id_or_app_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create URLs for uploading and downloading source. Deprecated in favor of
+<code>POST /sources</code></p>
 
 
   </div>
@@ -276,15 +342,15 @@ source code.</p>
       <pre class="lines">
 
 
-2105
-2106
-2107</pre>
+2377
+2378
+2379</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2105</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2377</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create_deprecated'>create_deprecated</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_create_deprecated'>create_deprecated</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -296,9 +362,9 @@ source code.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:35 2016 by
+  Generated on Thu Feb 23 14:19:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

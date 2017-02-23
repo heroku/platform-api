@@ -129,7 +129,7 @@ on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body = {}) </a>
     
 
     
@@ -280,12 +280,12 @@ on Heroku.</p>
       <pre class="lines">
 
 
-985
-986
-987</pre>
+1069
+1070
+1071</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 985</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1069</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -305,7 +305,7 @@ on Heroku.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body) 
+    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body = {}) 
   
 
   
@@ -364,14 +364,14 @@ on Heroku.</p>
       <pre class="lines">
 
 
-993
-994
-995</pre>
+1077
+1078
+1079</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 993</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1077</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -441,12 +441,12 @@ on Heroku.</p>
       <pre class="lines">
 
 
-1001
-1002
-1003</pre>
+1085
+1086
+1087</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1001</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1085</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -518,12 +518,12 @@ on Heroku.</p>
       <pre class="lines">
 
 
-1009
-1010
-1011</pre>
+1093
+1094
+1095</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1009</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1093</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -579,12 +579,12 @@ on Heroku.</p>
       <pre class="lines">
 
 
-1016
-1017
-1018</pre>
+1100
+1101
+1102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1016</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -599,9 +599,9 @@ on Heroku.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:32 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

@@ -129,7 +129,55 @@ across your development team.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(organization_name) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new organization.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(organization_name_or_organization_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing organization.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(organization_name_or_organization_id) </a>
     
 
     
@@ -203,7 +251,7 @@ across your development team.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(organization_name, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(organization_name_or_organization_id, body = {}) </a>
     
 
     
@@ -218,7 +266,7 @@ across your development team.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Set or unset the organization as your default organization.</p>
+<p>Update organization properties.</p>
 </div></span>
   
 </li>
@@ -256,12 +304,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1733
-1734
-1735</pre>
+1954
+1955
+1956</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1733</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1954</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -279,9 +327,131 @@ across your development team.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="info-instance_method">
+  <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>info</strong>(organization_name) 
+    - (<tt>Object</tt>) <strong>create</strong>(body = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new organization.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>body:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1981
+1982
+1983</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1981</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete</strong>(organization_name_or_organization_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete an existing organization.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>organization_name_or_organization_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of organization or unique identifier of organization</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1988
+1989
+1990</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1988</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="info-instance_method">
+  
+    - (<tt>Object</tt>) <strong>info</strong>(organization_name_or_organization_id) 
   
 
   
@@ -301,7 +471,7 @@ across your development team.</p>
   
     <li>
       
-        <span class='name'>organization_name:</span>
+        <span class='name'>organization_name_or_organization_id:</span>
       
       
         <span class='type'></span>
@@ -310,7 +480,7 @@ across your development team.</p>
       
         &mdash;
         <div class='inline'>
-<p>unique name of organization</p>
+<p>unique name of organization or unique identifier of organization</p>
 </div>
       
     </li>
@@ -324,15 +494,15 @@ across your development team.</p>
       <pre class="lines">
 
 
-1745
-1746
-1747</pre>
+1966
+1967
+1968</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1745</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1966</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -365,12 +535,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1738
-1739
-1740</pre>
+1959
+1960
+1961</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1738</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1959</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -383,7 +553,7 @@ across your development team.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(organization_name, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(organization_name_or_organization_id, body = {}) 
   
 
   
@@ -392,7 +562,7 @@ across your development team.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Set or unset the organization as your default organization.</p>
+<p>Update organization properties.</p>
 
 
   </div>
@@ -403,7 +573,7 @@ across your development team.</p>
   
     <li>
       
-        <span class='name'>organization_name:</span>
+        <span class='name'>organization_name_or_organization_id:</span>
       
       
         <span class='type'></span>
@@ -412,7 +582,7 @@ across your development team.</p>
       
         &mdash;
         <div class='inline'>
-<p>unique name of organization</p>
+<p>unique name of organization or unique identifier of organization</p>
 </div>
       
     </li>
@@ -442,15 +612,15 @@ across your development team.</p>
       <pre class="lines">
 
 
-1753
-1754
-1755</pre>
+1974
+1975
+1976</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1753</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1974</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -462,9 +632,9 @@ across your development team.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:34 2016 by
+  Generated on Thu Feb 23 14:19:26 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

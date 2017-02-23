@@ -203,7 +203,7 @@ disabled for an app on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, app_feature_id_or_app_feature_name, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, app_feature_id_or_app_feature_name, body = {}) </a>
     
 
     
@@ -256,12 +256,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-777
-778
-779</pre>
+854
+855
+856</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 777</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 854</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -340,12 +340,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-785
-786
-787</pre>
+862
+863
+864</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 785</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 862</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='rparen'>)</span>
@@ -401,12 +401,12 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-792
-793
-794</pre>
+869
+870
+871</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 792</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 869</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -419,7 +419,7 @@ disabled for an app on Heroku.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, app_feature_id_or_app_feature_name, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, app_feature_id_or_app_feature_name, body = {}) 
   
 
   
@@ -494,14 +494,14 @@ disabled for an app on Heroku.</p>
       <pre class="lines">
 
 
-801
-802
-803</pre>
+878
+879
+880</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 801</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 878</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -514,9 +514,9 @@ disabled for an app on Heroku.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:32 2016 by
+  Generated on Thu Feb 23 14:19:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

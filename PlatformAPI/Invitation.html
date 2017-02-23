@@ -129,7 +129,31 @@ platform.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#finalize_invitation-instance_method" title="#finalize_invitation (instance method)">- (Object) <strong>finalize_invitation</strong>(invitation_token, body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Invite a user.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finalize-instance_method" title="#finalize (instance method)">- (Object) <strong>finalize</strong>(invitation_token, body = {}) </a>
     
 
     
@@ -203,7 +227,7 @@ platform.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#invitation-instance_method" title="#invitation (instance method)">- (Object) <strong>invitation</strong>(body) </a>
+      <a href="#send_verification_code-instance_method" title="#send_verification_code (instance method)">- (Object) <strong>send_verification_code</strong>(invitation_token, body = {}) </a>
     
 
     
@@ -218,7 +242,31 @@ platform.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Invite a user.</p>
+<p>Send a verification code for an invitation via SMS/phone call.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify-instance_method" title="#verify (instance method)">- (Object) <strong>verify</strong>(invitation_token, body = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Verify an invitation using a verification code.</p>
 </div></span>
   
 </li>
@@ -256,12 +304,12 @@ platform.</p>
       <pre class="lines">
 
 
-1251
-1252
-1253</pre>
+1409
+1410
+1411</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1251</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1409</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -279,9 +327,70 @@ platform.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="finalize_invitation-instance_method">
+  <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>finalize_invitation</strong>(invitation_token, body) 
+    - (<tt>Object</tt>) <strong>create</strong>(body = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Invite a user.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>body:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1423
+1424
+1425</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1423</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="finalize-instance_method">
+  
+    - (<tt>Object</tt>) <strong>finalize</strong>(invitation_token, body = {}) 
   
 
   
@@ -340,15 +449,15 @@ platform.</p>
       <pre class="lines">
 
 
-1266
-1267
-1268</pre>
+1447
+1448
+1449</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1266</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1447</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_finalize_invitation'>finalize_invitation</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_finalize_invitation'>finalize_invitation</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_finalize'>finalize</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_finalize'>finalize</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -401,12 +510,12 @@ platform.</p>
       <pre class="lines">
 
 
-1258
-1259
-1260</pre>
+1416
+1417
+1418</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1258</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1416</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='rparen'>)</span>
@@ -417,9 +526,9 @@ platform.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="invitation-instance_method">
+  <h3 class="signature " id="send_verification_code-instance_method">
   
-    - (<tt>Object</tt>) <strong>invitation</strong>(body) 
+    - (<tt>Object</tt>) <strong>send_verification_code</strong>(invitation_token, body = {}) 
   
 
   
@@ -428,7 +537,7 @@ platform.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Invite a user.</p>
+<p>Send a verification code for an invitation via SMS/phone call.</p>
 
 
   </div>
@@ -436,6 +545,22 @@ platform.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
+  
+    <li>
+      
+        <span class='name'>invitation_token:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Unique identifier of an invitation</p>
+</div>
+      
+    </li>
   
     <li>
       
@@ -462,15 +587,92 @@ platform.</p>
       <pre class="lines">
 
 
-1273
-1274
-1275</pre>
+1431
+1432
+1433</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1273</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1431</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_invitation'>invitation</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_send_verification_code'>send_verification_code</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_send_verification_code'>send_verification_code</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="verify-instance_method">
+  
+    - (<tt>Object</tt>) <strong>verify</strong>(invitation_token, body = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Verify an invitation using a verification code.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>invitation_token:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Unique identifier of an invitation</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>body:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1439
+1440
+1441</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1439</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verify'>verify</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_verify'>verify</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -482,9 +684,9 @@ platform.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:33 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

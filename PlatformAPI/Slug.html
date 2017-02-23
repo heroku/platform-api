@@ -129,7 +129,7 @@ platform.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body = {}) </a>
     
 
     
@@ -232,12 +232,12 @@ platform.</p>
       <pre class="lines">
 
 
-2047
-2048
-2049</pre>
+2267
+2268
+2269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2047</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2267</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -257,7 +257,7 @@ platform.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body) 
+    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body = {}) 
   
 
   
@@ -318,14 +318,14 @@ Slugs using the Platform API</a>.</p>
       <pre class="lines">
 
 
-2063
-2064
-2065</pre>
+2283
+2284
+2285</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2063</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2283</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_slug'>slug</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -395,12 +395,12 @@ Slugs using the Platform API</a>.</p>
       <pre class="lines">
 
 
-2055
-2056
-2057</pre>
+2275
+2276
+2277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2055</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2275</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_slug_id'>slug_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_slug'>slug</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_slug_id'>slug_id</span><span class='rparen'>)</span>
@@ -415,9 +415,9 @@ Slugs using the Platform API</a>.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:35 2016 by
+  Generated on Thu Feb 23 14:19:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

@@ -129,7 +129,7 @@ Heroku apps.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body = {}) </a>
     
 
     
@@ -229,7 +229,7 @@ organization is not set.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_for_organization-instance_method" title="#list_for_organization (instance method)">- (Object) <strong>list_for_organization</strong>(organization_name) </a>
+      <a href="#list_for_organization-instance_method" title="#list_for_organization (instance method)">- (Object) <strong>list_for_organization</strong>(organization_name_or_organization_id) </a>
     
 
     
@@ -253,7 +253,7 @@ organization is not set.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#transfer_to_account-instance_method" title="#transfer_to_account (instance method)">- (Object) <strong>transfer_to_account</strong>(app_name, body) </a>
+      <a href="#transfer_to_account-instance_method" title="#transfer_to_account (instance method)">- (Object) <strong>transfer_to_account</strong>(app_name, body = {}) </a>
     
 
     
@@ -277,7 +277,7 @@ organization is not set.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#transfer_to_organization-instance_method" title="#transfer_to_organization (instance method)">- (Object) <strong>transfer_to_organization</strong>(app_name, body) </a>
+      <a href="#transfer_to_organization-instance_method" title="#transfer_to_organization (instance method)">- (Object) <strong>transfer_to_organization</strong>(app_name, body = {}) </a>
     
 
     
@@ -301,7 +301,7 @@ organization is not set.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_locked-instance_method" title="#update_locked (instance method)">- (Object) <strong>update_locked</strong>(app_name, body) </a>
+      <a href="#update_locked-instance_method" title="#update_locked (instance method)">- (Object) <strong>update_locked</strong>(app_name, body = {}) </a>
     
 
     
@@ -354,12 +354,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1580
-1581
-1582</pre>
+1740
+1741
+1742</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1580</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1740</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -379,7 +379,7 @@ organization is not set.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(body) 
+    - (<tt>Object</tt>) <strong>create</strong>(body = {}) 
   
 
   
@@ -423,14 +423,14 @@ if unspecified, or in personal account, if default organization is not set.</p>
       <pre class="lines">
 
 
-1587
-1588
-1589</pre>
+1747
+1748
+1749</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1587</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1747</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -484,12 +484,12 @@ if unspecified, or in personal account, if default organization is not set.</p>
       <pre class="lines">
 
 
-1606
-1607
-1608</pre>
+1766
+1767
+1768</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1606</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1766</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
@@ -526,12 +526,12 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1592
-1593
-1594</pre>
+1752
+1753
+1754</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1592</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1752</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -544,7 +544,7 @@ organization is not set.</p>
       <div class="method_details ">
   <h3 class="signature " id="list_for_organization-instance_method">
   
-    - (<tt>Object</tt>) <strong>list_for_organization</strong>(organization_name) 
+    - (<tt>Object</tt>) <strong>list_for_organization</strong>(organization_name_or_organization_id) 
   
 
   
@@ -564,7 +564,7 @@ organization is not set.</p>
   
     <li>
       
-        <span class='name'>organization_name:</span>
+        <span class='name'>organization_name_or_organization_id:</span>
       
       
         <span class='type'></span>
@@ -573,7 +573,7 @@ organization is not set.</p>
       
         &mdash;
         <div class='inline'>
-<p>unique name of organization</p>
+<p>unique name of organization or unique identifier of organization</p>
 </div>
       
     </li>
@@ -587,15 +587,15 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1599
-1600
-1601</pre>
+1759
+1760
+1761</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1599</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1759</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list_for_organization'>list_for_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_list_for_organization'>list_for_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list_for_organization'>list_for_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_list_for_organization'>list_for_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -605,7 +605,7 @@ organization is not set.</p>
       <div class="method_details ">
   <h3 class="signature " id="transfer_to_account-instance_method">
   
-    - (<tt>Object</tt>) <strong>transfer_to_account</strong>(app_name, body) 
+    - (<tt>Object</tt>) <strong>transfer_to_account</strong>(app_name, body = {}) 
   
 
   
@@ -664,14 +664,14 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1622
-1623
-1624</pre>
+1782
+1783
+1784</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1622</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1782</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -682,7 +682,7 @@ organization is not set.</p>
       <div class="method_details ">
   <h3 class="signature " id="transfer_to_organization-instance_method">
   
-    - (<tt>Object</tt>) <strong>transfer_to_organization</strong>(app_name, body) 
+    - (<tt>Object</tt>) <strong>transfer_to_organization</strong>(app_name, body = {}) 
   
 
   
@@ -741,14 +741,14 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1630
-1631
-1632</pre>
+1790
+1791
+1792</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1630</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1790</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_organization'>transfer_to_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_organization'>transfer_to_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_organization'>transfer_to_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -759,7 +759,7 @@ organization is not set.</p>
       <div class="method_details ">
   <h3 class="signature " id="update_locked-instance_method">
   
-    - (<tt>Object</tt>) <strong>update_locked</strong>(app_name, body) 
+    - (<tt>Object</tt>) <strong>update_locked</strong>(app_name, body = {}) 
   
 
   
@@ -818,14 +818,14 @@ organization is not set.</p>
       <pre class="lines">
 
 
-1614
-1615
-1616</pre>
+1774
+1775
+1776</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1614</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1774</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_app'>organization_app</span><span class='period'>.</span><span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -838,9 +838,9 @@ organization is not set.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:34 2016 by
+  Generated on Thu Feb 23 14:19:26 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

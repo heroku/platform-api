@@ -130,7 +130,7 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body = {}) </a>
     
 
     
@@ -273,6 +273,30 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop-instance_method" title="#stop (instance method)">- (Object) <strong>stop</strong>(app_id_or_app_name, dyno_id_or_dyno_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stop dyno.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -305,12 +329,12 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
       <pre class="lines">
 
 
-1109
-1110
-1111</pre>
+1220
+1221
+1222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1109</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -330,7 +354,7 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body) 
+    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body = {}) 
   
 
   
@@ -389,14 +413,14 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
       <pre class="lines">
 
 
-1117
-1118
-1119</pre>
+1228
+1229
+1230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1117</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1228</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -466,12 +490,12 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
       <pre class="lines">
 
 
-1140
-1141
-1142</pre>
+1259
+1260
+1261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1140</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
@@ -527,12 +551,12 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
       <pre class="lines">
 
 
-1147
-1148
-1149</pre>
+1266
+1267
+1268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1147</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -604,12 +628,12 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
       <pre class="lines">
 
 
-1125
-1126
-1127</pre>
+1236
+1237
+1238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1125</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1236</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
@@ -631,7 +655,7 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Restart all dynos</p>
+<p>Restart all dynos.</p>
 
 
   </div>
@@ -665,15 +689,92 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
       <pre class="lines">
 
 
-1132
-1133
-1134</pre>
+1243
+1244
+1245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1132</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1243</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart_all'>restart_all</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_restart_all'>restart_all</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stop</strong>(app_id_or_app_name, dyno_id_or_dyno_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stop dyno.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dyno_id_or_dyno_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of this dyno or the name of this process on this dyno</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1251
+1252
+1253</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1251</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_stop'>stop</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -685,9 +786,9 @@ href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/art
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:33 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

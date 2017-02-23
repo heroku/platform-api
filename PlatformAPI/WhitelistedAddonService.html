@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(organization_name, body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(organization_name_or_organization_id, body = {}) </a>
     
 
     
@@ -152,7 +152,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(organization_name, whitelisted_addon_service_id_or_addon_service_name) </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(organization_name_or_organization_id, whitelisted_addon_service_id_or_addon_service_name) </a>
     
 
     
@@ -202,7 +202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list-instance_method" title="#list (instance method)">- (Object) <strong>list</strong>(organization_name) </a>
+      <a href="#list-instance_method" title="#list (instance method)">- (Object) <strong>list</strong>(organization_name_or_organization_id) </a>
     
 
     
@@ -255,12 +255,12 @@
       <pre class="lines">
 
 
-2286
-2287
-2288</pre>
+2558
+2559
+2560</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2286</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2558</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -280,7 +280,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(organization_name, body) 
+    - (<tt>Object</tt>) <strong>create</strong>(organization_name_or_organization_id, body = {}) 
   
 
   
@@ -300,7 +300,7 @@
   
     <li>
       
-        <span class='name'>organization_name:</span>
+        <span class='name'>organization_name_or_organization_id:</span>
       
       
         <span class='type'></span>
@@ -309,7 +309,7 @@
       
         &mdash;
         <div class='inline'>
-<p>unique name of organization</p>
+<p>unique name of organization or unique identifier of organization</p>
 </div>
       
     </li>
@@ -339,15 +339,15 @@
       <pre class="lines">
 
 
-2301
-2302
-2303</pre>
+2573
+2574
+2575</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2301</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2573</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_whitelisted_addon_service'>whitelisted_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_whitelisted_addon_service'>whitelisted_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -357,7 +357,7 @@
       <div class="method_details ">
   <h3 class="signature " id="delete-instance_method">
   
-    - (<tt>Object</tt>) <strong>delete</strong>(organization_name, whitelisted_addon_service_id_or_addon_service_name) 
+    - (<tt>Object</tt>) <strong>delete</strong>(organization_name_or_organization_id, whitelisted_addon_service_id_or_addon_service_name) 
   
 
   
@@ -377,7 +377,7 @@
   
     <li>
       
-        <span class='name'>organization_name:</span>
+        <span class='name'>organization_name_or_organization_id:</span>
       
       
         <span class='type'></span>
@@ -386,7 +386,7 @@
       
         &mdash;
         <div class='inline'>
-<p>unique name of organization</p>
+<p>unique name of organization or unique identifier of organization</p>
 </div>
       
     </li>
@@ -403,7 +403,7 @@
         &mdash;
         <div class='inline'>
 <p>unique identifier for this whitelisting entity or unique name of this
-addon-service</p>
+add-on-service</p>
 </div>
       
     </li>
@@ -417,15 +417,15 @@ addon-service</p>
       <pre class="lines">
 
 
-2309
-2310
-2311</pre>
+2581
+2582
+2583</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2309</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2581</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_whitelisted_addon_service_id_or_addon_service_name'>whitelisted_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_whitelisted_addon_service'>whitelisted_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_whitelisted_addon_service_id_or_addon_service_name'>whitelisted_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_whitelisted_addon_service_id_or_addon_service_name'>whitelisted_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_whitelisted_addon_service'>whitelisted_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_whitelisted_addon_service_id_or_addon_service_name'>whitelisted_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -435,7 +435,7 @@ addon-service</p>
       <div class="method_details ">
   <h3 class="signature " id="list-instance_method">
   
-    - (<tt>Object</tt>) <strong>list</strong>(organization_name) 
+    - (<tt>Object</tt>) <strong>list</strong>(organization_name_or_organization_id) 
   
 
   
@@ -455,7 +455,7 @@ addon-service</p>
   
     <li>
       
-        <span class='name'>organization_name:</span>
+        <span class='name'>organization_name_or_organization_id:</span>
       
       
         <span class='type'></span>
@@ -464,7 +464,7 @@ addon-service</p>
       
         &mdash;
         <div class='inline'>
-<p>unique name of organization</p>
+<p>unique name of organization or unique identifier of organization</p>
 </div>
       
     </li>
@@ -478,15 +478,15 @@ addon-service</p>
       <pre class="lines">
 
 
-2293
-2294
-2295</pre>
+2565
+2566
+2567</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2293</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2565</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_whitelisted_addon_service'>whitelisted_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_whitelisted_addon_service'>whitelisted_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -498,9 +498,9 @@ addon-service</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:37 2016 by
+  Generated on Thu Feb 23 14:19:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

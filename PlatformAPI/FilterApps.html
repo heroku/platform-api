@@ -134,7 +134,7 @@ have side effects.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#apps-instance_method" title="#apps (instance method)">- (Object) <strong>apps</strong>(body) </a>
+      <a href="#apps-instance_method" title="#apps (instance method)">- (Object) <strong>apps</strong>(body = {}) </a>
     
 
     
@@ -213,12 +213,12 @@ have side effects.</p>
       <pre class="lines">
 
 
-1168
-1169
-1170</pre>
+1287
+1288
+1289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1168</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1287</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -238,7 +238,7 @@ have side effects.</p>
       <div class="method_details first">
   <h3 class="signature first" id="apps-instance_method">
   
-    - (<tt>Object</tt>) <strong>apps</strong>(body) 
+    - (<tt>Object</tt>) <strong>apps</strong>(body = {}) 
   
 
   
@@ -281,14 +281,14 @@ have side effects.</p>
       <pre class="lines">
 
 
-1175
-1176
-1177</pre>
+1294
+1295
+1296</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1175</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1294</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_apps'>apps</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_apps'>apps</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_filter_apps'>filter_apps</span><span class='period'>.</span><span class='id identifier rubyid_apps'>apps</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -301,9 +301,9 @@ have side effects.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:33 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

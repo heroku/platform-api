@@ -129,7 +129,7 @@ assigned to an account.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body = {}) </a>
     
 
     
@@ -256,12 +256,12 @@ assigned to an account.</p>
       <pre class="lines">
 
 
-1045
-1046
-1047</pre>
+1137
+1138
+1139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1045</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -281,7 +281,7 @@ assigned to an account.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(body) 
+    - (<tt>Object</tt>) <strong>create</strong>(body = {}) 
   
 
   
@@ -324,14 +324,14 @@ assigned to an account.</p>
       <pre class="lines">
 
 
-1052
-1053
-1054</pre>
+1144
+1145
+1146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1052</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1144</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_credit'>credit</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -385,12 +385,12 @@ assigned to an account.</p>
       <pre class="lines">
 
 
-1059
-1060
-1061</pre>
+1151
+1152
+1153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1059</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_credit_id'>credit_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_credit'>credit</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_credit_id'>credit_id</span><span class='rparen'>)</span>
@@ -426,12 +426,12 @@ assigned to an account.</p>
       <pre class="lines">
 
 
-1064
-1065
-1066</pre>
+1156
+1157
+1158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1064</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_credit'>credit</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -446,9 +446,9 @@ assigned to an account.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:33 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

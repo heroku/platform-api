@@ -102,7 +102,10 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Add-on Actions are Provider functionality for specific add-on installations</p>
+<p>Add-on Actions are lifecycle operations for add-on provisioning and
+deprovisioning. They allow whitelisted add-on providers to (de)provision
+add-ons in the background and then report back when (de)provisioning is
+complete.</p>
 
 
   </div>
@@ -124,6 +127,54 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_deprovision-instance_method" title="#create_deprovision (instance method)">- (Object) <strong>create_deprovision</strong>(addon_id_or_addon_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Mark an add-on as deprovisioned.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_provision-instance_method" title="#create_provision (instance method)">- (Object) <strong>create_provision</strong>(addon_id_or_addon_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Mark an add-on as provisioned for use.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -183,12 +234,12 @@
       <pre class="lines">
 
 
-624
-625
-626</pre>
+651
+652
+653</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 624</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 651</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -201,12 +252,140 @@
 </div>
 
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="create_deprovision-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_deprovision</strong>(addon_id_or_addon_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Mark an add-on as deprovisioned.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>addon_id_or_addon_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of add-on or globally unique name of the add-on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+665
+666
+667</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 665</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_deprovision'>create_deprovision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_action'>addon_action</span><span class='period'>.</span><span class='id identifier rubyid_create_deprovision'>create_deprovision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_provision-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_provision</strong>(addon_id_or_addon_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Mark an add-on as provisioned for use.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>addon_id_or_addon_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of add-on or globally unique name of the add-on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+658
+659
+660</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 658</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_provision'>create_provision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_action'>addon_action</span><span class='period'>.</span><span class='id identifier rubyid_create_provision'>create_provision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:32 2016 by
+  Generated on Thu Feb 23 14:19:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

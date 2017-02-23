@@ -179,7 +179,7 @@ invoice.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(body = {}) </a>
     
 
     
@@ -232,12 +232,12 @@ invoice.</p>
       <pre class="lines">
 
 
-1280
-1281
-1282</pre>
+1454
+1455
+1456</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1280</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1454</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -280,12 +280,12 @@ invoice.</p>
       <pre class="lines">
 
 
-1285
-1286
-1287</pre>
+1459
+1460
+1461</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1285</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1459</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invoice_address'>invoice_address</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -298,7 +298,7 @@ invoice.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(body) 
+    - (<tt>Object</tt>) <strong>update</strong>(body = {}) 
   
 
   
@@ -341,14 +341,14 @@ invoice.</p>
       <pre class="lines">
 
 
-1292
-1293
-1294</pre>
+1466
+1467
+1468</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1292</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1466</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invoice_address'>invoice_address</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -361,9 +361,9 @@ invoice.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:33 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

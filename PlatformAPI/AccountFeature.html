@@ -203,7 +203,7 @@ or disabled for an account on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(account_feature_id_or_account_feature_name, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(account_feature_id_or_account_feature_name, body = {}) </a>
     
 
     
@@ -256,12 +256,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-552
-553
-554</pre>
+595
+596
+597</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 552</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 595</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -324,12 +324,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-559
-560
-561</pre>
+602
+603
+604</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 559</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 602</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='rparen'>)</span>
@@ -365,12 +365,12 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-564
-565
-566</pre>
+607
+608
+609</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 564</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 607</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -383,7 +383,7 @@ or disabled for an account on Heroku.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(account_feature_id_or_account_feature_name, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(account_feature_id_or_account_feature_name, body = {}) 
   
 
   
@@ -442,14 +442,14 @@ or disabled for an account on Heroku.</p>
       <pre class="lines">
 
 
-572
-573
-574</pre>
+615
+616
+617</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 572</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 615</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -462,9 +462,9 @@ or disabled for an account on Heroku.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:31 2016 by
+  Generated on Thu Feb 23 14:19:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

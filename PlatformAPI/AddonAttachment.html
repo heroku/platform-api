@@ -129,7 +129,7 @@ that it has been given access to.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body = {}) </a>
     
 
     
@@ -275,7 +275,7 @@ that it has been given access to.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_by_add_on-instance_method" title="#list_by_add_on (instance method)">- (Object) <strong>list_by_add_on</strong>(addon_id_or_addon_name) </a>
+      <a href="#list_by_addon-instance_method" title="#list_by_addon (instance method)">- (Object) <strong>list_by_addon</strong>(addon_id_or_addon_name) </a>
     
 
     
@@ -352,12 +352,12 @@ that it has been given access to.</p>
       <pre class="lines">
 
 
-631
-632
-633</pre>
+672
+673
+674</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 631</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 672</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -377,7 +377,7 @@ that it has been given access to.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(body) 
+    - (<tt>Object</tt>) <strong>create</strong>(body = {}) 
   
 
   
@@ -420,14 +420,14 @@ that it has been given access to.</p>
       <pre class="lines">
 
 
-638
-639
-640</pre>
+679
+680
+681</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 638</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 679</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -481,12 +481,12 @@ that it has been given access to.</p>
       <pre class="lines">
 
 
-645
-646
-647</pre>
+686
+687
+688</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 645</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 686</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
@@ -542,12 +542,12 @@ that it has been given access to.</p>
       <pre class="lines">
 
 
-652
-653
-654</pre>
+693
+694
+695</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 652</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 693</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
@@ -620,12 +620,12 @@ attachment to this app</p>
       <pre class="lines">
 
 
-679
-680
-681</pre>
+720
+721
+722</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 679</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 720</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_by_app'>info_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_attachment_id_or_addon_attachment_name'>addon_attachment_id_or_addon_attachment_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_info_by_app'>info_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_attachment_id_or_addon_attachment_name'>addon_attachment_id_or_addon_attachment_name</span><span class='rparen'>)</span>
@@ -661,12 +661,12 @@ attachment to this app</p>
       <pre class="lines">
 
 
-657
-658
-659</pre>
+698
+699
+700</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 657</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 698</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -677,9 +677,9 @@ attachment to this app</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="list_by_add_on-instance_method">
+  <h3 class="signature " id="list_by_addon-instance_method">
   
-    - (<tt>Object</tt>) <strong>list_by_add_on</strong>(addon_id_or_addon_name) 
+    - (<tt>Object</tt>) <strong>list_by_addon</strong>(addon_id_or_addon_name) 
   
 
   
@@ -722,15 +722,15 @@ attachment to this app</p>
       <pre class="lines">
 
 
-664
-665
-666</pre>
+705
+706
+707</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 664</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 705</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list_by_add_on'>list_by_add_on</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_list_by_add_on'>list_by_add_on</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -783,12 +783,12 @@ attachment to this app</p>
       <pre class="lines">
 
 
-671
-672
-673</pre>
+712
+713
+714</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 671</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 712</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -803,9 +803,9 @@ attachment to this app</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:32 2016 by
+  Generated on Thu Feb 23 14:19:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

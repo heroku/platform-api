@@ -131,7 +131,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#batch_update-instance_method" title="#batch_update (instance method)">- (Object) <strong>batch_update</strong>(app_id_or_app_name, body) </a>
+      <a href="#batch_update-instance_method" title="#batch_update (instance method)">- (Object) <strong>batch_update</strong>(app_id_or_app_name, body = {}) </a>
     
 
     
@@ -229,7 +229,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, formation_id_or_formation_type, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, formation_id_or_formation_type, body = {}) </a>
     
 
     
@@ -282,12 +282,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-1182
-1183
-1184</pre>
+1301
+1302
+1303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1182</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -307,7 +307,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <div class="method_details first">
   <h3 class="signature first" id="batch_update-instance_method">
   
-    - (<tt>Object</tt>) <strong>batch_update</strong>(app_id_or_app_name, body) 
+    - (<tt>Object</tt>) <strong>batch_update</strong>(app_id_or_app_name, body = {}) 
   
 
   
@@ -366,14 +366,14 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-1205
-1206
-1207</pre>
+1324
+1325
+1326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1205</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1324</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_batch_update'>batch_update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_batch_update'>batch_update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_batch_update'>batch_update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -443,12 +443,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-1190
-1191
-1192</pre>
+1309
+1310
+1311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1190</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1309</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='rparen'>)</span>
@@ -504,12 +504,12 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-1197
-1198
-1199</pre>
+1316
+1317
+1318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1197</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1316</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -522,7 +522,7 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, formation_id_or_formation_type, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, formation_id_or_formation_type, body = {}) 
   
 
   
@@ -597,14 +597,14 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
       <pre class="lines">
 
 
-1214
-1215
-1216</pre>
+1333
+1334
+1335</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1214</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1333</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_formation'>formation</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_formation_id_or_formation_type'>formation_id_or_formation_type</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -617,9 +617,9 @@ for the <a href="#slug">slug</a> currently released on an app.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:33 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

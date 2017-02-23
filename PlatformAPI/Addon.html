@@ -129,7 +129,7 @@ more apps.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(app_id_or_app_name, body = {}) </a>
     
 
     
@@ -275,7 +275,31 @@ more apps.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, addon_id_or_addon_name, body) </a>
+      <a href="#list_by_user-instance_method" title="#list_by_user (instance method)">- (Object) <strong>list_by_user</strong>(account_email_or_account_id_or_account_self) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List all existing add-ons a user has access to.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, addon_id_or_addon_name, body = {}) </a>
     
 
     
@@ -328,12 +352,12 @@ more apps.</p>
       <pre class="lines">
 
 
-726
-727
-728</pre>
+796
+797
+798</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 726</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 796</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -353,7 +377,7 @@ more apps.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body) 
+    - (<tt>Object</tt>) <strong>create</strong>(app_id_or_app_name, body = {}) 
   
 
   
@@ -412,14 +436,14 @@ more apps.</p>
       <pre class="lines">
 
 
-734
-735
-736</pre>
+804
+805
+806</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 734</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 804</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -489,12 +513,12 @@ more apps.</p>
       <pre class="lines">
 
 
-742
-743
-744</pre>
+812
+813
+814</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 742</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 812</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -550,12 +574,12 @@ more apps.</p>
       <pre class="lines">
 
 
-749
-750
-751</pre>
+819
+820
+821</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 749</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 819</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -591,12 +615,12 @@ more apps.</p>
       <pre class="lines">
 
 
-754
-755
-756</pre>
+824
+825
+826</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 754</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 824</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -652,12 +676,12 @@ more apps.</p>
       <pre class="lines">
 
 
-761
-762
-763</pre>
+838
+839
+840</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 761</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 838</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -668,9 +692,71 @@ more apps.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="list_by_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>list_by_user</strong>(account_email_or_account_id_or_account_self) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List all existing add-ons a user has access to</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>account_email_or_account_id_or_account_self:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account or
+Implicit reference to currently authorized user</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+831
+832
+833</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 831</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_user'>list_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_list_by_user'>list_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, addon_id_or_addon_name, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, addon_id_or_addon_name, body = {}) 
   
 
   
@@ -746,14 +832,14 @@ case, an error will be returned.</p>
       <pre class="lines">
 
 
-770
-771
-772</pre>
+847
+848
+849</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 770</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 847</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -766,9 +852,9 @@ case, an error will be returned.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:32 2016 by
+  Generated on Thu Feb 23 14:19:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

@@ -129,7 +129,7 @@ an app on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(app_id_or_app_name) </a>
+      <a href="#info_for_app-instance_method" title="#info_for_app (instance method)">- (Object) <strong>info_for_app</strong>(app_id_or_app_name) </a>
     
 
     
@@ -145,6 +145,30 @@ an app on Heroku.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Get config-vars for app.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#info_for_app_release-instance_method" title="#info_for_app_release (instance method)">- (Object) <strong>info_for_app_release</strong>(app_id_or_app_name, release_id_or_release_version) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get config-vars for a release.</p>
 </div></span>
   
 </li>
@@ -179,7 +203,7 @@ an app on Heroku.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_id_or_app_name, body = {}) </a>
     
 
     
@@ -232,12 +256,12 @@ an app on Heroku.</p>
       <pre class="lines">
 
 
-1023
-1024
-1025</pre>
+1107
+1108
+1109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1023</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -255,9 +279,9 @@ an app on Heroku.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="info-instance_method">
+  <h3 class="signature first" id="info_for_app-instance_method">
   
-    - (<tt>Object</tt>) <strong>info</strong>(app_id_or_app_name) 
+    - (<tt>Object</tt>) <strong>info_for_app</strong>(app_id_or_app_name) 
   
 
   
@@ -300,15 +324,92 @@ an app on Heroku.</p>
       <pre class="lines">
 
 
-1030
-1031
-1032</pre>
+1114
+1115
+1116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1030</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1114</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="info_for_app_release-instance_method">
+  
+    - (<tt>Object</tt>) <strong>info_for_app_release</strong>(app_id_or_app_name, release_id_or_release_version) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get config-vars for a release.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>release_id_or_release_version:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of release or unique version assigned to the release</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1122
+1123
+1124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1122</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_info_for_app_release'>info_for_app_release</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info_for_app_release'>info_for_app_release</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -318,7 +419,7 @@ an app on Heroku.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(app_id_or_app_name, body = {}) 
   
 
   
@@ -328,7 +429,7 @@ an app on Heroku.</p>
   <div class="discussion">
     
 <p>Update config-vars for app. You can update existing config-vars by setting
-them again, and remove by setting it to <code>NULL</code>.</p>
+them again, and remove by setting it to <code>null</code>.</p>
 
 
   </div>
@@ -378,14 +479,14 @@ them again, and remove by setting it to <code>NULL</code>.</p>
       <pre class="lines">
 
 
-1038
-1039
-1040</pre>
+1130
+1131
+1132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1038</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1130</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -398,9 +499,9 @@ them again, and remove by setting it to <code>NULL</code>.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:33 2016 by
+  Generated on Thu Feb 23 14:19:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

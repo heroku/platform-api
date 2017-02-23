@@ -129,7 +129,7 @@ ownership of an app.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body = {}) </a>
     
 
     
@@ -251,7 +251,7 @@ ownership of an app.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_transfer_id_or_app_name, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(app_transfer_id_or_app_name, body = {}) </a>
     
 
     
@@ -304,12 +304,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-829
-830
-831</pre>
+913
+914
+915</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 829</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 913</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -329,7 +329,7 @@ ownership of an app.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(body) 
+    - (<tt>Object</tt>) <strong>create</strong>(body = {}) 
   
 
   
@@ -372,14 +372,14 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-836
-837
-838</pre>
+920
+921
+922</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 836</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 920</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -433,12 +433,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-843
-844
-845</pre>
+927
+928
+929</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 843</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 927</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
@@ -494,12 +494,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-850
-851
-852</pre>
+934
+935
+936</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 850</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 934</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
@@ -535,12 +535,12 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-855
-856
-857</pre>
+939
+940
+941</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 855</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 939</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -553,7 +553,7 @@ ownership of an app.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(app_transfer_id_or_app_name, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(app_transfer_id_or_app_name, body = {}) 
   
 
   
@@ -612,14 +612,14 @@ ownership of an app.</p>
       <pre class="lines">
 
 
-863
-864
-865</pre>
+947
+948
+949</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 863</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 947</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -632,9 +632,9 @@ ownership of an app.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:32 2016 by
+  Generated on Thu Feb 23 14:19:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

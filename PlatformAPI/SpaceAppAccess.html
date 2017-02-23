@@ -203,7 +203,7 @@ particular space.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(space_id_or_space_name, account_email_or_account_id_or_account_self, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(space_id_or_space_name, account_email_or_account_id_or_account_self, body = {}) </a>
     
 
     
@@ -256,12 +256,12 @@ particular space.</p>
       <pre class="lines">
 
 
-2112
-2113
-2114</pre>
+2384
+2385
+2386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2112</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2384</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -341,12 +341,12 @@ Implicit reference to currently authorized user</p>
       <pre class="lines">
 
 
-2120
-2121
-2122</pre>
+2392
+2393
+2394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2120</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2392</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space_app_access'>space_app_access</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -402,12 +402,12 @@ Implicit reference to currently authorized user</p>
       <pre class="lines">
 
 
-2136
-2137
-2138</pre>
+2408
+2409
+2410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2136</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2408</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space_app_access'>space_app_access</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -420,7 +420,7 @@ Implicit reference to currently authorized user</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(space_id_or_space_name, account_email_or_account_id_or_account_self, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(space_id_or_space_name, account_email_or_account_id_or_account_self, body = {}) 
   
 
   
@@ -496,14 +496,14 @@ Implicit reference to currently authorized user</p>
       <pre class="lines">
 
 
-2129
-2130
-2131</pre>
+2401
+2402
+2403</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2129</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2401</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space_app_access'>space_app_access</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -516,9 +516,9 @@ Implicit reference to currently authorized user</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:35 2016 by
+  Generated on Thu Feb 23 14:19:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

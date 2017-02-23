@@ -132,7 +132,7 @@ documentation</a>.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(body = {}) </a>
     
 
     
@@ -278,7 +278,7 @@ documentation</a>.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(oauth_client_id, body) </a>
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(oauth_client_id, body = {}) </a>
     
 
     
@@ -331,12 +331,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1444
-1445
-1446</pre>
+1604
+1605
+1606</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1444</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1604</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -356,7 +356,7 @@ documentation</a>.</p>
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(body) 
+    - (<tt>Object</tt>) <strong>create</strong>(body = {}) 
   
 
   
@@ -399,14 +399,14 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1451
-1452
-1453</pre>
+1611
+1612
+1613</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1451</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1611</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -460,12 +460,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1458
-1459
-1460</pre>
+1618
+1619
+1620</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1458</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1618</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
@@ -521,12 +521,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1465
-1466
-1467</pre>
+1625
+1626
+1627</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1465</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1625</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
@@ -562,12 +562,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1470
-1471
-1472</pre>
+1630
+1631
+1632</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1470</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1630</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -623,12 +623,12 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1485
-1486
-1487</pre>
+1645
+1646
+1647</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1485</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1645</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rotate_credentials'>rotate_credentials</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_rotate_credentials'>rotate_credentials</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='rparen'>)</span>
@@ -641,7 +641,7 @@ documentation</a>.</p>
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(oauth_client_id, body) 
+    - (<tt>Object</tt>) <strong>update</strong>(oauth_client_id, body = {}) 
   
 
   
@@ -700,14 +700,14 @@ documentation</a>.</p>
       <pre class="lines">
 
 
-1478
-1479
-1480</pre>
+1638
+1639
+1640</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1478</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1638</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_client'>oauth_client</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_client_id'>oauth_client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -720,9 +720,9 @@ documentation</a>.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:34 2016 by
+  Generated on Thu Feb 23 14:19:26 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

@@ -103,7 +103,8 @@
   <div class="discussion">
     
 <p>Add-on region capabilities represent the relationship between an Add-on
-Service and a specific Region</p>
+Service and a specific Region. Only Beta and GA add-ons are returned by
+these endpoints.</p>
 
 
   </div>
@@ -179,7 +180,7 @@ Service and a specific Region</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_by_add_on_service-instance_method" title="#list_by_add_on_service (instance method)">- (Object) <strong>list_by_add_on_service</strong>(addon_service_id_or_addon_service_name) </a>
+      <a href="#list_by_addon_service-instance_method" title="#list_by_addon_service (instance method)">- (Object) <strong>list_by_addon_service</strong>(addon_service_id_or_addon_service_name) </a>
     
 
     
@@ -194,7 +195,7 @@ Service and a specific Region</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>List existing add-on region capabilities for an addon-service.</p>
+<p>List existing add-on region capabilities for an add-on-service.</p>
 </div></span>
   
 </li>
@@ -232,12 +233,12 @@ Service and a specific Region</p>
       <pre class="lines">
 
 
-686
-687
-688</pre>
+756
+757
+758</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 686</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 756</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -300,12 +301,12 @@ Service and a specific Region</p>
       <pre class="lines">
 
 
-693
-694
-695</pre>
+763
+764
+765</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 693</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 763</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_region_id_or_region_name'>region_id_or_region_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_region_capability'>addon_region_capability</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_region_id_or_region_name'>region_id_or_region_name</span><span class='rparen'>)</span>
@@ -316,9 +317,9 @@ Service and a specific Region</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="list_by_add_on_service-instance_method">
+  <h3 class="signature " id="list_by_addon_service-instance_method">
   
-    - (<tt>Object</tt>) <strong>list_by_add_on_service</strong>(addon_service_id_or_addon_service_name) 
+    - (<tt>Object</tt>) <strong>list_by_addon_service</strong>(addon_service_id_or_addon_service_name) 
   
 
   
@@ -327,7 +328,7 @@ Service and a specific Region</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>List existing add-on region capabilities for an addon-service</p>
+<p>List existing add-on region capabilities for an add-on-service</p>
 
 
   </div>
@@ -347,8 +348,8 @@ Service and a specific Region</p>
       
         &mdash;
         <div class='inline'>
-<p>unique identifier of this addon-service or unique name of this
-addon-service</p>
+<p>unique identifier of this add-on-service or unique name of this
+add-on-service</p>
 </div>
       
     </li>
@@ -362,15 +363,15 @@ addon-service</p>
       <pre class="lines">
 
 
-700
-701
-702</pre>
+770
+771
+772</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 700</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 770</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list_by_add_on_service'>list_by_add_on_service</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_region_capability'>addon_region_capability</span><span class='period'>.</span><span class='id identifier rubyid_list_by_add_on_service'>list_by_add_on_service</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_addon_service'>list_by_addon_service</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_region_capability'>addon_region_capability</span><span class='period'>.</span><span class='id identifier rubyid_list_by_addon_service'>list_by_addon_service</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -382,9 +383,9 @@ addon-service</p>
 </div>
 
     <div id="footer">
-  Generated on Mon May 23 09:07:32 2016 by
+  Generated on Thu Feb 23 14:19:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>
