@@ -312,6 +312,10 @@ Remember to commit and push the changes to Github.
 
 * This project follows [semver](http://semver.org) from version 1.0.0. Please
   be sure to keep this in mind if you're the project maintainer.
+* Be sure to run the very basic acceptance rspecs. The rspecs will attempt
+  to parse your oauth token for `api.heroku.com` from your `.netrc`. You can
+  optionally use the `OAUTH_TOKEN` and `ACCOUNT_EMAIL` environment variables.
+  They don't mutate anything but they might in the future.
 * Bump the version in `lib/platform-api/version.rb`
 * `bundle install` to update Gemfile.lock
 * `git commit -m 'vX.Y.Z' to stage the version and Gemfile.lock changes
