@@ -380,6 +380,12 @@ to use:</p>
 1.0.0. Please  be sure to keep this in mind if you&#39;re the project
 maintainer.</p>
 </li><li>
+<p>Be sure to run the very basic acceptance rspecs. The rspecs will attempt 
+to parse your oauth token for <code>api.heroku.com</code> from your
+<code>.netrc</code>. You can  optionally use the <code>OAUTH_TOKEN</code>
+and <code>ACCOUNT_EMAIL</code> environment variables.  They don&#39;t
+mutate anything but they might in the future.</p>
+</li><li>
 <p>Bump the version in <code>lib/platform-api/version.rb</code></p>
 </li><li>
 <p><code>bundle install</code> to update Gemfile.lock</p>
@@ -422,7 +428,7 @@ repository</a>.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Feb 23 14:19:23 2017 by
+  Generated on Fri Mar 24 10:19:06 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.3.1).
 </div>
