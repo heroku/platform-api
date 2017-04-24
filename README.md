@@ -172,7 +172,7 @@ heroku.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev'}
 Excellent!  That will have added a config var which we can now see:
 
 ```ruby
-heroku.config_var.info('floating-retreat-4255')
+heroku.config_var.info_for_app('floating-retreat-4255')
 => {"HEROKU_POSTGRESQL_COBALT_URL"=>"postgres://<redacted>"}
 ```
 
