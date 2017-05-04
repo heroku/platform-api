@@ -82,7 +82,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/1.0.1"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -370,63 +370,63 @@ module PlatformAPI
       @oauth_token_resource ||= OauthToken.new(@client)
     end
 
-    # A list of add-ons the Organization uses across all apps
+    # Deprecated: A list of add-ons the Organization uses across all apps
     #
     # @return [OrganizationAddon]
     def organization_addon
       @organization_addon_resource ||= OrganizationAddon.new(@client)
     end
 
-    # An organization collaborator represents an account that has been given access to an organization app on Heroku.
+    # Deprecated: An organization collaborator represents an account that has been given access to an organization app on Heroku.
     #
     # @return [OrganizationAppCollaborator]
     def organization_app_collaborator
       @organization_app_collaborator_resource ||= OrganizationAppCollaborator.new(@client)
     end
 
-    # An organization app encapsulates the organization specific functionality of Heroku apps.
+    # Deprecated: An organization app encapsulates the organization specific functionality of Heroku apps.
     #
     # @return [OrganizationApp]
     def organization_app
       @organization_app_resource ||= OrganizationApp.new(@client)
     end
 
-    # An organization feature represents a feature enabled on an organization account.
+    # Deprecated: An organization feature represents a feature enabled on an organization account.
     #
     # @return [OrganizationFeature]
     def organization_feature
       @organization_feature_resource ||= OrganizationFeature.new(@client)
     end
 
-    # An organization invitation represents an invite to an organization.
+    # Deprecated: An organization invitation represents an invite to an organization.
     #
     # @return [OrganizationInvitation]
     def organization_invitation
       @organization_invitation_resource ||= OrganizationInvitation.new(@client)
     end
 
-    # An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
+    # Deprecated: An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
     #
     # @return [OrganizationInvoice]
     def organization_invoice
       @organization_invoice_resource ||= OrganizationInvoice.new(@client)
     end
 
-    # An organization member is an individual with access to an organization.
+    # Deprecated: An organization member is an individual with access to an organization.
     #
     # @return [OrganizationMember]
     def organization_member
       @organization_member_resource ||= OrganizationMember.new(@client)
     end
 
-    # Tracks an organization's preferences
+    # Deprecated: Tracks an organization's preferences
     #
     # @return [OrganizationPreferences]
     def organization_preferences
       @organization_preferences_resource ||= OrganizationPreferences.new(@client)
     end
 
-    # Organizations allow you to manage access to a shared group of applications across your development team.
+    # Deprecated: Organizations allow you to manage access to a shared group of applications across your development team.
     #
     # @return [Organization]
     def organization
@@ -447,7 +447,7 @@ module PlatformAPI
       @password_reset_resource ||= PasswordReset.new(@client)
     end
 
-    # An organization app permission is a behavior that is assigned to a user in an organization app.
+    # Deprecated: An organization app permission is a behavior that is assigned to a user in an organization app.
     #
     # @return [OrganizationAppPermission]
     def organization_app_permission
@@ -571,6 +571,69 @@ module PlatformAPI
     # @return [Stack]
     def stack
       @stack_resource ||= Stack.new(@client)
+    end
+
+    # A team collaborator represents an account that has been given access to a team app on Heroku.
+    #
+    # @return [TeamAppCollaborator]
+    def team_app_collaborator
+      @team_app_collaborator_resource ||= TeamAppCollaborator.new(@client)
+    end
+
+    # A team app permission is a behavior that is assigned to a user in a team app.
+    #
+    # @return [TeamAppPermission]
+    def team_app_permission
+      @team_app_permission_resource ||= TeamAppPermission.new(@client)
+    end
+
+    # An team app encapsulates the team specific functionality of Heroku apps.
+    #
+    # @return [TeamApp]
+    def team_app
+      @team_app_resource ||= TeamApp.new(@client)
+    end
+
+    # A team feature represents a feature enabled on a team account.
+    #
+    # @return [TeamFeature]
+    def team_feature
+      @team_feature_resource ||= TeamFeature.new(@client)
+    end
+
+    # A team invitation represents an invite to a team.
+    #
+    # @return [TeamInvitation]
+    def team_invitation
+      @team_invitation_resource ||= TeamInvitation.new(@client)
+    end
+
+    # A Team Invoice is an itemized bill of goods for a team which includes pricing and charges.
+    #
+    # @return [TeamInvoice]
+    def team_invoice
+      @team_invoice_resource ||= TeamInvoice.new(@client)
+    end
+
+    # A team member is an individual with access to a team.
+    #
+    # @return [TeamMember]
+    def team_member
+      @team_member_resource ||= TeamMember.new(@client)
+    end
+
+    # Tracks a Team's Preferences
+    #
+    # @return [TeamPreferences]
+    def team_preferences
+      @team_preferences_resource ||= TeamPreferences.new(@client)
+    end
+
+    # Teams allow you to manage access to a shared group of applications and other resources.
+    #
+    # @return [Team]
+    def team
+      @team_resource ||= Team.new(@client)
     end
 
     # Tracks a user's preferences and message dismissals
@@ -839,6 +902,13 @@ module PlatformAPI
       @client.addon.list_by_app(app_id_or_app_name)
     end
 
+    # List add-ons used across all Team apps
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list_for_team(team_name_or_team_id)
+      @client.addon.list_for_team(team_name_or_team_id)
+    end
+
     # Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
@@ -981,7 +1051,7 @@ module PlatformAPI
       @client.app.list()
     end
 
-    # List owned and collaborated apps (excludes organization apps).
+    # List owned and collaborated apps (excludes team apps).
     #
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
     def list_owned_and_collaborated(account_email_or_account_id_or_account_self)
@@ -1341,36 +1411,36 @@ module PlatformAPI
       @client = client
     end
 
-    # Get a list of an organization's Identity Providers
+    # Get a list of a team's Identity Providers
     #
-    # @param organization_name: unique name of organization
-    def list(organization_name)
-      @client.identity_provider.list(organization_name)
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list(team_name_or_team_id)
+      @client.identity_provider.list(team_name_or_team_id)
     end
 
-    # Create an Identity Provider for an organization
+    # Create an Identity Provider for a team
     #
-    # @param organization_name: unique name of organization
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
     # @param body: the object to pass as the request payload
-    def create(organization_name, body = {})
-      @client.identity_provider.create(organization_name, body)
+    def create(team_name_or_team_id, body = {})
+      @client.identity_provider.create(team_name_or_team_id, body)
     end
 
-    # Update an organization's Identity Provider
+    # Update a team's Identity Provider
     #
-    # @param organization_name: unique name of organization
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
     # @param identity_provider_id: unique identifier of this identity provider
     # @param body: the object to pass as the request payload
-    def update(organization_name, identity_provider_id, body = {})
-      @client.identity_provider.update(organization_name, identity_provider_id, body)
+    def update(team_name_or_team_id, identity_provider_id, body = {})
+      @client.identity_provider.update(team_name_or_team_id, identity_provider_id, body)
     end
 
-    # Delete an organization's Identity Provider
+    # Delete a team's Identity Provider
     #
-    # @param organization_name: unique name of organization
+    # @param team_name: unique name of team
     # @param identity_provider_id: unique identifier of this identity provider
-    def delete(organization_name, identity_provider_id)
-      @client.identity_provider.delete(organization_name, identity_provider_id)
+    def delete(team_name, identity_provider_id)
+      @client.identity_provider.delete(team_name, identity_provider_id)
     end
   end
 
@@ -1675,7 +1745,7 @@ module PlatformAPI
     end
   end
 
-  # A list of add-ons the Organization uses across all apps
+  # Deprecated: A list of add-ons the Organization uses across all apps
   class OrganizationAddon
     def initialize(client)
       @client = client
@@ -1689,7 +1759,7 @@ module PlatformAPI
     end
   end
 
-  # An organization collaborator represents an account that has been given access to an organization app on Heroku.
+  # Deprecated: An organization collaborator represents an account that has been given access to an organization app on Heroku.
   class OrganizationAppCollaborator
     def initialize(client)
       @client = client
@@ -1723,8 +1793,9 @@ module PlatformAPI
     #
     # @param app_name: unique name of app
     # @param collaborator_email: invited email address of collaborator
-    def update(app_name, collaborator_email)
-      @client.organization_app_collaborator.update(app_name, collaborator_email)
+    # @param body: the object to pass as the request payload
+    def update(app_name, collaborator_email, body = {})
+      @client.organization_app_collaborator.update(app_name, collaborator_email, body)
     end
 
     # List collaborators on an organization app.
@@ -1735,7 +1806,7 @@ module PlatformAPI
     end
   end
 
-  # An organization app encapsulates the organization specific functionality of Heroku apps.
+  # Deprecated: An organization app encapsulates the organization specific functionality of Heroku apps.
   class OrganizationApp
     def initialize(client)
       @client = client
@@ -1792,13 +1863,13 @@ module PlatformAPI
     end
   end
 
-  # An organization feature represents a feature enabled on an organization account.
+  # Deprecated: An organization feature represents a feature enabled on an organization account.
   class OrganizationFeature
     def initialize(client)
       @client = client
     end
 
-    # Info for an existing account feature.
+    # Info for an existing organization feature.
     #
     # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
     # @param organization_feature_id_or_organization_feature_name: unique identifier of organization feature or unique name of organization feature
@@ -1812,9 +1883,18 @@ module PlatformAPI
     def list(organization_name_or_organization_id)
       @client.organization_feature.list(organization_name_or_organization_id)
     end
+
+    # Update an existing organization feature.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param organization_feature_id_or_organization_feature_name: unique identifier of organization feature or unique name of organization feature
+    # @param body: the object to pass as the request payload
+    def update(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name, body = {})
+      @client.organization_feature.update(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name, body)
+    end
   end
 
-  # An organization invitation represents an invite to an organization.
+  # Deprecated: An organization invitation represents an invite to an organization.
   class OrganizationInvitation
     def initialize(client)
       @client = client
@@ -1858,7 +1938,7 @@ module PlatformAPI
     end
   end
 
-  # An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
+  # Deprecated: An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
   class OrganizationInvoice
     def initialize(client)
       @client = client
@@ -1880,7 +1960,7 @@ module PlatformAPI
     end
   end
 
-  # An organization member is an individual with access to an organization.
+  # Deprecated: An organization member is an individual with access to an organization.
   class OrganizationMember
     def initialize(client)
       @client = client
@@ -1918,16 +1998,23 @@ module PlatformAPI
       @client.organization_member.delete(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
     end
 
+    # List members of the organization.
+    #
+    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    def list(organization_name_or_organization_id)
+      @client.organization_member.list(organization_name_or_organization_id)
+    end
+
     # List the apps of a member.
     #
     # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
     # @param organization_member_email_or_organization_member_id: email address of the organization member or unique identifier of organization member
-    def list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
-      @client.organization_member.list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
+    def app_list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
+      @client.organization_member.app_list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
     end
   end
 
-  # Tracks an organization's preferences
+  # Deprecated: Tracks an organization's preferences
   class OrganizationPreferences
     def initialize(client)
       @client = client
@@ -1949,7 +2036,7 @@ module PlatformAPI
     end
   end
 
-  # Organizations allow you to manage access to a shared group of applications across your development team.
+  # Deprecated: Organizations allow you to manage access to a shared group of applications across your development team.
   class Organization
     def initialize(client)
       @client = client
@@ -2042,7 +2129,7 @@ module PlatformAPI
     end
   end
 
-  # An organization app permission is a behavior that is assigned to a user in an organization app.
+  # Deprecated: An organization app permission is a behavior that is assigned to a user in an organization app.
   class OrganizationAppPermission
     def initialize(client)
       @client = client
@@ -2179,10 +2266,9 @@ module PlatformAPI
 
     # Info for existing plan.
     #
-    # @param addon_service_id_or_addon_service_name: unique identifier of this add-on-service or unique name of this add-on-service
     # @param plan_id_or_plan_name: unique identifier of this plan or unique name of this plan
-    def info(addon_service_id_or_addon_service_name, plan_id_or_plan_name)
-      @client.plan.info(addon_service_id_or_addon_service_name, plan_id_or_plan_name)
+    def info(plan_id_or_plan_name)
+      @client.plan.info(plan_id_or_plan_name)
     end
 
     # List existing plans.
@@ -2531,6 +2617,327 @@ module PlatformAPI
     end
   end
 
+  # A team collaborator represents an account that has been given access to a team app on Heroku.
+  class TeamAppCollaborator
+    def initialize(client)
+      @client = client
+    end
+
+    # Create a new collaborator on a team app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the team.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param body: the object to pass as the request payload
+    def create(app_id_or_app_name, body = {})
+      @client.team_app_collaborator.create(app_id_or_app_name, body)
+    end
+
+    # Delete an existing collaborator from a team app.
+    #
+    # @param app_name: unique name of app
+    # @param collaborator_email: invited email address of collaborator
+    def delete(app_name, collaborator_email)
+      @client.team_app_collaborator.delete(app_name, collaborator_email)
+    end
+
+    # Info for a collaborator on a team app.
+    #
+    # @param app_name: unique name of app
+    # @param collaborator_email: invited email address of collaborator
+    def info(app_name, collaborator_email)
+      @client.team_app_collaborator.info(app_name, collaborator_email)
+    end
+
+    # Update an existing collaborator from a team app.
+    #
+    # @param app_name: unique name of app
+    # @param collaborator_email: invited email address of collaborator
+    # @param body: the object to pass as the request payload
+    def update(app_name, collaborator_email, body = {})
+      @client.team_app_collaborator.update(app_name, collaborator_email, body)
+    end
+
+    # List collaborators on a team app.
+    #
+    # @param app_name: unique name of app
+    def list(app_name)
+      @client.team_app_collaborator.list(app_name)
+    end
+  end
+
+  # A team app permission is a behavior that is assigned to a user in a team app.
+  class TeamAppPermission
+    def initialize(client)
+      @client = client
+    end
+
+    # Lists permissions available to teams.
+    def list()
+      @client.team_app_permission.list()
+    end
+  end
+
+  # An team app encapsulates the team specific functionality of Heroku apps.
+  class TeamApp
+    def initialize(client)
+      @client = client
+    end
+
+    # Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.
+    #
+    # @param body: the object to pass as the request payload
+    def create(body = {})
+      @client.team_app.create(body)
+    end
+
+    # List apps in the default team, or in personal account, if default team is not set.
+    def list()
+      @client.team_app.list()
+    end
+
+    # List team apps.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list_for_organization(team_name_or_team_id)
+      @client.team_app.list_for_organization(team_name_or_team_id)
+    end
+
+    # Info for a team app.
+    #
+    # @param app_name: unique name of app
+    def info(app_name)
+      @client.team_app.info(app_name)
+    end
+
+    # Lock or unlock a team app.
+    #
+    # @param app_name: unique name of app
+    # @param body: the object to pass as the request payload
+    def update_locked(app_name, body = {})
+      @client.team_app.update_locked(app_name, body)
+    end
+
+    # Transfer an existing team app to another Heroku account.
+    #
+    # @param app_name: unique name of app
+    # @param body: the object to pass as the request payload
+    def transfer_to_account(app_name, body = {})
+      @client.team_app.transfer_to_account(app_name, body)
+    end
+
+    # Transfer an existing team app to another team.
+    #
+    # @param app_name: unique name of app
+    # @param body: the object to pass as the request payload
+    def transfer_to_team(app_name, body = {})
+      @client.team_app.transfer_to_team(app_name, body)
+    end
+  end
+
+  # A team feature represents a feature enabled on a team account.
+  class TeamFeature
+    def initialize(client)
+      @client = client
+    end
+
+    # Info for an existing team feature.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param team_feature_id_or_team_feature_name: unique identifier of team feature or unique name of team feature
+    def info(team_name_or_team_id, team_feature_id_or_team_feature_name)
+      @client.team_feature.info(team_name_or_team_id, team_feature_id_or_team_feature_name)
+    end
+
+    # List existing team features.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list(team_name_or_team_id)
+      @client.team_feature.list(team_name_or_team_id)
+    end
+  end
+
+  # A team invitation represents an invite to a team.
+  class TeamInvitation
+    def initialize(client)
+      @client = client
+    end
+
+    # Get a list of a team's Identity Providers
+    #
+    # @param team_name: unique name of team
+    def list(team_name)
+      @client.team_invitation.list(team_name)
+    end
+
+    # Create Team Invitation
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param body: the object to pass as the request payload
+    def create(team_name_or_team_id, body = {})
+      @client.team_invitation.create(team_name_or_team_id, body)
+    end
+
+    # Revoke a team invitation.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param team_invitation_id: unique identifier of an invitation
+    def revoke(team_name_or_team_id, team_invitation_id)
+      @client.team_invitation.revoke(team_name_or_team_id, team_invitation_id)
+    end
+
+    # Get an invitation by its token
+    #
+    # @param team_invitation_token: special token for invitation
+    def get(team_invitation_token)
+      @client.team_invitation.get(team_invitation_token)
+    end
+
+    # Accept Team Invitation
+    #
+    # @param team_invitation_token: special token for invitation
+    def accept(team_invitation_token)
+      @client.team_invitation.accept(team_invitation_token)
+    end
+  end
+
+  # A Team Invoice is an itemized bill of goods for a team which includes pricing and charges.
+  class TeamInvoice
+    def initialize(client)
+      @client = client
+    end
+
+    # Info for existing invoice.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param team_invoice_number: human readable invoice number
+    def info(team_name_or_team_id, team_invoice_number)
+      @client.team_invoice.info(team_name_or_team_id, team_invoice_number)
+    end
+
+    # List existing invoices.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list(team_name_or_team_id)
+      @client.team_invoice.list(team_name_or_team_id)
+    end
+  end
+
+  # A team member is an individual with access to a team.
+  class TeamMember
+    def initialize(client)
+      @client = client
+    end
+
+    # Create a new team member, or update their role.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param body: the object to pass as the request payload
+    def create_or_update(team_name_or_team_id, body = {})
+      @client.team_member.create_or_update(team_name_or_team_id, body)
+    end
+
+    # Create a new team member.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param body: the object to pass as the request payload
+    def create(team_name_or_team_id, body = {})
+      @client.team_member.create(team_name_or_team_id, body)
+    end
+
+    # Update a team member.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param body: the object to pass as the request payload
+    def update(team_name_or_team_id, body = {})
+      @client.team_member.update(team_name_or_team_id, body)
+    end
+
+    # Remove a member from the team.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param team_member_email_or_team_member_id: email address of the team member or unique identifier of the team member
+    def delete(team_name_or_team_id, team_member_email_or_team_member_id)
+      @client.team_member.delete(team_name_or_team_id, team_member_email_or_team_member_id)
+    end
+
+    # List members of the team.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list(team_name_or_team_id)
+      @client.team_member.list(team_name_or_team_id)
+    end
+
+    # List the apps of a team member.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param team_member_email_or_team_member_id: email address of the team member or unique identifier of the team member
+    def app_list(team_name_or_team_id, team_member_email_or_team_member_id)
+      @client.team_member.app_list(team_name_or_team_id, team_member_email_or_team_member_id)
+    end
+  end
+
+  # Tracks a Team's Preferences
+  class TeamPreferences
+    def initialize(client)
+      @client = client
+    end
+
+    # Retrieve Team Preferences
+    #
+    # @param team_preferences_identity: 
+    def list(team_preferences_identity)
+      @client.team_preferences.list(team_preferences_identity)
+    end
+
+    # Update Team Preferences
+    #
+    # @param team_preferences_identity: 
+    # @param body: the object to pass as the request payload
+    def update(team_preferences_identity, body = {})
+      @client.team_preferences.update(team_preferences_identity, body)
+    end
+  end
+
+  # Teams allow you to manage access to a shared group of applications and other resources.
+  class Team
+    def initialize(client)
+      @client = client
+    end
+
+    # List teams in which you are a member.
+    def list()
+      @client.team.list()
+    end
+
+    # Info for a team.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def info(team_name_or_team_id)
+      @client.team.info(team_name_or_team_id)
+    end
+
+    # Update team properties.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param body: the object to pass as the request payload
+    def update(team_name_or_team_id, body = {})
+      @client.team.update(team_name_or_team_id, body)
+    end
+
+    # Create a new team.
+    #
+    # @param body: the object to pass as the request payload
+    def create(body = {})
+      @client.team.create(body)
+    end
+
+    # Delete an existing team.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def delete(team_name_or_team_id)
+      @client.team.delete(team_name_or_team_id)
+    end
+  end
+
   # Tracks a user's preferences and message dismissals
   class UserPreferences
     def initialize(client)
@@ -2559,27 +2966,27 @@ module PlatformAPI
       @client = client
     end
 
-    # List all whitelisted Add-on Services for an Organization
+    # List all whitelisted Add-on Services for a Team
     #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def list(organization_name_or_organization_id)
-      @client.whitelisted_addon_service.list(organization_name_or_organization_id)
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list(team_name_or_team_id)
+      @client.whitelisted_addon_service.list(team_name_or_team_id)
     end
 
     # Whitelist an Add-on Service
     #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
     # @param body: the object to pass as the request payload
-    def create(organization_name_or_organization_id, body = {})
-      @client.whitelisted_addon_service.create(organization_name_or_organization_id, body)
+    def create(team_name_or_team_id, body = {})
+      @client.whitelisted_addon_service.create(team_name_or_team_id, body)
     end
 
     # Remove a whitelisted entity
     #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
     # @param whitelisted_addon_service_id_or_addon_service_name: unique identifier for this whitelisting entity or unique name of this add-on-service
-    def delete(organization_name_or_organization_id, whitelisted_addon_service_id_or_addon_service_name)
-      @client.whitelisted_addon_service.delete(organization_name_or_organization_id, whitelisted_addon_service_id_or_addon_service_name)
+    def delete(team_name_or_team_id, whitelisted_addon_service_id_or_addon_service_name)
+      @client.whitelisted_addon_service.delete(team_name_or_team_id, whitelisted_addon_service_id_or_addon_service_name)
     end
   end
 
@@ -2676,6 +3083,22 @@ module PlatformAPI
           "type":[
             "string"
           ]
+        },
+        "display_name":{
+          "description":"user readable feature name",
+          "example":"My Feature",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "feedback_email":{
+          "description":"e-mail to send feedback about the feature",
+          "example":"feedback@heroku.com",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
         }
       },
       "links":[
@@ -2752,6 +3175,12 @@ module PlatformAPI
         },
         "updated_at":{
           "$ref":"#/definitions/account-feature/definitions/updated_at"
+        },
+        "display_name":{
+          "$ref":"#/definitions/account-feature/definitions/display_name"
+        },
+        "feedback_email":{
+          "$ref":"#/definitions/account-feature/definitions/feedback_email"
         }
       }
     },
@@ -3198,6 +3627,15 @@ module PlatformAPI
             "string"
           ]
         },
+        "namespace":{
+          "description":"attachment namespace",
+          "example":"role:analytics",
+          "readOnly":true,
+          "type":[
+            "null",
+            "string"
+          ]
+        },
         "updated_at":{
           "description":"when add-on attachment was updated",
           "example":"2012-01-01T12:00:00Z",
@@ -3237,6 +3675,9 @@ module PlatformAPI
               },
               "name":{
                 "$ref":"#/definitions/add-on-attachment/definitions/name"
+              },
+              "namespace":{
+                "$ref":"#/definitions/add-on-attachment/definitions/namespace"
               }
             },
             "required":[
@@ -3403,6 +3844,9 @@ module PlatformAPI
         "name":{
           "$ref":"#/definitions/add-on-attachment/definitions/name"
         },
+        "namespace":{
+          "$ref":"#/definitions/add-on-attachment/definitions/namespace"
+        },
         "updated_at":{
           "$ref":"#/definitions/add-on-attachment/definitions/updated_at"
         },
@@ -3481,6 +3925,9 @@ module PlatformAPI
             ]
           },
           "targetSchema":{
+            "type":[
+              "array"
+            ],
             "items":{
               "$ref":"#/definitions/add-on-config"
             }
@@ -4086,6 +4533,21 @@ module PlatformAPI
           "title":"List by App"
         },
         {
+          "description":"List add-ons used across all Team apps",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/addons",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/add-on"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List For Team"
+        },
+        {
           "description":"Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.",
           "href":"/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
           "method":"PATCH",
@@ -4267,6 +4729,22 @@ module PlatformAPI
           "type":[
             "string"
           ]
+        },
+        "display_name":{
+          "description":"user readable feature name",
+          "example":"My Feature",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "feedback_email":{
+          "description":"e-mail to send feedback about the feature",
+          "example":"feedback@heroku.com",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
         }
       },
       "links":[
@@ -4343,6 +4821,12 @@ module PlatformAPI
         },
         "updated_at":{
           "$ref":"#/definitions/app-feature/definitions/updated_at"
+        },
+        "display_name":{
+          "$ref":"#/definitions/app-feature/definitions/display_name"
+        },
+        "feedback_email":{
+          "$ref":"#/definitions/app-feature/definitions/feedback_email"
         }
       }
     },
@@ -5178,7 +5662,7 @@ module PlatformAPI
           "title":"List"
         },
         {
-          "description":"List owned and collaborated apps (excludes organization apps).",
+          "description":"List owned and collaborated apps (excludes team apps).",
           "href":"/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}/apps",
           "method":"GET",
           "ranges":[
@@ -5284,6 +5768,21 @@ module PlatformAPI
             },
             "name":{
               "$ref":"#/definitions/organization/definitions/name"
+            }
+          },
+          "type":[
+            "null",
+            "object"
+          ]
+        },
+        "team":{
+          "description":"identity of team",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/team/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/team/definitions/name"
             }
           },
           "type":[
@@ -6023,11 +6522,11 @@ module PlatformAPI
             "array"
           ],
           "items":{
-            "$ref":"#/definitions/organization-app-permission"
+            "$ref":"#/definitions/team-app-permission"
           }
         },
         "role":{
-          "$ref":"#/definitions/organization/definitions/role"
+          "$ref":"#/definitions/team/definitions/role"
         },
         "updated_at":{
           "$ref":"#/definitions/collaborator/definitions/updated_at"
@@ -7034,6 +7533,9 @@ module PlatformAPI
             },
             {
               "$ref":"#/definitions/space"
+            },
+            {
+              "$ref":"#/definitions/team"
             }
           ],
           "readOnly":true,
@@ -7086,6 +7588,7 @@ module PlatformAPI
             "organization",
             "release",
             "space",
+            "team",
             "user"
           ],
           "example":"app",
@@ -7359,7 +7862,7 @@ module PlatformAPI
           },
           "targetSchema":{
             "items":{
-              "$ref":"#/definitions/organization-app"
+              "$ref":"#/definitions/team-app"
             },
             "type":[
               "array"
@@ -7748,6 +8251,94 @@ module PlatformAPI
         {
           "description":"Delete an organization's Identity Provider",
           "href":"/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
+          "method":"DELETE",
+          "rel":"destroy",
+          "targetSchema":{
+            "$ref":"#/definitions/identity-provider"
+          },
+          "title":"Delete"
+        },
+        {
+          "description":"Get a list of a team's Identity Providers",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/identity-providers",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/identity-provider"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        },
+        {
+          "description":"Create an Identity Provider for a team",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/identity-providers",
+          "method":"POST",
+          "rel":"create",
+          "schema":{
+            "properties":{
+              "certificate":{
+                "$ref":"#/definitions/identity-provider/definitions/certificate"
+              },
+              "entity_id":{
+                "$ref":"#/definitions/identity-provider/definitions/entity_id"
+              },
+              "slo_target_url":{
+                "$ref":"#/definitions/identity-provider/definitions/slo_target_url"
+              },
+              "sso_target_url":{
+                "$ref":"#/definitions/identity-provider/definitions/sso_target_url"
+              }
+            },
+            "required":[
+              "certificate",
+              "sso_target_url",
+              "entity_id"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/identity-provider"
+          },
+          "title":"Create"
+        },
+        {
+          "description":"Update a team's Identity Provider",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "certificate":{
+                "$ref":"#/definitions/identity-provider/definitions/certificate"
+              },
+              "entity_id":{
+                "$ref":"#/definitions/identity-provider/definitions/entity_id"
+              },
+              "slo_target_url":{
+                "$ref":"#/definitions/identity-provider/definitions/slo_target_url"
+              },
+              "sso_target_url":{
+                "$ref":"#/definitions/identity-provider/definitions/sso_target_url"
+              }
+            },
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/identity-provider"
+          },
+          "title":"Update"
+        },
+        {
+          "description":"Delete a team's Identity Provider",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
           "method":"DELETE",
           "rel":"destroy",
           "targetSchema":{
@@ -9655,8 +10246,9 @@ module PlatformAPI
     },
     "organization-add-on":{
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
-      "description":"A list of add-ons the Organization uses across all apps",
+      "description":"Deprecated: A list of add-ons the Organization uses across all apps",
       "stability":"production",
+      "deprecated_at":"2017-04-10",
       "title":"Heroku Platform API - Organization Add-on",
       "type":[
         "object"
@@ -9680,9 +10272,10 @@ module PlatformAPI
       ]
     },
     "organization-app-collaborator":{
-      "description":"An organization collaborator represents an account that has been given access to an organization app on Heroku.",
+      "description":"Deprecated: An organization collaborator represents an account that has been given access to an organization app on Heroku.",
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "title":"Heroku Platform API - Organization App Collaborator",
       "type":[
         "object"
@@ -9704,6 +10297,15 @@ module PlatformAPI
           "rel":"create",
           "schema":{
             "properties":{
+              "permissions":{
+                "type":[
+                  "array"
+                ],
+                "items":{
+                  "$ref":"#/definitions/organization-app-permission/definitions/name"
+                },
+                "description":"An array of permissions to give to the collaborator."
+              },
               "silent":{
                 "$ref":"#/definitions/collaborator/definitions/silent"
               },
@@ -9748,6 +10350,25 @@ module PlatformAPI
           "href":"/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Forganization-app-collaborator%2Fdefinitions%2Fidentity)}",
           "method":"PATCH",
           "rel":"update",
+          "schema":{
+            "properties":{
+              "permissions":{
+                "type":[
+                  "array"
+                ],
+                "items":{
+                  "$ref":"#/definitions/organization-app-permission/definitions/name"
+                },
+                "description":"An array of permissions to give to the collaborator."
+              }
+            },
+            "required":[
+              "permissions"
+            ],
+            "type":[
+              "object"
+            ]
+          },
           "targetSchema":{
             "$ref":"#/definitions/organization-app-collaborator"
           },
@@ -9819,8 +10440,9 @@ module PlatformAPI
     },
     "organization-app":{
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
-      "description":"An organization app encapsulates the organization specific functionality of Heroku apps.",
+      "description":"Deprecated: An organization app encapsulates the organization specific functionality of Heroku apps.",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "title":"Heroku Platform API - Organization App",
       "type":[
         "object"
@@ -10114,9 +10736,10 @@ module PlatformAPI
       }
     },
     "organization-feature":{
-      "description":"An organization feature represents a feature enabled on an organization account.",
+      "description":"Deprecated: An organization feature represents a feature enabled on an organization account.",
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "strictProperties":true,
       "title":"Heroku Platform API - Organization Feature",
       "type":[
@@ -10149,7 +10772,7 @@ module PlatformAPI
           ]
         },
         "enabled":{
-          "description":"whether or not account feature has been enabled",
+          "description":"whether or not organization feature has been enabled",
           "example":true,
           "readOnly":false,
           "type":[
@@ -10199,11 +10822,27 @@ module PlatformAPI
           "type":[
             "string"
           ]
+        },
+        "display_name":{
+          "description":"user readable feature name",
+          "example":"My Feature",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "feedback_email":{
+          "description":"e-mail to send feedback about the feature",
+          "example":"feedback@heroku.com",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
         }
       },
       "links":[
         {
-          "description":"Info for an existing account feature.",
+          "description":"Info for an existing organization feature.",
           "href":"/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features/{(%23%2Fdefinitions%2Forganization-feature%2Fdefinitions%2Fidentity)}",
           "method":"GET",
           "rel":"self",
@@ -10226,39 +10865,69 @@ module PlatformAPI
             ]
           },
           "title":"List"
+        },
+        {
+          "description":"Update an existing organization feature.",
+          "href":"/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features/{(%23%2Fdefinitions%2Forganization-feature%2Fdefinitions%2Fidentity)}",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "enabled":{
+                "$ref":"#/definitions/organization-feature/definitions/enabled"
+              }
+            },
+            "required":[
+              "enabled"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/organization-feature"
+          },
+          "title":"Update"
         }
       ],
       "properties":{
         "created_at":{
-          "$ref":"#/definitions/account-feature/definitions/created_at"
+          "$ref":"#/definitions/organization-feature/definitions/created_at"
         },
         "description":{
-          "$ref":"#/definitions/account-feature/definitions/description"
+          "$ref":"#/definitions/organization-feature/definitions/description"
         },
         "doc_url":{
-          "$ref":"#/definitions/account-feature/definitions/doc_url"
+          "$ref":"#/definitions/organization-feature/definitions/doc_url"
         },
         "enabled":{
-          "$ref":"#/definitions/account-feature/definitions/enabled"
+          "$ref":"#/definitions/organization-feature/definitions/enabled"
         },
         "id":{
-          "$ref":"#/definitions/account-feature/definitions/id"
+          "$ref":"#/definitions/organization-feature/definitions/id"
         },
         "name":{
-          "$ref":"#/definitions/account-feature/definitions/name"
+          "$ref":"#/definitions/organization-feature/definitions/name"
         },
         "state":{
-          "$ref":"#/definitions/account-feature/definitions/state"
+          "$ref":"#/definitions/organization-feature/definitions/state"
         },
         "updated_at":{
-          "$ref":"#/definitions/account-feature/definitions/updated_at"
+          "$ref":"#/definitions/organization-feature/definitions/updated_at"
+        },
+        "display_name":{
+          "$ref":"#/definitions/organization-feature/definitions/display_name"
+        },
+        "feedback_email":{
+          "$ref":"#/definitions/organization-feature/definitions/feedback_email"
         }
       }
     },
     "organization-invitation":{
-      "description":"An organization invitation represents an invite to an organization.",
+      "description":"Deprecated: An organization invitation represents an invite to an organization.",
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "strictProperties":true,
       "title":"Heroku Platform API - Organization Invitation",
       "type":[
@@ -10441,8 +11110,9 @@ module PlatformAPI
     },
     "organization-invoice":{
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
-      "description":"An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.",
+      "description":"Deprecated: An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "strictProperties":true,
       "title":"Heroku Platform API - Organization Invoice",
       "type":[
@@ -10668,8 +11338,9 @@ module PlatformAPI
     },
     "organization-member":{
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
-      "description":"An organization member is an individual with access to an organization.",
+      "description":"Deprecated: An organization member is an individual with access to an organization.",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "additionalProperties":false,
       "required":[
         "created_at",
@@ -10885,7 +11556,7 @@ module PlatformAPI
               "array"
             ]
           },
-          "title":"List"
+          "title":"App List"
         }
       ],
       "properties":{
@@ -10931,9 +11602,10 @@ module PlatformAPI
       }
     },
     "organization-preferences":{
-      "description":"Tracks an organization's preferences",
+      "description":"Deprecated: Tracks an organization's preferences",
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "strictProperties":true,
       "title":"Heroku Platform API - Organization Preferences",
       "type":[
@@ -10985,6 +11657,9 @@ module PlatformAPI
           "method":"PATCH",
           "rel":"update",
           "schema":{
+            "type":[
+              "object"
+            ],
             "properties":{
               "whitelisting-enabled":{
                 "$ref":"#/definitions/organization-preferences/definitions/whitelisting-enabled"
@@ -11008,8 +11683,9 @@ module PlatformAPI
     },
     "organization":{
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
-      "description":"Organizations allow you to manage access to a shared group of applications across your development team.",
+      "description":"Deprecated: Organizations allow you to manage access to a shared group of applications across your development team.",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "strictProperties":true,
       "title":"Heroku Platform API - Organization",
       "type":[
@@ -11637,8 +12313,9 @@ module PlatformAPI
     },
     "organization-app-permission":{
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
-      "description":"An organization app permission is a behavior that is assigned to a user in an organization app.",
+      "description":"Deprecated: An organization app permission is a behavior that is assigned to a user in an organization app.",
       "stability":"prototype",
+      "deprecated_at":"2017-04-10",
       "title":"Heroku Platform API - Organization App Permission",
       "type":[
         "object"
@@ -12095,6 +12772,9 @@ module PlatformAPI
               },
               "source":{
                 "description":"the app being promoted from",
+                "type":[
+                  "object"
+                ],
                 "properties":{
                   "app":{
                     "description":"the app which was promoted from",
@@ -12111,7 +12791,13 @@ module PlatformAPI
                 }
               },
               "targets":{
+                "type":[
+                  "array"
+                ],
                 "items":{
+                  "type":[
+                    "object"
+                  ],
                   "properties":{
                     "app":{
                       "description":"the app is being promoted to",
@@ -12337,13 +13023,13 @@ module PlatformAPI
           "method":"GET",
           "rel":"instances",
           "targetSchema":{
+            "type":[
+              "array"
+            ],
             "items":{
               "$ref":"#/definitions/pipeline"
             }
           },
-          "type":[
-            "array"
-          ],
           "title":"List"
         }
       ],
@@ -12528,6 +13214,16 @@ module PlatformAPI
         {
           "description":"Info for existing plan.",
           "href":"/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
+          "method":"GET",
+          "rel":"self",
+          "targetSchema":{
+            "$ref":"#/definitions/plan"
+          },
+          "title":"Info"
+        },
+        {
+          "description":"Info for existing plan.",
+          "href":"/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
           "method":"GET",
           "rel":"self",
           "targetSchema":{
@@ -13679,6 +14375,9 @@ module PlatformAPI
           "method":"PATCH",
           "rel":"update",
           "schema":{
+            "type":[
+              "object"
+            ],
             "properties":{
               "permissions":{
                 "type":[
@@ -14061,6 +14760,20 @@ module PlatformAPI
             "object"
           ]
         },
+        "team":{
+          "description":"team that owns this space",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/team/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/team/definitions/name"
+            }
+          },
+          "type":[
+            "object"
+          ]
+        },
         "region":{
           "description":"identity of space region",
           "properties":{
@@ -14427,6 +15140,1805 @@ module PlatformAPI
         }
       }
     },
+    "team-app-collaborator":{
+      "description":"A team collaborator represents an account that has been given access to a team app on Heroku.",
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "stability":"development",
+      "title":"Heroku Platform API - Team App Collaborator",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/collaborator/definitions/email"
+            }
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Create a new collaborator on a team app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the team.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators",
+          "method":"POST",
+          "rel":"create",
+          "schema":{
+            "properties":{
+              "permissions":{
+                "type":[
+                  "array"
+                ],
+                "items":{
+                  "$ref":"#/definitions/team-app-permission/definitions/name"
+                },
+                "description":"An array of permissions to give to the collaborator."
+              },
+              "silent":{
+                "$ref":"#/definitions/collaborator/definitions/silent"
+              },
+              "user":{
+                "$ref":"#/definitions/account/definitions/identity"
+              }
+            },
+            "required":[
+              "user"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-app-collaborator"
+          },
+          "title":"Create"
+        },
+        {
+          "description":"Delete an existing collaborator from a team app.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Fteam-app-collaborator%2Fdefinitions%2Fidentity)}",
+          "method":"DELETE",
+          "rel":"destroy",
+          "targetSchema":{
+            "$ref":"#/definitions/team-app-collaborator"
+          },
+          "title":"Delete"
+        },
+        {
+          "description":"Info for a collaborator on a team app.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Fteam-app-collaborator%2Fdefinitions%2Fidentity)}",
+          "method":"GET",
+          "rel":"self",
+          "targetSchema":{
+            "$ref":"#/definitions/team-app-collaborator"
+          },
+          "title":"Info"
+        },
+        {
+          "description":"Update an existing collaborator from a team app.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Fteam-app-collaborator%2Fdefinitions%2Fidentity)}",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "permissions":{
+                "type":[
+                  "array"
+                ],
+                "items":{
+                  "$ref":"#/definitions/team-app-permission/definitions/name"
+                },
+                "description":"An array of permissions to give to the collaborator."
+              }
+            },
+            "required":[
+              "permissions"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-app-collaborator"
+          },
+          "title":"Update"
+        },
+        {
+          "description":"List collaborators on a team app.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}/collaborators",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-app-collaborator"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        }
+      ],
+      "properties":{
+        "app":{
+          "description":"app collaborator belongs to",
+          "properties":{
+            "name":{
+              "$ref":"#/definitions/app/definitions/name"
+            },
+            "id":{
+              "$ref":"#/definitions/app/definitions/id"
+            }
+          },
+          "strictProperties":true,
+          "type":[
+            "object"
+          ]
+        },
+        "created_at":{
+          "$ref":"#/definitions/collaborator/definitions/created_at"
+        },
+        "id":{
+          "$ref":"#/definitions/collaborator/definitions/id"
+        },
+        "role":{
+          "$ref":"#/definitions/team/definitions/role"
+        },
+        "updated_at":{
+          "$ref":"#/definitions/collaborator/definitions/updated_at"
+        },
+        "user":{
+          "description":"identity of collaborated account",
+          "properties":{
+            "email":{
+              "$ref":"#/definitions/account/definitions/email"
+            },
+            "federated":{
+              "$ref":"#/definitions/account/definitions/federated"
+            },
+            "id":{
+              "$ref":"#/definitions/account/definitions/id"
+            }
+          },
+          "strictProperties":true,
+          "type":[
+            "object"
+          ]
+        }
+      }
+    },
+    "team-app-permission":{
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "description":"A team app permission is a behavior that is assigned to a user in a team app.",
+      "stability":"prototype",
+      "title":"Heroku Platform API - Team App Permission",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/team-app-permission/definitions/name"
+            }
+          ]
+        },
+        "name":{
+          "description":"The name of the app permission.",
+          "example":"view",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "description":{
+          "description":"A description of what the app permission allows.",
+          "example":"Can manage config, deploy, run commands and restart the app.",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Lists permissions available to teams.",
+          "href":"/teams/permissions",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-app-permission"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        }
+      ],
+      "properties":{
+        "name":{
+          "$ref":"#/definitions/team-app-permission/definitions/name"
+        },
+        "description":{
+          "$ref":"#/definitions/team-app-permission/definitions/description"
+        }
+      }
+    },
+    "team-app":{
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "description":"An team app encapsulates the team specific functionality of Heroku apps.",
+      "stability":"development",
+      "title":"Heroku Platform API - Team App",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "locked":{
+          "default":false,
+          "description":"are other team members forbidden from joining this app.",
+          "example":false,
+          "type":[
+            "boolean"
+          ]
+        },
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/app/definitions/name"
+            }
+          ]
+        },
+        "joined":{
+          "default":false,
+          "description":"is the current member a collaborator on this app.",
+          "example":false,
+          "type":[
+            "boolean"
+          ]
+        },
+        "personal":{
+          "default":false,
+          "description":"force creation of the app in the user account even if a default team is set.",
+          "example":false,
+          "type":[
+            "boolean"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.",
+          "href":"/teams/apps",
+          "method":"POST",
+          "rel":"create",
+          "schema":{
+            "properties":{
+              "locked":{
+                "$ref":"#/definitions/team-app/definitions/locked"
+              },
+              "name":{
+                "$ref":"#/definitions/app/definitions/name"
+              },
+              "team":{
+                "$ref":"#/definitions/team/definitions/name"
+              },
+              "personal":{
+                "$ref":"#/definitions/team-app/definitions/personal"
+              },
+              "region":{
+                "$ref":"#/definitions/region/definitions/name"
+              },
+              "space":{
+                "$ref":"#/definitions/space/definitions/name"
+              },
+              "stack":{
+                "$ref":"#/definitions/stack/definitions/name"
+              }
+            },
+            "type":[
+              "object"
+            ]
+          },
+          "title":"Create"
+        },
+        {
+          "description":"List apps in the default team, or in personal account, if default team is not set.",
+          "href":"/teams/apps",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-app"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        },
+        {
+          "description":"List team apps.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/apps",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-app"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List For Organization"
+        },
+        {
+          "description":"Info for a team app.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}",
+          "method":"GET",
+          "rel":"self",
+          "title":"Info"
+        },
+        {
+          "description":"Lock or unlock a team app.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "locked":{
+                "$ref":"#/definitions/team-app/definitions/locked"
+              }
+            },
+            "required":[
+              "locked"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-app"
+          },
+          "title":"Update Locked"
+        },
+        {
+          "description":"Transfer an existing team app to another Heroku account.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "owner":{
+                "$ref":"#/definitions/account/definitions/identity"
+              }
+            },
+            "required":[
+              "owner"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "title":"Transfer to Account"
+        },
+        {
+          "description":"Transfer an existing team app to another team.",
+          "href":"/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "owner":{
+                "$ref":"#/definitions/team/definitions/name"
+              }
+            },
+            "required":[
+              "owner"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-app"
+          },
+          "title":"Transfer to Team"
+        }
+      ],
+      "properties":{
+        "archived_at":{
+          "$ref":"#/definitions/app/definitions/archived_at"
+        },
+        "buildpack_provided_description":{
+          "$ref":"#/definitions/app/definitions/buildpack_provided_description"
+        },
+        "created_at":{
+          "$ref":"#/definitions/app/definitions/created_at"
+        },
+        "git_url":{
+          "$ref":"#/definitions/app/definitions/git_url"
+        },
+        "id":{
+          "$ref":"#/definitions/app/definitions/id"
+        },
+        "joined":{
+          "$ref":"#/definitions/team-app/definitions/joined"
+        },
+        "locked":{
+          "$ref":"#/definitions/team-app/definitions/locked"
+        },
+        "maintenance":{
+          "$ref":"#/definitions/app/definitions/maintenance"
+        },
+        "name":{
+          "$ref":"#/definitions/app/definitions/name"
+        },
+        "team":{
+          "description":"team that owns this app",
+          "properties":{
+            "name":{
+              "$ref":"#/definitions/team/definitions/name"
+            }
+          },
+          "type":[
+            "null",
+            "object"
+          ]
+        },
+        "owner":{
+          "description":"identity of app owner",
+          "properties":{
+            "email":{
+              "$ref":"#/definitions/account/definitions/email"
+            },
+            "id":{
+              "$ref":"#/definitions/account/definitions/id"
+            }
+          },
+          "type":[
+            "null",
+            "object"
+          ]
+        },
+        "region":{
+          "description":"identity of app region",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/region/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/region/definitions/name"
+            }
+          },
+          "type":[
+            "object"
+          ]
+        },
+        "released_at":{
+          "$ref":"#/definitions/app/definitions/released_at"
+        },
+        "repo_size":{
+          "$ref":"#/definitions/app/definitions/repo_size"
+        },
+        "slug_size":{
+          "$ref":"#/definitions/app/definitions/slug_size"
+        },
+        "space":{
+          "description":"identity of space",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/space/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/space/definitions/name"
+            }
+          },
+          "type":[
+            "null",
+            "object"
+          ]
+        },
+        "stack":{
+          "description":"identity of app stack",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/stack/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/stack/definitions/name"
+            }
+          },
+          "type":[
+            "object"
+          ]
+        },
+        "updated_at":{
+          "$ref":"#/definitions/app/definitions/updated_at"
+        },
+        "web_url":{
+          "$ref":"#/definitions/app/definitions/web_url"
+        }
+      }
+    },
+    "team-feature":{
+      "description":"A team feature represents a feature enabled on a team account.",
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "stability":"development",
+      "strictProperties":true,
+      "title":"Heroku Platform API - Team Feature",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "created_at":{
+          "description":"when team feature was created",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "description":{
+          "description":"description of team feature",
+          "example":"Causes account to example.",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "doc_url":{
+          "description":"documentation URL of team feature",
+          "example":"http://devcenter.heroku.com/articles/example",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "enabled":{
+          "description":"whether or not team feature has been enabled",
+          "example":true,
+          "readOnly":false,
+          "type":[
+            "boolean"
+          ]
+        },
+        "id":{
+          "description":"unique identifier of team feature",
+          "example":"01234567-89ab-cdef-0123-456789abcdef",
+          "format":"uuid",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/team-feature/definitions/id"
+            },
+            {
+              "$ref":"#/definitions/team-feature/definitions/name"
+            }
+          ]
+        },
+        "name":{
+          "description":"unique name of team feature",
+          "example":"name",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "state":{
+          "description":"state of team feature",
+          "example":"public",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "updated_at":{
+          "description":"when team feature was updated",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "display_name":{
+          "description":"user readable feature name",
+          "example":"My Feature",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "feedback_email":{
+          "description":"e-mail to send feedback about the feature",
+          "example":"feedback@heroku.com",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Info for an existing team feature.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/features/{(%23%2Fdefinitions%2Fteam-feature%2Fdefinitions%2Fidentity)}",
+          "method":"GET",
+          "rel":"self",
+          "targetSchema":{
+            "$ref":"#/definitions/team-feature"
+          },
+          "title":"Info"
+        },
+        {
+          "description":"List existing team features.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/features",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-feature"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        }
+      ],
+      "properties":{
+        "created_at":{
+          "$ref":"#/definitions/team-feature/definitions/created_at"
+        },
+        "description":{
+          "$ref":"#/definitions/team-feature/definitions/description"
+        },
+        "doc_url":{
+          "$ref":"#/definitions/team-feature/definitions/doc_url"
+        },
+        "enabled":{
+          "$ref":"#/definitions/team-feature/definitions/enabled"
+        },
+        "id":{
+          "$ref":"#/definitions/team-feature/definitions/id"
+        },
+        "name":{
+          "$ref":"#/definitions/team-feature/definitions/name"
+        },
+        "state":{
+          "$ref":"#/definitions/team-feature/definitions/state"
+        },
+        "updated_at":{
+          "$ref":"#/definitions/team-feature/definitions/updated_at"
+        },
+        "display_name":{
+          "$ref":"#/definitions/team-feature/definitions/display_name"
+        },
+        "feedback_email":{
+          "$ref":"#/definitions/team-feature/definitions/feedback_email"
+        }
+      }
+    },
+    "team-invitation":{
+      "description":"A team invitation represents an invite to a team.",
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "stability":"development",
+      "strictProperties":true,
+      "title":"Heroku Platform API - Team Invitation",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "created_at":{
+          "description":"when invitation was created",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/team-invitation/definitions/id"
+            }
+          ]
+        },
+        "id":{
+          "description":"unique identifier of an invitation",
+          "example":"01234567-89ab-cdef-0123-456789abcdef",
+          "format":"uuid",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "token":{
+          "description":"special token for invitation",
+          "example":"614ae25aa2d4802096cd7c18625b526c",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "updated_at":{
+          "description":"when invitation was updated",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Get a list of a team's Identity Providers",
+          "title":"List",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fname)}/invitations",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-invitation"
+            },
+            "type":[
+              "array"
+            ]
+          }
+        },
+        {
+          "description":"Create Team Invitation",
+          "title":"Create",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/invitations",
+          "method":"PUT",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "email":{
+                "$ref":"#/definitions/account/definitions/email"
+              },
+              "role":{
+                "$ref":"#/definitions/team/definitions/role"
+              }
+            },
+            "required":[
+              "email",
+              "role"
+            ],
+            "type":[
+              "object"
+            ]
+          }
+        },
+        {
+          "description":"Revoke a team invitation.",
+          "title":"Revoke",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/invitations/{(%23%2Fdefinitions%2Fteam-invitation%2Fdefinitions%2Fidentity)}",
+          "method":"DELETE",
+          "rel":"self"
+        },
+        {
+          "description":"Get an invitation by its token",
+          "title":"Get",
+          "href":"/teams/invitations/{(%23%2Fdefinitions%2Fteam-invitation%2Fdefinitions%2Ftoken)}",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "$ref":"#/definitions/team-invitation"
+          }
+        },
+        {
+          "description":"Accept Team Invitation",
+          "title":"Accept",
+          "href":"/teams/invitations/{(%23%2Fdefinitions%2Fteam-invitation%2Fdefinitions%2Ftoken)}/accept",
+          "method":"POST",
+          "rel":"create",
+          "targetSchema":{
+            "$ref":"#/definitions/team-member"
+          }
+        }
+      ],
+      "properties":{
+        "created_at":{
+          "$ref":"#/definitions/team-invitation/definitions/created_at"
+        },
+        "id":{
+          "$ref":"#/definitions/team-invitation/definitions/id"
+        },
+        "invited_by":{
+          "properties":{
+            "email":{
+              "$ref":"#/definitions/account/definitions/email"
+            },
+            "id":{
+              "$ref":"#/definitions/account/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/account/definitions/name"
+            }
+          },
+          "strictProperties":true,
+          "type":[
+            "object"
+          ]
+        },
+        "team":{
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/team/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/team/definitions/name"
+            }
+          },
+          "strictProperties":true,
+          "type":[
+            "object"
+          ]
+        },
+        "role":{
+          "$ref":"#/definitions/team/definitions/role"
+        },
+        "updated_at":{
+          "$ref":"#/definitions/team-invitation/definitions/updated_at"
+        },
+        "user":{
+          "properties":{
+            "email":{
+              "$ref":"#/definitions/account/definitions/email"
+            },
+            "id":{
+              "$ref":"#/definitions/account/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/account/definitions/name"
+            }
+          },
+          "strictProperties":true,
+          "type":[
+            "object"
+          ]
+        }
+      }
+    },
+    "team-invoice":{
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "description":"A Team Invoice is an itemized bill of goods for a team which includes pricing and charges.",
+      "stability":"development",
+      "strictProperties":true,
+      "title":"Heroku Platform API - Team Invoice",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "addons_total":{
+          "description":"total add-ons charges in on this invoice",
+          "example":25000,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "database_total":{
+          "description":"total database charges on this invoice",
+          "example":25000,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "charges_total":{
+          "description":"total charges on this invoice",
+          "example":0,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "created_at":{
+          "description":"when invoice was created",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "credits_total":{
+          "description":"total credits on this invoice",
+          "example":100000,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "dyno_units":{
+          "description":"total amount of dyno units consumed across dyno types.",
+          "example":1.92,
+          "readOnly":true,
+          "type":[
+            "number"
+          ]
+        },
+        "id":{
+          "description":"unique identifier of this invoice",
+          "example":"01234567-89ab-cdef-0123-456789abcdef",
+          "format":"uuid",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/team-invoice/definitions/number"
+            }
+          ]
+        },
+        "number":{
+          "description":"human readable invoice number",
+          "example":9403943,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "payment_status":{
+          "description":"status of the invoice payment",
+          "example":"Paid",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "platform_total":{
+          "description":"total platform charges on this invoice",
+          "example":50000,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "period_end":{
+          "description":"the ending date that the invoice covers",
+          "example":"01/31/2014",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "period_start":{
+          "description":"the starting date that this invoice covers",
+          "example":"01/01/2014",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "state":{
+          "description":"payment status for this invoice (pending, successful, failed)",
+          "example":1,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "total":{
+          "description":"combined total of charges and credits on this invoice",
+          "example":100000,
+          "readOnly":true,
+          "type":[
+            "integer"
+          ]
+        },
+        "updated_at":{
+          "description":"when invoice was updated",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "weighted_dyno_hours":{
+          "description":"The total amount of hours consumed across dyno types.",
+          "example":1488,
+          "readOnly":true,
+          "type":[
+            "number"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Info for existing invoice.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/invoices/{(%23%2Fdefinitions%2Fteam-invoice%2Fdefinitions%2Fidentity)}",
+          "method":"GET",
+          "rel":"self",
+          "targetSchema":{
+            "$ref":"#/definitions/team-invoice"
+          },
+          "title":"Info"
+        },
+        {
+          "description":"List existing invoices.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/invoices",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-invoice"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        }
+      ],
+      "properties":{
+        "addons_total":{
+          "$ref":"#/definitions/team-invoice/definitions/addons_total"
+        },
+        "database_total":{
+          "$ref":"#/definitions/team-invoice/definitions/database_total"
+        },
+        "charges_total":{
+          "$ref":"#/definitions/team-invoice/definitions/charges_total"
+        },
+        "created_at":{
+          "$ref":"#/definitions/team-invoice/definitions/created_at"
+        },
+        "credits_total":{
+          "$ref":"#/definitions/team-invoice/definitions/credits_total"
+        },
+        "dyno_units":{
+          "$ref":"#/definitions/team-invoice/definitions/dyno_units"
+        },
+        "id":{
+          "$ref":"#/definitions/team-invoice/definitions/id"
+        },
+        "number":{
+          "$ref":"#/definitions/team-invoice/definitions/number"
+        },
+        "payment_status":{
+          "$ref":"#/definitions/team-invoice/definitions/payment_status"
+        },
+        "period_end":{
+          "$ref":"#/definitions/team-invoice/definitions/period_end"
+        },
+        "period_start":{
+          "$ref":"#/definitions/team-invoice/definitions/period_start"
+        },
+        "platform_total":{
+          "$ref":"#/definitions/team-invoice/definitions/platform_total"
+        },
+        "state":{
+          "$ref":"#/definitions/team-invoice/definitions/state"
+        },
+        "total":{
+          "$ref":"#/definitions/team-invoice/definitions/total"
+        },
+        "updated_at":{
+          "$ref":"#/definitions/team-invoice/definitions/updated_at"
+        },
+        "weighted_dyno_hours":{
+          "$ref":"#/definitions/team-invoice/definitions/weighted_dyno_hours"
+        }
+      }
+    },
+    "team-member":{
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "description":"A team member is an individual with access to a team.",
+      "stability":"development",
+      "additionalProperties":false,
+      "required":[
+        "created_at",
+        "email",
+        "federated",
+        "updated_at"
+      ],
+      "title":"Heroku Platform API - Team Member",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "created_at":{
+          "description":"when the membership record was created",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "email":{
+          "description":"email address of the team member",
+          "example":"someone@example.org",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "federated":{
+          "description":"whether the user is federated and belongs to an Identity Provider",
+          "example":false,
+          "readOnly":true,
+          "type":[
+            "boolean"
+          ]
+        },
+        "id":{
+          "description":"unique identifier of the team member",
+          "example":"01234567-89ab-cdef-0123-456789abcdef",
+          "format":"uuid",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/team-member/definitions/email"
+            },
+            {
+              "$ref":"#/definitions/team-member/definitions/id"
+            }
+          ]
+        },
+        "name":{
+          "description":"full name of the team member",
+          "example":"Tina Edmonds",
+          "readOnly":true,
+          "type":[
+            "string",
+            "null"
+          ]
+        },
+        "two_factor_authentication":{
+          "description":"whether the Enterprise team member has two factor authentication enabled",
+          "example":true,
+          "readOnly":true,
+          "type":[
+            "boolean"
+          ]
+        },
+        "updated_at":{
+          "description":"when the membership record was updated",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Create a new team member, or update their role.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/members",
+          "method":"PUT",
+          "rel":"create",
+          "schema":{
+            "properties":{
+              "email":{
+                "$ref":"#/definitions/team-member/definitions/email"
+              },
+              "federated":{
+                "$ref":"#/definitions/team-member/definitions/federated"
+              },
+              "role":{
+                "$ref":"#/definitions/team/definitions/role"
+              }
+            },
+            "required":[
+              "email",
+              "role"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-member"
+          },
+          "title":"Create or Update"
+        },
+        {
+          "description":"Create a new team member.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/members",
+          "method":"POST",
+          "rel":"create",
+          "schema":{
+            "properties":{
+              "email":{
+                "$ref":"#/definitions/team-member/definitions/email"
+              },
+              "federated":{
+                "$ref":"#/definitions/team-member/definitions/federated"
+              },
+              "role":{
+                "$ref":"#/definitions/team/definitions/role"
+              }
+            },
+            "required":[
+              "email",
+              "role"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-member"
+          },
+          "title":"Create"
+        },
+        {
+          "description":"Update a team member.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/members",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "email":{
+                "$ref":"#/definitions/team-member/definitions/email"
+              },
+              "federated":{
+                "$ref":"#/definitions/team-member/definitions/federated"
+              },
+              "role":{
+                "$ref":"#/definitions/team/definitions/role"
+              }
+            },
+            "required":[
+              "email",
+              "role"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-member"
+          },
+          "title":"update"
+        },
+        {
+          "description":"Remove a member from the team.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Fteam-member%2Fdefinitions%2Fidentity)}",
+          "method":"DELETE",
+          "rel":"destroy",
+          "targetSchema":{
+            "$ref":"#/definitions/team-member"
+          },
+          "title":"Delete"
+        },
+        {
+          "description":"List members of the team.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/members",
+          "method":"GET",
+          "ranges":[
+            "email"
+          ],
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-member"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        },
+        {
+          "description":"List the apps of a team member.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Fteam-member%2Fdefinitions%2Fidentity)}/apps",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team-app"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"App List"
+        }
+      ],
+      "properties":{
+        "created_at":{
+          "$ref":"#/definitions/team-member/definitions/created_at"
+        },
+        "email":{
+          "$ref":"#/definitions/team-member/definitions/email"
+        },
+        "federated":{
+          "$ref":"#/definitions/team-member/definitions/federated"
+        },
+        "id":{
+          "$ref":"#/definitions/team-member/definitions/id"
+        },
+        "role":{
+          "$ref":"#/definitions/team/definitions/role"
+        },
+        "two_factor_authentication":{
+          "$ref":"#/definitions/team-member/definitions/two_factor_authentication"
+        },
+        "updated_at":{
+          "$ref":"#/definitions/team-member/definitions/updated_at"
+        },
+        "user":{
+          "description":"user information for the membership",
+          "properties":{
+            "email":{
+              "$ref":"#/definitions/account/definitions/email"
+            },
+            "id":{
+              "$ref":"#/definitions/account/definitions/id"
+            },
+            "name":{
+              "$ref":"#/definitions/account/definitions/name"
+            }
+          },
+          "strictProperties":true,
+          "type":[
+            "object"
+          ]
+        }
+      }
+    },
+    "team-preferences":{
+      "description":"Tracks a Team's Preferences",
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "stability":"development",
+      "strictProperties":true,
+      "title":"Heroku Platform API - Team Preferences",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "default-permission":{
+          "description":"The default permission used when adding new members to the team",
+          "example":"member",
+          "readOnly":false,
+          "enum":[
+            "admin",
+            "member",
+            "viewer",
+            null
+          ],
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "identity":{
+          "$ref":"#/definitions/team/definitions/identity"
+        },
+        "whitelisting-enabled":{
+          "description":"Whether whitelisting rules should be applied to add-on installations",
+          "example":true,
+          "readOnly":false,
+          "type":[
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"Retrieve Team Preferences",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam-preferences%2Fdefinitions%2Fidentity)}/preferences",
+          "method":"GET",
+          "rel":"self",
+          "targetSchema":{
+            "$ref":"#/definitions/team-preferences"
+          },
+          "title":"List"
+        },
+        {
+          "description":"Update Team Preferences",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam-preferences%2Fdefinitions%2Fidentity)}/preferences",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "type":[
+              "object"
+            ],
+            "properties":{
+              "whitelisting-enabled":{
+                "$ref":"#/definitions/team-preferences/definitions/whitelisting-enabled"
+              }
+            }
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team-preferences"
+          },
+          "title":"Update"
+        }
+      ],
+      "properties":{
+        "default-permission":{
+          "$ref":"#/definitions/team-preferences/definitions/default-permission"
+        },
+        "whitelisting-enabled":{
+          "$ref":"#/definitions/team-preferences/definitions/whitelisting-enabled"
+        }
+      }
+    },
+    "team":{
+      "$schema":"http://json-schema.org/draft-04/hyper-schema",
+      "description":"Teams allow you to manage access to a shared group of applications and other resources.",
+      "stability":"development",
+      "strictProperties":true,
+      "title":"Heroku Platform API - Team",
+      "type":[
+        "object"
+      ],
+      "definitions":{
+        "created_at":{
+          "description":"when the team was created",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "credit_card_collections":{
+          "description":"whether charges incurred by the team are paid by credit card.",
+          "example":true,
+          "readOnly":true,
+          "type":[
+            "boolean"
+          ]
+        },
+        "default":{
+          "description":"whether to use this team when none is specified",
+          "example":true,
+          "readOnly":false,
+          "type":[
+            "boolean"
+          ]
+        },
+        "id":{
+          "description":"unique identifier of team",
+          "example":"01234567-89ab-cdef-0123-456789abcdef",
+          "format":"uuid",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "identity":{
+          "anyOf":[
+            {
+              "$ref":"#/definitions/team/definitions/name"
+            },
+            {
+              "$ref":"#/definitions/team/definitions/id"
+            }
+          ]
+        },
+        "address_1":{
+          "type":[
+            "string"
+          ],
+          "description":"street address line 1",
+          "example":"40 Hickory Lane"
+        },
+        "address_2":{
+          "type":[
+            "string"
+          ],
+          "description":"street address line 2",
+          "example":"Suite 103"
+        },
+        "card_number":{
+          "type":[
+            "string"
+          ],
+          "description":"encrypted card number of payment method",
+          "example":"encrypted-card-number"
+        },
+        "city":{
+          "type":[
+            "string"
+          ],
+          "description":"city",
+          "example":"San Francisco"
+        },
+        "country":{
+          "type":[
+            "string"
+          ],
+          "description":"country",
+          "example":"US"
+        },
+        "cvv":{
+          "type":[
+            "string"
+          ],
+          "description":"card verification value",
+          "example":"123"
+        },
+        "expiration_month":{
+          "type":[
+            "string"
+          ],
+          "description":"expiration month",
+          "example":"11"
+        },
+        "expiration_year":{
+          "type":[
+            "string"
+          ],
+          "description":"expiration year",
+          "example":"2014"
+        },
+        "first_name":{
+          "type":[
+            "string"
+          ],
+          "description":"the first name for payment method",
+          "example":"Jason"
+        },
+        "last_name":{
+          "type":[
+            "string"
+          ],
+          "description":"the last name for payment method",
+          "example":"Walker"
+        },
+        "other":{
+          "type":[
+            "string"
+          ],
+          "description":"metadata",
+          "example":"Additional information for payment method"
+        },
+        "postal_code":{
+          "type":[
+            "string"
+          ],
+          "description":"postal code",
+          "example":"90210"
+        },
+        "state":{
+          "type":[
+            "string"
+          ],
+          "description":"state",
+          "example":"CA"
+        },
+        "membership_limit":{
+          "description":"upper limit of members allowed in a team.",
+          "example":25,
+          "readOnly":true,
+          "type":[
+            "number",
+            "null"
+          ]
+        },
+        "name":{
+          "description":"unique name of team",
+          "example":"example",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "provisioned_licenses":{
+          "description":"whether the team is provisioned licenses by salesforce.",
+          "example":true,
+          "readOnly":true,
+          "type":[
+            "boolean"
+          ]
+        },
+        "role":{
+          "description":"role in the team",
+          "enum":[
+            "admin",
+            "collaborator",
+            "member",
+            "owner",
+            null
+          ],
+          "example":"admin",
+          "readOnly":true,
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "type":{
+          "description":"type of team.",
+          "example":"team",
+          "enum":[
+            "enterprise",
+            "team"
+          ],
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        },
+        "updated_at":{
+          "description":"when the team was updated",
+          "example":"2012-01-01T12:00:00Z",
+          "format":"date-time",
+          "readOnly":true,
+          "type":[
+            "string"
+          ]
+        }
+      },
+      "links":[
+        {
+          "description":"List teams in which you are a member.",
+          "href":"/teams",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/team"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        },
+        {
+          "description":"Info for a team.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}",
+          "method":"GET",
+          "rel":"self",
+          "title":"Info"
+        },
+        {
+          "description":"Update team properties.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}",
+          "method":"PATCH",
+          "rel":"update",
+          "schema":{
+            "properties":{
+              "default":{
+                "$ref":"#/definitions/team/definitions/default"
+              },
+              "name":{
+                "$ref":"#/definitions/team/definitions/name"
+              }
+            },
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team"
+          },
+          "title":"Update"
+        },
+        {
+          "description":"Create a new team.",
+          "href":"/teams",
+          "method":"POST",
+          "rel":"create",
+          "schema":{
+            "properties":{
+              "name":{
+                "$ref":"#/definitions/team/definitions/name"
+              },
+              "address_1":{
+                "$ref":"#/definitions/team/definitions/address_1"
+              },
+              "address_2":{
+                "$ref":"#/definitions/team/definitions/address_2"
+              },
+              "card_number":{
+                "$ref":"#/definitions/team/definitions/card_number"
+              },
+              "city":{
+                "$ref":"#/definitions/team/definitions/city"
+              },
+              "country":{
+                "$ref":"#/definitions/team/definitions/country"
+              },
+              "cvv":{
+                "$ref":"#/definitions/team/definitions/cvv"
+              },
+              "expiration_month":{
+                "$ref":"#/definitions/team/definitions/expiration_month"
+              },
+              "expiration_year":{
+                "$ref":"#/definitions/team/definitions/expiration_year"
+              },
+              "first_name":{
+                "$ref":"#/definitions/team/definitions/first_name"
+              },
+              "last_name":{
+                "$ref":"#/definitions/team/definitions/last_name"
+              },
+              "other":{
+                "$ref":"#/definitions/team/definitions/other"
+              },
+              "postal_code":{
+                "$ref":"#/definitions/team/definitions/postal_code"
+              },
+              "state":{
+                "$ref":"#/definitions/team/definitions/state"
+              }
+            },
+            "required":[
+              "name"
+            ],
+            "type":[
+              "object"
+            ]
+          },
+          "targetSchema":{
+            "$ref":"#/definitions/team"
+          },
+          "title":"Create"
+        },
+        {
+          "description":"Delete an existing team.",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}",
+          "method":"DELETE",
+          "rel":"destroy",
+          "targetSchema":{
+            "$ref":"#/definitions/team"
+          },
+          "title":"Delete"
+        }
+      ],
+      "properties":{
+        "id":{
+          "$ref":"#/definitions/team/definitions/id"
+        },
+        "created_at":{
+          "$ref":"#/definitions/team/definitions/created_at"
+        },
+        "credit_card_collections":{
+          "$ref":"#/definitions/team/definitions/credit_card_collections"
+        },
+        "default":{
+          "$ref":"#/definitions/team/definitions/default"
+        },
+        "membership_limit":{
+          "$ref":"#/definitions/team/definitions/membership_limit"
+        },
+        "name":{
+          "$ref":"#/definitions/team/definitions/name"
+        },
+        "provisioned_licenses":{
+          "$ref":"#/definitions/team/definitions/provisioned_licenses"
+        },
+        "role":{
+          "$ref":"#/definitions/team/definitions/role"
+        },
+        "type":{
+          "$ref":"#/definitions/team/definitions/type"
+        },
+        "updated_at":{
+          "$ref":"#/definitions/team/definitions/updated_at"
+        }
+      }
+    },
     "user-preferences":{
       "description":"Tracks a user's preferences and message dismissals",
       "$schema":"http://json-schema.org/draft-04/hyper-schema",
@@ -14568,6 +17080,9 @@ module PlatformAPI
           "method":"PATCH",
           "rel":"update",
           "schema":{
+            "type":[
+              "object"
+            ],
             "properties":{
               "timezone":{
                 "$ref":"#/definitions/user-preferences/definitions/timezone"
@@ -14742,6 +17257,9 @@ module PlatformAPI
           "method":"POST",
           "rel":"create",
           "schema":{
+            "type":[
+              "object"
+            ],
             "properties":{
               "addon_service":{
                 "description":"name of the Add-on to whitelist",
@@ -14765,6 +17283,60 @@ module PlatformAPI
         {
           "description":"Remove a whitelisted entity",
           "href":"/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-add-on-service%2Fdefinitions%2Fidentity)}",
+          "method":"DELETE",
+          "rel":"destroy",
+          "targetSchema":{
+            "$ref":"#/definitions/whitelisted-add-on-service"
+          },
+          "title":"Delete"
+        },
+        {
+          "description":"List all whitelisted Add-on Services for a Team",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
+          "method":"GET",
+          "rel":"instances",
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/whitelisted-add-on-service"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"List"
+        },
+        {
+          "description":"Whitelist an Add-on Service",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
+          "method":"POST",
+          "rel":"create",
+          "schema":{
+            "type":[
+              "object"
+            ],
+            "properties":{
+              "addon_service":{
+                "description":"name of the Add-on to whitelist",
+                "example":"heroku-postgresql",
+                "type":[
+                  "string"
+                ]
+              }
+            }
+          },
+          "targetSchema":{
+            "items":{
+              "$ref":"#/definitions/whitelisted-add-on-service"
+            },
+            "type":[
+              "array"
+            ]
+          },
+          "title":"Create"
+        },
+        {
+          "description":"Remove a whitelisted entity",
+          "href":"/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-add-on-service%2Fdefinitions%2Fidentity)}",
           "method":"DELETE",
           "rel":"destroy",
           "targetSchema":{
@@ -14993,6 +17565,33 @@ module PlatformAPI
     },
     "stack":{
       "$ref":"#/definitions/stack"
+    },
+    "team-app-collaborator":{
+      "$ref":"#/definitions/team-app-collaborator"
+    },
+    "team-app-permission":{
+      "$ref":"#/definitions/team-app-permission"
+    },
+    "team-app":{
+      "$ref":"#/definitions/team-app"
+    },
+    "team-feature":{
+      "$ref":"#/definitions/team-feature"
+    },
+    "team-invitation":{
+      "$ref":"#/definitions/team-invitation"
+    },
+    "team-invoice":{
+      "$ref":"#/definitions/team-invoice"
+    },
+    "team-member":{
+      "$ref":"#/definitions/team-member"
+    },
+    "team-preferences":{
+      "$ref":"#/definitions/team-preferences"
+    },
+    "team":{
+      "$ref":"#/definitions/team"
     },
     "user-preferences":{
       "$ref":"#/definitions/user-preferences"
