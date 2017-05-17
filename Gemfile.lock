@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    platform-api (1.0.1)
+    platform-api (2.0.0)
       heroics (~> 0.0.22)
       moneta (~> 0.8.1)
 
@@ -54,4 +54,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.14.4
+   1.14.6

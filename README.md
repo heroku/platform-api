@@ -2,6 +2,8 @@
 
 Ruby HTTP client for the Heroku API.
 
+> NOTE: v2.0.0 fixed a long-standing issue with duplicated link titles, which may break things if you were relying on the now-renamed methods.
+
 ## Installation
 
 Add this line to your application's Gemfile:
