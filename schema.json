@@ -416,7 +416,7 @@
           "targetSchema": {
             "$ref": "#/definitions/account"
           },
-          "title": "Info"
+          "title": "Info By User"
         },
         {
           "description": "Update account.",
@@ -442,7 +442,7 @@
           "targetSchema": {
             "$ref": "#/definitions/account"
           },
-          "title": "Update"
+          "title": "Update By User"
         },
         {
           "description": "Delete account. Note that this action cannot be undone.",
@@ -452,7 +452,7 @@
           "targetSchema": {
             "$ref": "#/definitions/account"
           },
-          "title": "Delete"
+          "title": "Delete By User"
         }
       ],
       "properties": {
@@ -558,7 +558,7 @@
           "targetSchema": {
             "$ref": "#/definitions/add-on"
           },
-          "title": "Create - Provision"
+          "title": "Provision"
         },
         {
           "description": "Mark an add-on as deprovisioned.",
@@ -568,7 +568,7 @@
           "targetSchema": {
             "$ref": "#/definitions/add-on"
           },
-          "title": "Create - Deprovision"
+          "title": "Deprovision"
         }
       ],
       "properties": {
@@ -1100,7 +1100,7 @@
               "array"
             ]
           },
-          "title": "List"
+          "title": "List By Region"
         }
       ],
       "properties": {
@@ -1415,6 +1415,31 @@
       },
       "links": [
         {
+          "description": "List all existing add-ons.",
+          "href": "/addons",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Info for an existing add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/add-on"
+          },
+          "title": "Info"
+        },
+        {
           "description": "Create a new add-on.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/addons",
           "method": "POST",
@@ -1484,47 +1509,7 @@
           "targetSchema": {
             "$ref": "#/definitions/add-on"
           },
-          "title": "Info"
-        },
-        {
-          "description": "List all existing add-ons.",
-          "href": "/addons",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/add-on"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        },
-        {
-          "description": "Info for an existing add-on.",
-          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/add-on"
-          },
-          "title": "Info"
-        },
-        {
-          "description": "List all existing add-ons a user has access to",
-          "href": "/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}/addons",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/add-on"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List by User"
+          "title": "Info By App"
         },
         {
           "description": "List existing add-ons for an app.",
@@ -1539,22 +1524,7 @@
               "array"
             ]
           },
-          "title": "List by App"
-        },
-        {
-          "description": "List add-ons used across all Team apps",
-          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/addons",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/add-on"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List For Team"
+          "title": "List By App"
         },
         {
           "description": "Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.",
@@ -1575,6 +1545,36 @@
             ]
           },
           "title": "Update"
+        },
+        {
+          "description": "List all existing add-ons a user has access to",
+          "href": "/users/{(%23%2Fdefinitions%2Faccount%2Fdefinitions%2Fidentity)}/addons",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List By User"
+        },
+        {
+          "description": "List add-ons used across all Team apps",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/addons",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List By Team"
         }
       ],
       "properties": {
@@ -5045,7 +5045,7 @@
               "array"
             ]
           },
-          "title": "Batch update"
+          "title": "Batch Update"
         },
         {
           "description": "Update process type",
@@ -5196,7 +5196,7 @@
               "array"
             ]
           },
-          "title": "List"
+          "title": "List By Organization"
         },
         {
           "description": "Create an Identity Provider for an organization",
@@ -5230,7 +5230,7 @@
           "targetSchema": {
             "$ref": "#/definitions/identity-provider"
           },
-          "title": "Create"
+          "title": "Create By Organization"
         },
         {
           "description": "Update an organization's Identity Provider",
@@ -5259,7 +5259,7 @@
           "targetSchema": {
             "$ref": "#/definitions/identity-provider"
           },
-          "title": "Update"
+          "title": "Update By Organization"
         },
         {
           "description": "Delete an organization's Identity Provider",
@@ -5269,7 +5269,7 @@
           "targetSchema": {
             "$ref": "#/definitions/identity-provider"
           },
-          "title": "Delete"
+          "title": "Delete By Organization"
         },
         {
           "description": "Get a list of a team's Identity Providers",
@@ -5284,7 +5284,7 @@
               "array"
             ]
           },
-          "title": "List"
+          "title": "List By Team"
         },
         {
           "description": "Create an Identity Provider for a team",
@@ -5318,7 +5318,7 @@
           "targetSchema": {
             "$ref": "#/definitions/identity-provider"
           },
-          "title": "Create"
+          "title": "Create By Team"
         },
         {
           "description": "Update a team's Identity Provider",
@@ -5347,7 +5347,7 @@
           "targetSchema": {
             "$ref": "#/definitions/identity-provider"
           },
-          "title": "Update"
+          "title": "Update By Team"
         },
         {
           "description": "Delete a team's Identity Provider",
@@ -5357,7 +5357,7 @@
           "targetSchema": {
             "$ref": "#/definitions/identity-provider"
           },
-          "title": "Delete"
+          "title": "Delete By Team"
         }
       ],
       "properties": {
@@ -5480,7 +5480,7 @@
           "targetSchema": {
             "$ref": "#/definitions/inbound-ruleset"
           },
-          "title": "Info"
+          "title": "Current"
         },
         {
           "description": "Info on an existing Inbound Ruleset",
@@ -9153,7 +9153,7 @@
           "targetSchema": {
             "$ref": "#/definitions/outbound-ruleset"
           },
-          "title": "Info"
+          "title": "Current"
         },
         {
           "description": "Info on an existing Outbound Ruleset",
@@ -9458,7 +9458,7 @@
               "array"
             ]
           },
-          "title": "List"
+          "title": "List By Pipeline"
         },
         {
           "description": "List pipeline couplings.",
@@ -9547,14 +9547,14 @@
           "title": "Update"
         },
         {
-          "description": "Info for an existing pipeline coupling.",
+          "description": "Info for an existing app pipeline coupling.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/pipeline-couplings",
           "method": "GET",
           "rel": "self",
           "targetSchema": {
             "$ref": "#/definitions/pipeline-coupling"
           },
-          "title": "Info"
+          "title": "Info By App"
         }
       ],
       "properties": {
@@ -10228,16 +10228,6 @@
       "links": [
         {
           "description": "Info for existing plan.",
-          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/plan"
-          },
-          "title": "Info"
-        },
-        {
-          "description": "Info for existing plan.",
           "href": "/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
@@ -10247,7 +10237,17 @@
           "title": "Info"
         },
         {
-          "description": "List existing plans.",
+          "description": "Info for existing plan by Add-on.",
+          "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans/{(%23%2Fdefinitions%2Fplan%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/plan"
+          },
+          "title": "Info By Add-on"
+        },
+        {
+          "description": "List existing plans by Add-on.",
           "href": "/addon-services/{(%23%2Fdefinitions%2Fadd-on-service%2Fdefinitions%2Fidentity)}/plans",
           "method": "GET",
           "rel": "instances",
@@ -10259,7 +10259,7 @@
               "array"
             ]
           },
-          "title": "List"
+          "title": "List By Add-on"
         }
       ],
       "properties": {
@@ -12474,21 +12474,6 @@
           "title": "List"
         },
         {
-          "description": "List team apps.",
-          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/apps",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/team-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List For Organization"
-        },
-        {
           "description": "Info for a team app.",
           "href": "/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}",
           "method": "GET",
@@ -12560,6 +12545,21 @@
             "$ref": "#/definitions/team-app"
           },
           "title": "Transfer to Team"
+        },
+        {
+          "description": "List team apps.",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/apps",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/team-app"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List By Team"
         }
       ],
       "properties": {
@@ -13428,7 +13428,7 @@
           "targetSchema": {
             "$ref": "#/definitions/team-member"
           },
-          "title": "update"
+          "title": "Update"
         },
         {
           "description": "Remove a member from the team.",
@@ -13471,7 +13471,7 @@
               "array"
             ]
           },
-          "title": "App List"
+          "title": "List By Member"
         }
       ],
       "properties": {
@@ -14265,7 +14265,7 @@
               "array"
             ]
           },
-          "title": "List"
+          "title": "List By Organization"
         },
         {
           "description": "Whitelist an Add-on Service",
@@ -14294,7 +14294,7 @@
               "array"
             ]
           },
-          "title": "Create"
+          "title": "Create By Organization"
         },
         {
           "description": "Remove a whitelisted entity",
@@ -14304,7 +14304,7 @@
           "targetSchema": {
             "$ref": "#/definitions/whitelisted-add-on-service"
           },
-          "title": "Delete"
+          "title": "Delete By Organization"
         },
         {
           "description": "List all whitelisted Add-on Services for a Team",
@@ -14319,7 +14319,7 @@
               "array"
             ]
           },
-          "title": "List"
+          "title": "List By Team"
         },
         {
           "description": "Whitelist an Add-on Service",
@@ -14348,7 +14348,7 @@
               "array"
             ]
           },
-          "title": "Create"
+          "title": "Create By Team"
         },
         {
           "description": "Remove a whitelisted entity",
@@ -14358,7 +14358,7 @@
           "targetSchema": {
             "$ref": "#/definitions/whitelisted-add-on-service"
           },
-          "title": "Delete"
+          "title": "Delete By Team"
         }
       ],
       "properties": {
