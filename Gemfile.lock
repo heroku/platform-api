@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    platform-api (2.0.0)
+    platform-api (2.1.0)
       heroics (~> 0.0.23)
       moneta (~> 0.8.1)
 
@@ -11,7 +11,7 @@ GEM
     coderay (1.1.1)
     diff-lcs (1.3)
     erubis (2.7.0)
-    excon (0.55.0)
+    excon (0.57.0)
     heroics (0.0.23)
       erubis (~> 2.0)
       excon
