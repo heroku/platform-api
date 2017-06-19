@@ -1095,6 +1095,27 @@ module PlatformAPI
     def update(app_id_or_app_name, body = {})
       @client.app.update(app_id_or_app_name, body)
     end
+
+    # Enable ACM flag for an app
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def enable_acm(app_id_or_app_name)
+      @client.app.enable_acm(app_id_or_app_name)
+    end
+
+    # Disable ACM flag for an app
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def disable_acm(app_id_or_app_name)
+      @client.app.disable_acm(app_id_or_app_name)
+    end
+
+    # Refresh ACM for an app
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def refresh_acm(app_id_or_app_name)
+      @client.app.refresh_acm(app_id_or_app_name)
+    end
   end
 
   # A build result contains the output from a build.
@@ -5829,9 +5850,42 @@ module PlatformAPI
             "$ref": "#/definitions/app"
           },
           "title": "Update"
+        },
+        {
+          "description": "Enable ACM flag for an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/acm",
+          "method": "POST",
+          "rel": "update",
+          "targetSchema": {
+            "$ref": "#/definitions/app"
+          },
+          "title": "Enable ACM"
+        },
+        {
+          "description": "Disable ACM flag for an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/acm",
+          "method": "DELETE",
+          "rel": "delete",
+          "targetSchema": {
+            "$ref": "#/definitions/app"
+          },
+          "title": "Disable ACM"
+        },
+        {
+          "description": "Refresh ACM for an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/acm",
+          "method": "PATCH",
+          "rel": "update",
+          "targetSchema": {
+            "$ref": "#/definitions/app"
+          },
+          "title": "Refresh ACM"
         }
       ],
       "properties": {
+        "acm": {
+          "$ref": "#/definitions/app/definitions/acm"
+        },
         "archived_at": {
           "$ref": "#/definitions/app/definitions/archived_at"
         },
@@ -6931,6 +6985,15 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "acm_status": {
+          "description": "status of this record's ACM",
+          "example": "pending",
+          "readOnly": true,
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "created_at": {
           "description": "when domain was created",
           "example": "2012-01-01T12:00:00Z",
@@ -7068,6 +7131,9 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "acm_status": {
+          "$ref": "#/definitions/domain/definitions/acm_status"
+        },
         "app": {
           "description": "app that owns the domain",
           "properties": {

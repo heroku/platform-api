@@ -2715,9 +2715,42 @@
             "$ref": "#/definitions/app"
           },
           "title": "Update"
+        },
+        {
+          "description": "Enable ACM flag for an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/acm",
+          "method": "POST",
+          "rel": "update",
+          "targetSchema": {
+            "$ref": "#/definitions/app"
+          },
+          "title": "Enable ACM"
+        },
+        {
+          "description": "Disable ACM flag for an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/acm",
+          "method": "DELETE",
+          "rel": "delete",
+          "targetSchema": {
+            "$ref": "#/definitions/app"
+          },
+          "title": "Disable ACM"
+        },
+        {
+          "description": "Refresh ACM for an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/acm",
+          "method": "PATCH",
+          "rel": "update",
+          "targetSchema": {
+            "$ref": "#/definitions/app"
+          },
+          "title": "Refresh ACM"
         }
       ],
       "properties": {
+        "acm": {
+          "$ref": "#/definitions/app/definitions/acm"
+        },
         "archived_at": {
           "$ref": "#/definitions/app/definitions/archived_at"
         },
@@ -3817,6 +3850,15 @@
         "object"
       ],
       "definitions": {
+        "acm_status": {
+          "description": "status of this record's ACM",
+          "example": "pending",
+          "readOnly": true,
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "created_at": {
           "description": "when domain was created",
           "example": "2012-01-01T12:00:00Z",
@@ -3954,6 +3996,9 @@
         }
       ],
       "properties": {
+        "acm_status": {
+          "$ref": "#/definitions/domain/definitions/acm_status"
+        },
         "app": {
           "description": "app that owns the domain",
           "properties": {
