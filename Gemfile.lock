@@ -3,7 +3,7 @@ PATH
   specs:
     platform-api (2.1.0)
       heroics (~> 0.0.23)
-      moneta (~> 0.8.1)
+      moneta (~> 1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -17,7 +17,7 @@ GEM
       excon
       multi_json (>= 1.9.2)
     method_source (0.8.2)
-    moneta (0.8.1)
+    moneta (1.0.0)
     multi_json (1.12.1)
     netrc (0.11.0)
     pry (0.10.4)
@@ -54,4 +54,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
