@@ -56,9 +56,9 @@ description of all available resources and methods.
 
 ### Handling errors
 
-The client uses [Excon](https://github.com/geemus/excon) under the hood and
-raises `Excon::Errors::Error` exceptions when errors occur.  You can catch specific
-[Excon error types](https://github.com/geemus/excon/blob/master/lib/excon/errors.rb) if you want.
+The client uses [Excon](https://github.com/excon/excon) under the hood and
+raises `Excon::Error` exceptions when errors occur.  You can catch specific
+[Excon error types](https://github.com/excon/excon/blob/master/lib/excon/error.rb) if you want.
 
 ### A real world example
 
