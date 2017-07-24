@@ -6390,6 +6390,21 @@
           "title": "Info"
         },
         {
+          "description": "List existing log drains for an add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/log-drains",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/log-drain"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List By Add-on"
+        },
+        {
           "description": "List existing log drains.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains",
           "method": "GET",
@@ -7575,21 +7590,6 @@
             ]
           },
           "title": "Create"
-        },
-        {
-          "description": "List apps in the default organization, or in personal account, if default organization is not set.",
-          "href": "/organizations/apps",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
         },
         {
           "description": "List organization apps.",
@@ -10671,6 +10671,15 @@
           "type": [
             "boolean"
           ]
+        },
+        "output_stream_url": {
+          "description": "Release command output will be available from this URL as a stream. The stream is available as either `text/plain` or `text/event-stream`. Clients should be prepared to handle disconnects and can resume the stream by sending a `Range` header (for `text/plain`) or a `Last-Event-Id` header (for `text/event-stream`).",
+          "example": "https://release-output.heroku.com/streams/01234567-89ab-cdef-0123-456789abcdef",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "links": [
@@ -10821,6 +10830,9 @@
         },
         "current": {
           "$ref": "#/definitions/release/definitions/current"
+        },
+        "output_stream_url": {
+          "$ref": "#/definitions/release/definitions/output_stream_url"
         }
       }
     },
@@ -11776,8 +11788,8 @@
               "name": {
                 "$ref": "#/definitions/space/definitions/name"
               },
-              "organization": {
-                "$ref": "#/definitions/organization/definitions/name"
+              "team": {
+                "$ref": "#/definitions/team/definitions/name"
               },
               "region": {
                 "$ref": "#/definitions/region/definitions/identity"
@@ -11788,7 +11800,7 @@
             },
             "required": [
               "name",
-              "organization"
+              "team"
             ],
             "type": [
               "object"
@@ -12502,21 +12514,6 @@
             ]
           },
           "title": "Create"
-        },
-        {
-          "description": "List apps in the default team, or in personal account, if default team is not set.",
-          "href": "/teams/apps",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/team-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
         },
         {
           "description": "Info for a team app.",

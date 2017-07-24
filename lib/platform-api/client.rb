@@ -82,7 +82,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/2.0.0"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/2.1.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -1696,6 +1696,13 @@ module PlatformAPI
       @client.log_drain.info(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
     end
 
+    # List existing log drains for an add-on.
+    #
+    # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
+    def list_by_addon(addon_id_or_addon_name)
+      @client.log_drain.list_by_addon(addon_id_or_addon_name)
+    end
+
     # List existing log drains.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
@@ -1907,11 +1914,6 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def create(body = {})
       @client.organization_app.create(body)
-    end
-
-    # List apps in the default organization, or in personal account, if default organization is not set.
-    def list()
-      @client.organization_app.list()
     end
 
     # List organization apps.
@@ -2806,11 +2808,6 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def create(body = {})
       @client.team_app.create(body)
-    end
-
-    # List apps in the default team, or in personal account, if default team is not set.
-    def list()
-      @client.team_app.list()
     end
 
     # Info for a team app.
@@ -9527,6 +9524,21 @@ module PlatformAPI
           "title": "Info"
         },
         {
+          "description": "List existing log drains for an add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/log-drains",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/log-drain"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List By Add-on"
+        },
+        {
           "description": "List existing log drains.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/log-drains",
           "method": "GET",
@@ -10713,21 +10725,6 @@ module PlatformAPI
             ]
           },
           "title": "Create"
-        },
-        {
-          "description": "List apps in the default organization, or in personal account, if default organization is not set.",
-          "href": "/organizations/apps",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
         },
         {
           "description": "List organization apps.",
@@ -13809,6 +13806,15 @@ module PlatformAPI
           "type": [
             "boolean"
           ]
+        },
+        "output_stream_url": {
+          "description": "Release command output will be available from this URL as a stream. The stream is available as either `text/plain` or `text/event-stream`. Clients should be prepared to handle disconnects and can resume the stream by sending a `Range` header (for `text/plain`) or a `Last-Event-Id` header (for `text/event-stream`).",
+          "example": "https://release-output.heroku.com/streams/01234567-89ab-cdef-0123-456789abcdef",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "links": [
@@ -13959,6 +13965,9 @@ module PlatformAPI
         },
         "current": {
           "$ref": "#/definitions/release/definitions/current"
+        },
+        "output_stream_url": {
+          "$ref": "#/definitions/release/definitions/output_stream_url"
         }
       }
     },
@@ -14914,8 +14923,8 @@ module PlatformAPI
               "name": {
                 "$ref": "#/definitions/space/definitions/name"
               },
-              "organization": {
-                "$ref": "#/definitions/organization/definitions/name"
+              "team": {
+                "$ref": "#/definitions/team/definitions/name"
               },
               "region": {
                 "$ref": "#/definitions/region/definitions/identity"
@@ -14926,7 +14935,7 @@ module PlatformAPI
             },
             "required": [
               "name",
-              "organization"
+              "team"
             ],
             "type": [
               "object"
@@ -15640,21 +15649,6 @@ module PlatformAPI
             ]
           },
           "title": "Create"
-        },
-        {
-          "description": "List apps in the default team, or in personal account, if default team is not set.",
-          "href": "/teams/apps",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/team-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
         },
         {
           "description": "Info for a team app.",
