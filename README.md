@@ -190,6 +190,16 @@ heroku.config_var.update('floating-retreat-4255', {'MYAPP' => 'ROCKS'})
 As you can see, any action that needs a request body takes it as a plain Ruby
 object, as the final parameter of the method call.
 
+Using the same principle you can even pass in a specific version of PostgreSQL
+at the time of creation:
+
+```ruby
+heroku.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev', 'config' => {'version' => '9.4'})
+```
+
+Make sure to use the correct version. If the version is incorrect or unsupported,
+it will just error out.
+
 Let's continue by deploying a sample app.  We'll use the
 [Geosockets](https://github.com/heroku-examples/geosockets) example app:
 
