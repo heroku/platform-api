@@ -153,6 +153,30 @@ are allowed to communicate with.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#current-instance_method" title="#current (instance method)">- (Object) <strong>current</strong>(space_id_or_space_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Current outbound ruleset for a space.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(space_id_or_space_name, outbound_ruleset_id) </a>
     
 
@@ -256,12 +280,12 @@ are allowed to communicate with.</p>
       <pre class="lines">
 
 
-1995
-1996
-1997</pre>
+2174
+2175
+2176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1995</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -340,15 +364,76 @@ are allowed to communicate with.</p>
       <pre class="lines">
 
 
-2018
-2019
-2020</pre>
+2204
+2205
+2206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2018</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_outbound_ruleset'>outbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="current-instance_method">
+  
+    - (<tt>Object</tt>) <strong>current</strong>(space_id_or_space_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Current outbound ruleset for a space</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>space_id_or_space_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of space or unique name of space</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2181
+2182
+2183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2181</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current'>current</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_outbound_ruleset'>outbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -417,12 +502,12 @@ are allowed to communicate with.</p>
       <pre class="lines">
 
 
-2003
-2004
-2005</pre>
+2189
+2190
+2191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2003</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2189</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_outbound_ruleset_id'>outbound_ruleset_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_outbound_ruleset'>outbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_outbound_ruleset_id'>outbound_ruleset_id</span><span class='rparen'>)</span>
@@ -478,12 +563,12 @@ are allowed to communicate with.</p>
       <pre class="lines">
 
 
-2010
-2011
-2012</pre>
+2196
+2197
+2198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2010</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2196</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_outbound_ruleset'>outbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -498,9 +583,9 @@ are allowed to communicate with.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:10 2017 by
+  Generated on Tue Sep 26 09:29:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

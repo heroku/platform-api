@@ -153,6 +153,30 @@ cannot connect to an application.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#current-instance_method" title="#current (instance method)">- (Object) <strong>current</strong>(space_id_or_space_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Current inbound ruleset for a space.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#info-instance_method" title="#info (instance method)">- (Object) <strong>info</strong>(space_id_or_space_name, inbound_ruleset_id) </a>
     
 
@@ -256,12 +280,12 @@ cannot connect to an application.</p>
       <pre class="lines">
 
 
-1379
-1380
-1381</pre>
+1532
+1533
+1534</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1379</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1532</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -340,15 +364,76 @@ cannot connect to an application.</p>
       <pre class="lines">
 
 
-1402
-1403
-1404</pre>
+1562
+1563
+1564</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1402</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1562</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="current-instance_method">
+  
+    - (<tt>Object</tt>) <strong>current</strong>(space_id_or_space_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Current inbound ruleset for a space</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>space_id_or_space_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of space or unique name of space</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1539
+1540
+1541</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1539</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current'>current</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -417,12 +502,12 @@ cannot connect to an application.</p>
       <pre class="lines">
 
 
-1387
-1388
-1389</pre>
+1547
+1548
+1549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1387</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1547</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_inbound_ruleset_id'>inbound_ruleset_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_inbound_ruleset_id'>inbound_ruleset_id</span><span class='rparen'>)</span>
@@ -478,12 +563,12 @@ cannot connect to an application.</p>
       <pre class="lines">
 
 
-1394
-1395
-1396</pre>
+1554
+1555
+1556</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1394</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1554</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -498,9 +583,9 @@ cannot connect to an application.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:09 2017 by
+  Generated on Tue Sep 26 09:29:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

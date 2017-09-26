@@ -102,8 +102,8 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Organizations allow you to manage access to a shared group of applications
-across your development team.</p>
+<p>Deprecated: Organizations allow you to manage access to a shared group of
+applications across your development team.</p>
 
 
   </div>
@@ -304,12 +304,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1954
-1955
-1956</pre>
+2133
+2134
+2135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1954</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2133</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -372,12 +372,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1981
-1982
-1983</pre>
+2160
+2161
+2162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1981</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -433,12 +433,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1988
-1989
-1990</pre>
+2167
+2168
+2169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1988</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
@@ -494,12 +494,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1966
-1967
-1968</pre>
+2145
+2146
+2147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1966</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
@@ -535,12 +535,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1959
-1960
-1961</pre>
+2138
+2139
+2140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1959</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -612,12 +612,12 @@ across your development team.</p>
       <pre class="lines">
 
 
-1974
-1975
-1976</pre>
+2153
+2154
+2155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1974</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization'>organization</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -632,9 +632,9 @@ across your development team.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:10 2017 by
+  Generated on Tue Sep 26 09:29:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

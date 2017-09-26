@@ -66,6 +66,11 @@
 
 <p>Ruby HTTP client for the Heroku API.</p>
 
+<blockquote>
+<p>NOTE: v2.0.0 fixed a long-standing issue with duplicated link titles, which
+may break things if you were relying on the now-renamed methods.</p>
+</blockquote>
+
 <h2 id="label-Installation">Installation</h2>
 
 <p>Add this line to your application&#39;s Gemfile:</p>
@@ -130,10 +135,10 @@ methods.</p>
 
 <h3 id="label-Handling+errors">Handling errors</h3>
 
-<p>The client uses <a href="https://github.com/geemus/excon">Excon</a> under
-the hood and raises <code>Excon::Errors::Error</code> exceptions when
-errors occur. You can catch specific <a
-href="https://github.com/geemus/excon/blob/master/lib/excon/errors.rb">Excon
+<p>The client uses <a href="https://github.com/excon/excon">Excon</a> under
+the hood and raises <code>Excon::Error</code> exceptions when errors occur.
+You can catch specific <a
+href="https://github.com/excon/excon/blob/master/lib/excon/error.rb">Excon
 error types</a> if you want.</p>
 
 <h3 id="label-A+real+world+example">A real world example</h3>
@@ -245,7 +250,7 @@ with specific scopes.</p>
 
 <p>Excellent! That will have added a config var which we can now see:</p>
 
-<pre class="code ruby"><code class="ruby">heroku.config_var.info(&#39;floating-retreat-4255&#39;)
+<pre class="code ruby"><code class="ruby">heroku.config_var.info_for_app(&#39;floating-retreat-4255&#39;)
 =&gt; {&quot;HEROKU_POSTGRESQL_COBALT_URL&quot;=&gt;&quot;postgres://&lt;redacted&gt;&quot;}
 </code></pre>
 
@@ -260,6 +265,15 @@ payload:</p>
 
 <p>As you can see, any action that needs a request body takes it as a plain
 Ruby object, as the final parameter of the method call.</p>
+
+<p>Using the same principle you can even pass in a specific version of
+PostgreSQL at the time of creation:</p>
+
+<pre class="code ruby"><code class="ruby">heroku.addon.create(&#39;floating-retreat-4255&#39;, {&#39;plan&#39; =&gt; &#39;heroku-postgresql:dev&#39;, &#39;config&#39; =&gt; {&#39;version&#39; =&gt; &#39;9.4&#39;})
+</code></pre>
+
+<p>Make sure to use the correct version. If the version is incorrect or
+unsupported, it will just error out.</p>
 
 <p>Let&#39;s continue by deploying a sample app. We&#39;ll use the <a
 href="https://github.com/heroku-examples/geosockets">Geosockets</a> example
@@ -428,9 +442,9 @@ repository</a>.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:06 2017 by
+  Generated on Tue Sep 26 09:29:21 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

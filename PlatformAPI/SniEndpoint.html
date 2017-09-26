@@ -304,12 +304,12 @@ traffic, using the SNI TLS extension, to a Heroku app.</p>
       <pre class="lines">
 
 
-2318
-2319
-2320</pre>
+2525
+2526
+2527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2318</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2525</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -388,12 +388,12 @@ traffic, using the SNI TLS extension, to a Heroku app.</p>
       <pre class="lines">
 
 
-2326
-2327
-2328</pre>
+2533
+2534
+2535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2326</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2533</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -465,12 +465,12 @@ traffic, using the SNI TLS extension, to a Heroku app.</p>
       <pre class="lines">
 
 
-2334
-2335
-2336</pre>
+2541
+2542
+2543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2334</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2541</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
@@ -542,12 +542,12 @@ traffic, using the SNI TLS extension, to a Heroku app.</p>
       <pre class="lines">
 
 
-2342
-2343
-2344</pre>
+2549
+2550
+2551</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2342</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2549</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
@@ -603,12 +603,12 @@ traffic, using the SNI TLS extension, to a Heroku app.</p>
       <pre class="lines">
 
 
-2349
-2350
-2351</pre>
+2556
+2557
+2558</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2349</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2556</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -696,12 +696,12 @@ traffic, using the SNI TLS extension, to a Heroku app.</p>
       <pre class="lines">
 
 
-2358
-2359
-2360</pre>
+2565
+2566
+2567</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2358</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2565</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -716,9 +716,9 @@ traffic, using the SNI TLS extension, to a Heroku app.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:11 2017 by
+  Generated on Tue Sep 26 09:29:26 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

@@ -304,12 +304,12 @@ platform.</p>
       <pre class="lines">
 
 
-1409
-1410
-1411</pre>
+1569
+1570
+1571</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1409</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1569</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -372,12 +372,12 @@ platform.</p>
       <pre class="lines">
 
 
-1423
-1424
-1425</pre>
+1583
+1584
+1585</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1423</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1583</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -449,12 +449,12 @@ platform.</p>
       <pre class="lines">
 
 
-1447
-1448
-1449</pre>
+1607
+1608
+1609</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1447</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1607</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finalize'>finalize</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_finalize'>finalize</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -510,12 +510,12 @@ platform.</p>
       <pre class="lines">
 
 
-1416
-1417
-1418</pre>
+1576
+1577
+1578</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1416</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1576</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='rparen'>)</span>
@@ -587,12 +587,12 @@ platform.</p>
       <pre class="lines">
 
 
-1431
-1432
-1433</pre>
+1591
+1592
+1593</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1431</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1591</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_send_verification_code'>send_verification_code</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_send_verification_code'>send_verification_code</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -664,12 +664,12 @@ platform.</p>
       <pre class="lines">
 
 
-1439
-1440
-1441</pre>
+1599
+1600
+1601</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1439</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1599</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_verify'>verify</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_verify'>verify</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation_token'>invitation_token</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -684,9 +684,9 @@ platform.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:09 2017 by
+  Generated on Tue Sep 26 09:29:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(organization_name, body = {}) </a>
+      <a href="#create_by_organization-instance_method" title="#create_by_organization (instance method)">- (Object) <strong>create_by_organization</strong>(organization_name, body = {}) </a>
     
 
     
@@ -152,7 +152,31 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(organization_name, identity_provider_id) </a>
+      <a href="#create_by_team-instance_method" title="#create_by_team (instance method)">- (Object) <strong>create_by_team</strong>(team_name_or_team_id, body = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create an Identity Provider for a team.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_by_organization-instance_method" title="#delete_by_organization (instance method)">- (Object) <strong>delete_by_organization</strong>(organization_name, identity_provider_id) </a>
     
 
     
@@ -168,6 +192,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Delete an organization&#39;s Identity Provider.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_by_team-instance_method" title="#delete_by_team (instance method)">- (Object) <strong>delete_by_team</strong>(team_name, identity_provider_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete a team&#39;s Identity Provider.</p>
 </div></span>
   
 </li>
@@ -202,7 +250,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list-instance_method" title="#list (instance method)">- (Object) <strong>list</strong>(organization_name) </a>
+      <a href="#list_by_organization-instance_method" title="#list_by_organization (instance method)">- (Object) <strong>list_by_organization</strong>(organization_name) </a>
     
 
     
@@ -226,7 +274,31 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(organization_name, identity_provider_id, body = {}) </a>
+      <a href="#list_by_team-instance_method" title="#list_by_team (instance method)">- (Object) <strong>list_by_team</strong>(team_name_or_team_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get a list of a team&#39;s Identity Providers.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_by_organization-instance_method" title="#update_by_organization (instance method)">- (Object) <strong>update_by_organization</strong>(organization_name, identity_provider_id, body = {}) </a>
     
 
     
@@ -242,6 +314,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Update an organization&#39;s Identity Provider.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_by_team-instance_method" title="#update_by_team (instance method)">- (Object) <strong>update_by_team</strong>(team_name_or_team_id, identity_provider_id, body = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update a team&#39;s Identity Provider.</p>
 </div></span>
   
 </li>
@@ -279,12 +375,12 @@
       <pre class="lines">
 
 
-1340
-1341
-1342</pre>
+1461
+1462
+1463</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1340</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1461</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -302,9 +398,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="create-instance_method">
+  <h3 class="signature first" id="create_by_organization-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(organization_name, body = {}) 
+    - (<tt>Object</tt>) <strong>create_by_organization</strong>(organization_name, body = {}) 
   
 
   
@@ -363,15 +459,15 @@
       <pre class="lines">
 
 
-1355
-1356
-1357</pre>
+1476
+1477
+1478</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1355</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1476</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create_by_organization'>create_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_create_by_organization'>create_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -379,9 +475,86 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="delete-instance_method">
+  <h3 class="signature " id="create_by_team-instance_method">
   
-    - (<tt>Object</tt>) <strong>delete</strong>(organization_name, identity_provider_id) 
+    - (<tt>Object</tt>) <strong>create_by_team</strong>(team_name_or_team_id, body = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create an Identity Provider for a team</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>team_name_or_team_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>body:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1508
+1509
+1510</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1508</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_by_organization-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete_by_organization</strong>(organization_name, identity_provider_id) 
   
 
   
@@ -440,15 +613,15 @@
       <pre class="lines">
 
 
-1372
-1373
-1374</pre>
+1493
+1494
+1495</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1372</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1493</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_by_organization'>delete_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_organization'>delete_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -456,9 +629,86 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="list-instance_method">
+  <h3 class="signature " id="delete_by_team-instance_method">
   
-    - (<tt>Object</tt>) <strong>list</strong>(organization_name) 
+    - (<tt>Object</tt>) <strong>delete_by_team</strong>(team_name, identity_provider_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete a team&#39;s Identity Provider</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>team_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of team</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identity_provider_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of this identity provider</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1525
+1526
+1527</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1525</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_by_organization-instance_method">
+  
+    - (<tt>Object</tt>) <strong>list_by_organization</strong>(organization_name) 
   
 
   
@@ -501,15 +751,15 @@
       <pre class="lines">
 
 
-1347
-1348
-1349</pre>
+1468
+1469
+1470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1347</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1468</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_organization'>list_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_list_by_organization'>list_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -517,9 +767,70 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="update-instance_method">
+  <h3 class="signature " id="list_by_team-instance_method">
   
-    - (<tt>Object</tt>) <strong>update</strong>(organization_name, identity_provider_id, body = {}) 
+    - (<tt>Object</tt>) <strong>list_by_team</strong>(team_name_or_team_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get a list of a team&#39;s Identity Providers</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>team_name_or_team_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1500
+1501
+1502</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1500</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_by_organization-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update_by_organization</strong>(organization_name, identity_provider_id, body = {}) 
   
 
   
@@ -594,15 +905,108 @@
       <pre class="lines">
 
 
-1364
-1365
-1366</pre>
+1485
+1486
+1487</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1364</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1485</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_by_organization'>update_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_update_by_organization'>update_by_organization</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_by_team-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update_by_team</strong>(team_name_or_team_id, identity_provider_id, body = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update a team&#39;s Identity Provider</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>team_name_or_team_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identity_provider_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of this identity provider</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>body:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1517
+1518
+1519</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1517</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update_by_team'>update_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_update_by_team'>update_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -614,9 +1018,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:09 2017 by
+  Generated on Tue Sep 26 09:29:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

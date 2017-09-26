@@ -102,7 +102,8 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>An organization invitation represents an invite to an organization.</p>
+<p>Deprecated: An organization invitation represents an invite to an
+organization.</p>
 
 
   </div>
@@ -303,12 +304,12 @@
       <pre class="lines">
 
 
-1819
-1820
-1821</pre>
+1991
+1992
+1993</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1819</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1991</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -371,12 +372,12 @@
       <pre class="lines">
 
 
-1856
-1857
-1858</pre>
+2028
+2029
+2030</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1856</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2028</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accept'>accept</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_invitation_token'>organization_invitation_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_invitation'>organization_invitation</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_invitation_token'>organization_invitation_token</span><span class='rparen'>)</span>
@@ -448,12 +449,12 @@
       <pre class="lines">
 
 
-1834
-1835
-1836</pre>
+2006
+2007
+2008</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1834</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2006</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_invitation'>organization_invitation</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -509,12 +510,12 @@
       <pre class="lines">
 
 
-1849
-1850
-1851</pre>
+2021
+2022
+2023</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1849</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2021</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_invitation_token'>organization_invitation_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_invitation'>organization_invitation</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_invitation_token'>organization_invitation_token</span><span class='rparen'>)</span>
@@ -570,12 +571,12 @@
       <pre class="lines">
 
 
-1826
-1827
-1828</pre>
+1998
+1999
+2000</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1826</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1998</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_invitation'>organization_invitation</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name'>organization_name</span><span class='rparen'>)</span>
@@ -647,12 +648,12 @@
       <pre class="lines">
 
 
-1842
-1843
-1844</pre>
+2014
+2015
+2016</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1842</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2014</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_revoke'>revoke</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_invitation_id'>organization_invitation_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_invitation'>organization_invitation</span><span class='period'>.</span><span class='id identifier rubyid_revoke'>revoke</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_invitation_id'>organization_invitation_id</span><span class='rparen'>)</span>
@@ -667,9 +668,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:10 2017 by
+  Generated on Tue Sep 26 09:29:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

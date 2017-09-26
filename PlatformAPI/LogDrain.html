@@ -252,6 +252,30 @@ app. These drains can only be removed by removing the add-on.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_by_addon-instance_method" title="#list_by_addon (instance method)">- (Object) <strong>list_by_addon</strong>(addon_id_or_addon_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List existing log drains for an add-on.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -284,12 +308,12 @@ app. These drains can only be removed by removing the add-on.</p>
       <pre class="lines">
 
 
-1511
-1512
-1513</pre>
+1671
+1672
+1673</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1511</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1671</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -368,12 +392,12 @@ app. These drains can only be removed by removing the add-on.</p>
       <pre class="lines">
 
 
-1519
-1520
-1521</pre>
+1679
+1680
+1681</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1519</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1679</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -447,12 +471,12 @@ token associated with the log drain</p>
       <pre class="lines">
 
 
-1527
-1528
-1529</pre>
+1687
+1688
+1689</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1527</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1687</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url_or_log_drain_token'>log_drain_id_or_log_drain_url_or_log_drain_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url_or_log_drain_token'>log_drain_id_or_log_drain_url_or_log_drain_token</span><span class='rparen'>)</span>
@@ -525,12 +549,12 @@ token associated with the log drain</p>
       <pre class="lines">
 
 
-1535
-1536
-1537</pre>
+1695
+1696
+1697</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1535</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1695</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url_or_log_drain_token'>log_drain_id_or_log_drain_url_or_log_drain_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_log_drain_id_or_log_drain_url_or_log_drain_token'>log_drain_id_or_log_drain_url_or_log_drain_token</span><span class='rparen'>)</span>
@@ -586,15 +610,76 @@ token associated with the log drain</p>
       <pre class="lines">
 
 
-1542
-1543
-1544</pre>
+1709
+1710
+1711</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1542</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1709</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_by_addon-instance_method">
+  
+    - (<tt>Object</tt>) <strong>list_by_addon</strong>(addon_id_or_addon_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List existing log drains for an add-on.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>addon_id_or_addon_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of add-on or globally unique name of the add-on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1702
+1703
+1704</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1702</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_log_drain'>log_drain</span><span class='period'>.</span><span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -606,9 +691,9 @@ token associated with the log drain</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:09 2017 by
+  Generated on Tue Sep 26 09:29:24 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

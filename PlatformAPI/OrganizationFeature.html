@@ -102,8 +102,8 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>An organization feature represents a feature enabled on an organization
-account.</p>
+<p>Deprecated: An organization feature represents a feature enabled on an
+organization account.</p>
 
 
   </div>
@@ -144,7 +144,7 @@ account.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Info for an existing account feature.</p>
+<p>Info for an existing organization feature.</p>
 </div></span>
   
 </li>
@@ -200,6 +200,30 @@ account.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name, body = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing organization feature.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -232,12 +256,12 @@ account.</p>
       <pre class="lines">
 
 
-1797
-1798
-1799</pre>
+1960
+1961
+1962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1797</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1960</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -266,7 +290,7 @@ account.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Info for an existing account feature.</p>
+<p>Info for an existing organization feature.</p>
 
 
   </div>
@@ -317,12 +341,12 @@ feature</p>
       <pre class="lines">
 
 
-1805
-1806
-1807</pre>
+1968
+1969
+1970</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1805</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1968</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_feature_id_or_organization_feature_name'>organization_feature_id_or_organization_feature_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_feature'>organization_feature</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_feature_id_or_organization_feature_name'>organization_feature_id_or_organization_feature_name</span><span class='rparen'>)</span>
@@ -378,15 +402,109 @@ feature</p>
       <pre class="lines">
 
 
-1812
-1813
-1814</pre>
+1975
+1976
+1977</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1812</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1975</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_feature'>organization_feature</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update</strong>(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name, body = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update an existing organization feature.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>organization_name_or_organization_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of organization or unique identifier of organization</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>organization_feature_id_or_organization_feature_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of organization feature or unique name of organization
+feature</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>body:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1984
+1985
+1986</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1984</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_feature_id_or_organization_feature_name'>organization_feature_id_or_organization_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_organization_feature'>organization_feature</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_organization_name_or_organization_id'>organization_name_or_organization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_organization_feature_id_or_organization_feature_name'>organization_feature_id_or_organization_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -398,9 +516,9 @@ feature</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 24 10:19:10 2017 by
+  Generated on Tue Sep 26 09:29:25 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>
