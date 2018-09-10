@@ -489,6 +489,48 @@
                   "$ref": "#/definitions/organization/definitions/name"
                 }
               }
+            },
+            "owner": {
+              "description": "entity that owns this identity provider",
+              "properties": {
+                "id": {
+                  "description": "unique identifier of the owner",
+                  "example": "01234567-89ab-cdef-0123-456789abcdef",
+                  "format": "uuid",
+                  "readOnly": true,
+                  "type": [
+                    "string"
+                  ]
+                },
+                "name": {
+                  "description": "name of the owner",
+                  "example": "acme",
+                  "readOnly": true,
+                  "type": [
+                    "string"
+                  ]
+                },
+                "type": {
+                  "description": "type of the owner",
+                  "enum": [
+                    "team",
+                    "enterprise-account"
+                  ],
+                  "example": "team",
+                  "readOnly": true,
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "readOnly": false,
+              "required": [
+                "id",
+                "type"
+              ],
+              "type": [
+                "object"
+              ]
             }
           },
           "type": [
@@ -584,6 +626,13 @@
         "object"
       ],
       "definitions": {
+        "confirm": {
+          "description": "name of owning app for confirmation",
+          "example": "example",
+          "type": [
+            "string"
+          ]
+        },
         "created_at": {
           "description": "when add-on attachment was created",
           "example": "2012-01-01T12:00:00Z",
@@ -600,15 +649,6 @@
           "readOnly": true,
           "type": [
             "string"
-          ]
-        },
-        "force": {
-          "default": false,
-          "description": "whether or not to allow existing attachment with same name to be replaced",
-          "example": false,
-          "readOnly": false,
-          "type": [
-            "boolean"
           ]
         },
         "identity": {
@@ -679,8 +719,8 @@
               "app": {
                 "$ref": "#/definitions/app/definitions/identity"
               },
-              "force": {
-                "$ref": "#/definitions/add-on-attachment/definitions/force"
+              "confirm": {
+                "$ref": "#/definitions/add-on-attachment/definitions/confirm"
               },
               "name": {
                 "$ref": "#/definitions/add-on-attachment/definitions/name"
@@ -776,6 +816,37 @@
             "$ref": "#/definitions/add-on-attachment"
           },
           "title": "Info by App"
+        },
+        {
+          "description": "Resolve an add-on attachment from a name, optionally passing an app name. If there are matches it returns at least one add-on attachment (exact match) or many.",
+          "href": "/actions/addon-attachments/resolve",
+          "method": "POST",
+          "rel": "resolve",
+          "schema": {
+            "properties": {
+              "addon_attachment": {
+                "$ref": "#/definitions/add-on-attachment/definitions/name"
+              },
+              "app": {
+                "$ref": "#/definitions/app/definitions/name"
+              },
+              "addon_service": {
+                "$ref": "#/definitions/add-on-service/definitions/name"
+              }
+            },
+            "required": [
+              "addon_attachment"
+            ]
+          },
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on-attachment"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "Resolution"
         }
       ],
       "properties": {
@@ -802,21 +873,6 @@
                 }
               },
               "strictProperties": true
-            },
-            "plan": {
-              "description": "identity of add-on plan",
-              "properties": {
-                "id": {
-                  "$ref": "#/definitions/plan/definitions/id"
-                },
-                "name": {
-                  "$ref": "#/definitions/plan/definitions/name"
-                }
-              },
-              "strictProperties": true,
-              "type": [
-                "object"
-              ]
             }
           },
           "additionalProperties": false,
@@ -1280,6 +1336,270 @@
         }
       }
     },
+    "add-on-webhook-delivery": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - Add-on Webhook Delivery",
+      "description": "Represents the delivery of a webhook notification, including its current status.",
+      "stability": "production",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "links": [
+        {
+          "description": "Returns the info for an existing delivery.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhook-deliveries/{(%23%2Fdefinitions%2Fapp-webhook-delivery%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook-delivery"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Lists existing deliveries for an add-on.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhook-deliveries",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/app-webhook-delivery"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ]
+    },
+    "add-on-webhook-event": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - Add-on Webhook Event",
+      "description": "Represents a webhook event that occurred.",
+      "stability": "production",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "links": [
+        {
+          "description": "Returns the info for a specified webhook event.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhook-events/{(%23%2Fdefinitions%2Fapp-webhook-event%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook-event"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Lists existing webhook events for an add-on.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhook-events",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/app-webhook-event"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ]
+    },
+    "add-on-webhook": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - Add-on Webhook",
+      "description": "Represents the details of a webhook subscription",
+      "stability": "production",
+      "strictProperties": false,
+      "additionalProperties": false,
+      "required": [
+        "created_at",
+        "id",
+        "include",
+        "level",
+        "updated_at",
+        "url"
+      ],
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "addon_webhook": {
+          "properties": {
+            "addon": {
+              "description": "identity of add-on. Only used for add-on partner webhooks.",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/add-on/definitions/id"
+                },
+                "name": {
+                  "$ref": "#/definitions/add-on/definitions/name"
+                }
+              },
+              "strictProperties": true,
+              "type": [
+                "object"
+              ]
+            },
+            "created_at": {
+              "$ref": "#/definitions/app-webhook/definitions/created_at"
+            },
+            "id": {
+              "$ref": "#/definitions/app-webhook/definitions/id"
+            },
+            "include": {
+              "$ref": "#/definitions/app-webhook/definitions/include"
+            },
+            "level": {
+              "$ref": "#/definitions/app-webhook/definitions/level"
+            },
+            "updated_at": {
+              "$ref": "#/definitions/app-webhook/definitions/updated_at"
+            },
+            "url": {
+              "$ref": "#/definitions/app-webhook/definitions/url"
+            }
+          },
+          "description": "add-on webhook",
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhooks",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "authorization": {
+                "$ref": "#/definitions/app-webhook/definitions/authorization"
+              },
+              "include": {
+                "$ref": "#/definitions/app-webhook/definitions/include"
+              },
+              "level": {
+                "$ref": "#/definitions/app-webhook/definitions/level"
+              },
+              "secret": {
+                "$ref": "#/definitions/app-webhook/definitions/secret"
+              },
+              "url": {
+                "$ref": "#/definitions/app-webhook/definitions/url"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "include",
+              "level",
+              "url"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/add-on-webhook/definitions/addon_webhook"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Removes an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhooks/{(%23%2Fdefinitions%2Fapp-webhook%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/add-on-webhook/definitions/addon_webhook"
+          },
+          "title": "Delete"
+        },
+        {
+          "description": "Returns the info for an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhooks/{(%23%2Fdefinitions%2Fapp-webhook%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/add-on-webhook/definitions/addon_webhook"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List all webhook subscriptions for a particular add-on.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhooks",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on-webhook/definitions/addon_webhook"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Updates the details of an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/webhooks/{(%23%2Fdefinitions%2Fapp-webhook%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "authorization": {
+                "$ref": "#/definitions/app-webhook/definitions/authorization"
+              },
+              "include": {
+                "$ref": "#/definitions/app-webhook/definitions/include"
+              },
+              "level": {
+                "$ref": "#/definitions/app-webhook/definitions/level"
+              },
+              "secret": {
+                "$ref": "#/definitions/app-webhook/definitions/secret"
+              },
+              "url": {
+                "$ref": "#/definitions/app-webhook/definitions/url"
+              }
+            },
+            "strictProperties": false,
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/add-on-webhook/definitions/addon_webhook"
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/app-webhook/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/app-webhook/definitions/id"
+        },
+        "include": {
+          "$ref": "#/definitions/app-webhook/definitions/include"
+        },
+        "level": {
+          "$ref": "#/definitions/app-webhook/definitions/level"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/app-webhook/definitions/updated_at"
+        },
+        "url": {
+          "$ref": "#/definitions/app-webhook/definitions/url"
+        }
+      }
+    },
     "add-on": {
       "description": "Add-ons represent add-ons that have been provisioned and attached to one or more apps.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -1319,6 +1639,14 @@
             }
           }
         },
+        "cents": {
+          "description": "price in cents per unit of add-on",
+          "example": 0,
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
         "config_vars": {
           "description": "config vars exposed to the owning app by this add-on",
           "example": [
@@ -1333,6 +1661,13 @@
           "readOnly": true,
           "type": [
             "array"
+          ]
+        },
+        "confirm": {
+          "description": "name of billing entity for confirmation",
+          "example": "example",
+          "type": [
+            "string"
           ]
         },
         "created_at": {
@@ -1388,6 +1723,14 @@
             "deprovisioned"
           ],
           "example": "provisioned",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "unit": {
+          "description": "unit of price for add-on",
+          "example": "month",
           "readOnly": true,
           "type": [
             "string"
@@ -1451,8 +1794,10 @@
                 "example": {
                   "name": "DATABASE_FOLLOWER"
                 },
-                "name": {
-                  "$ref": "#/definitions/add-on-attachment/definitions/name"
+                "properties": {
+                  "name": {
+                    "$ref": "#/definitions/add-on-attachment/definitions/name"
+                  }
                 },
                 "type": [
                   "object"
@@ -1475,8 +1820,14 @@
                   "object"
                 ]
               },
+              "confirm": {
+                "$ref": "#/definitions/add-on/definitions/confirm"
+              },
               "plan": {
                 "$ref": "#/definitions/plan/definitions/identity"
+              },
+              "name": {
+                "$ref": "#/definitions/add-on/definitions/name"
               }
             },
             "required": [
@@ -1575,6 +1926,37 @@
             ]
           },
           "title": "List By Team"
+        },
+        {
+          "description": "Resolve an add-on from a name, optionally passing an app name. If there are matches it returns at least one add-on (exact match) or many.",
+          "href": "/actions/addons/resolve",
+          "method": "POST",
+          "rel": "resolve",
+          "schema": {
+            "properties": {
+              "addon": {
+                "$ref": "#/definitions/add-on/definitions/name"
+              },
+              "app": {
+                "$ref": "#/definitions/app/definitions/name"
+              },
+              "addon_service": {
+                "$ref": "#/definitions/add-on-service/definitions/name"
+              }
+            },
+            "required": [
+              "addon"
+            ]
+          },
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "Resolution"
         }
       ],
       "properties": {
@@ -1596,6 +1978,44 @@
             "object"
           ]
         },
+        "billing_entity": {
+          "description": "billing entity associated with this add-on",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "description": "unique identifier of the billing entity",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "description": "name of the billing entity",
+              "example": "example",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "description": "type of Object of the billing entity; new types allowed at any time.",
+              "enum": [
+                "app",
+                "team"
+              ],
+              "example": "app",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "strictProperties": true
+        },
         "app": {
           "description": "billing application associated with this add-on",
           "type": [
@@ -1610,6 +2030,25 @@
             }
           },
           "strictProperties": true
+        },
+        "billed_price": {
+          "description": "billed price",
+          "properties": {
+            "cents": {
+              "$ref": "#/definitions/plan/definitions/cents"
+            },
+            "contract": {
+              "$ref": "#/definitions/plan/definitions/contract"
+            },
+            "unit": {
+              "$ref": "#/definitions/plan/definitions/unit"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
         },
         "config_vars": {
           "$ref": "#/definitions/add-on/definitions/config_vars"
@@ -1861,7 +2300,6 @@
           "description": "application process tier",
           "enum": [
             "production",
-            "traditional",
             "free",
             "hobby",
             "private"
@@ -2459,6 +2897,643 @@
         }
       }
     },
+    "app-webhook-delivery": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - App Webhook Delivery",
+      "description": "Represents the delivery of a webhook notification, including its current status.",
+      "stability": "production",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "attempt_id": {
+          "description": "unique identifier of attempt",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "attempt_error_class": {
+          "description": "error class encountered during attempt",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attempt_code": {
+          "description": "http response code received during attempt",
+          "readOnly": true,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "attempt_created_at": {
+          "description": "when attempt was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "attempt_updated_at": {
+          "description": "when attempt was updated",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "attempt_status": {
+          "description": "status of an attempt",
+          "enum": [
+            "scheduled",
+            "succeeded",
+            "failed"
+          ],
+          "example": "scheduled",
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when the delivery was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "the delivery's unique identifier",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "num_attempts": {
+          "description": "number of times a delivery has been attempted",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/app-webhook-delivery/definitions/id"
+            }
+          ]
+        },
+        "next_attempt_at": {
+          "description": "when delivery will be attempted again",
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "description": "the delivery's status",
+          "enum": [
+            "pending",
+            "scheduled",
+            "retrying",
+            "failed",
+            "succeeded"
+          ],
+          "example": "pending",
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when the delivery was last updated",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Returns the info for an existing delivery.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhook-deliveries/{(%23%2Fdefinitions%2Fapp-webhook-delivery%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook-delivery"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Lists existing deliveries for an app.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhook-deliveries",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/app-webhook-delivery"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/app-webhook-delivery/definitions/created_at"
+        },
+        "event": {
+          "description": "identity of event",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app-webhook-event/definitions/id"
+            },
+            "include": {
+              "$ref": "#/definitions/app-webhook-event/definitions/include"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "id": {
+          "$ref": "#/definitions/app-webhook-delivery/definitions/id"
+        },
+        "num_attempts": {
+          "$ref": "#/definitions/app-webhook-delivery/definitions/num_attempts"
+        },
+        "next_attempt_at": {
+          "$ref": "#/definitions/app-webhook-delivery/definitions/next_attempt_at"
+        },
+        "last_attempt": {
+          "description": "last attempt of a delivery",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app-webhook-delivery/definitions/attempt_id"
+            },
+            "code": {
+              "$ref": "#/definitions/app-webhook-delivery/definitions/attempt_code"
+            },
+            "error_class": {
+              "$ref": "#/definitions/app-webhook-delivery/definitions/attempt_error_class"
+            },
+            "status": {
+              "$ref": "#/definitions/app-webhook-delivery/definitions/attempt_status"
+            },
+            "created_at": {
+              "$ref": "#/definitions/app-webhook-delivery/definitions/attempt_created_at"
+            },
+            "updated_at": {
+              "$ref": "#/definitions/app-webhook-delivery/definitions/attempt_updated_at"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "status": {
+          "$ref": "#/definitions/app-webhook-delivery/definitions/status"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/app-webhook-delivery/definitions/updated_at"
+        },
+        "webhook": {
+          "description": "identity of webhook",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app-webhook/definitions/id"
+            },
+            "level": {
+              "$ref": "#/definitions/app-webhook/definitions/level"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        }
+      }
+    },
+    "app-webhook-event": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - App Webhook Event",
+      "description": "Represents a webhook event that occurred.",
+      "stability": "production",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "action": {
+          "description": "the type of event that occurred",
+          "example": "create",
+          "type": [
+            "string"
+          ]
+        },
+        "actor": {
+          "description": "user that caused event",
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "created_at": {
+          "description": "when event was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "data": {
+          "description": "the current details of the event",
+          "type": [
+            "object"
+          ]
+        },
+        "id": {
+          "description": "the event's unique identifier",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/app-webhook-event/definitions/id"
+            }
+          ]
+        },
+        "include": {
+          "description": "the type of entity that the event is related to",
+          "example": "api:release",
+          "type": [
+            "string"
+          ]
+        },
+        "payload": {
+          "description": "payload of event",
+          "properties": {
+            "action": {
+              "$ref": "#/definitions/app-webhook-event/definitions/action"
+            },
+            "actor": {
+              "$ref": "#/definitions/app-webhook-event/definitions/actor"
+            },
+            "data": {
+              "$ref": "#/definitions/app-webhook-event/definitions/data"
+            },
+            "previous_data": {
+              "$ref": "#/definitions/app-webhook-event/definitions/previous_data"
+            },
+            "resource": {
+              "$ref": "#/definitions/app-webhook-event/definitions/resource"
+            },
+            "version": {
+              "$ref": "#/definitions/app-webhook-event/definitions/version"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "previous_data": {
+          "description": "previous details of the event (if any)",
+          "type": [
+            "object"
+          ]
+        },
+        "resource": {
+          "description": "the type of resource associated with the event",
+          "example": "release",
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when the event was last updated",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "version": {
+          "description": "the version of the details provided for the event",
+          "example": "1",
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Returns the info for a specified webhook event.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhook-events/{(%23%2Fdefinitions%2Fapp-webhook-event%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook-event"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Lists existing webhook events for an app.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhook-events",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/app-webhook-event"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/app-webhook-event/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/app-webhook-event/definitions/id"
+        },
+        "include": {
+          "$ref": "#/definitions/app-webhook-event/definitions/include"
+        },
+        "payload": {
+          "$ref": "#/definitions/app-webhook-event/definitions/payload"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/app-webhook-event/definitions/updated_at"
+        }
+      }
+    },
+    "app-webhook": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - App Webhook",
+      "description": "Represents the details of a webhook subscription",
+      "stability": "production",
+      "strictProperties": false,
+      "additionalProperties": false,
+      "required": [
+        "created_at",
+        "id",
+        "include",
+        "level",
+        "updated_at",
+        "url"
+      ],
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "authorization": {
+          "description": "a custom `Authorization` header that Heroku will include with all webhook notifications",
+          "example": "Bearer 9266671b2767f804c9d5809c2d384ed57d8f8ce1abd1043e1fb3fbbcb8c3",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "when the webhook was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "the webhook's unique identifier",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "include": {
+          "description": "the entities that the subscription provides notifications for",
+          "items": {
+            "example": "api:release",
+            "type": [
+              "string"
+            ]
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "level": {
+          "description": "if `notify`, Heroku makes a single, fire-and-forget delivery attempt. If `sync`, Heroku attempts multiple deliveries until the request is successful or a limit is reached",
+          "enum": [
+            "notify",
+            "sync"
+          ],
+          "example": "notify",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/app-webhook/definitions/id"
+            }
+          ]
+        },
+        "secret": {
+          "description": "a value that Heroku will use to sign all webhook notification requests (the signature is included in the request’s `Heroku-Webhook-Hmac-SHA256` header)",
+          "example": "dcbff0c4430a2960a2552389d587bc58d30a37a8cf3f75f8fb77abe667ad",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when the webhook was updated",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "url": {
+          "description": "the URL where the webhook's notification requests are sent",
+          "format": "uri",
+          "type": [
+            "string"
+          ]
+        },
+        "app_webhook": {
+          "properties": {
+            "app": {
+              "description": "identity of app. Only used for customer webhooks.",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/app/definitions/id"
+                },
+                "name": {
+                  "$ref": "#/definitions/app/definitions/name"
+                }
+              },
+              "strictProperties": true,
+              "type": [
+                "object"
+              ]
+            },
+            "created_at": {
+              "$ref": "#/definitions/app-webhook/definitions/created_at"
+            },
+            "id": {
+              "$ref": "#/definitions/app-webhook/definitions/id"
+            },
+            "include": {
+              "$ref": "#/definitions/app-webhook/definitions/include"
+            },
+            "level": {
+              "$ref": "#/definitions/app-webhook/definitions/level"
+            },
+            "updated_at": {
+              "$ref": "#/definitions/app-webhook/definitions/updated_at"
+            },
+            "url": {
+              "$ref": "#/definitions/app-webhook/definitions/url"
+            }
+          },
+          "description": "app webhook",
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create an app webhook subscription.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhooks",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "authorization": {
+                "$ref": "#/definitions/app-webhook/definitions/authorization"
+              },
+              "include": {
+                "$ref": "#/definitions/app-webhook/definitions/include"
+              },
+              "level": {
+                "$ref": "#/definitions/app-webhook/definitions/level"
+              },
+              "secret": {
+                "$ref": "#/definitions/app-webhook/definitions/secret"
+              },
+              "url": {
+                "$ref": "#/definitions/app-webhook/definitions/url"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "include",
+              "level",
+              "url"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook/definitions/app_webhook"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Removes an app webhook subscription.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhooks/{(%23%2Fdefinitions%2Fapp-webhook%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook/definitions/app_webhook"
+          },
+          "title": "Delete"
+        },
+        {
+          "description": "Returns the info for an app webhook subscription.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhooks/{(%23%2Fdefinitions%2Fapp-webhook%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook/definitions/app_webhook"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List all webhook subscriptions for a particular app.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhooks",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/app-webhook/definitions/app_webhook"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Updates the details of an app webhook subscription.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/webhooks/{(%23%2Fdefinitions%2Fapp-webhook%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "authorization": {
+                "$ref": "#/definitions/app-webhook/definitions/authorization"
+              },
+              "include": {
+                "$ref": "#/definitions/app-webhook/definitions/include"
+              },
+              "level": {
+                "$ref": "#/definitions/app-webhook/definitions/level"
+              },
+              "secret": {
+                "$ref": "#/definitions/app-webhook/definitions/secret"
+              },
+              "url": {
+                "$ref": "#/definitions/app-webhook/definitions/url"
+              }
+            },
+            "strictProperties": false,
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/app-webhook/definitions/app_webhook"
+          },
+          "title": "Update"
+        }
+      ]
+    },
     "app": {
       "description": "An app represents the program that you would like to deploy and run on Heroku.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -2780,6 +3855,9 @@
         },
         "id": {
           "$ref": "#/definitions/app/definitions/id"
+        },
+        "internal_routing": {
+          "$ref": "#/definitions/team-app/definitions/internal_routing"
         },
         "maintenance": {
           "$ref": "#/definitions/app/definitions/maintenance"
@@ -3133,6 +4211,14 @@
             "object"
           ]
         },
+        "stack": {
+          "description": "stack of build",
+          "example": "heroku-16",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "status": {
           "description": "status of build",
           "enum": [
@@ -3211,6 +4297,13 @@
             ]
           },
           "title": "List"
+        },
+        {
+          "description": "Destroy a build cache.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/build-cache",
+          "method": "DELETE",
+          "rel": "empty",
+          "title": "Delete cache"
         }
       ],
       "properties": {
@@ -3256,6 +4349,9 @@
             "object",
             "null"
           ]
+        },
+        "stack": {
+          "$ref": "#/definitions/build/definitions/stack"
         },
         "status": {
           "$ref": "#/definitions/build/definitions/status"
@@ -3859,6 +4955,15 @@
             "string"
           ]
         },
+        "acm_status_reason": {
+          "description": "reason for the status of this record's ACM",
+          "example": "Failing CCA check",
+          "readOnly": true,
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "created_at": {
           "description": "when domain was created",
           "example": "2012-01-01T12:00:00Z",
@@ -3998,6 +5103,9 @@
       "properties": {
         "acm_status": {
           "$ref": "#/definitions/domain/definitions/acm_status"
+        },
+        "acm_status_reason": {
+          "$ref": "#/definitions/domain/definitions/acm_status_reason"
         },
         "app": {
           "description": "app that owns the domain",
@@ -4384,7 +5492,7 @@
           "method": "DELETE",
           "rel": "empty",
           "targetSchema": {
-            "additionalPoperties": false,
+            "additionalProperties": false,
             "type": [
               "object"
             ]
@@ -4397,7 +5505,7 @@
           "method": "DELETE",
           "rel": "empty",
           "targetSchema": {
-            "additionalPoperties": false,
+            "additionalProperties": false,
             "type": [
               "object"
             ]
@@ -4410,7 +5518,7 @@
           "method": "POST",
           "rel": "empty",
           "targetSchema": {
-            "additionalPoperties": false,
+            "additionalProperties": false,
             "type": [
               "object"
             ]
@@ -4499,369 +5607,6 @@
         },
         "updated_at": {
           "$ref": "#/definitions/dyno/definitions/updated_at"
-        }
-      }
-    },
-    "event": {
-      "description": "An event represents an action performed on another API resource.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "development",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Event",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "action": {
-          "description": "the operation performed on the resource",
-          "enum": [
-            "create",
-            "destroy",
-            "update"
-          ],
-          "example": "create",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "created_at": {
-          "description": "when the event was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "data": {
-          "description": "the serialized resource affected by the event",
-          "example": {
-          },
-          "anyOf": [
-            {
-              "$ref": "#/definitions/account"
-            },
-            {
-              "$ref": "#/definitions/add-on"
-            },
-            {
-              "$ref": "#/definitions/add-on-attachment"
-            },
-            {
-              "$ref": "#/definitions/app"
-            },
-            {
-              "$ref": "#/definitions/app-formation-set"
-            },
-            {
-              "$ref": "#/definitions/app-setup"
-            },
-            {
-              "$ref": "#/definitions/app-transfer"
-            },
-            {
-              "$ref": "#/definitions/build"
-            },
-            {
-              "$ref": "#/definitions/collaborator"
-            },
-            {
-              "$ref": "#/definitions/domain"
-            },
-            {
-              "$ref": "#/definitions/dyno"
-            },
-            {
-              "$ref": "#/definitions/failed-event"
-            },
-            {
-              "$ref": "#/definitions/formation"
-            },
-            {
-              "$ref": "#/definitions/inbound-ruleset"
-            },
-            {
-              "$ref": "#/definitions/organization"
-            },
-            {
-              "$ref": "#/definitions/release"
-            },
-            {
-              "$ref": "#/definitions/space"
-            },
-            {
-              "$ref": "#/definitions/team"
-            }
-          ],
-          "readOnly": true,
-          "type": [
-            "object"
-          ]
-        },
-        "id": {
-          "description": "unique identifier of an event",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/event/definitions/id"
-            }
-          ]
-        },
-        "published_at": {
-          "description": "when the event was published",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource": {
-          "description": "the type of resource affected",
-          "enum": [
-            "addon",
-            "addon-attachment",
-            "app",
-            "app-setup",
-            "app-transfer",
-            "build",
-            "collaborator",
-            "domain",
-            "dyno",
-            "failed-event",
-            "formation",
-            "formation-set",
-            "inbound-ruleset",
-            "organization",
-            "release",
-            "space",
-            "team",
-            "user"
-          ],
-          "example": "app",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "sequence": {
-          "description": "a numeric string representing the event's sequence",
-          "example": "1234567890",
-          "pattern": "^[0-9]{1,128}$",
-          "readOnly": true,
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "updated_at": {
-          "description": "when the event was updated (same as created)",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "version": {
-          "description": "the event's API version string",
-          "example": "application/vnd.heroku+json; version=3",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-      ],
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/event/definitions/action"
-        },
-        "actor": {
-          "description": "user that performed the operation",
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "created_at": {
-          "$ref": "#/definitions/event/definitions/created_at"
-        },
-        "data": {
-          "$ref": "#/definitions/event/definitions/data"
-        },
-        "id": {
-          "$ref": "#/definitions/event/definitions/id"
-        },
-        "previous_data": {
-          "description": "data fields that were changed during update with previous values",
-          "type": [
-            "object"
-          ]
-        },
-        "published_at": {
-          "$ref": "#/definitions/event/definitions/published_at"
-        },
-        "resource": {
-          "$ref": "#/definitions/event/definitions/resource"
-        },
-        "sequence": {
-          "$ref": "#/definitions/event/definitions/sequence"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/event/definitions/updated_at"
-        },
-        "version": {
-          "$ref": "#/definitions/event/definitions/version"
-        }
-      }
-    },
-    "failed-event": {
-      "description": "A failed event represents a failure of an action performed on another API resource.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "development",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Failed Event",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "action": {
-          "description": "The attempted operation performed on the resource.",
-          "enum": [
-            "create",
-            "destroy",
-            "update",
-            "unknown"
-          ],
-          "example": "create",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "error_id": {
-          "description": "ID of error raised.",
-          "example": "rate_limit",
-          "readOnly": true,
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "message": {
-          "description": "A detailed error message.",
-          "example": "Your account reached the API rate limit\nPlease wait a few minutes before making new requests",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "method": {
-          "description": "The HTTP method type of the failed action.",
-          "enum": [
-            "DELETE",
-            "GET",
-            "HEAD",
-            "OPTIONS",
-            "PATCH",
-            "POST",
-            "PUT"
-          ],
-          "example": "POST",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "code": {
-          "description": "An HTTP status code.",
-          "example": 404,
-          "readOnly": true,
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/event/definitions/id"
-            }
-          ]
-        },
-        "path": {
-          "description": "The path of the attempted operation.",
-          "example": "/apps/my-app",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "resource_id": {
-          "description": "Unique identifier of a resource.",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-      ],
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/failed-event/definitions/action"
-        },
-        "code": {
-          "$ref": "#/definitions/failed-event/definitions/code"
-        },
-        "error_id": {
-          "$ref": "#/definitions/failed-event/definitions/error_id"
-        },
-        "message": {
-          "$ref": "#/definitions/failed-event/definitions/message"
-        },
-        "method": {
-          "$ref": "#/definitions/failed-event/definitions/method"
-        },
-        "path": {
-          "$ref": "#/definitions/failed-event/definitions/path"
-        },
-        "resource": {
-          "description": "The related resource of the failed action.",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/failed-event/definitions/resource_id"
-            },
-            "name": {
-              "$ref": "#/definitions/event/definitions/resource"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object",
-            "null"
-          ]
         }
       }
     },
@@ -5225,6 +5970,48 @@
           "type": [
             "string"
           ]
+        },
+        "owner": {
+          "description": "entity that owns this identity provider",
+          "properties": {
+            "id": {
+              "description": "unique identifier of the owner",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "description": "name of the owner",
+              "example": "acme",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "description": "type of the owner",
+              "enum": [
+                "team",
+                "enterprise-account"
+              ],
+              "example": "team",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "readOnly": false,
+          "required": [
+            "id",
+            "type"
+          ],
+          "type": [
+            "object"
+          ]
         }
       },
       "links": [
@@ -5438,6 +6225,9 @@
         },
         "updated_at": {
           "$ref": "#/definitions/identity-provider/definitions/updated_at"
+        },
+        "owner": {
+          "$ref": "#/definitions/identity-provider/definitions/owner"
         }
       }
     },
@@ -5579,6 +6369,20 @@
         "id": {
           "$ref": "#/definitions/inbound-ruleset/definitions/id"
         },
+        "space": {
+          "description": "identity of space",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/space/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/space/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
         "created_at": {
           "$ref": "#/definitions/inbound-ruleset/definitions/created_at"
         },
@@ -5592,210 +6396,6 @@
         },
         "created_by": {
           "$ref": "#/definitions/account/definitions/email"
-        }
-      }
-    },
-    "invitation": {
-      "description": "An invitation represents an invite sent to a user to use the Heroku platform.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "production",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Invitation",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "created_at": {
-          "description": "when invitation was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/invitation/definitions/token"
-            }
-          ]
-        },
-        "receive_newsletter": {
-          "description": "whether this user should receive a newsletter or not",
-          "example": false,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        },
-        "verification_required": {
-          "description": "if the invitation requires verification",
-          "example": false,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        },
-        "token": {
-          "description": "Unique identifier of an invitation",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "phone_number": {
-          "description": "Phone number to send verification code",
-          "example": "+1 123-123-1234",
-          "type": [
-            "string"
-          ]
-        },
-        "method": {
-          "description": "Transport used to send verification code",
-          "example": "sms",
-          "default": "sms",
-          "type": [
-            "string"
-          ],
-          "enum": [
-            "call",
-            "sms"
-          ]
-        },
-        "verification_code": {
-          "description": "Value used to verify invitation",
-          "example": "123456",
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Info for invitation.",
-          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "title": "Info"
-        },
-        {
-          "description": "Invite a user.",
-          "href": "/invitations",
-          "method": "POST",
-          "rel": "self",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/account/definitions/email"
-              },
-              "name": {
-                "$ref": "#/definitions/account/definitions/name"
-              }
-            },
-            "required": [
-              "email",
-              "name"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Create"
-        },
-        {
-          "description": "Send a verification code for an invitation via SMS/phone call.",
-          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}/actions/send-verification",
-          "method": "POST",
-          "rel": "empty",
-          "schema": {
-            "properties": {
-              "phone_number": {
-                "$ref": "#/definitions/invitation/definitions/phone_number"
-              },
-              "method": {
-                "$ref": "#/definitions/invitation/definitions/method"
-              }
-            },
-            "required": [
-              "phone_number"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Send Verification Code"
-        },
-        {
-          "description": "Verify an invitation using a verification code.",
-          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}/actions/verify",
-          "method": "POST",
-          "rel": "self",
-          "schema": {
-            "properties": {
-              "verification_code": {
-                "$ref": "#/definitions/invitation/definitions/verification_code"
-              }
-            },
-            "required": [
-              "verification_code"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Verify"
-        },
-        {
-          "description": "Finalize Invitation and Create Account.",
-          "href": "/invitations/{(%23%2Fdefinitions%2Finvitation%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "password": {
-                "$ref": "#/definitions/account/definitions/password"
-              },
-              "password_confirmation": {
-                "$ref": "#/definitions/account/definitions/password"
-              },
-              "receive_newsletter": {
-                "$ref": "#/definitions/invitation/definitions/receive_newsletter"
-              }
-            },
-            "required": [
-              "password",
-              "password_confirmation"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Finalize"
-        }
-      ],
-      "properties": {
-        "verification_required": {
-          "$ref": "#/definitions/invitation/definitions/verification_required"
-        },
-        "created_at": {
-          "$ref": "#/definitions/invitation/definitions/created_at"
-        },
-        "user": {
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
         }
       }
     },
@@ -6368,6 +6968,29 @@
             "$ref": "#/definitions/log-drain"
           },
           "title": "Create"
+        },
+        {
+          "description": "Update an add-on owned log drain.",
+          "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/log-drains/{(%23%2Fdefinitions%2Flog-drain%2Fdefinitions%2Fquery_identity)}",
+          "method": "PUT",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "url": {
+                "$ref": "#/definitions/log-drain/definitions/url"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/log-drain"
+          },
+          "title": "Update"
         },
         {
           "description": "Delete an existing log drain. Log drains added by add-ons can only be removed by removing the add-on.",
@@ -7686,6 +8309,20 @@
         },
         "buildpack_provided_description": {
           "$ref": "#/definitions/app/definitions/buildpack_provided_description"
+        },
+        "build_stack": {
+          "description": "identity of the stack that will be used for new builds",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/stack/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/stack/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
         },
         "created_at": {
           "$ref": "#/definitions/app/definitions/created_at"
@@ -9252,6 +9889,20 @@
         "id": {
           "$ref": "#/definitions/outbound-ruleset/definitions/id"
         },
+        "space": {
+          "description": "identity of space",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/space/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/space/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
         "created_at": {
           "$ref": "#/definitions/outbound-ruleset/definitions/created_at"
         },
@@ -9370,6 +10021,233 @@
           ]
         }
       }
+    },
+    "peering-info": {
+      "description": "[Peering Info](https://devcenter.heroku.com/articles/private-space-vpc-peering) gives you the information necessary to peer an AWS VPC to a Private Space.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Peering Info",
+      "type": [
+        "object"
+      ],
+      "properties": {
+        "aws_account_id": {
+          "$ref": "#/definitions/peering/definitions/aws_account_id"
+        },
+        "aws_region": {
+          "$ref": "#/definitions/region/definitions/provider/properties/region"
+        },
+        "vpc_id": {
+          "$ref": "#/definitions/peering/definitions/vpc_id"
+        },
+        "vpc_cidr": {
+          "description": "The CIDR range of the Private Space VPC",
+          "$ref": "#/definitions/peering/definitions/cidr"
+        },
+        "dyno_cidr_blocks": {
+          "description": "The CIDR ranges that should be routed to the Private Space VPC.",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/peering/definitions/cidr"
+          }
+        },
+        "unavailable_cidr_blocks": {
+          "description": "The CIDR ranges that you must not conflict with.",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/peering/definitions/cidr"
+          }
+        },
+        "space_cidr_blocks": {
+          "description": "The CIDR ranges that should be routed to the Private Space VPC.",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/peering/definitions/cidr"
+          }
+        }
+      },
+      "links": [
+        {
+          "description": "Provides the necessary information to establish an AWS VPC Peering with your private space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/peering-info",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/peering-info"
+          },
+          "title": "Info"
+        }
+      ]
+    },
+    "peering": {
+      "description": "[Peering](https://devcenter.heroku.com/articles/private-space-vpc-peering) provides a way to peer your Private Space VPC to another AWS VPC.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Peering",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "aws_account_id": {
+          "description": "The AWS account ID of your Private Space.",
+          "example": "123456789012",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "aws_region": {
+          "description": "The AWS region of the peer connection.",
+          "example": "us-east-1",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "vpc_id": {
+          "description": "The AWS VPC ID of the peer.",
+          "example": "vpc-1234567890",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "description": "The type of peering connection.",
+          "example": "heroku-managed",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "heroku-managed",
+            "customer-managed",
+            "unknown"
+          ]
+        },
+        "status": {
+          "description": "The status of the peering connection.",
+          "example": "pending-acceptance",
+          "enum": [
+            "initiating-request",
+            "pending-acceptance",
+            "provisioning",
+            "active",
+            "failed",
+            "expired",
+            "rejected",
+            "deleted"
+          ],
+          "type": [
+            "string"
+          ],
+          "readOnly": true
+        },
+        "pcx_id": {
+          "description": "The AWS VPC Peering Connection ID of the peering.",
+          "example": "pcx-123456789012",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "cidr": {
+          "description": "An IP address and the number of significant bits that make up the routing or networking portion.",
+          "example": "10.0.0.0/16",
+          "type": [
+            "string"
+          ]
+        },
+        "expires": {
+          "description": "When a peering connection will expire.",
+          "example": "2020-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/peering/definitions/type"
+        },
+        "pcx_id": {
+          "$ref": "#/definitions/peering/definitions/pcx_id"
+        },
+        "cidr_blocks": {
+          "description": "The CIDR blocks of the peer.",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/peering/definitions/cidr"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/peering/definitions/status"
+        },
+        "aws_vpc_id": {
+          "$ref": "#/definitions/peering/definitions/vpc_id"
+        },
+        "aws_region": {
+          "$ref": "#/definitions/peering/definitions/aws_region"
+        },
+        "aws_account_id": {
+          "$ref": "#/definitions/peering/definitions/aws_account_id"
+        },
+        "expires": {
+          "$ref": "#/definitions/peering/definitions/expires"
+        }
+      },
+      "links": [
+        {
+          "description": "List peering connections of a private space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/peerings",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/peering"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Accept a pending peering connection with a private space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/peerings/{(%23%2Fdefinitions%2Fpeering%2Fdefinitions%2Fpcx_id)}/actions/accept",
+          "method": "POST",
+          "rel": "empty",
+          "title": "Accept"
+        },
+        {
+          "description": "Destroy an active peering connection with a private space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/peerings/{(%23%2Fdefinitions%2Fpeering%2Fdefinitions%2Fpcx_id)}",
+          "rel": "empty",
+          "method": "DELETE",
+          "title": "Destroy"
+        },
+        {
+          "description": "Fetch information for existing peering connection",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/peerings/{(%23%2Fdefinitions%2Fpeering%2Fdefinitions%2Fpcx_id)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/peering"
+          },
+          "title": "Info"
+        }
+      ]
     },
     "organization-app-permission": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -10228,6 +11106,14 @@
             "integer"
           ]
         },
+        "contract": {
+          "description": "price is negotiated in a contract outside of monthly add-on billing",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
         "unit": {
           "description": "unit of price for plan",
           "example": "month",
@@ -10355,6 +11241,9 @@
           "properties": {
             "cents": {
               "$ref": "#/definitions/plan/definitions/cents"
+            },
+            "contract": {
+              "$ref": "#/definitions/plan/definitions/contract"
             },
             "unit": {
               "$ref": "#/definitions/plan/definitions/unit"
@@ -10516,6 +11405,19 @@
               "readOnly": true,
               "type": [
                 "string"
+              ],
+              "enum": [
+                "ap-south-1",
+                "eu-west-1",
+                "ap-southeast-1",
+                "ap-southeast-2",
+                "eu-central-1",
+                "ap-northeast-2",
+                "ap-northeast-1",
+                "us-east-1",
+                "sa-east-1",
+                "us-west-1",
+                "us-west-2"
               ]
             }
           },
@@ -11451,6 +12353,9 @@
             "type": [
               "object"
             ],
+            "required": [
+              "permissions"
+            ],
             "properties": {
               "permissions": {
                 "type": [
@@ -11720,6 +12625,24 @@
           "type": [
             "string"
           ]
+        },
+        "cidr": {
+          "description": "The RFC-1918 CIDR the Private Space will use. It must be a /16 in 10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16",
+          "example": "172.20.20.30/16",
+          "default": "10.0.0.0/16",
+          "pattern": "^((?:10|172\\.(?:1[6-9]|2[0-9]|3[01])|192\\.168)\\..*.+\\/16)$",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "data_cidr": {
+          "description": "The RFC-1918 CIDR that the Private Space will use for the Heroku-managed peering connection that's automatically created when using Heroku Data add-ons. It must be between a /16 and a /20",
+          "example": "10.2.0.0/16",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
         }
       },
       "links": [
@@ -11796,6 +12719,12 @@
               },
               "shield": {
                 "$ref": "#/definitions/space/definitions/shield"
+              },
+              "cidr": {
+                "$ref": "#/definitions/space/definitions/cidr"
+              },
+              "data_cidr": {
+                "$ref": "#/definitions/space/definitions/data_cidr"
               }
             },
             "required": [
@@ -11870,6 +12799,12 @@
         },
         "updated_at": {
           "$ref": "#/definitions/space/definitions/updated_at"
+        },
+        "cidr": {
+          "$ref": "#/definitions/space/definitions/cidr"
+        },
+        "data_cidr": {
+          "$ref": "#/definitions/space/definitions/data_cidr"
         }
       }
     },
@@ -12440,7 +13375,7 @@
     },
     "team-app": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "An team app encapsulates the team specific functionality of Heroku apps.",
+      "description": "A team app encapsulates the team specific functionality of Heroku apps.",
       "stability": "development",
       "title": "Heroku Platform API - Team App",
       "type": [
@@ -12460,6 +13395,16 @@
             {
               "$ref": "#/definitions/app/definitions/name"
             }
+          ]
+        },
+        "internal_routing": {
+          "default": false,
+          "description": "describes whether a Private Spaces app is externally routable or not",
+          "example": false,
+          "readOnly": false,
+          "type": [
+            "boolean",
+            "null"
           ]
         },
         "joined": {
@@ -12507,6 +13452,9 @@
               },
               "stack": {
                 "$ref": "#/definitions/stack/definitions/name"
+              },
+              "internal_routing": {
+                "$ref": "#/definitions/team-app/definitions/internal_routing"
               }
             },
             "type": [
@@ -12611,6 +13559,20 @@
         "buildpack_provided_description": {
           "$ref": "#/definitions/app/definitions/buildpack_provided_description"
         },
+        "build_stack": {
+          "description": "identity of the stack that will be used for new builds",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/stack/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/stack/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
         "created_at": {
           "$ref": "#/definitions/app/definitions/created_at"
         },
@@ -12619,6 +13581,9 @@
         },
         "id": {
           "$ref": "#/definitions/app/definitions/id"
+        },
+        "internal_routing": {
+          "$ref": "#/definitions/team-app/definitions/internal_routing"
         },
         "joined": {
           "$ref": "#/definitions/team-app/definitions/joined"
@@ -13997,6 +14962,656 @@
         }
       }
     },
+    "test-case": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Test Case",
+      "description": "A single test case belonging to a test run",
+      "stability": "prototype",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of a test case",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "description": "description of the test case",
+          "type": [
+            "string"
+          ]
+        },
+        "diagnostic": {
+          "description": "meta information about the test case",
+          "type": [
+            "string"
+          ]
+        },
+        "directive": {
+          "description": "special note about the test case e.g. skipped, todo",
+          "type": [
+            "string"
+          ]
+        },
+        "passed": {
+          "description": "whether the test case was successful",
+          "type": [
+            "boolean"
+          ]
+        },
+        "number": {
+          "description": "the test number",
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/test-case/definitions/id"
+            }
+          ]
+        },
+        "created_at": {
+          "description": "when test case was created",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when test case was updated",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List test cases",
+          "href": "/test-runs/{(%23%2Fdefinitions%2Ftest-run%2Fdefinitions%2Fid)}/test-cases",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/test-case"
+            }
+          },
+          "type": [
+            "array"
+          ],
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/test-case/definitions/id"
+        },
+        "created_at": {
+          "$ref": "#/definitions/test-case/definitions/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/test-case/definitions/updated_at"
+        },
+        "description": {
+          "$ref": "#/definitions/test-case/definitions/description"
+        },
+        "diagnostic": {
+          "$ref": "#/definitions/test-case/definitions/diagnostic"
+        },
+        "directive": {
+          "$ref": "#/definitions/test-case/definitions/directive"
+        },
+        "passed": {
+          "$ref": "#/definitions/test-case/definitions/passed"
+        },
+        "number": {
+          "$ref": "#/definitions/test-case/definitions/number"
+        },
+        "test_node": {
+          "description": "the test node which executed this test case",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/test-node/definitions/identity"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "test_run": {
+          "description": "the test run which owns this test case",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/test-run/definitions/identity"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      }
+    },
+    "test-node": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Test Node",
+      "description": "A single test node belonging to a test run",
+      "stability": "prototype",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of a test node",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "attach_url": {
+          "description": "a URL to stream output from for debug runs or null for non-debug runs",
+          "example": "rendezvous://rendezvous.runtime.heroku.com:5000/{rendezvous-id}",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "description": "when test node was created",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "error_status": {
+          "description": "the status of the test run when the error occured",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exit_code": {
+          "description": "the exit code of the test script",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/test-node/definitions/id"
+            }
+          ]
+        },
+        "index": {
+          "description": "The index of the test node",
+          "type": [
+            "integer"
+          ]
+        },
+        "message": {
+          "description": "human friendly message indicating reason for an error",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "output_stream_url": {
+          "description": "the streaming output for the test node",
+          "example": "https://example.com/output.log",
+          "type": [
+            "string"
+          ]
+        },
+        "setup_stream_url": {
+          "description": "the streaming test setup output for the test node",
+          "example": "https://example.com/test-setup.log",
+          "type": [
+            "string"
+          ]
+        },
+        "status": {
+          "description": "current state of the test run",
+          "enum": [
+            "pending",
+            "cancelled",
+            "creating",
+            "building",
+            "running",
+            "succeeded",
+            "failed",
+            "errored",
+            "debugging"
+          ],
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when test node was updated",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List test nodes",
+          "href": "/test-runs/{(%23%2Fdefinitions%2Ftest-run%2Fdefinitions%2Fidentity)}/test-nodes",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/test-node"
+            }
+          },
+          "type": [
+            "array"
+          ],
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/test-node/definitions/created_at"
+        },
+        "dyno": {
+          "description": "the dyno which belongs to this test node",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/dyno/definitions/identity"
+            },
+            "attach_url": {
+              "$ref": "#/definitions/test-node/definitions/attach_url"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "error_status": {
+          "$ref": "#/definitions/test-node/definitions/error_status"
+        },
+        "exit_code": {
+          "$ref": "#/definitions/test-node/definitions/exit_code"
+        },
+        "id": {
+          "$ref": "#/definitions/test-node/definitions/identity"
+        },
+        "index": {
+          "$ref": "#/definitions/test-node/definitions/index"
+        },
+        "message": {
+          "$ref": "#/definitions/test-node/definitions/message"
+        },
+        "output_stream_url": {
+          "$ref": "#/definitions/test-node/definitions/output_stream_url"
+        },
+        "pipeline": {
+          "description": "the pipeline which owns this test node",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/pipeline/definitions/identity"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "setup_stream_url": {
+          "$ref": "#/definitions/test-node/definitions/setup_stream_url"
+        },
+        "status": {
+          "$ref": "#/definitions/test-node/definitions/status"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/test-node/definitions/updated_at"
+        },
+        "test_run": {
+          "description": "the test run which owns this test node",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/test-run/definitions/identity"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      }
+    },
+    "test-run": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Test Run",
+      "description": "An execution or trial of one or more tests",
+      "stability": "prototype",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "actor_email": {
+          "description": "the email of the actor triggering the test run",
+          "type": [
+            "string"
+          ],
+          "format": "email"
+        },
+        "clear_cache": {
+          "description": "whether the test was run with an empty cache",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "commit_branch": {
+          "description": "the branch of the repository that the test run concerns",
+          "type": [
+            "string"
+          ]
+        },
+        "commit_message": {
+          "description": "the message for the commit under test",
+          "type": [
+            "string"
+          ]
+        },
+        "commit_sha": {
+          "description": "the SHA hash of the commit under test",
+          "type": [
+            "string"
+          ]
+        },
+        "debug": {
+          "description": "whether the test run was started for interactive debugging",
+          "type": [
+            "boolean"
+          ]
+        },
+        "app_setup": {
+          "description": "the app setup for the test run",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of a test run",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/test-run/definitions/id"
+            }
+          ]
+        },
+        "created_at": {
+          "description": "when test run was created",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "message": {
+          "description": "human friendly message indicating reason for an error",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "number": {
+          "description": "the auto incrementing test run number",
+          "type": [
+            "integer"
+          ]
+        },
+        "source_blob_url": {
+          "description": "The download location for the source code to be tested",
+          "type": [
+            "string"
+          ]
+        },
+        "status": {
+          "description": "current state of the test run",
+          "enum": [
+            "pending",
+            "cancelled",
+            "creating",
+            "building",
+            "running",
+            "succeeded",
+            "failed",
+            "errored",
+            "debugging"
+          ],
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when test-run was updated",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "warning_message": {
+          "description": "human friently warning emitted during the test run",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new test-run.",
+          "href": "/test-runs",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "commit_branch": {
+                "$ref": "#/definitions/test-run/definitions/commit_branch"
+              },
+              "commit_message": {
+                "$ref": "#/definitions/test-run/definitions/commit_message"
+              },
+              "commit_sha": {
+                "$ref": "#/definitions/test-run/definitions/commit_sha"
+              },
+              "debug": {
+                "$ref": "#/definitions/test-run/definitions/debug"
+              },
+              "organization": {
+                "$ref": "#/definitions/organization/definitions/identity"
+              },
+              "pipeline": {
+                "$ref": "#/definitions/pipeline/definitions/identity"
+              },
+              "source_blob_url": {
+                "$ref": "#/definitions/test-run/definitions/source_blob_url"
+              }
+            },
+            "required": [
+              "commit_branch",
+              "commit_message",
+              "commit_sha",
+              "pipeline",
+              "source_blob_url"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Info for existing test-run.",
+          "href": "/test-runs/{(%23%2Fdefinitions%2Ftest-run%2Fdefinitions%2Fid)}",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info"
+        },
+        {
+          "description": "List existing test-runs for a pipeline.",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/test-runs",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/test-run"
+            }
+          },
+          "type": [
+            "array"
+          ],
+          "title": "List"
+        },
+        {
+          "description": "Info for existing test-run by Pipeline",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/test-runs/{(%23%2Fdefinitions%2Ftest-run%2Fdefinitions%2Fnumber)}",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info By Pipeline"
+        },
+        {
+          "description": "Update a test-run's status.",
+          "href": "/test-runs/{(%23%2Fdefinitions%2Ftest-run%2Fdefinitions%2Fnumber)}",
+          "method": "PATCH",
+          "rel": "self",
+          "title": "Update",
+          "schema": {
+            "properties": {
+              "status": {
+                "$ref": "#/definitions/test-run/definitions/status"
+              },
+              "message": {
+                "$ref": "#/definitions/test-run/definitions/message"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "type": [
+              "object"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "actor_email": {
+          "$ref": "#/definitions/test-run/definitions/actor_email"
+        },
+        "clear_cache": {
+          "$ref": "#/definitions/test-run/definitions/clear_cache"
+        },
+        "commit_branch": {
+          "$ref": "#/definitions/test-run/definitions/commit_branch"
+        },
+        "commit_message": {
+          "$ref": "#/definitions/test-run/definitions/commit_message"
+        },
+        "commit_sha": {
+          "$ref": "#/definitions/test-run/definitions/commit_sha"
+        },
+        "debug": {
+          "$ref": "#/definitions/test-run/definitions/debug"
+        },
+        "app_setup": {
+          "$ref": "#/definitions/test-run/definitions/app_setup"
+        },
+        "created_at": {
+          "$ref": "#/definitions/test-run/definitions/created_at"
+        },
+        "dyno": {
+          "description": "the type of dynos used for this test-run",
+          "properties": {
+            "size": {
+              "$ref": "#/definitions/dyno/definitions/size"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "id": {
+          "$ref": "#/definitions/test-run/definitions/id"
+        },
+        "message": {
+          "$ref": "#/definitions/test-run/definitions/message"
+        },
+        "number": {
+          "$ref": "#/definitions/test-run/definitions/number"
+        },
+        "organization": {
+          "description": "the organization that owns this test-run",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/organization/definitions/name"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "pipeline": {
+          "description": "the pipeline which owns this test-run",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/pipeline/definitions/identity"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "status": {
+          "$ref": "#/definitions/test-run/definitions/status"
+        },
+        "source_blob_url": {
+          "$ref": "#/definitions/test-run/definitions/source_blob_url"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/test-run/definitions/updated_at"
+        },
+        "user": {
+          "$ref": "#/definitions/account"
+        },
+        "warning_message": {
+          "$ref": "#/definitions/test-run/definitions/warning_message"
+        }
+      }
+    },
     "user-preferences": {
       "description": "Tracks a user's preferences and message dismissals",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -14212,6 +15827,255 @@
           "$ref": "#/definitions/user-preferences/definitions/dismissed-sms-banner"
         }
       }
+    },
+    "vpn-connection": {
+      "description": "[VPN](https://devcenter.heroku.com/articles/private-spaces-vpn?preview=1) provides a way to connect your Private Spaces to your network via VPN.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Private Spaces VPN",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "name": {
+          "description": "VPN Name",
+          "example": "office",
+          "type": [
+            "string"
+          ]
+        },
+        "public_ip": {
+          "description": "Public IP of VPN customer gateway",
+          "example": "35.161.69.30",
+          "type": [
+            "string"
+          ]
+        },
+        "routable_cidrs": {
+          "description": "Routable CIDRs of VPN",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "example": "172.16.0.0/16",
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "id": {
+          "description": "VPN ID",
+          "example": "123456789012",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/vpn-connection/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/vpn-connection/definitions/name"
+            }
+          ]
+        },
+        "space_cidr_block": {
+          "description": "CIDR Block of the Private Space",
+          "example": "10.0.0.0/16",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "ike_version": {
+          "description": "IKE Version",
+          "example": 1,
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "tunnel": {
+          "description": "Tunnel info",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "last_status_change": {
+              "description": "Timestamp of last status changed",
+              "example": "2016-10-25T22:09:05Z",
+              "type": [
+                "string"
+              ]
+            },
+            "ip": {
+              "description": "Public IP address for the tunnel",
+              "example": "52.44.146.197",
+              "type": [
+                "string"
+              ]
+            },
+            "customer_ip": {
+              "description": "Public IP address for the customer side of the tunnel",
+              "example": "52.44.146.197",
+              "type": [
+                "string"
+              ]
+            },
+            "pre_shared_key": {
+              "description": "Pre-shared key",
+              "example": "secret",
+              "type": [
+                "string"
+              ]
+            },
+            "status": {
+              "description": "Status of the tunnel",
+              "enum": [
+                "UP",
+                "DOWN"
+              ],
+              "example": "UP",
+              "type": [
+                "string"
+              ]
+            },
+            "status_message": {
+              "description": "Details of the status",
+              "example": "status message",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "status": {
+          "description": "Status of the VPN",
+          "enum": [
+            "pending",
+            "provisioning",
+            "active",
+            "deprovisioning",
+            "failed"
+          ],
+          "example": "active",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "status_message": {
+          "description": "Details of the status",
+          "example": "supplied CIDR block already in use",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/vpn-connection/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/vpn-connection/definitions/name"
+        },
+        "public_ip": {
+          "$ref": "#/definitions/vpn-connection/definitions/public_ip"
+        },
+        "routable_cidrs": {
+          "$ref": "#/definitions/vpn-connection/definitions/routable_cidrs"
+        },
+        "space_cidr_block": {
+          "$ref": "#/definitions/vpn-connection/definitions/space_cidr_block"
+        },
+        "tunnels": {
+          "items": {
+            "$ref": "#/definitions/vpn-connection/definitions/tunnel"
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "ike_version": {
+          "$ref": "#/definitions/vpn-connection/definitions/ike_version"
+        },
+        "status": {
+          "$ref": "#/definitions/vpn-connection/definitions/status"
+        },
+        "status_message": {
+          "$ref": "#/definitions/vpn-connection/definitions/status_message"
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new VPN connection in a private space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/vpn-connections",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/vpn-connection/definitions/name"
+              },
+              "public_ip": {
+                "$ref": "#/definitions/vpn-connection/definitions/public_ip"
+              },
+              "routable_cidrs": {
+                "$ref": "#/definitions/vpn-connection/definitions/routable_cidrs"
+              }
+            },
+            "required": [
+              "name",
+              "public_ip",
+              "routable_cidrs"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/vpn-connection"
+          },
+          "method": "POST",
+          "title": "Create"
+        },
+        {
+          "description": "Destroy existing VPN Connection",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/vpn-connections/{(%23%2Fdefinitions%2Fvpn-connection%2Fdefinitions%2Fidentity)}",
+          "rel": "empty",
+          "method": "DELETE",
+          "title": "Destroy"
+        },
+        {
+          "description": "List VPN connections for a space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/vpn-connections",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/vpn-connection"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Info for an existing vpn-connection.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/vpn-connections/{(%23%2Fdefinitions%2Fvpn-connection%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/vpn-connection"
+          },
+          "title": "Info"
+        }
+      ]
     },
     "whitelisted-add-on-service": {
       "description": "Entities that have been whitelisted to be used by an Organization",
@@ -14444,6 +16308,15 @@
     "add-on-service": {
       "$ref": "#/definitions/add-on-service"
     },
+    "add-on-webhook-delivery": {
+      "$ref": "#/definitions/add-on-webhook-delivery"
+    },
+    "add-on-webhook-event": {
+      "$ref": "#/definitions/add-on-webhook-event"
+    },
+    "add-on-webhook": {
+      "$ref": "#/definitions/add-on-webhook"
+    },
     "add-on": {
       "$ref": "#/definitions/add-on"
     },
@@ -14458,6 +16331,15 @@
     },
     "app-transfer": {
       "$ref": "#/definitions/app-transfer"
+    },
+    "app-webhook-delivery": {
+      "$ref": "#/definitions/app-webhook-delivery"
+    },
+    "app-webhook-event": {
+      "$ref": "#/definitions/app-webhook-event"
+    },
+    "app-webhook": {
+      "$ref": "#/definitions/app-webhook"
     },
     "app": {
       "$ref": "#/definitions/app"
@@ -14489,12 +16371,6 @@
     "dyno": {
       "$ref": "#/definitions/dyno"
     },
-    "event": {
-      "$ref": "#/definitions/event"
-    },
-    "failed-event": {
-      "$ref": "#/definitions/failed-event"
-    },
     "filter-apps": {
       "$ref": "#/definitions/filter-apps"
     },
@@ -14506,9 +16382,6 @@
     },
     "inbound-ruleset": {
       "$ref": "#/definitions/inbound-ruleset"
-    },
-    "invitation": {
-      "$ref": "#/definitions/invitation"
     },
     "invoice-address": {
       "$ref": "#/definitions/invoice-address"
@@ -14569,6 +16442,12 @@
     },
     "password-reset": {
       "$ref": "#/definitions/password-reset"
+    },
+    "peering-info": {
+      "$ref": "#/definitions/peering-info"
+    },
+    "peering": {
+      "$ref": "#/definitions/peering"
     },
     "organization-app-permission": {
       "$ref": "#/definitions/organization-app-permission"
@@ -14651,8 +16530,20 @@
     "team": {
       "$ref": "#/definitions/team"
     },
+    "test-case": {
+      "$ref": "#/definitions/test-case"
+    },
+    "test-node": {
+      "$ref": "#/definitions/test-node"
+    },
+    "test-run": {
+      "$ref": "#/definitions/test-run"
+    },
     "user-preferences": {
       "$ref": "#/definitions/user-preferences"
+    },
+    "vpn-connection": {
+      "$ref": "#/definitions/vpn-connection"
     },
     "whitelisted-add-on-service": {
       "$ref": "#/definitions/whitelisted-add-on-service"
@@ -14663,12 +16554,14 @@
   "links": [
     {
       "href": "https://api.heroku.com",
-      "rel": "self"
+      "rel": "self",
+      "title": "Index"
     },
     {
       "href": "/schema",
       "method": "GET",
       "rel": "self",
+      "title": "Schema",
       "targetSchema": {
         "additionalProperties": true
       }
