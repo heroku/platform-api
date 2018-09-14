@@ -3,7 +3,7 @@ require 'platform-api'
 
 describe 'The generated platform api client' do
   it "can get account info" do
-    expect(client.account.info(email)).not_to be_empty
+    expect(client.account.info).not_to be_empty
   end
 
   it "can get addon info for an app" do
@@ -38,11 +38,15 @@ describe 'The generated platform api client' do
   end
 
   it "can get add-on plan info" do
-    expect(client.plan.list('heroku-postgresql')).not_to be_empty
+    expect(client.plan.list_by_addon('heroku-postgresql')).not_to be_empty
   end
 
   it "can get release info" do
     expect(client.release.list(an_app['name'])).not_to be_empty
+  end
+
+  it "can get app webhooks" do
+    expect(client.app_webhook.list(an_app['name'])).not_to be_empty
   end
 
   def an_app
