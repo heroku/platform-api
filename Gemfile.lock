@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    platform-api (2.1.0)
+    platform-api (2.2.0)
       heroics (~> 0.0.25)
       moneta (~> 1.0.0)
 
