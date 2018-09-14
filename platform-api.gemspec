@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'netrc'
   spec.add_development_dependency 'rspec'
 
-  spec.add_dependency 'heroics', '~> 0.0.23'
+  spec.add_dependency 'heroics', '~> 0.0.25'
   spec.add_dependency 'moneta', '~> 1.0.0'
 end

@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     platform-api (2.1.0)
-      heroics (~> 0.0.23)
+      heroics (~> 0.0.25)
       moneta (~> 1.0.0)
 
 GEM
@@ -12,7 +12,7 @@ GEM
     diff-lcs (1.3)
     erubis (2.7.0)
     excon (0.62.0)
-    heroics (0.0.24)
+    heroics (0.0.25)
       erubis (~> 2.0)
       excon
       moneta
