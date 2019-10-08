@@ -8,3 +8,4 @@ end
 
 require 'platform-api/client'
 require 'platform-api/version'
+require 'platform-api/heroku_client_throttle'
