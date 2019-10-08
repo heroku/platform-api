@@ -1,10 +1,30 @@
 require 'netrc'
 require 'platform-api'
 require 'hatchet'
+require 'webmock/rspec'
+
+include WebMock::API
+WebMock.allow_net_connect!
 
 describe 'The generated platform api client' do
   before(:all) do
     @app_name = ENV["TEST_APP_NAME"] || hatchet_app.name
+  end
+
+  it "works even if first request is rate limited" do
+    WebMock.enable!
+    url = "https://api.heroku.com/apps"
+    stub_request(:get, url)
+      .to_return([
+        {status: 429},
+        {status: 200}
+      ])
+
+    client.app.list
+
+    expect(WebMock).to have_requested(:get, url).twice
+  ensure
+    WebMock.disable!
   end
 
   it "can get account info" do

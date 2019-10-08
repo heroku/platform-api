@@ -308,6 +308,16 @@ Connect to a different host by passing a `url` option:
 client = PlatformAPI.connect('my-api-key', url: 'https://api.example.com')
 ```
 
+### Rate throttling
+
+By default client requests from this library will respect Heroku's rate-limiting. The client can make as many requests as possible until Heroku's server says that it has gone over. Once a request has been rate-limited the client will sleep and then retry the request again. This process will repeat until the request is successful.
+
+Once a single request has been rate-limited, the client will auto-tune a sleep value so that future requests are less likely to be rate-limited by the server.
+
+To disable this retry and sleep behavior set the env var`PLATFORM_API_DISABLE_RATE_THROTTLE=1`.
+
+For more information about this algorithm and behavior see [Rate Limit GCRA client demo](https://github.com/schneems/rate-limit-gcra-client-demo).
+
 ## Building and releasing
 
 ### Generate a new client

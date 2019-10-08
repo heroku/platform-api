@@ -26,7 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'netrc'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'heroku_hatchet'
+  spec.add_development_dependency 'webmock'
 
-  spec.add_dependency 'heroics', '~> 0.0.25'
+  spec.add_dependency 'heroics', '~> 0.1.1'
   spec.add_dependency 'moneta', '~> 1.0.0'
 end
