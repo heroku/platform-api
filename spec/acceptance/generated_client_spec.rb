@@ -1,7 +1,16 @@
 require 'netrc'
 require 'platform-api'
+require 'webmock/rspec'
 
 describe 'The generated platform api client' do
+  it "works" do
+    Excon.stub(method: :get) do |request|
+      Excon.stubs.pop
+      {status: 429, body: 'Hello, world!'}
+    end
+    expect(client.app.list).not_to be_empty
+  end
+
   it "can get account info" do
     expect(client.account.info).not_to be_empty
   end
