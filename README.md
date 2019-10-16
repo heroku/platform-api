@@ -51,7 +51,7 @@ For example, to get information about the `web` formation on the `sushi` app
 you'd invoke `heroku.formation.info('sushi', 'web')` and it would return a
 Ruby object that matches the one given in the [response example](https://devcenter.heroku.com/articles/platform-api-reference#formation-info).
 
-The [API documentation](http://heroku.github.io/platform-api/_index.html) contains a 
+The [API documentation](http://heroku.github.io/platform-api/_index.html) contains a
 description of all available resources and methods.
 
 ### Handling errors
@@ -357,3 +357,20 @@ You can see it live on [Github Pages](http://heroku.github.io/platform-api/).
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Create new pull request.
+
+## Testing
+
+The tests make live network calls so you'll need to ensure that you're logged into your Heroku account. You'll also need an application that uses a set of Heroku's features, if you don't have one you can create one. E.g.
+
+```
+$ git clone https://github.com/heroku/ruby-getting-started.git
+$ cd ruby-getting-started/
+$ heroku create <memorable-name-here>
+$ heroku webhooks:add -i api:dyno -l notify -u https://example.com/hooks
+$ git push heroku master
+```
+Now you can specify your app name while you run tests:
+
+```
+$ TEST_APP_NAME="<memorable-name-here>" rspec ./spec
+```
