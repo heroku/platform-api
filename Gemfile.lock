@@ -38,7 +38,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    yard (0.9.16)
+    yard (0.9.20)
 
 PLATFORMS
   ruby
