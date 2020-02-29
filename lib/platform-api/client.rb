@@ -238,11 +238,11 @@ module PlatformAPI
       @app_resource ||= App.new(@client)
     end
 
-    # A build result contains the output from a build.
+    # An audit trail archive represents a monthly json zipped file containing events
     #
-    # @return [BuildResult]
-    def build_result
-      @build_result_resource ||= BuildResult.new(@client)
+    # @return [Archive]
+    def archive
+      @archive_resource ||= Archive.new(@client)
     end
 
     # A build represents the process of transforming a code tarball into a slug
@@ -301,6 +301,41 @@ module PlatformAPI
       @dyno_resource ||= Dyno.new(@client)
     end
 
+    # Enterprise account members are users with access to an enterprise account.
+    #
+    # @return [EnterpriseAccountMember]
+    def enterprise_account_member
+      @enterprise_account_member_resource ||= EnterpriseAccountMember.new(@client)
+    end
+
+    # Usage for an enterprise account at a daily resolution.
+    #
+    # @return [EnterpriseAccountUsageDaily]
+    def enterprise_account_usage_daily
+      @enterprise_account_usage_daily_resource ||= EnterpriseAccountUsageDaily.new(@client)
+    end
+
+    # Usage for an enterprise account at a monthly resolution.
+    #
+    # @return [EnterpriseAccountUsageMonthly]
+    def enterprise_account_usage_monthly
+      @enterprise_account_usage_monthly_resource ||= EnterpriseAccountUsageMonthly.new(@client)
+    end
+
+    # Enterprise accounts allow companies to manage their development teams and billing.
+    #
+    # @return [EnterpriseAccount]
+    def enterprise_account
+      @enterprise_account_resource ||= EnterpriseAccount.new(@client)
+    end
+
+    # An audit trail event represents some action on the platform
+    #
+    # @return [Event]
+    def event
+      @event_resource ||= Event.new(@client)
+    end
+
     # Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
     #
     # @return [FilterApps]
@@ -315,7 +350,7 @@ module PlatformAPI
       @formation_resource ||= Formation.new(@client)
     end
 
-    # Identity Providers represent the SAML configuration of an Organization.
+    # Identity Providers represent the SAML configuration of an Team.
     #
     # @return [IdentityProvider]
     def identity_provider
@@ -392,69 +427,6 @@ module PlatformAPI
       @oauth_token_resource ||= OauthToken.new(@client)
     end
 
-    # Deprecated: A list of add-ons the Organization uses across all apps
-    #
-    # @return [OrganizationAddon]
-    def organization_addon
-      @organization_addon_resource ||= OrganizationAddon.new(@client)
-    end
-
-    # Deprecated: An organization collaborator represents an account that has been given access to an organization app on Heroku.
-    #
-    # @return [OrganizationAppCollaborator]
-    def organization_app_collaborator
-      @organization_app_collaborator_resource ||= OrganizationAppCollaborator.new(@client)
-    end
-
-    # Deprecated: An organization app encapsulates the organization specific functionality of Heroku apps.
-    #
-    # @return [OrganizationApp]
-    def organization_app
-      @organization_app_resource ||= OrganizationApp.new(@client)
-    end
-
-    # Deprecated: An organization feature represents a feature enabled on an organization account.
-    #
-    # @return [OrganizationFeature]
-    def organization_feature
-      @organization_feature_resource ||= OrganizationFeature.new(@client)
-    end
-
-    # Deprecated: An organization invitation represents an invite to an organization.
-    #
-    # @return [OrganizationInvitation]
-    def organization_invitation
-      @organization_invitation_resource ||= OrganizationInvitation.new(@client)
-    end
-
-    # Deprecated: An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
-    #
-    # @return [OrganizationInvoice]
-    def organization_invoice
-      @organization_invoice_resource ||= OrganizationInvoice.new(@client)
-    end
-
-    # Deprecated: An organization member is an individual with access to an organization.
-    #
-    # @return [OrganizationMember]
-    def organization_member
-      @organization_member_resource ||= OrganizationMember.new(@client)
-    end
-
-    # Deprecated: Tracks an organization's preferences
-    #
-    # @return [OrganizationPreferences]
-    def organization_preferences
-      @organization_preferences_resource ||= OrganizationPreferences.new(@client)
-    end
-
-    # Deprecated: Organizations allow you to manage access to a shared group of applications across your development team.
-    #
-    # @return [Organization]
-    def organization
-      @organization_resource ||= Organization.new(@client)
-    end
-
     # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
     #
     # @return [OutboundRuleset]
@@ -469,25 +441,32 @@ module PlatformAPI
       @password_reset_resource ||= PasswordReset.new(@client)
     end
 
-    # [Peering Info](https://devcenter.heroku.com/articles/private-space-vpc-peering) gives you the information necessary to peer an AWS VPC to a Private Space.
+    # [Peering Info](https://devcenter.heroku.com/articles/private-space-peering) gives you the information necessary to peer an AWS VPC to a Private Space.
     #
     # @return [PeeringInfo]
     def peering_info
       @peering_info_resource ||= PeeringInfo.new(@client)
     end
 
-    # [Peering](https://devcenter.heroku.com/articles/private-space-vpc-peering) provides a way to peer your Private Space VPC to another AWS VPC.
+    # [Peering](https://devcenter.heroku.com/articles/private-space-peering) provides a way to peer your Private Space VPC to another AWS VPC.
     #
     # @return [Peering]
     def peering
       @peering_resource ||= Peering.new(@client)
     end
 
-    # Deprecated: An organization app permission is a behavior that is assigned to a user in an organization app.
+    # An owned entity including users' permissions.
     #
-    # @return [OrganizationAppPermission]
-    def organization_app_permission
-      @organization_app_permission_resource ||= OrganizationAppPermission.new(@client)
+    # @return [PermissionEntity]
+    def permission_entity
+      @permission_entity_resource ||= PermissionEntity.new(@client)
+    end
+
+    # Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.
+    #
+    # @return [PipelineConfigVar]
+    def pipeline_config_var
+      @pipeline_config_var_resource ||= PipelineConfigVar.new(@client)
     end
 
     # Information about an app's coupling to a pipeline
@@ -546,6 +525,20 @@ module PlatformAPI
       @release_resource ||= Release.new(@client)
     end
 
+    # An ephemeral app to review a set of changes
+    #
+    # @return [ReviewApp]
+    def review_app
+      @review_app_resource ||= ReviewApp.new(@client)
+    end
+
+    # Review apps can be configured for pipelines.
+    #
+    # @return [ReviewAppConfig]
+    def review_app_config
+      @review_app_config_resource ||= ReviewAppConfig.new(@client)
+    end
+
     # A slug is a snapshot of your application code that is ready to run on the platform.
     #
     # @return [Slug]
@@ -588,6 +581,13 @@ module PlatformAPI
       @space_nat_resource ||= SpaceNat.new(@client)
     end
 
+    # Transfer spaces between enterprise teams with the same Enterprise Account.
+    #
+    # @return [SpaceTransfer]
+    def space_transfer
+      @space_transfer_resource ||= SpaceTransfer.new(@client)
+    end
+
     # A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.
     #
     # @return [Space]
@@ -607,6 +607,13 @@ module PlatformAPI
     # @return [Stack]
     def stack
       @stack_resource ||= Stack.new(@client)
+    end
+
+    # 
+    #
+    # @return [TeamAddon]
+    def team_addon
+      @team_addon_resource ||= TeamAddon.new(@client)
     end
 
     # A team collaborator represents an account that has been given access to a team app on Heroku.
@@ -665,6 +672,27 @@ module PlatformAPI
       @team_preferences_resource ||= TeamPreferences.new(@client)
     end
 
+    # A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.
+    #
+    # @return [TeamSpace]
+    def team_space
+      @team_space_resource ||= TeamSpace.new(@client)
+    end
+
+    # Usage for an enterprise team at a daily resolution.
+    #
+    # @return [TeamUsageDaily]
+    def team_usage_daily
+      @team_usage_daily_resource ||= TeamUsageDaily.new(@client)
+    end
+
+    # Usage for an enterprise team at a monthly resolution.
+    #
+    # @return [TeamUsageMonthly]
+    def team_usage_monthly
+      @team_usage_monthly_resource ||= TeamUsageMonthly.new(@client)
+    end
+
     # Teams allow you to manage access to a shared group of applications and other resources.
     #
     # @return [Team]
@@ -700,14 +728,14 @@ module PlatformAPI
       @user_preferences_resource ||= UserPreferences.new(@client)
     end
 
-    # [VPN](https://devcenter.heroku.com/articles/private-spaces-vpn?preview=1) provides a way to connect your Private Spaces to your network via VPN.
+    # [VPN](https://devcenter.heroku.com/articles/private-space-vpn-connection) provides a way to connect your Private Spaces to your network via VPN.
     #
     # @return [VpnConnection]
     def vpn_connection
       @vpn_connection_resource ||= VpnConnection.new(@client)
     end
 
-    # Entities that have been whitelisted to be used by an Organization
+    # Entities that have been whitelisted to be used by an Team
     #
     # @return [WhitelistedAddonService]
     def whitelisted_addon_service
@@ -1378,18 +1406,26 @@ module PlatformAPI
     end
   end
 
-  # A build result contains the output from a build.
-  class BuildResult
+  # An audit trail archive represents a monthly json zipped file containing events
+  class Archive
     def initialize(client)
       @client = client
     end
 
-    # Info for existing result.
+    # Get archive for a single month.
     #
-    # @param app_id_or_app_name: unique identifier of app or unique name of app
-    # @param build_id: unique identifier of build
-    def info(app_id_or_app_name, build_id)
-      @client.build_result.info(app_id_or_app_name, build_id)
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param archive_year: year of the archive
+    # @param archive_month: month of the archive
+    def info(enterprise_account_id, archive_year, archive_month)
+      @client.archive.info(enterprise_account_id, archive_year, archive_month)
+    end
+
+    # List existing archives.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def list(enterprise_account_id)
+      @client.archive.list(enterprise_account_id)
     end
   end
 
@@ -1656,6 +1692,114 @@ module PlatformAPI
     end
   end
 
+  # Enterprise account members are users with access to an enterprise account.
+  class EnterpriseAccountMember
+    def initialize(client)
+      @client = client
+    end
+
+    # List members in an enterprise account.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def list(enterprise_account_id)
+      @client.enterprise_account_member.list(enterprise_account_id)
+    end
+
+    # Create a member in an enterprise account.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param body: the object to pass as the request payload
+    def create(enterprise_account_id, body = {})
+      @client.enterprise_account_member.create(enterprise_account_id, body)
+    end
+
+    # Update a member in an enterprise account.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param account_email_or_account_id: unique email address of account or unique identifier of an account
+    # @param body: the object to pass as the request payload
+    def update(enterprise_account_id, account_email_or_account_id, body = {})
+      @client.enterprise_account_member.update(enterprise_account_id, account_email_or_account_id, body)
+    end
+
+    # delete a member in an enterprise account.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param account_email_or_account_id: unique email address of account or unique identifier of an account
+    def delete(enterprise_account_id, account_email_or_account_id)
+      @client.enterprise_account_member.delete(enterprise_account_id, account_email_or_account_id)
+    end
+  end
+
+  # Usage for an enterprise account at a daily resolution.
+  class EnterpriseAccountUsageDaily
+    def initialize(client)
+      @client = client
+    end
+
+    # Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/enterprise-accounts/example-account/usage/daily?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def list_daily(enterprise_account_id)
+      @client.enterprise_account_usage_daily.list_daily(enterprise_account_id)
+    end
+  end
+
+  # Usage for an enterprise account at a monthly resolution.
+  class EnterpriseAccountUsageMonthly
+    def initialize(client)
+      @client = client
+    end
+
+    # Retrieves usage for an enterprise account for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/enterprise-accounts/example-account/usage/monthly?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def list_monthly(enterprise_account_id)
+      @client.enterprise_account_usage_monthly.list_monthly(enterprise_account_id)
+    end
+  end
+
+  # Enterprise accounts allow companies to manage their development teams and billing.
+  class EnterpriseAccount
+    def initialize(client)
+      @client = client
+    end
+
+    # List enterprise accounts in which you are a member.
+    def list()
+      @client.enterprise_account.list()
+    end
+
+    # Information about an enterprise account.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def info(enterprise_account_id)
+      @client.enterprise_account.info(enterprise_account_id)
+    end
+
+    # Update enterprise account properties
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param body: the object to pass as the request payload
+    def update(enterprise_account_id, body = {})
+      @client.enterprise_account.update(enterprise_account_id, body)
+    end
+  end
+
+  # An audit trail event represents some action on the platform
+  class Event
+    def initialize(client)
+      @client = client
+    end
+
+    # List existing events.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def list(enterprise_account_id)
+      @client.event.list(enterprise_account_id)
+    end
+  end
+
   # Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
   class FilterApps
     def initialize(client)
@@ -1709,66 +1853,34 @@ module PlatformAPI
     end
   end
 
-  # Identity Providers represent the SAML configuration of an Organization.
+  # Identity Providers represent the SAML configuration of an Team.
   class IdentityProvider
     def initialize(client)
       @client = client
     end
 
-    # Get a list of an organization's Identity Providers
-    #
-    # @param organization_name: unique name of organization
-    def list_by_organization(organization_name)
-      @client.identity_provider.list_by_organization(organization_name)
-    end
-
-    # Create an Identity Provider for an organization
-    #
-    # @param organization_name: unique name of organization
-    # @param body: the object to pass as the request payload
-    def create_by_organization(organization_name, body = {})
-      @client.identity_provider.create_by_organization(organization_name, body)
-    end
-
-    # Update an organization's Identity Provider
-    #
-    # @param organization_name: unique name of organization
-    # @param identity_provider_id: unique identifier of this identity provider
-    # @param body: the object to pass as the request payload
-    def update_by_organization(organization_name, identity_provider_id, body = {})
-      @client.identity_provider.update_by_organization(organization_name, identity_provider_id, body)
-    end
-
-    # Delete an organization's Identity Provider
-    #
-    # @param organization_name: unique name of organization
-    # @param identity_provider_id: unique identifier of this identity provider
-    def delete_by_organization(organization_name, identity_provider_id)
-      @client.identity_provider.delete_by_organization(organization_name, identity_provider_id)
-    end
-
     # Get a list of a team's Identity Providers
     #
-    # @param team_name_or_team_id: unique name of team or unique identifier of team
-    def list_by_team(team_name_or_team_id)
-      @client.identity_provider.list_by_team(team_name_or_team_id)
+    # @param team_name: unique name of team
+    def list_by_team(team_name)
+      @client.identity_provider.list_by_team(team_name)
     end
 
     # Create an Identity Provider for a team
     #
-    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param team_name: unique name of team
     # @param body: the object to pass as the request payload
-    def create_by_team(team_name_or_team_id, body = {})
-      @client.identity_provider.create_by_team(team_name_or_team_id, body)
+    def create_by_team(team_name, body = {})
+      @client.identity_provider.create_by_team(team_name, body)
     end
 
     # Update a team's Identity Provider
     #
-    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param team_name: unique name of team
     # @param identity_provider_id: unique identifier of this identity provider
     # @param body: the object to pass as the request payload
-    def update_by_team(team_name_or_team_id, identity_provider_id, body = {})
-      @client.identity_provider.update_by_team(team_name_or_team_id, identity_provider_id, body)
+    def update_by_team(team_name, identity_provider_id, body = {})
+      @client.identity_provider.update_by_team(team_name, identity_provider_id, body)
     end
 
     # Delete a team's Identity Provider
@@ -2059,333 +2171,6 @@ module PlatformAPI
     end
   end
 
-  # Deprecated: A list of add-ons the Organization uses across all apps
-  class OrganizationAddon
-    def initialize(client)
-      @client = client
-    end
-
-    # List add-ons used across all Organization apps
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def list_for_organization(organization_name_or_organization_id)
-      @client.organization_addon.list_for_organization(organization_name_or_organization_id)
-    end
-  end
-
-  # Deprecated: An organization collaborator represents an account that has been given access to an organization app on Heroku.
-  class OrganizationAppCollaborator
-    def initialize(client)
-      @client = client
-    end
-
-    # Create a new collaborator on an organization app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the organization.
-    #
-    # @param app_id_or_app_name: unique identifier of app or unique name of app
-    # @param body: the object to pass as the request payload
-    def create(app_id_or_app_name, body = {})
-      @client.organization_app_collaborator.create(app_id_or_app_name, body)
-    end
-
-    # Delete an existing collaborator from an organization app.
-    #
-    # @param app_name: unique name of app
-    # @param collaborator_email: invited email address of collaborator
-    def delete(app_name, collaborator_email)
-      @client.organization_app_collaborator.delete(app_name, collaborator_email)
-    end
-
-    # Info for a collaborator on an organization app.
-    #
-    # @param app_name: unique name of app
-    # @param collaborator_email: invited email address of collaborator
-    def info(app_name, collaborator_email)
-      @client.organization_app_collaborator.info(app_name, collaborator_email)
-    end
-
-    # Update an existing collaborator from an organization app.
-    #
-    # @param app_name: unique name of app
-    # @param collaborator_email: invited email address of collaborator
-    # @param body: the object to pass as the request payload
-    def update(app_name, collaborator_email, body = {})
-      @client.organization_app_collaborator.update(app_name, collaborator_email, body)
-    end
-
-    # List collaborators on an organization app.
-    #
-    # @param app_name: unique name of app
-    def list(app_name)
-      @client.organization_app_collaborator.list(app_name)
-    end
-  end
-
-  # Deprecated: An organization app encapsulates the organization specific functionality of Heroku apps.
-  class OrganizationApp
-    def initialize(client)
-      @client = client
-    end
-
-    # Create a new app in the specified organization, in the default organization if unspecified,  or in personal account, if default organization is not set.
-    #
-    # @param body: the object to pass as the request payload
-    def create(body = {})
-      @client.organization_app.create(body)
-    end
-
-    # List organization apps.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def list_for_organization(organization_name_or_organization_id)
-      @client.organization_app.list_for_organization(organization_name_or_organization_id)
-    end
-
-    # Info for an organization app.
-    #
-    # @param app_name: unique name of app
-    def info(app_name)
-      @client.organization_app.info(app_name)
-    end
-
-    # Lock or unlock an organization app.
-    #
-    # @param app_name: unique name of app
-    # @param body: the object to pass as the request payload
-    def update_locked(app_name, body = {})
-      @client.organization_app.update_locked(app_name, body)
-    end
-
-    # Transfer an existing organization app to another Heroku account.
-    #
-    # @param app_name: unique name of app
-    # @param body: the object to pass as the request payload
-    def transfer_to_account(app_name, body = {})
-      @client.organization_app.transfer_to_account(app_name, body)
-    end
-
-    # Transfer an existing organization app to another organization.
-    #
-    # @param app_name: unique name of app
-    # @param body: the object to pass as the request payload
-    def transfer_to_organization(app_name, body = {})
-      @client.organization_app.transfer_to_organization(app_name, body)
-    end
-  end
-
-  # Deprecated: An organization feature represents a feature enabled on an organization account.
-  class OrganizationFeature
-    def initialize(client)
-      @client = client
-    end
-
-    # Info for an existing organization feature.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param organization_feature_id_or_organization_feature_name: unique identifier of organization feature or unique name of organization feature
-    def info(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name)
-      @client.organization_feature.info(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name)
-    end
-
-    # List existing organization features.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def list(organization_name_or_organization_id)
-      @client.organization_feature.list(organization_name_or_organization_id)
-    end
-
-    # Update an existing organization feature.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param organization_feature_id_or_organization_feature_name: unique identifier of organization feature or unique name of organization feature
-    # @param body: the object to pass as the request payload
-    def update(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name, body = {})
-      @client.organization_feature.update(organization_name_or_organization_id, organization_feature_id_or_organization_feature_name, body)
-    end
-  end
-
-  # Deprecated: An organization invitation represents an invite to an organization.
-  class OrganizationInvitation
-    def initialize(client)
-      @client = client
-    end
-
-    # Get a list of an organization's Identity Providers
-    #
-    # @param organization_name: unique name of organization
-    def list(organization_name)
-      @client.organization_invitation.list(organization_name)
-    end
-
-    # Create Organization Invitation
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param body: the object to pass as the request payload
-    def create(organization_name_or_organization_id, body = {})
-      @client.organization_invitation.create(organization_name_or_organization_id, body)
-    end
-
-    # Revoke an organization invitation.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param organization_invitation_id: Unique identifier of an invitation
-    def revoke(organization_name_or_organization_id, organization_invitation_id)
-      @client.organization_invitation.revoke(organization_name_or_organization_id, organization_invitation_id)
-    end
-
-    # Get an invitation by its token
-    #
-    # @param organization_invitation_token: Special token for invitation
-    def get(organization_invitation_token)
-      @client.organization_invitation.get(organization_invitation_token)
-    end
-
-    # Accept Organization Invitation
-    #
-    # @param organization_invitation_token: Special token for invitation
-    def accept(organization_invitation_token)
-      @client.organization_invitation.accept(organization_invitation_token)
-    end
-  end
-
-  # Deprecated: An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.
-  class OrganizationInvoice
-    def initialize(client)
-      @client = client
-    end
-
-    # Info for existing invoice.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param organization_invoice_number: human readable invoice number
-    def info(organization_name_or_organization_id, organization_invoice_number)
-      @client.organization_invoice.info(organization_name_or_organization_id, organization_invoice_number)
-    end
-
-    # List existing invoices.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def list(organization_name_or_organization_id)
-      @client.organization_invoice.list(organization_name_or_organization_id)
-    end
-  end
-
-  # Deprecated: An organization member is an individual with access to an organization.
-  class OrganizationMember
-    def initialize(client)
-      @client = client
-    end
-
-    # Create a new organization member, or update their role.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param body: the object to pass as the request payload
-    def create_or_update(organization_name_or_organization_id, body = {})
-      @client.organization_member.create_or_update(organization_name_or_organization_id, body)
-    end
-
-    # Create a new organization member.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param body: the object to pass as the request payload
-    def create(organization_name_or_organization_id, body = {})
-      @client.organization_member.create(organization_name_or_organization_id, body)
-    end
-
-    # Update an organization member.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param body: the object to pass as the request payload
-    def update(organization_name_or_organization_id, body = {})
-      @client.organization_member.update(organization_name_or_organization_id, body)
-    end
-
-    # Remove a member from the organization.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param organization_member_email_or_organization_member_id: email address of the organization member or unique identifier of organization member
-    def delete(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
-      @client.organization_member.delete(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
-    end
-
-    # List members of the organization.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def list(organization_name_or_organization_id)
-      @client.organization_member.list(organization_name_or_organization_id)
-    end
-
-    # List the apps of a member.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param organization_member_email_or_organization_member_id: email address of the organization member or unique identifier of organization member
-    def app_list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
-      @client.organization_member.app_list(organization_name_or_organization_id, organization_member_email_or_organization_member_id)
-    end
-  end
-
-  # Deprecated: Tracks an organization's preferences
-  class OrganizationPreferences
-    def initialize(client)
-      @client = client
-    end
-
-    # Retrieve Organization Preferences
-    #
-    # @param organization_preferences_identity: 
-    def list(organization_preferences_identity)
-      @client.organization_preferences.list(organization_preferences_identity)
-    end
-
-    # Update Organization Preferences
-    #
-    # @param organization_preferences_identity: 
-    # @param body: the object to pass as the request payload
-    def update(organization_preferences_identity, body = {})
-      @client.organization_preferences.update(organization_preferences_identity, body)
-    end
-  end
-
-  # Deprecated: Organizations allow you to manage access to a shared group of applications across your development team.
-  class Organization
-    def initialize(client)
-      @client = client
-    end
-
-    # List organizations in which you are a member.
-    def list()
-      @client.organization.list()
-    end
-
-    # Info for an organization.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def info(organization_name_or_organization_id)
-      @client.organization.info(organization_name_or_organization_id)
-    end
-
-    # Update organization properties.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param body: the object to pass as the request payload
-    def update(organization_name_or_organization_id, body = {})
-      @client.organization.update(organization_name_or_organization_id, body)
-    end
-
-    # Create a new organization.
-    #
-    # @param body: the object to pass as the request payload
-    def create(body = {})
-      @client.organization.create(body)
-    end
-
-    # Delete an existing organization.
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def delete(organization_name_or_organization_id)
-      @client.organization.delete(organization_name_or_organization_id)
-    end
-  end
-
   # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
   class OutboundRuleset
     def initialize(client)
@@ -2445,7 +2230,7 @@ module PlatformAPI
     end
   end
 
-  # [Peering Info](https://devcenter.heroku.com/articles/private-space-vpc-peering) gives you the information necessary to peer an AWS VPC to a Private Space.
+  # [Peering Info](https://devcenter.heroku.com/articles/private-space-peering) gives you the information necessary to peer an AWS VPC to a Private Space.
   class PeeringInfo
     def initialize(client)
       @client = client
@@ -2459,7 +2244,7 @@ module PlatformAPI
     end
   end
 
-  # [Peering](https://devcenter.heroku.com/articles/private-space-vpc-peering) provides a way to peer your Private Space VPC to another AWS VPC.
+  # [Peering](https://devcenter.heroku.com/articles/private-space-peering) provides a way to peer your Private Space VPC to another AWS VPC.
   class Peering
     def initialize(client)
       @client = client
@@ -2497,15 +2282,41 @@ module PlatformAPI
     end
   end
 
-  # Deprecated: An organization app permission is a behavior that is assigned to a user in an organization app.
-  class OrganizationAppPermission
+  # An owned entity including users' permissions.
+  class PermissionEntity
     def initialize(client)
       @client = client
     end
 
-    # Lists permissions available to organizations.
-    def list()
-      @client.organization_app_permission.list()
+    # List permission entities for a team.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list(team_name_or_team_id)
+      @client.permission_entity.list(team_name_or_team_id)
+    end
+  end
+
+  # Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.
+  class PipelineConfigVar
+    def initialize(client)
+      @client = client
+    end
+
+    # Get config-vars for a pipeline stage.
+    #
+    # @param pipeline_id: unique identifier of pipeline
+    # @param pipeline_coupling_stage: target pipeline stage
+    def info_for_app(pipeline_id, pipeline_coupling_stage)
+      @client.pipeline_config_var.info_for_app(pipeline_id, pipeline_coupling_stage)
+    end
+
+    # Update config-vars for a pipeline stage. You can update existing config-vars by setting them again, and remove by setting it to `null`.
+    #
+    # @param pipeline_id: unique identifier of pipeline
+    # @param pipeline_coupling_stage: target pipeline stage
+    # @param body: the object to pass as the request payload
+    def update(pipeline_id, pipeline_coupling_stage, body = {})
+      @client.pipeline_config_var.update(pipeline_id, pipeline_coupling_stage, body)
     end
   end
 
@@ -2520,6 +2331,11 @@ module PlatformAPI
     # @param pipeline_id: unique identifier of pipeline
     def list_by_pipeline(pipeline_id)
       @client.pipeline_coupling.list_by_pipeline(pipeline_id)
+    end
+
+    # List pipeline couplings for the current user.
+    def list_for_current_user()
+      @client.pipeline_coupling.list_for_current_user()
     end
 
     # List pipeline couplings.
@@ -2738,6 +2554,85 @@ module PlatformAPI
     end
   end
 
+  # An ephemeral app to review a set of changes
+  class ReviewApp
+    def initialize(client)
+      @client = client
+    end
+
+    # Create a new review app
+    #
+    # @param body: the object to pass as the request payload
+    def create(body = {})
+      @client.review_app.create(body)
+    end
+
+    # Gets an existing review app
+    #
+    # @param review_app_id: unique identifier of the review app
+    def get_review_app(review_app_id)
+      @client.review_app.get_review_app(review_app_id)
+    end
+
+    # Delete an existing review app
+    #
+    # @param review_app_id: unique identifier of the review app
+    def delete(review_app_id)
+      @client.review_app.delete(review_app_id)
+    end
+
+    # Get a review app using the associated app_id
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def get_review_app_by_app_id(app_id_or_app_name)
+      @client.review_app.get_review_app_by_app_id(app_id_or_app_name)
+    end
+
+    # List review apps for a pipeline
+    #
+    # @param pipeline_id: unique identifier of pipeline
+    def list(pipeline_id)
+      @client.review_app.list(pipeline_id)
+    end
+  end
+
+  # Review apps can be configured for pipelines.
+  class ReviewAppConfig
+    def initialize(client)
+      @client = client
+    end
+
+    # Enable review apps for a pipeline
+    #
+    # @param pipeline_id: unique identifier of pipeline
+    # @param body: the object to pass as the request payload
+    def enable(pipeline_id, body = {})
+      @client.review_app_config.enable(pipeline_id, body)
+    end
+
+    # Get review apps configuration for a pipeline
+    #
+    # @param pipeline_id: unique identifier of pipeline
+    def info(pipeline_id)
+      @client.review_app_config.info(pipeline_id)
+    end
+
+    # Update review app configuration for a pipeline
+    #
+    # @param pipeline_id: unique identifier of pipeline
+    # @param body: the object to pass as the request payload
+    def update(pipeline_id, body = {})
+      @client.review_app_config.update(pipeline_id, body)
+    end
+
+    # Disable review apps for a pipeline
+    #
+    # @param pipeline_id: unique identifier of pipeline
+    def delete(pipeline_id)
+      @client.review_app_config.delete(pipeline_id)
+    end
+  end
+
   # A slug is a snapshot of your application code that is ready to run on the platform.
   class Slug
     def initialize(client)
@@ -2900,6 +2795,21 @@ module PlatformAPI
     end
   end
 
+  # Transfer spaces between enterprise teams with the same Enterprise Account.
+  class SpaceTransfer
+    def initialize(client)
+      @client = client
+    end
+
+    # Transfer space between enterprise teams
+    #
+    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    # @param body: the object to pass as the request payload
+    def transfer(space_id_or_space_name, body = {})
+      @client.space_transfer.transfer(space_id_or_space_name, body)
+    end
+  end
+
   # A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.
   class Space
     def initialize(client)
@@ -3007,13 +2917,27 @@ module PlatformAPI
     end
   end
 
+  # 
+  class TeamAddon
+    def initialize(client)
+      @client = client
+    end
+
+    # List add-ons used across all Team apps
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list_for_team(team_name_or_team_id)
+      @client.team_addon.list_for_team(team_name_or_team_id)
+    end
+  end
+
   # A team collaborator represents an account that has been given access to a team app on Heroku.
   class TeamAppCollaborator
     def initialize(client)
       @client = client
     end
 
-    # Create a new collaborator on a team app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the team.
+    # Create a new collaborator on a team app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-permissions) according to their role in the team.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
@@ -3282,6 +3206,48 @@ module PlatformAPI
     end
   end
 
+  # A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.
+  class TeamSpace
+    def initialize(client)
+      @client = client
+    end
+
+    # List spaces owned by the team
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list(team_name_or_team_id)
+      @client.team_space.list(team_name_or_team_id)
+    end
+  end
+
+  # Usage for an enterprise team at a daily resolution.
+  class TeamUsageDaily
+    def initialize(client)
+      @client = client
+    end
+
+    # Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/teams/example-team/usage?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.
+    #
+    # @param team_id: unique identifier of team
+    def list_daily(team_id)
+      @client.team_usage_daily.list_daily(team_id)
+    end
+  end
+
+  # Usage for an enterprise team at a monthly resolution.
+  class TeamUsageMonthly
+    def initialize(client)
+      @client = client
+    end
+
+    # Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/teams/example-team/usage?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.
+    #
+    # @param team_id: unique identifier of team
+    def list_monthly(team_id)
+      @client.team_usage_monthly.list_monthly(team_id)
+    end
+  end
+
   # Teams allow you to manage access to a shared group of applications and other resources.
   class Team
     def initialize(client)
@@ -3320,6 +3286,21 @@ module PlatformAPI
     # @param team_name_or_team_id: unique name of team or unique identifier of team
     def delete(team_name_or_team_id)
       @client.team.delete(team_name_or_team_id)
+    end
+
+    # List teams for an enterprise account.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def list_for_enterprise(enterprise_account_id)
+      @client.team.list_for_enterprise(enterprise_account_id)
+    end
+
+    # Create a team in an enterprise account.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param body: the object to pass as the request payload
+    def create_for_enterprise(enterprise_account_id, body = {})
+      @client.team.create_for_enterprise(enterprise_account_id, body)
     end
   end
 
@@ -3417,7 +3398,7 @@ module PlatformAPI
     end
   end
 
-  # [VPN](https://devcenter.heroku.com/articles/private-spaces-vpn?preview=1) provides a way to connect your Private Spaces to your network via VPN.
+  # [VPN](https://devcenter.heroku.com/articles/private-space-vpn-connection) provides a way to connect your Private Spaces to your network via VPN.
   class VpnConnection
     def initialize(client)
       @client = client
@@ -3455,36 +3436,13 @@ module PlatformAPI
     end
   end
 
-  # Entities that have been whitelisted to be used by an Organization
+  # Entities that have been whitelisted to be used by an Team
   class WhitelistedAddonService
     def initialize(client)
       @client = client
     end
 
-    # List all whitelisted Add-on Services for an Organization
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    def list_by_organization(organization_name_or_organization_id)
-      @client.whitelisted_addon_service.list_by_organization(organization_name_or_organization_id)
-    end
-
-    # Whitelist an Add-on Service
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param body: the object to pass as the request payload
-    def create_by_organization(organization_name_or_organization_id, body = {})
-      @client.whitelisted_addon_service.create_by_organization(organization_name_or_organization_id, body)
-    end
-
-    # Remove a whitelisted entity
-    #
-    # @param organization_name_or_organization_id: unique name of organization or unique identifier of organization
-    # @param whitelisted_addon_service_id_or_addon_service_name: unique identifier for this whitelisting entity or unique name of this add-on-service
-    def delete_by_organization(organization_name_or_organization_id, whitelisted_addon_service_id_or_addon_service_name)
-      @client.whitelisted_addon_service.delete_by_organization(organization_name_or_organization_id, whitelisted_addon_service_id_or_addon_service_name)
-    end
-
-    # List all whitelisted Add-on Services for a Team
+    # List all whitelisted Add-on Services for an Team
     #
     # @param team_name_or_team_id: unique name of team or unique identifier of team
     def list_by_team(team_name_or_team_id)
@@ -3991,13 +3949,23 @@ module PlatformAPI
             "id": {
               "$ref": "#/definitions/identity-provider/definitions/id"
             },
+            "team": {
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/team/definitions/name"
+                }
+              }
+            },
             "organization": {
               "type": [
                 "object"
               ],
               "properties": {
                 "name": {
-                  "$ref": "#/definitions/organization/definitions/name"
+                  "$ref": "#/definitions/team/definitions/name"
                 }
               }
             },
@@ -4074,13 +4042,29 @@ module PlatformAPI
           "$ref": "#/definitions/account/definitions/verified"
         },
         "default_organization": {
-          "description": "organization selected by default",
+          "description": "team selected by default",
           "properties": {
             "id": {
-              "$ref": "#/definitions/organization/definitions/id"
+              "$ref": "#/definitions/team/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/organization/definitions/name"
+              "$ref": "#/definitions/team/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "default_team": {
+          "description": "team selected by default",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/team/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/team/definitions/name"
             }
           },
           "strictProperties": true,
@@ -4214,6 +4198,15 @@ module PlatformAPI
             "null",
             "string"
           ]
+        },
+        "log_input_url": {
+          "description": "URL for add-on partners to write to an add-on's logs",
+          "example": "https://token:t.abcdef12-3456-7890-abcd-ef1234567890@1.us.logplex.io/logs",
+          "type": [
+            "null",
+            "string"
+          ],
+          "readOnly": true
         }
       },
       "links": [
@@ -4347,6 +4340,9 @@ module PlatformAPI
             },
             "required": [
               "addon_attachment"
+            ],
+            "type": [
+              "object"
             ]
           },
           "targetSchema": {
@@ -4428,6 +4424,9 @@ module PlatformAPI
         },
         "web_url": {
           "$ref": "#/definitions/add-on-attachment/definitions/web_url"
+        },
+        "log_input_url": {
+          "$ref": "#/definitions/add-on-attachment/definitions/log_input_url"
         }
       }
     },
@@ -5158,6 +5157,23 @@ module PlatformAPI
             "integer"
           ]
         },
+        "config": {
+          "additionalProperties": false,
+          "description": "custom add-on provisioning options",
+          "example": {
+            "db-version": "1.2.3"
+          },
+          "patternProperties": {
+            "^\\w+$": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
         "config_vars": {
           "description": "config vars exposed to the owning app by this add-on",
           "example": [
@@ -5213,7 +5229,6 @@ module PlatformAPI
           "description": "globally unique name of the add-on",
           "example": "acme-inc-primary-database",
           "pattern": "^[a-zA-Z][A-Za-z0-9_-]+$",
-          "readOnly": true,
           "type": [
             "string"
           ]
@@ -5315,21 +5330,7 @@ module PlatformAPI
                 ]
               },
               "config": {
-                "additionalProperties": false,
-                "description": "custom add-on provisioning options",
-                "example": {
-                  "db-version": "1.2.3"
-                },
-                "patternProperties": {
-                  "^\\w+$": {
-                    "type": [
-                      "string"
-                    ]
-                  }
-                },
-                "type": [
-                  "object"
-                ]
+                "$ref": "#/definitions/add-on/definitions/config"
               },
               "confirm": {
                 "$ref": "#/definitions/add-on/definitions/confirm"
@@ -5395,6 +5396,9 @@ module PlatformAPI
           "rel": "update",
           "schema": {
             "properties": {
+              "name": {
+                "$ref": "#/definitions/add-on/definitions/name"
+              },
               "plan": {
                 "$ref": "#/definitions/plan/definitions/identity"
               }
@@ -5457,6 +5461,9 @@ module PlatformAPI
             },
             "required": [
               "addon"
+            ],
+            "type": [
+              "object"
             ]
           },
           "targetSchema": {
@@ -6109,16 +6116,16 @@ module PlatformAPI
                 "description": "optional parameters for created app",
                 "properties": {
                   "locked": {
-                    "$ref": "#/definitions/organization-app/definitions/locked"
+                    "$ref": "#/definitions/team-app/definitions/locked"
                   },
                   "name": {
                     "$ref": "#/definitions/app/definitions/name"
                   },
                   "organization": {
-                    "$ref": "#/definitions/organization/definitions/name"
+                    "$ref": "#/definitions/team/definitions/name"
                   },
                   "personal": {
-                    "$ref": "#/definitions/organization-app/definitions/personal"
+                    "$ref": "#/definitions/team-app/definitions/personal"
                   },
                   "region": {
                     "$ref": "#/definitions/region/definitions/name"
@@ -7123,7 +7130,7 @@ module PlatformAPI
         "name": {
           "description": "unique name of app",
           "example": "example",
-          "pattern": "^[a-z][a-z0-9-]{2,29}$",
+          "pattern": "^[a-z][a-z0-9-]{1,28}[a-z0-9]$",
           "readOnly": false,
           "type": [
             "string"
@@ -7392,13 +7399,13 @@ module PlatformAPI
           ]
         },
         "organization": {
-          "description": "identity of organization",
+          "description": "identity of team",
           "properties": {
             "id": {
-              "$ref": "#/definitions/organization/definitions/id"
+              "$ref": "#/definitions/team/definitions/id"
             },
             "name": {
-              "$ref": "#/definitions/organization/definitions/name"
+              "$ref": "#/definitions/team/definitions/name"
             }
           },
           "type": [
@@ -7486,117 +7493,110 @@ module PlatformAPI
         }
       }
     },
-    "build-result": {
+    "archive": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "deactivate_on": "2016-10-01",
-      "description": "A build result contains the output from a build.",
-      "title": "Heroku Build API - Build Result",
-      "stability": "deprecation",
+      "title": "Heroku Platform API - Audit Trail Archive",
+      "description": "An audit trail archive represents a monthly json zipped file containing events",
+      "stability": "development",
       "strictProperties": true,
       "type": [
         "object"
       ],
       "definitions": {
-        "identity": {
-        },
-        "exit_code": {
-          "description": "status from the build",
-          "example": 0,
+        "id": {
+          "description": "unique identifier of enterprise_account",
           "readOnly": true,
+          "format": "uuid",
           "type": [
-            "number"
+            "string"
           ]
         },
-        "line": {
-          "description": "a single line of output to STDOUT or STDERR from the build.",
-          "strictProperties": true,
-          "type": [
-            "object"
-          ],
-          "example": {
-            "stream": "STDOUT",
-            "line": "-----> Ruby app detected\n"
-          },
+        "identity": {
+          "$ref": "#/definitions/archive/definitions/id"
+        },
+        "month": {
+          "description": "month of the archive",
+          "example": 10,
           "readOnly": true,
-          "definitions": {
-            "stream": {
-              "type": [
-                "string"
-              ],
-              "enum": [
-                "STDOUT",
-                "STDERR"
-              ],
-              "description": "The output stream where the line was sent.",
-              "example": "STDOUT",
-              "readOnly": true
-            },
-            "line": {
-              "type": [
-                "string"
-              ],
-              "example": "-----> Ruby app detected\n",
-              "readOnly": true,
-              "description": "A line of output from the build."
-            }
-          },
-          "properties": {
-            "stream": {
-              "$ref": "#/definitions/build-result/definitions/line/definitions/stream"
-            },
-            "line": {
-              "$ref": "#/definitions/build-result/definitions/line/definitions/line"
-            }
-          }
+          "minimum": 1,
+          "maximum": 12,
+          "type": [
+            "integer"
+          ]
+        },
+        "year": {
+          "description": "year of the archive",
+          "example": 2019,
+          "readOnly": true,
+          "minimum": 2017,
+          "type": [
+            "integer"
+          ]
+        },
+        "created_at": {
+          "description": "when archive was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "url": {
+          "description": "url where to download the archive",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "checksum": {
+          "description": "checksum for the archive",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "size": {
+          "description": "size of the archive in bytes",
+          "example": 100,
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
         }
       },
       "links": [
         {
-          "description": "Info for existing result.",
-          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/builds/{(%23%2Fdefinitions%2Fbuild%2Fdefinitions%2Fidentity)}/result",
+          "description": "Get archive for a single month.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/archives/{(%23%2Fdefinitions%2Farchive%2Fdefinitions%2Fyear)}/{(%23%2Fdefinitions%2Farchive%2Fdefinitions%2Fmonth)}",
           "method": "GET",
           "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/build-result"
-          },
           "title": "Info"
+        },
+        {
+          "description": "List existing archives.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/archives",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
         }
       ],
       "properties": {
-        "build": {
-          "description": "identity of build",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/build/definitions/id"
-            },
-            "status": {
-              "$ref": "#/definitions/build/definitions/status"
-            },
-            "output_stream_url": {
-              "$ref": "#/definitions/build/definitions/output_stream_url"
-            }
-          },
-          "type": [
-            "object"
-          ]
+        "created_at": {
+          "$ref": "#/definitions/archive/definitions/created_at"
         },
-        "exit_code": {
-          "$ref": "#/definitions/build-result/definitions/exit_code"
+        "month": {
+          "$ref": "#/definitions/archive/definitions/month"
         },
-        "lines": {
-          "type": [
-            "array"
-          ],
-          "items": {
-            "$ref": "#/definitions/build-result/definitions/line"
-          },
-          "description": "A list of all the lines of a build's output. This has been replaced by the `output_stream_url` attribute on the build resource.",
-          "example": [
-            {
-              "line": "-----> Ruby app detected\n",
-              "stream": "STDOUT"
-            }
-          ]
+        "year": {
+          "$ref": "#/definitions/archive/definitions/year"
+        },
+        "url": {
+          "$ref": "#/definitions/archive/definitions/url"
+        },
+        "checksum": {
+          "$ref": "#/definitions/archive/definitions/checksum"
+        },
+        "size": {
+          "$ref": "#/definitions/archive/definitions/size"
         }
       }
     },
@@ -7623,7 +7623,20 @@ module PlatformAPI
             ],
             "properties": {
               "url": {
-                "$ref": "#/definitions/buildpack-installation/definitions/url"
+                "description": "the URL of the buildpack for the app",
+                "example": "https://github.com/heroku/heroku-buildpack-ruby",
+                "readOnly": false,
+                "type": [
+                  "string"
+                ]
+              },
+              "name": {
+                "description": "Buildpack Registry name of the buildpack for the app",
+                "example": "heroku/ruby",
+                "readOnly": false,
+                "type": [
+                  "string"
+                ]
               }
             }
           }
@@ -7930,7 +7943,7 @@ module PlatformAPI
           ]
         },
         "name": {
-          "description": "either the shorthand name (heroku official buildpacks) or url (unofficial buildpacks) of the buildpack for the app",
+          "description": "either the Buildpack Registry name or a URL of the buildpack for the app",
           "example": "heroku/ruby",
           "readOnly": false,
           "type": [
@@ -8938,7 +8951,7 @@ module PlatformAPI
           ]
         },
         "time_to_live": {
-          "description": "seconds until dyno expires, after which it will soon be killed",
+          "description": "seconds until dyno expires, after which it will soon be killed, max 86400 seconds (24 hours)",
           "example": 1800,
           "readOnly": false,
           "type": [
@@ -9118,6 +9131,974 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/dyno/definitions/updated_at"
+        }
+      }
+    },
+    "enterprise-account-member": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Enterprise account members are users with access to an enterprise account.",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Enterprise Account Member",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the member",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/enterprise-account-member/definitions/id"
+            }
+          ]
+        },
+        "permission": {
+          "description": "permission in the enterprise account",
+          "enum": [
+            "view",
+            "create",
+            "manage",
+            "billing"
+          ],
+          "example": "view",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "permissions": {
+          "description": "permissions for enterprise account",
+          "example": [
+            "view"
+          ],
+          "readOnly": true,
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/enterprise-account-member/definitions/permission"
+          }
+        },
+        "expanded_permissions": {
+          "description": "enterprise account permissions",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "description": {
+                "type": [
+                  "string"
+                ],
+                "example": "View enterprise account members and teams."
+              },
+              "name": {
+                "$ref": "#/definitions/enterprise-account-member/definitions/permission",
+                "example": "view"
+              }
+            }
+          }
+        },
+        "user_identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            {
+              "$ref": "#/definitions/account/definitions/id"
+            }
+          ]
+        },
+        "two_factor_authentication": {
+          "description": "whether the Enterprise Account member has two factor authentication enabled",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "identity_provider": {
+          "description": "Identity Provider information the member is federated with",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/identity-provider/definitions/id"
+            },
+            "name": {
+              "description": "name of the identity provider",
+              "example": "acme",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "redacted": {
+              "description": "whether the identity_provider information is redacted or not",
+              "example": false,
+              "readOnly": true,
+              "type": [
+                "boolean"
+              ]
+            },
+            "owner": {
+              "$ref": "#/definitions/identity-provider/definitions/owner"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "description": "List members in an enterprise account.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/members",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/enterprise-account-member"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Create a member in an enterprise account.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/members",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "user": {
+                "$ref": "#/definitions/enterprise-account-member/definitions/user_identity"
+              },
+              "permissions": {
+                "$ref": "#/definitions/enterprise-account-member/definitions/permissions"
+              },
+              "federated": {
+                "description": "whether membership is being created as part of SSO JIT",
+                "example": false,
+                "type": [
+                  "boolean"
+                ]
+              }
+            },
+            "required": [
+              "user",
+              "permissions"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/enterprise-account-member"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "Update a member in an enterprise account.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Fenterprise-account-member%2Fdefinitions%2Fuser_identity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "permissions": {
+                "$ref": "#/definitions/enterprise-account-member/definitions/permissions"
+              }
+            },
+            "required": [
+              "permissions"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/enterprise-account-member"
+          },
+          "title": "Update"
+        },
+        {
+          "description": "delete a member in an enterprise account.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Fenterprise-account-member%2Fdefinitions%2Fuser_identity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/enterprise-account-member"
+          },
+          "title": "Delete"
+        }
+      ],
+      "properties": {
+        "enterprise_account": {
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/enterprise-account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/enterprise-account/definitions/name"
+            }
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/enterprise-account-member/definitions/id"
+        },
+        "permissions": {
+          "$ref": "#/definitions/enterprise-account-member/definitions/expanded_permissions"
+        },
+        "user": {
+          "description": "user information for the membership",
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "two_factor_authentication": {
+          "$ref": "#/definitions/enterprise-account-member/definitions/two_factor_authentication"
+        },
+        "identity_provider": {
+          "$ref": "#/definitions/enterprise-account-member/definitions/identity_provider"
+        }
+      }
+    },
+    "enterprise-account-usage-daily": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Usage for an enterprise account at a daily resolution.",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Enterprise Account Daily Usage",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "addons": {
+          "description": "total add-on credits used",
+          "example": 250.0,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "data": {
+          "description": "total add-on credits used for first party add-ons",
+          "example": 34.89,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "date": {
+          "description": "date of the usage",
+          "example": "2019-01-01",
+          "format": "date",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "dynos": {
+          "description": "dynos used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "id": {
+          "description": "enterprise account identifier",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "description": "name of the enterprise account",
+          "example": "example-co",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "partner": {
+          "description": "total add-on credits used for third party add-ons",
+          "example": 12.34,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "space": {
+          "description": "space credits used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/enterprise-accounts/example-account/usage/daily?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fid)}/usage/daily",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/enterprise-account-usage-daily"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List Daily"
+        }
+      ],
+      "properties": {
+        "addons": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/addons"
+        },
+        "teams": {
+          "description": "usage by team",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "addons": {
+                "$ref": "#/definitions/team-usage-daily/definitions/addons"
+              },
+              "apps": {
+                "description": "app usage in the team",
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/team-usage-daily/definitions/app_usage_daily"
+                }
+              },
+              "data": {
+                "$ref": "#/definitions/team-usage-daily/definitions/data"
+              },
+              "dynos": {
+                "$ref": "#/definitions/team-usage-daily/definitions/dynos"
+              },
+              "id": {
+                "$ref": "#/definitions/team-usage-daily/definitions/id"
+              },
+              "name": {
+                "$ref": "#/definitions/team-usage-daily/definitions/name"
+              },
+              "partner": {
+                "$ref": "#/definitions/team-usage-daily/definitions/partner"
+              },
+              "space": {
+                "$ref": "#/definitions/team-usage-daily/definitions/space"
+              }
+            }
+          }
+        },
+        "data": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/data"
+        },
+        "date": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/date"
+        },
+        "dynos": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/dynos"
+        },
+        "id": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/name"
+        },
+        "partner": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/partner"
+        },
+        "space": {
+          "$ref": "#/definitions/enterprise-account-usage-daily/definitions/space"
+        }
+      }
+    },
+    "enterprise-account-usage-monthly": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Usage for an enterprise account at a monthly resolution.",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Enterprise Account Monthly Usage",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "addons": {
+          "description": "total add-on credits used",
+          "example": 250.0,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "connect": {
+          "description": "average connect rows synced",
+          "example": 15000,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "data": {
+          "description": "total add-on credits used for first party add-ons",
+          "example": 34.89,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "dynos": {
+          "description": "dynos used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "month": {
+          "description": "year and month of the usage",
+          "example": "2019-01",
+          "pattern": "^[0-9]{4}-[0-9]{2}$",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "enterprise account identifier",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "description": "name of the enterprise account",
+          "example": "example-co",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "partner": {
+          "description": "total add-on credits used for third party add-ons",
+          "example": 12.34,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "space": {
+          "description": "space credits used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Retrieves usage for an enterprise account for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/enterprise-accounts/example-account/usage/monthly?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fid)}/usage/monthly",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/enterprise-account-usage-monthly"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List Monthly"
+        }
+      ],
+      "properties": {
+        "addons": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/addons"
+        },
+        "teams": {
+          "description": "usage by team",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "addons": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/addons"
+              },
+              "apps": {
+                "description": "app usage in the team",
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/team-usage-monthly/definitions/app_usage_monthly"
+                }
+              },
+              "connect": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/connect"
+              },
+              "data": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/data"
+              },
+              "dynos": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/dynos"
+              },
+              "id": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/id"
+              },
+              "name": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/name"
+              },
+              "partner": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/partner"
+              },
+              "space": {
+                "$ref": "#/definitions/team-usage-monthly/definitions/space"
+              }
+            }
+          }
+        },
+        "connect": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/connect"
+        },
+        "data": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/data"
+        },
+        "dynos": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/dynos"
+        },
+        "id": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/id"
+        },
+        "month": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/month"
+        },
+        "name": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/name"
+        },
+        "partner": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/partner"
+        },
+        "space": {
+          "$ref": "#/definitions/enterprise-account-usage-monthly/definitions/space"
+        }
+      }
+    },
+    "enterprise-account": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Enterprise accounts allow companies to manage their development teams and billing.",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Enterprise Account",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when the enterprise account was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of the enterprise account",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/enterprise-account/definitions/id"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of the enterprise account",
+          "example": "example",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when the enterprise account was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "permissions": {
+          "description": "the current user's permissions for this enterprise account",
+          "readOnly": true,
+          "type": [
+            "array"
+          ],
+          "items": {
+            "example": "view",
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "trial": {
+          "description": "whether the enterprise account is a trial or not",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List enterprise accounts in which you are a member.",
+          "href": "/enterprise-accounts",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/enterprise-account"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "Information about an enterprise account.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info"
+        },
+        {
+          "description": "Update enterprise account properties",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/enterprise-account/definitions/name"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/enterprise-account"
+          },
+          "title": "Update"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/enterprise-account/definitions/id"
+        },
+        "created_at": {
+          "$ref": "#/definitions/enterprise-account/definitions/created_at"
+        },
+        "name": {
+          "$ref": "#/definitions/enterprise-account/definitions/name"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/enterprise-account/definitions/updated_at"
+        },
+        "permissions": {
+          "$ref": "#/definitions/enterprise-account/definitions/permissions"
+        },
+        "trial": {
+          "$ref": "#/definitions/enterprise-account/definitions/trial"
+        },
+        "identity_provider": {
+          "description": "Identity Provider associated with the Enterprise Account",
+          "strictProperties": true,
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/identity-provider/definitions/id"
+            },
+            "name": {
+              "description": "user-friendly unique identifier for this identity provider",
+              "example": "acme-sso",
+              "type": [
+                "string"
+              ]
+            },
+            "owner": {
+              "$ref": "#/definitions/identity-provider/definitions/owner"
+            }
+          }
+        }
+      }
+    },
+    "event": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - Audit Trail Event",
+      "description": "An audit trail event represents some action on the platform",
+      "stability": "development",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of event",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/event/definitions/id"
+            }
+          ]
+        },
+        "type": {
+          "description": "type of event",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "action": {
+          "description": "action for the event",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "actor": {
+          "description": "user who caused event",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "email": {
+              "format": "email",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "app": {
+          "description": "app upon which event took place",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "owner": {
+          "description": "owner of the app targeted by the event",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "email": {
+              "format": "email",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "enterprise_account": {
+          "description": "enterprise account on which the event happened",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "team": {
+          "description": "team on which the event happened",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "request": {
+          "description": "information about where the action was triggered",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "ip_address": {
+              "format": "ipv4",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "data": {
+          "description": "data specific to the event",
+          "readOnly": true,
+          "type": [
+            "object"
+          ]
+        },
+        "created_at": {
+          "description": "when event was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List existing events.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/events",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/event/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/event/definitions/id"
+        },
+        "type": {
+          "$ref": "#/definitions/event/definitions/type"
+        },
+        "action": {
+          "$ref": "#/definitions/event/definitions/action"
+        },
+        "actor": {
+          "$ref": "#/definitions/event/definitions/actor"
+        },
+        "app": {
+          "$ref": "#/definitions/event/definitions/app"
+        },
+        "owner": {
+          "$ref": "#/definitions/event/definitions/owner"
+        },
+        "enterprise_account": {
+          "$ref": "#/definitions/event/definitions/enterprise_account"
+        },
+        "team": {
+          "$ref": "#/definitions/event/definitions/team"
+        },
+        "request": {
+          "$ref": "#/definitions/event/definitions/request"
+        },
+        "data": {
+          "$ref": "#/definitions/event/definitions/data"
         }
       }
     },
@@ -9414,7 +10395,7 @@ module PlatformAPI
       }
     },
     "identity-provider": {
-      "description": "Identity Providers represent the SAML configuration of an Organization.",
+      "description": "Identity Providers represent the SAML configuration of an Team.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -9527,96 +10508,8 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Get a list of an organization's Identity Providers",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/identity-provider"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List By Organization"
-        },
-        {
-          "description": "Create an Identity Provider for an organization",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers",
-          "method": "POST",
-          "rel": "create",
-          "schema": {
-            "properties": {
-              "certificate": {
-                "$ref": "#/definitions/identity-provider/definitions/certificate"
-              },
-              "entity_id": {
-                "$ref": "#/definitions/identity-provider/definitions/entity_id"
-              },
-              "slo_target_url": {
-                "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
-              },
-              "sso_target_url": {
-                "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
-              }
-            },
-            "required": [
-              "certificate",
-              "sso_target_url",
-              "entity_id"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/identity-provider"
-          },
-          "title": "Create By Organization"
-        },
-        {
-          "description": "Update an organization's Identity Provider",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "certificate": {
-                "$ref": "#/definitions/identity-provider/definitions/certificate"
-              },
-              "entity_id": {
-                "$ref": "#/definitions/identity-provider/definitions/entity_id"
-              },
-              "slo_target_url": {
-                "$ref": "#/definitions/identity-provider/definitions/slo_target_url"
-              },
-              "sso_target_url": {
-                "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
-              }
-            },
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/identity-provider"
-          },
-          "title": "Update By Organization"
-        },
-        {
-          "description": "Delete an organization's Identity Provider",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
-          "method": "DELETE",
-          "rel": "destroy",
-          "targetSchema": {
-            "$ref": "#/definitions/identity-provider"
-          },
-          "title": "Delete By Organization"
-        },
-        {
           "description": "Get a list of a team's Identity Providers",
-          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/identity-providers",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fname)}/identity-providers",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
@@ -9631,7 +10524,7 @@ module PlatformAPI
         },
         {
           "description": "Create an Identity Provider for a team",
-          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/identity-providers",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fname)}/identity-providers",
           "method": "POST",
           "rel": "create",
           "schema": {
@@ -9665,7 +10558,7 @@ module PlatformAPI
         },
         {
           "description": "Update a team's Identity Provider",
-          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fname)}/identity-providers/{(%23%2Fdefinitions%2Fidentity-provider%2Fdefinitions%2Fid)}",
           "method": "PATCH",
           "rel": "update",
           "schema": {
@@ -9723,10 +10616,10 @@ module PlatformAPI
           "$ref": "#/definitions/identity-provider/definitions/sso_target_url"
         },
         "organization": {
-          "description": "organization associated with this identity provider",
+          "description": "team associated with this identity provider",
           "properties": {
             "name": {
-              "$ref": "#/definitions/organization/definitions/name"
+              "$ref": "#/definitions/team/definitions/name"
             }
           },
           "type": [
@@ -11454,1803 +12347,6 @@ module PlatformAPI
         }
       }
     },
-    "organization-add-on": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "Deprecated: A list of add-ons the Organization uses across all apps",
-      "stability": "production",
-      "deprecated_at": "2017-04-10",
-      "title": "Heroku Platform API - Organization Add-on",
-      "type": [
-        "object"
-      ],
-      "links": [
-        {
-          "description": "List add-ons used across all Organization apps",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/addons",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/add-on"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List For Organization"
-        }
-      ]
-    },
-    "organization-app-collaborator": {
-      "description": "Deprecated: An organization collaborator represents an account that has been given access to an organization app on Heroku.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "title": "Heroku Platform API - Organization App Collaborator",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/collaborator/definitions/email"
-            }
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Create a new collaborator on an organization app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the organization.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators",
-          "method": "POST",
-          "rel": "create",
-          "schema": {
-            "properties": {
-              "permissions": {
-                "type": [
-                  "array"
-                ],
-                "items": {
-                  "$ref": "#/definitions/organization-app-permission/definitions/name"
-                },
-                "description": "An array of permissions to give to the collaborator."
-              },
-              "silent": {
-                "$ref": "#/definitions/collaborator/definitions/silent"
-              },
-              "user": {
-                "$ref": "#/definitions/account/definitions/identity"
-              }
-            },
-            "required": [
-              "user"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-app-collaborator"
-          },
-          "title": "Create"
-        },
-        {
-          "description": "Delete an existing collaborator from an organization app.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Forganization-app-collaborator%2Fdefinitions%2Fidentity)}",
-          "method": "DELETE",
-          "rel": "destroy",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-app-collaborator"
-          },
-          "title": "Delete"
-        },
-        {
-          "description": "Info for a collaborator on an organization app.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Forganization-app-collaborator%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-app-collaborator"
-          },
-          "title": "Info"
-        },
-        {
-          "description": "Update an existing collaborator from an organization app.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}/collaborators/{(%23%2Fdefinitions%2Forganization-app-collaborator%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "permissions": {
-                "type": [
-                  "array"
-                ],
-                "items": {
-                  "$ref": "#/definitions/organization-app-permission/definitions/name"
-                },
-                "description": "An array of permissions to give to the collaborator."
-              }
-            },
-            "required": [
-              "permissions"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-app-collaborator"
-          },
-          "title": "Update"
-        },
-        {
-          "description": "List collaborators on an organization app.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}/collaborators",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-app-collaborator"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        }
-      ],
-      "properties": {
-        "app": {
-          "description": "app collaborator belongs to",
-          "properties": {
-            "name": {
-              "$ref": "#/definitions/app/definitions/name"
-            },
-            "id": {
-              "$ref": "#/definitions/app/definitions/id"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "created_at": {
-          "$ref": "#/definitions/collaborator/definitions/created_at"
-        },
-        "id": {
-          "$ref": "#/definitions/collaborator/definitions/id"
-        },
-        "role": {
-          "$ref": "#/definitions/organization/definitions/role"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/collaborator/definitions/updated_at"
-        },
-        "user": {
-          "description": "identity of collaborated account",
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "federated": {
-              "$ref": "#/definitions/account/definitions/federated"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        }
-      }
-    },
-    "organization-app": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "Deprecated: An organization app encapsulates the organization specific functionality of Heroku apps.",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "title": "Heroku Platform API - Organization App",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "locked": {
-          "default": false,
-          "description": "are other organization members forbidden from joining this app.",
-          "example": false,
-          "type": [
-            "boolean"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/app/definitions/name"
-            }
-          ]
-        },
-        "joined": {
-          "default": false,
-          "description": "is the current member a collaborator on this app.",
-          "example": false,
-          "type": [
-            "boolean"
-          ]
-        },
-        "personal": {
-          "default": false,
-          "description": "force creation of the app in the user account even if a default org is set.",
-          "example": false,
-          "type": [
-            "boolean"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Create a new app in the specified organization, in the default organization if unspecified,  or in personal account, if default organization is not set.",
-          "href": "/organizations/apps",
-          "method": "POST",
-          "rel": "create",
-          "schema": {
-            "properties": {
-              "locked": {
-                "$ref": "#/definitions/organization-app/definitions/locked"
-              },
-              "name": {
-                "$ref": "#/definitions/app/definitions/name"
-              },
-              "organization": {
-                "$ref": "#/definitions/organization/definitions/name"
-              },
-              "personal": {
-                "$ref": "#/definitions/organization-app/definitions/personal"
-              },
-              "region": {
-                "$ref": "#/definitions/region/definitions/name"
-              },
-              "space": {
-                "$ref": "#/definitions/space/definitions/name"
-              },
-              "stack": {
-                "$ref": "#/definitions/stack/definitions/name"
-              }
-            },
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Create"
-        },
-        {
-          "description": "List organization apps.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/apps",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List For Organization"
-        },
-        {
-          "description": "Info for an organization app.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "title": "Info"
-        },
-        {
-          "description": "Lock or unlock an organization app.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "locked": {
-                "$ref": "#/definitions/organization-app/definitions/locked"
-              }
-            },
-            "required": [
-              "locked"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-app"
-          },
-          "title": "Update Locked"
-        },
-        {
-          "description": "Transfer an existing organization app to another Heroku account.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "owner": {
-                "$ref": "#/definitions/account/definitions/identity"
-              }
-            },
-            "required": [
-              "owner"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "title": "Transfer to Account"
-        },
-        {
-          "description": "Transfer an existing organization app to another organization.",
-          "href": "/organizations/apps/{(%23%2Fdefinitions%2Forganization-app%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "owner": {
-                "$ref": "#/definitions/organization/definitions/name"
-              }
-            },
-            "required": [
-              "owner"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-app"
-          },
-          "title": "Transfer to Organization"
-        }
-      ],
-      "properties": {
-        "archived_at": {
-          "$ref": "#/definitions/app/definitions/archived_at"
-        },
-        "buildpack_provided_description": {
-          "$ref": "#/definitions/app/definitions/buildpack_provided_description"
-        },
-        "build_stack": {
-          "description": "identity of the stack that will be used for new builds",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/stack/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/stack/definitions/name"
-            }
-          },
-          "type": [
-            "object"
-          ]
-        },
-        "created_at": {
-          "$ref": "#/definitions/app/definitions/created_at"
-        },
-        "git_url": {
-          "$ref": "#/definitions/app/definitions/git_url"
-        },
-        "id": {
-          "$ref": "#/definitions/app/definitions/id"
-        },
-        "joined": {
-          "$ref": "#/definitions/organization-app/definitions/joined"
-        },
-        "locked": {
-          "$ref": "#/definitions/organization-app/definitions/locked"
-        },
-        "maintenance": {
-          "$ref": "#/definitions/app/definitions/maintenance"
-        },
-        "name": {
-          "$ref": "#/definitions/app/definitions/name"
-        },
-        "organization": {
-          "description": "organization that owns this app",
-          "properties": {
-            "name": {
-              "$ref": "#/definitions/organization/definitions/name"
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "owner": {
-          "description": "identity of app owner",
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "region": {
-          "description": "identity of app region",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/region/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/region/definitions/name"
-            }
-          },
-          "type": [
-            "object"
-          ]
-        },
-        "released_at": {
-          "$ref": "#/definitions/app/definitions/released_at"
-        },
-        "repo_size": {
-          "$ref": "#/definitions/app/definitions/repo_size"
-        },
-        "slug_size": {
-          "$ref": "#/definitions/app/definitions/slug_size"
-        },
-        "space": {
-          "description": "identity of space",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/space/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/space/definitions/name"
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "stack": {
-          "description": "identity of app stack",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/stack/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/stack/definitions/name"
-            }
-          },
-          "type": [
-            "object"
-          ]
-        },
-        "updated_at": {
-          "$ref": "#/definitions/app/definitions/updated_at"
-        },
-        "web_url": {
-          "$ref": "#/definitions/app/definitions/web_url"
-        }
-      }
-    },
-    "organization-feature": {
-      "description": "Deprecated: An organization feature represents a feature enabled on an organization account.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Organization Feature",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "created_at": {
-          "description": "when organization feature was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "description": {
-          "description": "description of organization feature",
-          "example": "Causes account to example.",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "doc_url": {
-          "description": "documentation URL of organization feature",
-          "example": "http://devcenter.heroku.com/articles/example",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "enabled": {
-          "description": "whether or not organization feature has been enabled",
-          "example": true,
-          "readOnly": false,
-          "type": [
-            "boolean"
-          ]
-        },
-        "id": {
-          "description": "unique identifier of organization feature",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/organization-feature/definitions/id"
-            },
-            {
-              "$ref": "#/definitions/organization-feature/definitions/name"
-            }
-          ]
-        },
-        "name": {
-          "description": "unique name of organization feature",
-          "example": "name",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "state": {
-          "description": "state of organization feature",
-          "example": "public",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "updated_at": {
-          "description": "when organization feature was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "display_name": {
-          "description": "user readable feature name",
-          "example": "My Feature",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "feedback_email": {
-          "description": "e-mail to send feedback about the feature",
-          "example": "feedback@heroku.com",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Info for an existing organization feature.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features/{(%23%2Fdefinitions%2Forganization-feature%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-feature"
-          },
-          "title": "Info"
-        },
-        {
-          "description": "List existing organization features.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-feature"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        },
-        {
-          "description": "Update an existing organization feature.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/features/{(%23%2Fdefinitions%2Forganization-feature%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "enabled": {
-                "$ref": "#/definitions/organization-feature/definitions/enabled"
-              }
-            },
-            "required": [
-              "enabled"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-feature"
-          },
-          "title": "Update"
-        }
-      ],
-      "properties": {
-        "created_at": {
-          "$ref": "#/definitions/organization-feature/definitions/created_at"
-        },
-        "description": {
-          "$ref": "#/definitions/organization-feature/definitions/description"
-        },
-        "doc_url": {
-          "$ref": "#/definitions/organization-feature/definitions/doc_url"
-        },
-        "enabled": {
-          "$ref": "#/definitions/organization-feature/definitions/enabled"
-        },
-        "id": {
-          "$ref": "#/definitions/organization-feature/definitions/id"
-        },
-        "name": {
-          "$ref": "#/definitions/organization-feature/definitions/name"
-        },
-        "state": {
-          "$ref": "#/definitions/organization-feature/definitions/state"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/organization-feature/definitions/updated_at"
-        },
-        "display_name": {
-          "$ref": "#/definitions/organization-feature/definitions/display_name"
-        },
-        "feedback_email": {
-          "$ref": "#/definitions/organization-feature/definitions/feedback_email"
-        }
-      }
-    },
-    "organization-invitation": {
-      "description": "Deprecated: An organization invitation represents an invite to an organization.",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Organization Invitation",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "created_at": {
-          "description": "when invitation was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/organization-invitation/definitions/id"
-            }
-          ]
-        },
-        "id": {
-          "description": "Unique identifier of an invitation",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "token": {
-          "description": "Special token for invitation",
-          "example": "614ae25aa2d4802096cd7c18625b526c",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "updated_at": {
-          "description": "when invitation was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Get a list of an organization's Identity Providers",
-          "title": "List",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fname)}/invitations",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-invitation"
-            },
-            "type": [
-              "array"
-            ]
-          }
-        },
-        {
-          "description": "Create Organization Invitation",
-          "title": "Create",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invitations",
-          "method": "PUT",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/account/definitions/email"
-              },
-              "role": {
-                "$ref": "#/definitions/organization/definitions/role"
-              }
-            },
-            "required": [
-              "email",
-              "role"
-            ],
-            "type": [
-              "object"
-            ]
-          }
-        },
-        {
-          "description": "Revoke an organization invitation.",
-          "title": "Revoke",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Fidentity)}",
-          "method": "DELETE",
-          "rel": "self"
-        },
-        {
-          "description": "Get an invitation by its token",
-          "title": "Get",
-          "href": "/organizations/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Ftoken)}",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-invitation"
-          }
-        },
-        {
-          "description": "Accept Organization Invitation",
-          "title": "Accept",
-          "href": "/organizations/invitations/{(%23%2Fdefinitions%2Forganization-invitation%2Fdefinitions%2Ftoken)}/accept",
-          "method": "POST",
-          "rel": "create",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-member"
-          }
-        }
-      ],
-      "properties": {
-        "created_at": {
-          "$ref": "#/definitions/organization-invitation/definitions/created_at"
-        },
-        "id": {
-          "$ref": "#/definitions/organization-invitation/definitions/id"
-        },
-        "invited_by": {
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/account/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "organization": {
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/organization/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/organization/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        },
-        "role": {
-          "$ref": "#/definitions/organization/definitions/role"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/organization-invitation/definitions/updated_at"
-        },
-        "user": {
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/account/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        }
-      }
-    },
-    "organization-invoice": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "Deprecated: An organization invoice is an itemized bill of goods for an organization which includes pricing and charges.",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Organization Invoice",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "addons_total": {
-          "description": "total add-ons charges in on this invoice",
-          "example": 25000,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "database_total": {
-          "description": "total database charges on this invoice",
-          "example": 25000,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "charges_total": {
-          "description": "total charges on this invoice",
-          "example": 0,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "created_at": {
-          "description": "when invoice was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "credits_total": {
-          "description": "total credits on this invoice",
-          "example": 100000,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "dyno_units": {
-          "description": "The total amount of dyno units consumed across dyno types.",
-          "example": 1.92,
-          "readOnly": true,
-          "type": [
-            "number"
-          ]
-        },
-        "id": {
-          "description": "unique identifier of this invoice",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/organization-invoice/definitions/number"
-            }
-          ]
-        },
-        "number": {
-          "description": "human readable invoice number",
-          "example": 9403943,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "payment_status": {
-          "description": "Status of the invoice payment.",
-          "example": "Paid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "platform_total": {
-          "description": "total platform charges on this invoice",
-          "example": 50000,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "period_end": {
-          "description": "the ending date that the invoice covers",
-          "example": "01/31/2014",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "period_start": {
-          "description": "the starting date that this invoice covers",
-          "example": "01/01/2014",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "state": {
-          "description": "payment status for this invoice (pending, successful, failed)",
-          "example": 1,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "total": {
-          "description": "combined total of charges and credits on this invoice",
-          "example": 100000,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
-        },
-        "updated_at": {
-          "description": "when invoice was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "weighted_dyno_hours": {
-          "description": "The total amount of hours consumed across dyno types.",
-          "example": 1488,
-          "readOnly": true,
-          "type": [
-            "number"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Info for existing invoice.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invoices/{(%23%2Fdefinitions%2Forganization-invoice%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-invoice"
-          },
-          "title": "Info"
-        },
-        {
-          "description": "List existing invoices.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/invoices",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-invoice"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        }
-      ],
-      "properties": {
-        "addons_total": {
-          "$ref": "#/definitions/organization-invoice/definitions/addons_total"
-        },
-        "database_total": {
-          "$ref": "#/definitions/organization-invoice/definitions/database_total"
-        },
-        "charges_total": {
-          "$ref": "#/definitions/organization-invoice/definitions/charges_total"
-        },
-        "created_at": {
-          "$ref": "#/definitions/organization-invoice/definitions/created_at"
-        },
-        "credits_total": {
-          "$ref": "#/definitions/organization-invoice/definitions/credits_total"
-        },
-        "dyno_units": {
-          "$ref": "#/definitions/organization-invoice/definitions/dyno_units"
-        },
-        "id": {
-          "$ref": "#/definitions/organization-invoice/definitions/id"
-        },
-        "number": {
-          "$ref": "#/definitions/organization-invoice/definitions/number"
-        },
-        "payment_status": {
-          "$ref": "#/definitions/organization-invoice/definitions/payment_status"
-        },
-        "period_end": {
-          "$ref": "#/definitions/organization-invoice/definitions/period_end"
-        },
-        "period_start": {
-          "$ref": "#/definitions/organization-invoice/definitions/period_start"
-        },
-        "platform_total": {
-          "$ref": "#/definitions/organization-invoice/definitions/platform_total"
-        },
-        "state": {
-          "$ref": "#/definitions/organization-invoice/definitions/state"
-        },
-        "total": {
-          "$ref": "#/definitions/organization-invoice/definitions/total"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/organization-invoice/definitions/updated_at"
-        },
-        "weighted_dyno_hours": {
-          "$ref": "#/definitions/organization-invoice/definitions/weighted_dyno_hours"
-        }
-      }
-    },
-    "organization-member": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "Deprecated: An organization member is an individual with access to an organization.",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "additionalProperties": false,
-      "required": [
-        "created_at",
-        "email",
-        "federated",
-        "updated_at"
-      ],
-      "title": "Heroku Platform API - Organization Member",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "created_at": {
-          "description": "when the membership record was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "email": {
-          "description": "email address of the organization member",
-          "example": "someone@example.org",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "federated": {
-          "description": "whether the user is federated and belongs to an Identity Provider",
-          "example": false,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        },
-        "id": {
-          "description": "unique identifier of organization member",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/organization-member/definitions/email"
-            },
-            {
-              "$ref": "#/definitions/organization-member/definitions/id"
-            }
-          ]
-        },
-        "name": {
-          "description": "full name of the organization member",
-          "example": "Tina Edmonds",
-          "readOnly": true,
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "two_factor_authentication": {
-          "description": "whether the Enterprise organization member has two factor authentication enabled",
-          "example": true,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        },
-        "updated_at": {
-          "description": "when the membership record was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Create a new organization member, or update their role.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
-          "method": "PUT",
-          "rel": "create",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/organization-member/definitions/email"
-              },
-              "federated": {
-                "$ref": "#/definitions/organization-member/definitions/federated"
-              },
-              "role": {
-                "$ref": "#/definitions/organization/definitions/role"
-              }
-            },
-            "required": [
-              "email",
-              "role"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-member"
-          },
-          "title": "Create or Update"
-        },
-        {
-          "description": "Create a new organization member.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
-          "method": "POST",
-          "rel": "create",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/organization-member/definitions/email"
-              },
-              "federated": {
-                "$ref": "#/definitions/organization-member/definitions/federated"
-              },
-              "role": {
-                "$ref": "#/definitions/organization/definitions/role"
-              }
-            },
-            "required": [
-              "email",
-              "role"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-member"
-          },
-          "title": "Create"
-        },
-        {
-          "description": "Update an organization member.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "email": {
-                "$ref": "#/definitions/organization-member/definitions/email"
-              },
-              "federated": {
-                "$ref": "#/definitions/organization-member/definitions/federated"
-              },
-              "role": {
-                "$ref": "#/definitions/organization/definitions/role"
-              }
-            },
-            "required": [
-              "email",
-              "role"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-member"
-          },
-          "title": "update"
-        },
-        {
-          "description": "Remove a member from the organization.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Forganization-member%2Fdefinitions%2Fidentity)}",
-          "method": "DELETE",
-          "rel": "destroy",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-member"
-          },
-          "title": "Delete"
-        },
-        {
-          "description": "List members of the organization.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members",
-          "method": "GET",
-          "ranges": [
-            "email"
-          ],
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-member"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        },
-        {
-          "description": "List the apps of a member.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/members/{(%23%2Fdefinitions%2Forganization-member%2Fdefinitions%2Fidentity)}/apps",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization-app"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "App List"
-        }
-      ],
-      "properties": {
-        "created_at": {
-          "$ref": "#/definitions/organization-member/definitions/created_at"
-        },
-        "email": {
-          "$ref": "#/definitions/organization-member/definitions/email"
-        },
-        "federated": {
-          "$ref": "#/definitions/organization-member/definitions/federated"
-        },
-        "id": {
-          "$ref": "#/definitions/organization-member/definitions/id"
-        },
-        "role": {
-          "$ref": "#/definitions/organization/definitions/role"
-        },
-        "two_factor_authentication": {
-          "$ref": "#/definitions/organization-member/definitions/two_factor_authentication"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/organization-member/definitions/updated_at"
-        },
-        "user": {
-          "description": "user information for the membership",
-          "properties": {
-            "email": {
-              "$ref": "#/definitions/account/definitions/email"
-            },
-            "id": {
-              "$ref": "#/definitions/account/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/account/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
-        }
-      }
-    },
-    "organization-preferences": {
-      "description": "Deprecated: Tracks an organization's preferences",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Organization Preferences",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "default-permission": {
-          "description": "The default permission used when adding new members to the organization",
-          "example": "member",
-          "readOnly": false,
-          "enum": [
-            "admin",
-            "member",
-            "viewer",
-            null
-          ],
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "identity": {
-          "$ref": "#/definitions/organization/definitions/identity"
-        },
-        "whitelisting-enabled": {
-          "description": "Whether whitelisting rules should be applied to add-on installations",
-          "example": true,
-          "readOnly": false,
-          "type": [
-            "boolean",
-            "null"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "Retrieve Organization Preferences",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/organization-preferences"
-          },
-          "title": "List"
-        },
-        {
-          "description": "Update Organization Preferences",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization-preferences%2Fdefinitions%2Fidentity)}/preferences",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "type": [
-              "object"
-            ],
-            "properties": {
-              "whitelisting-enabled": {
-                "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
-              }
-            }
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization-preferences"
-          },
-          "title": "Update"
-        }
-      ],
-      "properties": {
-        "default-permission": {
-          "$ref": "#/definitions/organization-preferences/definitions/default-permission"
-        },
-        "whitelisting-enabled": {
-          "$ref": "#/definitions/organization-preferences/definitions/whitelisting-enabled"
-        }
-      }
-    },
-    "organization": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "Deprecated: Organizations allow you to manage access to a shared group of applications across your development team.",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Organization",
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "created_at": {
-          "description": "when the organization was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "credit_card_collections": {
-          "description": "whether charges incurred by the org are paid by credit card.",
-          "example": true,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        },
-        "default": {
-          "description": "whether to use this organization when none is specified",
-          "example": true,
-          "readOnly": false,
-          "type": [
-            "boolean"
-          ]
-        },
-        "id": {
-          "description": "unique identifier of organization",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
-          "format": "uuid",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/organization/definitions/name"
-            },
-            {
-              "$ref": "#/definitions/organization/definitions/id"
-            }
-          ]
-        },
-        "address_1": {
-          "type": [
-            "string"
-          ],
-          "description": "street address line 1",
-          "example": "40 Hickory Lane"
-        },
-        "address_2": {
-          "type": [
-            "string"
-          ],
-          "description": "street address line 2",
-          "example": "Suite 103"
-        },
-        "card_number": {
-          "type": [
-            "string"
-          ],
-          "description": "encrypted card number of payment method",
-          "example": "encrypted-card-number"
-        },
-        "city": {
-          "type": [
-            "string"
-          ],
-          "description": "city",
-          "example": "San Francisco"
-        },
-        "country": {
-          "type": [
-            "string"
-          ],
-          "description": "country",
-          "example": "US"
-        },
-        "cvv": {
-          "type": [
-            "string"
-          ],
-          "description": "card verification value",
-          "example": "123"
-        },
-        "expiration_month": {
-          "type": [
-            "string"
-          ],
-          "description": "expiration month",
-          "example": "11"
-        },
-        "expiration_year": {
-          "type": [
-            "string"
-          ],
-          "description": "expiration year",
-          "example": "2014"
-        },
-        "first_name": {
-          "type": [
-            "string"
-          ],
-          "description": "the first name for payment method",
-          "example": "Jason"
-        },
-        "last_name": {
-          "type": [
-            "string"
-          ],
-          "description": "the last name for payment method",
-          "example": "Walker"
-        },
-        "other": {
-          "type": [
-            "string"
-          ],
-          "description": "metadata",
-          "example": "Additional information for payment method"
-        },
-        "postal_code": {
-          "type": [
-            "string"
-          ],
-          "description": "postal code",
-          "example": "90210"
-        },
-        "state": {
-          "type": [
-            "string"
-          ],
-          "description": "state",
-          "example": "CA"
-        },
-        "membership_limit": {
-          "description": "upper limit of members allowed in an organization.",
-          "example": 25,
-          "readOnly": true,
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "name": {
-          "description": "unique name of organization",
-          "example": "example",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "provisioned_licenses": {
-          "description": "whether the org is provisioned licenses by salesforce.",
-          "example": true,
-          "readOnly": true,
-          "type": [
-            "boolean"
-          ]
-        },
-        "role": {
-          "description": "role in the organization",
-          "enum": [
-            "admin",
-            "collaborator",
-            "member",
-            "owner",
-            null
-          ],
-          "example": "admin",
-          "readOnly": true,
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "type": {
-          "description": "type of organization.",
-          "example": "team",
-          "enum": [
-            "enterprise",
-            "team"
-          ],
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "updated_at": {
-          "description": "when the organization was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "List organizations in which you are a member.",
-          "href": "/organizations",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/organization"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        },
-        {
-          "description": "Info for an organization.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "title": "Info"
-        },
-        {
-          "description": "Update organization properties.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
-          "method": "PATCH",
-          "rel": "update",
-          "schema": {
-            "properties": {
-              "default": {
-                "$ref": "#/definitions/organization/definitions/default"
-              },
-              "name": {
-                "$ref": "#/definitions/organization/definitions/name"
-              }
-            },
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization"
-          },
-          "title": "Update"
-        },
-        {
-          "description": "Create a new organization.",
-          "href": "/organizations",
-          "method": "POST",
-          "rel": "create",
-          "schema": {
-            "properties": {
-              "name": {
-                "$ref": "#/definitions/organization/definitions/name"
-              },
-              "address_1": {
-                "$ref": "#/definitions/organization/definitions/address_1"
-              },
-              "address_2": {
-                "$ref": "#/definitions/organization/definitions/address_2"
-              },
-              "card_number": {
-                "$ref": "#/definitions/organization/definitions/card_number"
-              },
-              "city": {
-                "$ref": "#/definitions/organization/definitions/city"
-              },
-              "country": {
-                "$ref": "#/definitions/organization/definitions/country"
-              },
-              "cvv": {
-                "$ref": "#/definitions/organization/definitions/cvv"
-              },
-              "expiration_month": {
-                "$ref": "#/definitions/organization/definitions/expiration_month"
-              },
-              "expiration_year": {
-                "$ref": "#/definitions/organization/definitions/expiration_year"
-              },
-              "first_name": {
-                "$ref": "#/definitions/organization/definitions/first_name"
-              },
-              "last_name": {
-                "$ref": "#/definitions/organization/definitions/last_name"
-              },
-              "other": {
-                "$ref": "#/definitions/organization/definitions/other"
-              },
-              "postal_code": {
-                "$ref": "#/definitions/organization/definitions/postal_code"
-              },
-              "state": {
-                "$ref": "#/definitions/organization/definitions/state"
-              }
-            },
-            "required": [
-              "name"
-            ],
-            "type": [
-              "object"
-            ]
-          },
-          "targetSchema": {
-            "$ref": "#/definitions/organization"
-          },
-          "title": "Create"
-        },
-        {
-          "description": "Delete an existing organization.",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}",
-          "method": "DELETE",
-          "rel": "destroy",
-          "targetSchema": {
-            "$ref": "#/definitions/organization"
-          },
-          "title": "Delete"
-        }
-      ],
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/organization/definitions/id"
-        },
-        "created_at": {
-          "$ref": "#/definitions/organization/definitions/created_at"
-        },
-        "credit_card_collections": {
-          "$ref": "#/definitions/organization/definitions/credit_card_collections"
-        },
-        "default": {
-          "$ref": "#/definitions/organization/definitions/default"
-        },
-        "membership_limit": {
-          "$ref": "#/definitions/organization/definitions/membership_limit"
-        },
-        "name": {
-          "$ref": "#/definitions/organization/definitions/name"
-        },
-        "provisioned_licenses": {
-          "$ref": "#/definitions/organization/definitions/provisioned_licenses"
-        },
-        "role": {
-          "$ref": "#/definitions/organization/definitions/role"
-        },
-        "type": {
-          "$ref": "#/definitions/organization/definitions/type"
-        },
-        "updated_at": {
-          "$ref": "#/definitions/organization/definitions/updated_at"
-        }
-      }
-    },
     "outbound-ruleset": {
       "description": "An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. ",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -13535,7 +12631,7 @@ module PlatformAPI
       }
     },
     "peering-info": {
-      "description": "[Peering Info](https://devcenter.heroku.com/articles/private-space-vpc-peering) gives you the information necessary to peer an AWS VPC to a Private Space.",
+      "description": "[Peering Info](https://devcenter.heroku.com/articles/private-space-peering) gives you the information necessary to peer an AWS VPC to a Private Space.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
       "strictProperties": true,
@@ -13599,7 +12695,7 @@ module PlatformAPI
       ]
     },
     "peering": {
-      "description": "[Peering](https://devcenter.heroku.com/articles/private-space-vpc-peering) provides a way to peer your Private Space VPC to another AWS VPC.",
+      "description": "[Peering](https://devcenter.heroku.com/articles/private-space-peering) provides a way to peer your Private Space VPC to another AWS VPC.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
       "strictProperties": true,
@@ -13761,49 +12857,63 @@ module PlatformAPI
         }
       ]
     },
-    "organization-app-permission": {
+    "permission-entity": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "Deprecated: An organization app permission is a behavior that is assigned to a user in an organization app.",
-      "stability": "prototype",
-      "deprecated_at": "2017-04-10",
-      "title": "Heroku Platform API - Organization App Permission",
+      "description": "An owned entity including users' permissions.",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Permission Entity",
       "type": [
         "object"
       ],
       "definitions": {
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/organization-app-permission/definitions/name"
-            }
+        "id": {
+          "description": "ID of the entity.",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "description": "The type of object the entity is referring to.",
+          "example": "app",
+          "readOnly": true,
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "app",
+            "space"
           ]
         },
         "name": {
-          "description": "The name of the app permission.",
-          "example": "view",
+          "description": "Name of the entity.",
+          "example": "polar-lake-12345",
           "readOnly": true,
           "type": [
             "string"
           ]
         },
-        "description": {
-          "description": "A description of what the app permission allows.",
-          "example": "Can manage config, deploy, run commands and restart the app.",
+        "permissions": {
+          "description": "A list of permissions the user has on the entity.",
+          "example": "app",
           "readOnly": true,
           "type": [
-            "string"
+            "array"
           ]
         }
       },
       "links": [
         {
-          "description": "Lists permissions available to organizations.",
-          "href": "/organizations/permissions",
+          "description": "List permission entities for a team.",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/permissions",
           "method": "GET",
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/organization-app-permission"
+              "$ref": "#/definitions/permission-entity"
             },
             "type": [
               "array"
@@ -13813,13 +12923,106 @@ module PlatformAPI
         }
       ],
       "properties": {
-        "name": {
-          "$ref": "#/definitions/organization-app-permission/definitions/name"
+        "id": {
+          "$ref": "#/definitions/permission-entity/definitions/id"
         },
-        "description": {
-          "$ref": "#/definitions/organization-app-permission/definitions/description"
+        "name": {
+          "$ref": "#/definitions/permission-entity/definitions/name"
+        },
+        "team_id": {
+          "$ref": "#/definitions/team/definitions/id"
+        },
+        "type": {
+          "$ref": "#/definitions/permission-entity/definitions/type"
+        },
+        "users": {
+          "description": "Users that have access to the entity.",
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "permissions": {
+              "description": "enterprise account permissions",
+              "type": [
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "object"
+                ],
+                "properties": {
+                  "description": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                }
+              }
+            }
+          }
         }
       }
+    },
+    "pipeline-config-var": {
+      "description": "Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "production",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Pipeline Config Vars",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+      },
+      "links": [
+        {
+          "description": "Get config-vars for a pipeline stage.",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/stage/{(%23%2Fdefinitions%2Fpipeline-coupling%2Fdefinitions%2Fstage)}/config-vars",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/config-var/definitions/config_vars"
+          },
+          "title": "Info for App"
+        },
+        {
+          "description": "Update config-vars for a pipeline stage. You can update existing config-vars by setting them again, and remove by setting it to `null`.",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/stage/{(%23%2Fdefinitions%2Fpipeline-coupling%2Fdefinitions%2Fstage)}/config-vars",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "additionalProperties": false,
+            "description": "hash of config changes – update values or delete by seting it to `null`",
+            "example": {
+              "FOO": "bar",
+              "BAZ": "qux"
+            },
+            "patternProperties": {
+              "^\\w+$": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/config-var/definitions/config_vars"
+          },
+          "title": "Update"
+        }
+      ]
     },
     "pipeline-coupling": {
       "description": "Information about an app's coupling to a pipeline",
@@ -13894,6 +13097,21 @@ module PlatformAPI
             ]
           },
           "title": "List By Pipeline"
+        },
+        {
+          "description": "List pipeline couplings for the current user.",
+          "href": "/users/~/pipeline-couplings",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/pipeline-coupling"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List For Current User"
         },
         {
           "description": "List pipeline couplings.",
@@ -15250,6 +14468,590 @@ module PlatformAPI
         }
       }
     },
+    "review-app": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Review App",
+      "description": "An ephemeral app to review a set of changes",
+      "stability": "production",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "app_setup": {
+          "readOnly": true,
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "branch": {
+          "description": "the branch of the repository which the review app is based on",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of the review app",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/review-app/definitions/id"
+            }
+          ]
+        },
+        "creator": {
+          "description": "The user who created the review app",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "definitions": {
+            "id": {
+              "description": "unique identifier of a review app owner",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": false,
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "created_at": {
+          "description": "when test run was created",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "source_blob": {
+          "description": "The download location for the review app's source code",
+          "properties": {
+            "url": {
+              "description": "URL where gzipped tar archive of source code for build was downloaded.",
+              "example": "https://example.com/source.tgz?token=xyz",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "version": {
+              "description": "The version number (or SHA) of the code to build.",
+              "example": "v1.2.0",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "status": {
+          "description": "current state of the review app",
+          "enum": [
+            "pending",
+            "creating",
+            "created",
+            "deleting",
+            "deleted",
+            "errored"
+          ],
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when review app was updated",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "wait_for_ci": {
+          "description": "wait for ci before building the app",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "error_status": {
+          "description": "error message from creating the review app if any",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "message": {
+          "description": "message from creating the review app if any",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "config_vars": {
+          "additionalProperties": false,
+          "description": "hash of config vars",
+          "example": {
+            "FOO": "bar",
+            "BAZ": "qux"
+          },
+          "patternProperties": {
+            "^[\\w\\.\\:\\[\\]]+$": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "fork_repo_id": {
+          "description": "repository id of the fork the branch resides in",
+          "example": "123456",
+          "readOnly": true,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "pr_number": {
+          "description": "GitHub Pull Request number if the Review app was created automatically",
+          "example": 24,
+          "readOnly": true,
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a new review app",
+          "href": "/review-apps",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "branch": {
+                "$ref": "#/definitions/review-app/definitions/branch"
+              },
+              "pipeline": {
+                "$ref": "#/definitions/pipeline/definitions/id"
+              },
+              "source_blob": {
+                "$ref": "#/definitions/review-app/definitions/source_blob"
+              },
+              "environment": {
+                "$ref": "#/definitions/review-app/definitions/config_vars",
+                "description": "A set of key value pairs which will be put into the environment of the spawned review app process."
+              },
+              "fork_repo_id": {
+                "$ref": "#/definitions/review-app/definitions/fork_repo_id"
+              }
+            },
+            "required": [
+              "branch",
+              "pipeline",
+              "source_blob"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Create",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app"
+          }
+        },
+        {
+          "description": "Gets an existing review app",
+          "href": "/review-apps/{(%23%2Fdefinitions%2Freview-app%2Fdefinitions%2Fid)}",
+          "method": "GET",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app"
+          },
+          "title": "Get review app"
+        },
+        {
+          "description": "Delete an existing review app",
+          "href": "/review-apps/{(%23%2Fdefinitions%2Freview-app%2Fdefinitions%2Fid)}",
+          "method": "DELETE",
+          "rel": "delete",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app"
+          },
+          "title": "Delete"
+        },
+        {
+          "description": "Get a review app using the associated app_id",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/review-app",
+          "method": "GET",
+          "title": "Get review app by app_id",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app"
+          }
+        },
+        {
+          "description": "List review apps for a pipeline",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/review-apps",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/review-app"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "app": {
+          "description": "the Heroku app associated to this review app",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app/definitions/id"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "app_setup": {
+          "description": "the app setup for this review app",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app-setup/definitions/id"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "branch": {
+          "$ref": "#/definitions/review-app/definitions/branch"
+        },
+        "created_at": {
+          "$ref": "#/definitions/review-app/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/review-app/definitions/id"
+        },
+        "pipeline": {
+          "description": "the pipeline which this review app belongs to",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/pipeline/definitions/id"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "status": {
+          "$ref": "#/definitions/review-app/definitions/status"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/review-app/definitions/updated_at"
+        },
+        "creator": {
+          "$ref": "#/definitions/review-app/definitions/creator"
+        },
+        "wait_for_ci": {
+          "$ref": "#/definitions/review-app/definitions/wait_for_ci"
+        },
+        "error_status": {
+          "$ref": "#/definitions/review-app/definitions/error_status"
+        },
+        "message": {
+          "$ref": "#/definitions/review-app/definitions/message"
+        },
+        "fork_repo": {
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/review-app/definitions/fork_repo_id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "pr_number": {
+          "$ref": "#/definitions/review-app/definitions/pr_number"
+        }
+      }
+    },
+    "review-app-config": {
+      "description": "Review apps can be configured for pipelines.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "production",
+      "strictProperties": false,
+      "title": "Heroku Platform API - Review App Configuration",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of pipeline",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "repo": {
+          "description": "repository name",
+          "example": "heroku/homebrew-brew",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "automatic_review_apps": {
+          "description": "enable automatic review apps for pull requests",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "repo_id": {
+          "description": "repository id",
+          "example": "123456",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "destroy_stale_apps": {
+          "description": "automatically destroy review apps when they haven't been deployed for a number of days",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "stale_days": {
+          "description": "number of days without a deployment after which to consider a review app stale",
+          "example": "5",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "wait_for_ci": {
+          "description": "If true, review apps are created only when CI passes",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "deploy_target": {
+          "description": "the deploy target for the review apps of a pipeline",
+          "definitions": {
+            "id": {
+              "description": "unique identifier of deploy target",
+              "example": "us",
+              "pattern": "(^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$|^[a-z]{2}$)",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "description": "type of deploy target",
+              "example": "region",
+              "pattern": "(^space$|^region$)",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "links": [
+
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/review-app-config/definitions/deploy_target/definitions/id"
+            },
+            "type": {
+              "$ref": "#/definitions/review-app-config/definitions/deploy_target/definitions/type"
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Enable review apps for a pipeline",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/review-app-config",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "repo": {
+                "$ref": "#/definitions/review-app-config/definitions/repo",
+                "description": "The full_name of the repository that you want enable review-apps from."
+              },
+              "automatic_review_apps": {
+                "$ref": "#/definitions/review-app-config/definitions/automatic_review_apps",
+                "description": "If true, this will trigger the creation of review apps when pull-requests are opened in the repo."
+              },
+              "destroy_stale_apps": {
+                "$ref": "#/definitions/review-app-config/definitions/destroy_stale_apps",
+                "description": "If true, this will trigger automatic deletion of review apps when they're stale"
+              },
+              "stale_days": {
+                "$ref": "#/definitions/review-app-config/definitions/stale_days",
+                "description": "If destroy_stale_apps is true, then apps will be destroyed after this many days"
+              },
+              "deploy_target": {
+                "$ref": "#/definitions/review-app-config/definitions/deploy_target",
+                "description": "Provides a key/value pair to specify whether to use a common runtime or a private space"
+              },
+              "wait_for_ci": {
+                "$ref": "#/definitions/review-app-config/definitions/wait_for_ci",
+                "description": "If true, review apps will only be created when CI passes"
+              }
+            },
+            "required": [
+              "repo"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Enable",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app-config"
+          }
+        },
+        {
+          "description": "Get review apps configuration for a pipeline",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/review-app-config",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app-config"
+          }
+        },
+        {
+          "description": "Update review app configuration for a pipeline",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/review-app-config",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "automatic_review_apps": {
+                "$ref": "#/definitions/review-app-config/definitions/automatic_review_apps",
+                "description": "If true, this will trigger the creation of review apps when pull-requests are opened in the repo"
+              },
+              "destroy_stale_apps": {
+                "$ref": "#/definitions/review-app-config/definitions/destroy_stale_apps",
+                "description": "If true, this will trigger automatic deletion of review apps when they're stale"
+              },
+              "stale_days": {
+                "$ref": "#/definitions/review-app-config/definitions/stale_days",
+                "description": "If destroy_stale_apps is true, then apps will be destroyed after this many days"
+              },
+              "deploy_target": {
+                "$ref": "#/definitions/review-app-config/definitions/deploy_target",
+                "description": "Provides a key/value pair to specify whether to use a common runtime or a private space"
+              },
+              "wait_for_ci": {
+                "$ref": "#/definitions/review-app-config/definitions/wait_for_ci",
+                "description": "If true, review apps will only be created when CI passes"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Update",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app-config"
+          }
+        },
+        {
+          "description": "Disable review apps for a pipeline",
+          "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/review-app-config",
+          "method": "DELETE",
+          "rel": "destroy",
+          "title": "Delete",
+          "targetSchema": {
+            "$ref": "#/definitions/review-app-config"
+          }
+        }
+      ],
+      "properties": {
+        "repo": {
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/review-app-config/definitions/repo_id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "automatic_review_apps": {
+          "$ref": "#/definitions/review-app-config/definitions/automatic_review_apps"
+        },
+        "deploy_target": {
+          "$ref": "#/definitions/review-app-config/definitions/deploy_target"
+        },
+        "destroy_stale_apps": {
+          "$ref": "#/definitions/review-app-config/definitions/destroy_stale_apps"
+        },
+        "stale_days": {
+          "$ref": "#/definitions/review-app-config/definitions/stale_days"
+        },
+        "pipeline_id": {
+          "$ref": "#/definitions/review-app-config/definitions/id"
+        },
+        "wait_for_ci": {
+          "$ref": "#/definitions/review-app-config/definitions/wait_for_ci"
+        }
+      }
+    },
     "slug": {
       "description": "A slug is a snapshot of your application code that is ready to run on the platform.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -16061,6 +15863,41 @@ module PlatformAPI
         }
       }
     },
+    "space-transfer": {
+      "description": "Transfer spaces between enterprise teams with the same Enterprise Account.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Space Transfer",
+      "type": [
+        "object"
+      ],
+      "links": [
+        {
+          "description": "Transfer space between enterprise teams",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/transfer",
+          "method": "POST",
+          "rel": "transfer",
+          "schema": {
+            "properties": {
+              "new_owner": {
+                "$ref": "#/definitions/team/definitions/name"
+              }
+            },
+            "required": [
+              "new_owner"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/space"
+          },
+          "title": "transfer"
+        }
+      ]
+    },
     "space": {
       "description": "A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -16267,7 +16104,7 @@ module PlatformAPI
           "description": "organization that owns this space",
           "properties": {
             "name": {
-              "$ref": "#/definitions/organization/definitions/name"
+              "$ref": "#/definitions/team/definitions/name"
             }
           },
           "type": [
@@ -16570,6 +16407,14 @@ module PlatformAPI
             "string"
           ]
         },
+        "default": {
+          "description": "indicates this stack is the default for new apps",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
         "id": {
           "description": "unique identifier of stack",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
@@ -16643,6 +16488,9 @@ module PlatformAPI
         }
       ],
       "properties": {
+        "default": {
+          "$ref": "#/definitions/stack/definitions/default"
+        },
         "created_at": {
           "$ref": "#/definitions/stack/definitions/created_at"
         },
@@ -16659,6 +16507,31 @@ module PlatformAPI
           "$ref": "#/definitions/stack/definitions/updated_at"
         }
       }
+    },
+    "team-add-on": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "production",
+      "title": "Heroku Platform API - Team Add-on",
+      "type": [
+        "object"
+      ],
+      "links": [
+        {
+          "description": "List add-ons used across all Team apps",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/addons",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/add-on"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List For Team"
+        }
+      ]
     },
     "team-app-collaborator": {
       "description": "A team collaborator represents an account that has been given access to a team app on Heroku.",
@@ -16679,7 +16552,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Create a new collaborator on a team app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-app-permissions) according to their role in the team.",
+          "description": "Create a new collaborator on a team app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-permissions) according to their role in the team.",
           "href": "/teams/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/collaborators",
           "method": "POST",
           "rel": "create",
@@ -16799,6 +16672,15 @@ module PlatformAPI
         },
         "id": {
           "$ref": "#/definitions/collaborator/definitions/id"
+        },
+        "permissions": {
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/team-app-permission"
+          },
+          "description": "array of permissions for the collaborator (only applicable if the app is on a team)"
         },
         "role": {
           "$ref": "#/definitions/team/definitions/role"
@@ -17840,6 +17722,18 @@ module PlatformAPI
             "null"
           ]
         },
+        "team_role": {
+          "description": "role in the team",
+          "enum": [
+            "admin",
+            "viewer",
+            "member"
+          ],
+          "example": "admin",
+          "type": [
+            "string"
+          ]
+        },
         "two_factor_authentication": {
           "description": "whether the Enterprise team member has two factor authentication enabled",
           "example": true,
@@ -17873,7 +17767,7 @@ module PlatformAPI
                 "$ref": "#/definitions/team-member/definitions/federated"
               },
               "role": {
-                "$ref": "#/definitions/team/definitions/role"
+                "$ref": "#/definitions/team-member/definitions/team_role"
               }
             },
             "required": [
@@ -17903,7 +17797,7 @@ module PlatformAPI
                 "$ref": "#/definitions/team-member/definitions/federated"
               },
               "role": {
-                "$ref": "#/definitions/team/definitions/role"
+                "$ref": "#/definitions/team-member/definitions/team_role"
               }
             },
             "required": [
@@ -17933,7 +17827,7 @@ module PlatformAPI
                 "$ref": "#/definitions/team-member/definitions/federated"
               },
               "role": {
-                "$ref": "#/definitions/team/definitions/role"
+                "$ref": "#/definitions/team-member/definitions/team_role"
               }
             },
             "required": [
@@ -18005,6 +17899,33 @@ module PlatformAPI
         },
         "id": {
           "$ref": "#/definitions/team-member/definitions/id"
+        },
+        "identity_provider": {
+          "description": "Identity Provider information the member is federated with",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/identity-provider/definitions/id"
+            },
+            "name": {
+              "description": "name of the identity provider",
+              "example": "acme",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "redacted": {
+              "description": "whether the identity_provider information is redacted or not",
+              "example": false,
+              "readOnly": true,
+              "type": [
+                "boolean"
+              ]
+            },
+            "owner": {
+              "$ref": "#/definitions/identity-provider/definitions/owner"
+            }
+          }
         },
         "role": {
           "$ref": "#/definitions/team/definitions/role"
@@ -18114,6 +18035,350 @@ module PlatformAPI
         }
       }
     },
+    "team-space": {
+      "description": "A space is an isolated, highly available, secure app execution environments, running in the modern VPC substrate.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Space",
+      "type": [
+        "object"
+      ],
+      "links": [
+        {
+          "description": "List spaces owned by the team",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/spaces",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/space"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        }
+      ]
+    },
+    "team-usage-daily": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Usage for an enterprise team at a daily resolution.",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Team Daily Usage",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "addons": {
+          "description": "total add-on credits used",
+          "example": 250.0,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "app_usage_daily": {
+          "description": "Usage for an app at a daily resolution.",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "addons": {
+              "$ref": "#/definitions/team-usage-daily/definitions/addons"
+            },
+            "app_name": {
+              "$ref": "#/definitions/app/definitions/name"
+            },
+            "data": {
+              "$ref": "#/definitions/team-usage-daily/definitions/data"
+            },
+            "dynos": {
+              "$ref": "#/definitions/team-usage-daily/definitions/dynos"
+            },
+            "partner": {
+              "$ref": "#/definitions/team-usage-daily/definitions/partner"
+            }
+          }
+        },
+        "data": {
+          "description": "total add-on credits used for first party add-ons",
+          "example": 34.89,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "date": {
+          "description": "date of the usage",
+          "example": "2019-01-01",
+          "format": "date",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "dynos": {
+          "description": "dynos used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "id": {
+          "description": "team identifier",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "description": "name of the team",
+          "example": "ops",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "partner": {
+          "description": "total add-on credits used for third party add-ons",
+          "example": 12.34,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "space": {
+          "description": "space credits used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/teams/example-team/usage?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fid)}/usage/daily",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/team-usage-daily"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List Daily"
+        }
+      ],
+      "properties": {
+        "addons": {
+          "$ref": "#/definitions/team-usage-daily/definitions/addons"
+        },
+        "apps": {
+          "description": "app usage in the team",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/team-usage-daily/definitions/app_usage_daily"
+          }
+        },
+        "data": {
+          "$ref": "#/definitions/team-usage-daily/definitions/data"
+        },
+        "date": {
+          "$ref": "#/definitions/team-usage-daily/definitions/date"
+        },
+        "dynos": {
+          "$ref": "#/definitions/team-usage-daily/definitions/dynos"
+        },
+        "id": {
+          "$ref": "#/definitions/team-usage-daily/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/team-usage-daily/definitions/name"
+        },
+        "partner": {
+          "$ref": "#/definitions/team-usage-daily/definitions/partner"
+        },
+        "space": {
+          "$ref": "#/definitions/team-usage-daily/definitions/space"
+        }
+      }
+    },
+    "team-usage-monthly": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "description": "Usage for an enterprise team at a monthly resolution.",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Team Monthly Usage",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "addons": {
+          "description": "total add-on credits used",
+          "example": 250.0,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "app_usage_monthly": {
+          "description": "Usage for an app at a monthly resolution.",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "addons": {
+              "$ref": "#/definitions/team-usage-monthly/definitions/addons"
+            },
+            "app_name": {
+              "$ref": "#/definitions/app/definitions/name"
+            },
+            "data": {
+              "$ref": "#/definitions/team-usage-monthly/definitions/data"
+            },
+            "dynos": {
+              "$ref": "#/definitions/team-usage-monthly/definitions/dynos"
+            },
+            "partner": {
+              "$ref": "#/definitions/team-usage-monthly/definitions/partner"
+            }
+          }
+        },
+        "connect": {
+          "description": "average connect rows synced",
+          "example": 15000,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "data": {
+          "description": "total add-on credits used for first party add-ons",
+          "example": 34.89,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "dynos": {
+          "description": "dynos used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "id": {
+          "description": "team identifier",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "month": {
+          "description": "year and month of the usage",
+          "example": "2019-01",
+          "pattern": "^[0-9]{4}-[0-9]{2}$",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "description": "name of the team",
+          "example": "ops",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "partner": {
+          "description": "total add-on credits used for third party add-ons",
+          "example": 12.34,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        },
+        "space": {
+          "description": "space credits used",
+          "example": 1.548,
+          "readOnly": true,
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/teams/example-team/usage?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fid)}/usage/monthly",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/team-usage-monthly"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List Monthly"
+        }
+      ],
+      "properties": {
+        "addons": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/addons"
+        },
+        "apps": {
+          "description": "app usage in the team",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/team-usage-monthly/definitions/app_usage_monthly"
+          }
+        },
+        "connect": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/connect"
+        },
+        "data": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/data"
+        },
+        "dynos": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/dynos"
+        },
+        "id": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/id"
+        },
+        "month": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/month"
+        },
+        "name": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/name"
+        },
+        "partner": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/partner"
+        },
+        "space": {
+          "$ref": "#/definitions/team-usage-monthly/definitions/space"
+        }
+      }
+    },
     "team": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "Teams allow you to manage access to a shared group of applications and other resources.",
@@ -18149,6 +18414,20 @@ module PlatformAPI
             "boolean"
           ]
         },
+        "enterprise_account": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/enterprise-account/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/enterprise-account/definitions/name"
+            }
+          }
+        },
         "id": {
           "description": "unique identifier of team",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
@@ -18168,6 +18447,42 @@ module PlatformAPI
             }
           ]
         },
+        "identity_provider": {
+          "description": "Identity Provider associated with the Team",
+          "strictProperties": true,
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/identity-provider/definitions/id"
+            },
+            "slug": {
+              "description": "user-friendly unique identifier for this identity provider",
+              "example": "acme-sso",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "device_data": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Device data string generated by the client",
+          "example": "VGhpcyBpcyBhIGdvb2QgZGF5IHRvIGRpZQ=="
+        },
+        "nonce": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Nonce generated by Braintree hosted fields form",
+          "example": "VGhpcyBpcyBhIGdvb2QgZGF5IHRvIGRpZQ=="
+        },
         "address_1": {
           "type": [
             "string"
@@ -18177,14 +18492,16 @@ module PlatformAPI
         },
         "address_2": {
           "type": [
-            "string"
+            "string",
+            "null"
           ],
           "description": "street address line 2",
           "example": "Suite 103"
         },
         "card_number": {
           "type": [
-            "string"
+            "string",
+            "null"
           ],
           "description": "encrypted card number of payment method",
           "example": "encrypted-card-number"
@@ -18205,21 +18522,24 @@ module PlatformAPI
         },
         "cvv": {
           "type": [
-            "string"
+            "string",
+            "null"
           ],
           "description": "card verification value",
           "example": "123"
         },
         "expiration_month": {
           "type": [
-            "string"
+            "string",
+            "null"
           ],
           "description": "expiration month",
           "example": "11"
         },
         "expiration_year": {
           "type": [
-            "string"
+            "string",
+            "null"
           ],
           "description": "expiration year",
           "example": "2014"
@@ -18240,7 +18560,8 @@ module PlatformAPI
         },
         "other": {
           "type": [
-            "string"
+            "string",
+            "null"
           ],
           "description": "metadata",
           "example": "Additional information for payment method"
@@ -18416,6 +18737,12 @@ module PlatformAPI
               },
               "state": {
                 "$ref": "#/definitions/team/definitions/state"
+              },
+              "nonce": {
+                "$ref": "#/definitions/team/definitions/nonce"
+              },
+              "device_data": {
+                "$ref": "#/definitions/team/definitions/device_data"
               }
             },
             "required": [
@@ -18439,6 +18766,44 @@ module PlatformAPI
             "$ref": "#/definitions/team"
           },
           "title": "Delete"
+        },
+        {
+          "description": "List teams for an enterprise account.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/teams",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/team"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List for Enterprise"
+        },
+        {
+          "description": "Create a team in an enterprise account.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/teams",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/team/definitions/name"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/team"
+          },
+          "title": "Create for Enterprise"
         }
       ],
       "properties": {
@@ -18453,6 +18818,12 @@ module PlatformAPI
         },
         "default": {
           "$ref": "#/definitions/team/definitions/default"
+        },
+        "enterprise_account": {
+          "$ref": "#/definitions/team/definitions/enterprise_account"
+        },
+        "identity_provider": {
+          "$ref": "#/definitions/team/definitions/identity_provider"
         },
         "membership_limit": {
           "$ref": "#/definitions/team/definitions/membership_limit"
@@ -18962,7 +19333,7 @@ module PlatformAPI
                 "$ref": "#/definitions/test-run/definitions/debug"
               },
               "organization": {
-                "$ref": "#/definitions/organization/definitions/identity"
+                "$ref": "#/definitions/team/definitions/identity"
               },
               "pipeline": {
                 "$ref": "#/definitions/pipeline/definitions/identity"
@@ -19085,10 +19456,10 @@ module PlatformAPI
           "$ref": "#/definitions/test-run/definitions/number"
         },
         "organization": {
-          "description": "the organization that owns this test-run",
+          "description": "the team that owns this test-run",
           "properties": {
             "name": {
-              "$ref": "#/definitions/organization/definitions/name"
+              "$ref": "#/definitions/team/definitions/name"
             }
           },
           "type": [
@@ -19162,7 +19533,7 @@ module PlatformAPI
           ]
         },
         "default-organization": {
-          "description": "User's default organization",
+          "description": "User's default team",
           "example": "sushi-inc",
           "readOnly": false,
           "type": [
@@ -19341,7 +19712,7 @@ module PlatformAPI
       }
     },
     "vpn-connection": {
-      "description": "[VPN](https://devcenter.heroku.com/articles/private-spaces-vpn?preview=1) provides a way to connect your Private Spaces to your network via VPN.",
+      "description": "[VPN](https://devcenter.heroku.com/articles/private-space-vpn-connection) provides a way to connect your Private Spaces to your network via VPN.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -19590,7 +19961,7 @@ module PlatformAPI
       ]
     },
     "whitelisted-add-on-service": {
-      "description": "Entities that have been whitelisted to be used by an Organization",
+      "description": "Entities that have been whitelisted to be used by an Team",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
       "strictProperties": true,
@@ -19671,61 +20042,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "List all whitelisted Add-on Services for an Organization",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/whitelisted-add-on-service"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List By Organization"
-        },
-        {
-          "description": "Whitelist an Add-on Service",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
-          "method": "POST",
-          "rel": "create",
-          "schema": {
-            "type": [
-              "object"
-            ],
-            "properties": {
-              "addon_service": {
-                "description": "name of the Add-on to whitelist",
-                "example": "heroku-postgresql",
-                "type": [
-                  "string"
-                ]
-              }
-            }
-          },
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/whitelisted-add-on-service"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "Create By Organization"
-        },
-        {
-          "description": "Remove a whitelisted entity",
-          "href": "/organizations/{(%23%2Fdefinitions%2Forganization%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-add-on-service%2Fdefinitions%2Fidentity)}",
-          "method": "DELETE",
-          "rel": "destroy",
-          "targetSchema": {
-            "$ref": "#/definitions/whitelisted-add-on-service"
-          },
-          "title": "Delete By Organization"
-        },
-        {
-          "description": "List all whitelisted Add-on Services for a Team",
+          "description": "List all whitelisted Add-on Services for an Team",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
           "method": "GET",
           "rel": "instances",
@@ -19856,8 +20173,8 @@ module PlatformAPI
     "app": {
       "$ref": "#/definitions/app"
     },
-    "build-result": {
-      "$ref": "#/definitions/build-result"
+    "archive": {
+      "$ref": "#/definitions/archive"
     },
     "build": {
       "$ref": "#/definitions/build"
@@ -19882,6 +20199,21 @@ module PlatformAPI
     },
     "dyno": {
       "$ref": "#/definitions/dyno"
+    },
+    "enterprise-account-member": {
+      "$ref": "#/definitions/enterprise-account-member"
+    },
+    "enterprise-account-usage-daily": {
+      "$ref": "#/definitions/enterprise-account-usage-daily"
+    },
+    "enterprise-account-usage-monthly": {
+      "$ref": "#/definitions/enterprise-account-usage-monthly"
+    },
+    "enterprise-account": {
+      "$ref": "#/definitions/enterprise-account"
+    },
+    "event": {
+      "$ref": "#/definitions/event"
     },
     "filter-apps": {
       "$ref": "#/definitions/filter-apps"
@@ -19922,33 +20254,6 @@ module PlatformAPI
     "oauth-token": {
       "$ref": "#/definitions/oauth-token"
     },
-    "organization-add-on": {
-      "$ref": "#/definitions/organization-add-on"
-    },
-    "organization-app-collaborator": {
-      "$ref": "#/definitions/organization-app-collaborator"
-    },
-    "organization-app": {
-      "$ref": "#/definitions/organization-app"
-    },
-    "organization-feature": {
-      "$ref": "#/definitions/organization-feature"
-    },
-    "organization-invitation": {
-      "$ref": "#/definitions/organization-invitation"
-    },
-    "organization-invoice": {
-      "$ref": "#/definitions/organization-invoice"
-    },
-    "organization-member": {
-      "$ref": "#/definitions/organization-member"
-    },
-    "organization-preferences": {
-      "$ref": "#/definitions/organization-preferences"
-    },
-    "organization": {
-      "$ref": "#/definitions/organization"
-    },
     "outbound-ruleset": {
       "$ref": "#/definitions/outbound-ruleset"
     },
@@ -19961,8 +20266,11 @@ module PlatformAPI
     "peering": {
       "$ref": "#/definitions/peering"
     },
-    "organization-app-permission": {
-      "$ref": "#/definitions/organization-app-permission"
+    "permission-entity": {
+      "$ref": "#/definitions/permission-entity"
+    },
+    "pipeline-config-var": {
+      "$ref": "#/definitions/pipeline-config-var"
     },
     "pipeline-coupling": {
       "$ref": "#/definitions/pipeline-coupling"
@@ -19988,6 +20296,12 @@ module PlatformAPI
     "release": {
       "$ref": "#/definitions/release"
     },
+    "review-app": {
+      "$ref": "#/definitions/review-app"
+    },
+    "review-app-config": {
+      "$ref": "#/definitions/review-app-config"
+    },
     "slug": {
       "$ref": "#/definitions/slug"
     },
@@ -20006,6 +20320,9 @@ module PlatformAPI
     "space-nat": {
       "$ref": "#/definitions/space-nat"
     },
+    "space-transfer": {
+      "$ref": "#/definitions/space-transfer"
+    },
     "space": {
       "$ref": "#/definitions/space"
     },
@@ -20014,6 +20331,9 @@ module PlatformAPI
     },
     "stack": {
       "$ref": "#/definitions/stack"
+    },
+    "team-add-on": {
+      "$ref": "#/definitions/team-add-on"
     },
     "team-app-collaborator": {
       "$ref": "#/definitions/team-app-collaborator"
@@ -20038,6 +20358,15 @@ module PlatformAPI
     },
     "team-preferences": {
       "$ref": "#/definitions/team-preferences"
+    },
+    "team-space": {
+      "$ref": "#/definitions/team-space"
+    },
+    "team-usage-daily": {
+      "$ref": "#/definitions/team-usage-daily"
+    },
+    "team-usage-monthly": {
+      "$ref": "#/definitions/team-usage-monthly"
     },
     "team": {
       "$ref": "#/definitions/team"
