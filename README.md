@@ -318,6 +318,14 @@ To disable this retry and sleep behavior set the env var`PLATFORM_API_DISABLE_RA
 
 For more information about this algorithm and behavior see [Rate Limit GCRA client demo](https://github.com/schneems/rate-limit-gcra-client-demo).
 
+By default rate throttling will log to STDOUT when the sleep/retry behavior is triggered. To add your own custom logging, for example to librato or honeycomb, you can pass in a callable object that takes three arguments:
+
+```ruby
+PlatformAPI.rate_throttle.log = ->(event_type, request, throttle_object) {
+  # Your logic here
+}
+```
+
 ## Building and releasing
 
 ### Generate a new client

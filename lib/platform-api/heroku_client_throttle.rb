@@ -28,9 +28,10 @@ module PlatformAPI
     MIN_SLEEP = 1/(MAX_LIMIT / 3600)
     MIN_SLEEP_OVERTIME_PERCENT = 1.0 - 0.9 # Allow min sleep to go lower than actually calculated value, must be less than 1
 
-    attr_reader :rate_limit_multiply_at, :sleep_for, :rate_limit_count, :log, :mutex
+    attr_reader :rate_limit_multiply_at, :sleep_for, :rate_limit_count, :mutex
+    attr_accessor :log
 
-    def initialize(log = ->(req, throttle) {})
+    def initialize
       @mutex = Mutex.new
       @sleep_for = 2 * MIN_SLEEP
       @rate_limit_count = 0
@@ -39,7 +40,7 @@ module PlatformAPI
       @min_sleep_bound = MIN_SLEEP * MIN_SLEEP_OVERTIME_PERCENT
       @rate_multiplier = 1
       @rate_limit_multiply_at = Time.now - 1800
-      @log = log
+      @log = ->(event, req, throttle) {}
     end
 
     def jitter
@@ -50,8 +51,6 @@ module PlatformAPI
       sleep(sleep_for + jitter) unless @rate_limit_count.zero?
 
       req = yield
-
-      log.call(req, self)
 
       if retry_request?(req)
         req = retry_request_logic(req, &block)
@@ -103,6 +102,9 @@ module PlatformAPI
           @times_retried += 1
           @retry_thread = Thread.current
         end
+
+        log.call(:retry_request, req, self)
+        puts "HerokuClientThrottle: event=retry_request process=#{Process.pid} thread=#{Thread.current.object_id} sleep_for=#{@sleep_for}"
       end
 
       # Retry the request with the new sleep value
