@@ -15,6 +15,28 @@ class FakeResponse
 end
 
 describe 'Heroku client throttle' do
+  it "configuring logging works" do
+    client = PlatformAPI::HerokuClientThrottle.new
+
+    @log_count = 0
+    client.log = ->(event, request, throttle) { @log_count += 1 }
+
+    def client.sleep(val); end;
+
+    @times_called = 0
+    client.call do
+      @times_called += 1
+      if client.rate_limit_count < 2
+        FakeResponse.new(429)
+      else
+        FakeResponse.new
+      end
+    end
+
+    expect(@times_called).to eq(3) # Once for initial 429, once for second 429, once for final 200
+    expect(@log_count).to eq(2)
+  end
+
   it "Check when rate limit is triggered, the time since multiply changes" do
     client = PlatformAPI::HerokuClientThrottle.new
     def client.sleep(val); end;

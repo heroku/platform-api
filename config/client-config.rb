@@ -7,8 +7,13 @@ Heroics.default_configuration do |config|
   config.base_url = 'https://api.heroku.com'
   config.module_name = 'PlatformAPI'
   config.schema_filepath = File.join(File.expand_path('../..', __FILE__), 'schema.json')
-  config.rate_throttle = PlatformAPI::HerokuClientThrottle.new unless ENV['PLATFORM_API_DISABLE_RATE_THROTTLE']
-  config.acceptable_status_codes = [429]
+
+  unless ENV['PLATFORM_API_DISABLE_RATE_THROTTLE']
+    PlatformAPI.rate_throttle = PlatformAPI::HerokuClientThrottle.new
+
+    config.rate_throttle = PlatformAPI.rate_throttle
+    config.acceptable_status_codes = [429]
+  end
 
   config.headers = {
     'Accept'      => 'application/vnd.heroku+json; version=3',
