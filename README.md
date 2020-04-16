@@ -369,8 +369,11 @@ $ heroku create <memorable-name-here>
 $ heroku webhooks:add -i api:dyno -l notify -u https://example.com/hooks
 $ git push heroku master
 ```
+
 Now you can specify your app name while you run tests:
 
 ```
 $ TEST_APP_NAME="<memorable-name-here>" rspec ./spec
 ```
+
+If you run tests without specifying a `TEST_APP_NAME` then an app will be created and deployed under your user account.
