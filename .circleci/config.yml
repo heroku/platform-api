@@ -1,0 +1,76 @@
+version: 2
+references:
+  unit: &unit
+    run:
+      name: Run test suite
+      command: bundle exec rspec ./spec
+  hatchet_setup: &hatchet_setup
+    run:
+      name: Hatchet setup
+      command: |
+        bundle exec hatchet ci:setup
+  bundle: &bundle
+    run:
+      name: install dependencies
+      command: |
+        bundle install --jobs=4 --retry=3 --path vendor/bundle
+jobs:
+  "ruby-2.2":
+    docker:
+      - image: circleci/ruby:2.2
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
+  "ruby-2.3":
+    docker:
+      - image: circleci/ruby:2.3
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
+  "ruby-2.4":
+    docker:
+      - image: circleci/ruby:2.4
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
+  "ruby-2.5":
+    docker:
+      - image: circleci/ruby:2.5
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
+  "ruby-2.6":
+    docker:
+      - image: circleci/ruby:2.6
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
+  "ruby-2.7":
+    docker:
+      - image: circleci/ruby:2.7
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "ruby-2.2"
+      - "ruby-2.3"
+      - "ruby-2.4"
+      - "ruby-2.5"
+      - "ruby-2.6"
+      - "ruby-2.7"
