@@ -1,30 +1,11 @@
-require 'netrc'
-require 'platform-api'
-require 'hatchet'
-require 'webmock/rspec'
-
-include WebMock::API
-WebMock.allow_net_connect!
 
 describe 'The generated platform api client' do
   before(:all) do
     @app_name = ENV["TEST_APP_NAME"] || hatchet_app.name
   end
 
-  it "works even if first request is rate limited" do
-    WebMock.enable!
-    url = "https://api.heroku.com/apps"
-    stub_request(:get, url)
-      .to_return([
-        {status: 429},
-        {status: 200}
-      ])
-
-    client.app.list
-
-    expect(WebMock).to have_requested(:get, url).twice
-  ensure
-    WebMock.disable!
+  def app_name
+    @app_name
   end
 
   it "can get account info" do
@@ -73,43 +54,5 @@ describe 'The generated platform api client' do
 
   it "can get app webhooks" do
     expect(client.app_webhook.list(app_name)).not_to be_empty
-  end
-
-  def app_name
-    @app_name
-  end
-
-  def hatchet_app
-    @hatchet_app ||= begin
-      app = Hatchet::Runner.new("default_ruby", buildpacks: ["heroku/ruby"])
-      app.in_directory do
-        app.setup!
-        app.push_with_retry!
-      end
-      app.api_rate_limit.call.app_webhook.create(app.name, include: ["dyno"] , level: "notify", url: "https://example.com")
-      app.api_rate_limit.call.addon.create(app.name, plan: 'heroku-postgresql' )
-      app
-    end
-  end
-
-  def email
-    @email
-  end
-
-  def client
-    @client ||=
-      begin
-        entry = Netrc.read['api.heroku.com']
-        if entry
-          oauth_token = entry.password
-          @email = entry.login
-        else
-          oauth_token = ENV['OAUTH_TOKEN']
-          @email = ENV['ACCOUNT_EMAIL']
-        end
-        raise "Must set env vars or write a netrc" unless @email
-
-        PlatformAPI.connect_oauth(oauth_token)
-      end
   end
 end

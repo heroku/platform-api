@@ -314,15 +314,32 @@ By default client requests from this library will respect Heroku's rate-limiting
 
 Once a single request has been rate-limited, the client will auto-tune a sleep value so that future requests are less likely to be rate-limited by the server.
 
-To disable this retry and sleep behavior set the env var`PLATFORM_API_DISABLE_RATE_THROTTLE=1`.
+Rate throttle strategies are provided by [the Rate Throttle Client gem](https://github.com/zombocom/rate_throttle_client). By default the `RateThrottleClient::ExponentialIncreaseProportionalRemainingDecrease` strategy is used.
 
-For more information about this algorithm and behavior see [Rate Limit GCRA client demo](https://github.com/schneems/rate-limit-gcra-client-demo).
-
-By default rate throttling will log to STDOUT when the sleep/retry behavior is triggered. To add your own custom logging, for example to librato or honeycomb, you can pass in a callable object that takes three arguments:
+To disable this retry-and-sleep behavior you can change the rate throttling strategy to any object that responds to `call` and yields to a block:
 
 ```ruby
-PlatformAPI.rate_throttle.log = ->(event_type, request, throttle_object) {
+PlatformAPI.rate_throttle = ->(&block) { block.call }
+
+# or
+
+PlatformAPI.rate_throttle = RateThrottleClient::Null.new
+```
+
+By default rate throttling will log to STDOUT when the sleep/retry behavior is triggered:
+
+```
+RateThrottleClient: sleep_for=0.8
+```
+
+To add your own custom logging, for example to Librato or Honeycomb, you can configure logging by providing an object that responds to `call` and takes one argument:
+
+```ruby
+PlatformAPI.rate_throttle.log = ->(info) {
   # Your logic here
+
+  puts info.sleep_for
+  puts info.request
 }
 ```
 
