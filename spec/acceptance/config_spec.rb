@@ -9,7 +9,7 @@ describe 'Platform API config' do
       @original_rate_throttle = rate_throttle.dup
 
       # No junk in test dots
-      rate_throttle.log = ->(*_) {}
+      rate_throttle.log = ->(*_) {} if rate_throttle.respond_to?("log=")
 
       # Don't sleep in tests
       def rate_throttle.sleep(value); end
@@ -22,6 +22,8 @@ describe 'Platform API config' do
     end
 
     it "works even if first request is rate limited" do
+      skip("Default behavior changes in v3+") unless Gem::Version.new(PlatformAPI::VERSION) >= Gem::Version.new("3.0.0.beta")
+
       stub_request(:get, "https://api.heroku.com/apps")
         .to_return([
           {status: 429},
@@ -42,6 +44,7 @@ describe 'Platform API config' do
         ])
 
       @retry_count = 0
+      PlatformAPI.rate_throttle = RateThrottleClient::ExponentialIncreaseProportionalRemainingDecrease.new
       PlatformAPI.rate_throttle.log = ->(*_) { @retry_count += 1 }
       client.app.list
 

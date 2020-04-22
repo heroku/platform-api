@@ -310,6 +310,8 @@ client = PlatformAPI.connect('my-api-key', url: 'https://api.example.com')
 
 ### Rate throttling
 
+Rate throttling capability is inclued in PlatformAPI v2.3.0, but is disabled by default. The following section describes the behavior of the PlatformAPI gem v3.0.0+. To enable rate throttling logic, upgrade to the latest released version.
+
 By default client requests from this library will respect Heroku's rate-limiting. The client can make as many requests as possible until Heroku's server says that it has gone over. Once a request has been rate-limited the client will sleep and then retry the request again. This process will repeat until the request is successful.
 
 Once a single request has been rate-limited, the client will auto-tune a sleep value so that future requests are less likely to be rate-limited by the server.
