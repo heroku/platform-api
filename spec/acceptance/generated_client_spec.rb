@@ -1,5 +1,6 @@
-
 describe 'The generated platform api client' do
+  include PlatformAPI::SpecHelperMethods
+
   before(:all) do
     @app_name = ENV["TEST_APP_NAME"] || hatchet_app.name
   end

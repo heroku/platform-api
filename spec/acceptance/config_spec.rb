@@ -1,6 +1,8 @@
 require 'platform-api'
 
 describe 'Platform API config' do
+  include PlatformAPI::SpecHelperMethods
+
   describe 'rate limiting' do
     before(:each) do
       WebMock.enable!
@@ -44,7 +46,10 @@ describe 'Platform API config' do
         ])
 
       @retry_count = 0
-      PlatformAPI.rate_throttle = RateThrottleClient::ExponentialIncreaseProportionalRemainingDecrease.new
+      throttle = RateThrottleClient::ExponentialIncreaseProportionalRemainingDecrease.new
+      def throttle.sleep(var); end
+
+      PlatformAPI.rate_throttle = throttle
       PlatformAPI.rate_throttle.log = ->(*_) { @retry_count += 1 }
       client.app.list
 
