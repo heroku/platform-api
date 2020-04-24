@@ -1,11 +1,26 @@
 # frozen_string_literal: true
 require 'heroics'
+require 'rate_throttle_client'
+
 require File.join(File.expand_path('../..', __FILE__), 'lib', 'platform-api', 'version.rb')
 
 Heroics.default_configuration do |config|
   config.base_url = 'https://api.heroku.com'
   config.module_name = 'PlatformAPI'
   config.schema_filepath = File.join(File.expand_path('../..', __FILE__), 'schema.json')
+
+  PlatformAPI.rate_throttle = ->(&block) {
+    @deprecate_on_first ||= begin
+      message = String.new("[Warning] Starting in PlatformAPI version 3+, requests will include rate throttling logic\n")
+      message << "to opt-out of this behavior set: `PlatformAPI.rate_throttle = RateThrottleClient::Null.new`\n"
+      message << "to silence this warning and opt-in to this logic, upgrade to PlatformAPI version 3+"
+      warn message
+      true
+    end
+    block.call
+  }
+  config.rate_throttle = PlatformAPI.rate_throttle
+  config.acceptable_status_codes = [429]
 
   config.headers = {
     'Accept'      => 'application/vnd.heroku+json; version=3',

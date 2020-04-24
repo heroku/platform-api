@@ -308,6 +308,43 @@ Connect to a different host by passing a `url` option:
 client = PlatformAPI.connect('my-api-key', url: 'https://api.example.com')
 ```
 
+### Rate throttling
+
+Rate throttling capability is inclued in PlatformAPI v2.3.0, but is disabled by default. The following section describes the behavior of the PlatformAPI gem v3.0.0+. To enable rate throttling logic, upgrade to the latest released version.
+
+By default client requests from this library will respect Heroku's rate-limiting. The client can make as many requests as possible until Heroku's server says that it has gone over. Once a request has been rate-limited the client will sleep and then retry the request again. This process will repeat until the request is successful.
+
+Once a single request has been rate-limited, the client will auto-tune a sleep value so that future requests are less likely to be rate-limited by the server.
+
+Rate throttle strategies are provided by [the Rate Throttle Client gem](https://github.com/zombocom/rate_throttle_client). By default the `RateThrottleClient::ExponentialIncreaseProportionalRemainingDecrease` strategy is used.
+
+To disable this retry-and-sleep behavior you can change the rate throttling strategy to any object that responds to `call` and yields to a block:
+
+```ruby
+PlatformAPI.rate_throttle = ->(&block) { block.call }
+
+# or
+
+PlatformAPI.rate_throttle = RateThrottleClient::Null.new
+```
+
+By default rate throttling will log to STDOUT when the sleep/retry behavior is triggered:
+
+```
+RateThrottleClient: sleep_for=0.8
+```
+
+To add your own custom logging, for example to Librato or Honeycomb, you can configure logging by providing an object that responds to `call` and takes one argument:
+
+```ruby
+PlatformAPI.rate_throttle.log = ->(info) {
+  # Your logic here
+
+  puts info.sleep_for
+  puts info.request
+}
+```
+
 ## Building and releasing
 
 ### Generate a new client

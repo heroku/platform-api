@@ -1,4 +1,12 @@
 require 'pry'
+require 'webmock/rspec'
+require 'platform-api'
+require 'netrc'
+require 'hatchet'
+
+include WebMock::API
+WebMock.allow_net_connect!
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -18,3 +26,5 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
 end
+
+require_relative "support/helper_methods.rb"
