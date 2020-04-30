@@ -382,7 +382,7 @@ And then visit `doc/index.html` to read it. Alternately, build and publish
 it to Github Pages in one step with:
 
 ```
-rake publish
+rake publish_docs
 ```
 
 You can see it live on [Github Pages](http://heroku.github.io/platform-api/).
