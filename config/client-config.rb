@@ -2,7 +2,7 @@
 require 'heroics'
 require 'rate_throttle_client'
 
-require File.join(File.expand_path('../..', __FILE__), 'lib', 'platform-api', 'version.rb')
+require File.join(File.expand_path('../..', __FILE__), 'lib', 'platform-api')
 
 Heroics.default_configuration do |config|
   config.base_url = 'https://api.heroku.com'

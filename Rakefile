@@ -11,7 +11,7 @@ task :build do
 end
 
 desc 'Publish API documentation'
-task :publish do
+task :publish_docs => [:build] do
   sh 'rake yard'
   sh 'cp -R doc /tmp/platform-api-doc'
   sh 'git checkout gh-pages'
@@ -21,6 +21,11 @@ task :publish do
   sh 'git commit -am "Rebuild documentation"'
   sh 'git push origin gh-pages'
   sh 'git checkout master'
+end
+
+# After releasing publish the docs
+Rake::Task["release"].enhance do
+  Rake::Task[:publish_docs].invoke
 end
 
 begin
