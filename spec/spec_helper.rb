@@ -1,3 +1,5 @@
+require "bundler/setup"
+
 require 'pry'
 require 'webmock/rspec'
 require 'platform-api'

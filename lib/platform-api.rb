@@ -1,5 +1,6 @@
 require 'heroics'
 require 'moneta'
+require 'platform-api/version'
 
 # Ruby HTTP client for the Heroku API.
 module PlatformAPI
@@ -18,4 +19,3 @@ end
 
 require_relative '../config/client-config'
 require 'platform-api/client'
-require 'platform-api/version'
