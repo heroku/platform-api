@@ -9,16 +9,7 @@ Heroics.default_configuration do |config|
   config.module_name = 'PlatformAPI'
   config.schema_filepath = File.join(File.expand_path('../..', __FILE__), 'schema.json')
 
-  PlatformAPI.rate_throttle = ->(&block) {
-    @deprecate_on_first ||= begin
-      message = String.new("[Warning] Starting in PlatformAPI version 3+, requests will include rate throttling logic\n")
-      message << "to opt-out of this behavior set: `PlatformAPI.rate_throttle = RateThrottleClient::Null.new`\n"
-      message << "to silence this warning and opt-in to this logic, upgrade to PlatformAPI version 3+"
-      warn message
-      true
-    end
-    block.call
-  }
+  PlatformAPI.rate_throttle = RateThrottleClient::ExponentialIncreaseProportionalRemainingDecrease.new
   config.rate_throttle = PlatformAPI.rate_throttle
   config.acceptable_status_codes = [429]
 
