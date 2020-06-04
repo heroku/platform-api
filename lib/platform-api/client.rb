@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.0.0.pre.1"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.0.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -245,6 +245,13 @@ module PlatformAPI
       @archive_resource ||= Archive.new(@client)
     end
 
+    # An audit trail event represents some action on the platform
+    #
+    # @return [AuditTrailEvent]
+    def audit_trail_event
+      @audit_trail_event_resource ||= AuditTrailEvent.new(@client)
+    end
+
     # A build represents the process of transforming a code tarball into a slug
     #
     # @return [Build]
@@ -327,13 +334,6 @@ module PlatformAPI
     # @return [EnterpriseAccount]
     def enterprise_account
       @enterprise_account_resource ||= EnterpriseAccount.new(@client)
-    end
-
-    # An audit trail event represents some action on the platform
-    #
-    # @return [Event]
-    def event
-      @event_resource ||= Event.new(@client)
     end
 
     # Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
@@ -614,6 +614,13 @@ module PlatformAPI
     # @return [SpaceNat]
     def space_nat
       @space_nat_resource ||= SpaceNat.new(@client)
+    end
+
+    # Space Topology provides you with a mechanism for viewing all the running dynos, formations and applications for a space. This is the same data thats used to power our DNS Service Discovery.
+    #
+    # @return [SpaceTopology]
+    def space_topology
+      @space_topology_resource ||= SpaceTopology.new(@client)
     end
 
     # Transfer spaces between enterprise teams with the same Enterprise Account.
@@ -1464,6 +1471,20 @@ module PlatformAPI
     end
   end
 
+  # An audit trail event represents some action on the platform
+  class AuditTrailEvent
+    def initialize(client)
+      @client = client
+    end
+
+    # List existing events.
+    #
+    # @param enterprise_account_id: unique identifier of the enterprise account
+    def list(enterprise_account_id)
+      @client.audit_trail_event.list(enterprise_account_id)
+    end
+  end
+
   # A build represents the process of transforming a code tarball into a slug
   class Build
     def initialize(client)
@@ -1818,20 +1839,6 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def update(enterprise_account_id, body = {})
       @client.enterprise_account.update(enterprise_account_id, body)
-    end
-  end
-
-  # An audit trail event represents some action on the platform
-  class Event
-    def initialize(client)
-      @client = client
-    end
-
-    # List existing events.
-    #
-    # @param enterprise_account_id: unique identifier of the enterprise account
-    def list(enterprise_account_id)
-      @client.event.list(enterprise_account_id)
     end
   end
 
@@ -2904,6 +2911,20 @@ module PlatformAPI
     # @param space_id_or_space_name: unique identifier of space or unique name of space
     def info(space_id_or_space_name)
       @client.space_nat.info(space_id_or_space_name)
+    end
+  end
+
+  # Space Topology provides you with a mechanism for viewing all the running dynos, formations and applications for a space. This is the same data thats used to power our DNS Service Discovery.
+  class SpaceTopology
+    def initialize(client)
+      @client = client
+    end
+
+    # Current space topology
+    #
+    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    def topology(space_id_or_space_name)
+      @client.space_topology.topology(space_id_or_space_name)
     end
   end
 
@@ -7712,6 +7733,222 @@ module PlatformAPI
         }
       }
     },
+    "audit-trail-event": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Heroku Platform API - Audit Trail Event",
+      "description": "An audit trail event represents some action on the platform",
+      "stability": "development",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of event",
+          "readOnly": true,
+          "format": "uuid",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/audit-trail-event/definitions/id"
+            }
+          ]
+        },
+        "type": {
+          "description": "type of event",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "action": {
+          "description": "action for the event",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "actor": {
+          "description": "user who caused event",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "email": {
+              "format": "email",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "app": {
+          "description": "app upon which event took place",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "owner": {
+          "description": "owner of the app targeted by the event",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "email": {
+              "format": "email",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "enterprise_account": {
+          "description": "enterprise account on which the event happened",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "team": {
+          "description": "team on which the event happened",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "format": "uuid",
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "request": {
+          "description": "information about where the action was triggered",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "ip_address": {
+              "format": "ipv4",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "data": {
+          "description": "data specific to the event",
+          "readOnly": true,
+          "type": [
+            "object"
+          ]
+        },
+        "created_at": {
+          "description": "when event was created",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List existing events.",
+          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/events",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/audit-trail-event/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/audit-trail-event/definitions/id"
+        },
+        "type": {
+          "$ref": "#/definitions/audit-trail-event/definitions/type"
+        },
+        "action": {
+          "$ref": "#/definitions/audit-trail-event/definitions/action"
+        },
+        "actor": {
+          "$ref": "#/definitions/audit-trail-event/definitions/actor"
+        },
+        "app": {
+          "$ref": "#/definitions/audit-trail-event/definitions/app"
+        },
+        "owner": {
+          "$ref": "#/definitions/audit-trail-event/definitions/owner"
+        },
+        "enterprise_account": {
+          "$ref": "#/definitions/audit-trail-event/definitions/enterprise_account"
+        },
+        "team": {
+          "$ref": "#/definitions/audit-trail-event/definitions/team"
+        },
+        "request": {
+          "$ref": "#/definitions/audit-trail-event/definitions/request"
+        },
+        "data": {
+          "$ref": "#/definitions/audit-trail-event/definitions/data"
+        }
+      }
+    },
     "build": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "description": "A build represents the process of transforming a code tarball into a slug",
@@ -9999,222 +10236,6 @@ module PlatformAPI
               "$ref": "#/definitions/identity-provider/definitions/owner"
             }
           }
-        }
-      }
-    },
-    "event": {
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "Heroku Platform API - Audit Trail Event",
-      "description": "An audit trail event represents some action on the platform",
-      "stability": "development",
-      "strictProperties": true,
-      "type": [
-        "object"
-      ],
-      "definitions": {
-        "id": {
-          "description": "unique identifier of event",
-          "readOnly": true,
-          "format": "uuid",
-          "type": [
-            "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/event/definitions/id"
-            }
-          ]
-        },
-        "type": {
-          "description": "type of event",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "action": {
-          "description": "action for the event",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "actor": {
-          "description": "user who caused event",
-          "readOnly": true,
-          "type": [
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "format": "uuid",
-              "type": [
-                "string"
-              ]
-            },
-            "email": {
-              "format": "email",
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
-        "app": {
-          "description": "app upon which event took place",
-          "readOnly": true,
-          "type": [
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "format": "uuid",
-              "type": [
-                "string"
-              ]
-            },
-            "name": {
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
-        "owner": {
-          "description": "owner of the app targeted by the event",
-          "readOnly": true,
-          "type": [
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "format": "uuid",
-              "type": [
-                "string"
-              ]
-            },
-            "email": {
-              "format": "email",
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
-        "enterprise_account": {
-          "description": "enterprise account on which the event happened",
-          "readOnly": true,
-          "type": [
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "format": "uuid",
-              "type": [
-                "string"
-              ]
-            },
-            "name": {
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
-        "team": {
-          "description": "team on which the event happened",
-          "readOnly": true,
-          "type": [
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "format": "uuid",
-              "type": [
-                "string"
-              ]
-            },
-            "name": {
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
-        "request": {
-          "description": "information about where the action was triggered",
-          "readOnly": true,
-          "type": [
-            "object"
-          ],
-          "properties": {
-            "ip_address": {
-              "format": "ipv4",
-              "type": [
-                "string"
-              ]
-            }
-          }
-        },
-        "data": {
-          "description": "data specific to the event",
-          "readOnly": true,
-          "type": [
-            "object"
-          ]
-        },
-        "created_at": {
-          "description": "when event was created",
-          "format": "date-time",
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "links": [
-        {
-          "description": "List existing events.",
-          "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/events",
-          "method": "GET",
-          "rel": "instances",
-          "title": "List"
-        }
-      ],
-      "properties": {
-        "created_at": {
-          "$ref": "#/definitions/event/definitions/created_at"
-        },
-        "id": {
-          "$ref": "#/definitions/event/definitions/id"
-        },
-        "type": {
-          "$ref": "#/definitions/event/definitions/type"
-        },
-        "action": {
-          "$ref": "#/definitions/event/definitions/action"
-        },
-        "actor": {
-          "$ref": "#/definitions/event/definitions/actor"
-        },
-        "app": {
-          "$ref": "#/definitions/event/definitions/app"
-        },
-        "owner": {
-          "$ref": "#/definitions/event/definitions/owner"
-        },
-        "enterprise_account": {
-          "$ref": "#/definitions/event/definitions/enterprise_account"
-        },
-        "team": {
-          "$ref": "#/definitions/event/definitions/team"
-        },
-        "request": {
-          "$ref": "#/definitions/event/definitions/request"
-        },
-        "data": {
-          "$ref": "#/definitions/event/definitions/data"
         }
       }
     },
@@ -15078,7 +15099,7 @@ module PlatformAPI
           ]
         },
         "pr_number": {
-          "description": "GitHub Pull Request number if the Review app was created automatically",
+          "description": "pull request number the review app is built for",
           "example": 24,
           "readOnly": true,
           "type": [
@@ -15097,6 +15118,9 @@ module PlatformAPI
             "properties": {
               "branch": {
                 "$ref": "#/definitions/review-app/definitions/branch"
+              },
+              "pr_number": {
+                "$ref": "#/definitions/review-app/definitions/pr_number"
               },
               "pipeline": {
                 "$ref": "#/definitions/pipeline/definitions/id"
@@ -16323,6 +16347,137 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/space-nat/definitions/updated_at"
+        }
+      }
+    },
+    "space-topology": {
+      "description": "Space Topology provides you with a mechanism for viewing all the running dynos, formations and applications for a space. This is the same data thats used to power our DNS Service Discovery.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Space Topology",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "version": {
+          "description": "version of the space topology payload",
+          "example": 1,
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "dyno": {
+          "description": "A dyno",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/dyno/definitions/id"
+            },
+            "number": {
+              "description": "process number, e.g. 1 in web.1",
+              "example": 1,
+              "type": [
+                "integer"
+              ]
+            },
+            "private_ip": {
+              "description": "RFC1918 Address of Dyno",
+              "example": "10.0.134.42",
+              "type": [
+                "string"
+              ]
+            },
+            "hostname": {
+              "description": "localspace hostname of resource",
+              "example": "1.example-app-90210.app.localspace",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "formation": {
+          "description": "formations for application",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/formation/definitions/id"
+            },
+            "process_type": {
+              "description": "Name of process type",
+              "example": "web",
+              "type": [
+                "string"
+              ]
+            },
+            "dynos": {
+              "description": "Current dynos for application",
+              "items": {
+                "$ref": "#/definitions/space-topology/definitions/dyno"
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Current space topology",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/topology",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/space-topology"
+          },
+          "title": "Topology"
+        }
+      ],
+      "properties": {
+        "version": {
+          "$ref": "#/definitions/space-topology/definitions/version"
+        },
+        "apps": {
+          "description": "The apps within this space",
+          "type": [
+            "array"
+          ],
+          "readOnly": true,
+          "items": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/app/definitions/id",
+                "readOnly": true
+              },
+              "domains": {
+                "example": [
+                  "example.com",
+                  "example.net"
+                ],
+                "readOnly": true,
+                "type": [
+                  "array"
+                ]
+              },
+              "formation": {
+                "description": "formations for application",
+                "items": {
+                  "$ref": "#/definitions/space-topology/definitions/formation"
+                },
+                "type": [
+                  "array"
+                ],
+                "readOnly": true
+              }
+            }
+          }
         }
       }
     },
@@ -20631,6 +20786,9 @@ module PlatformAPI
     "archive": {
       "$ref": "#/definitions/archive"
     },
+    "audit-trail-event": {
+      "$ref": "#/definitions/audit-trail-event"
+    },
     "build": {
       "$ref": "#/definitions/build"
     },
@@ -20666,9 +20824,6 @@ module PlatformAPI
     },
     "enterprise-account": {
       "$ref": "#/definitions/enterprise-account"
-    },
-    "event": {
-      "$ref": "#/definitions/event"
     },
     "filter-apps": {
       "$ref": "#/definitions/filter-apps"
@@ -20789,6 +20944,9 @@ module PlatformAPI
     },
     "space-nat": {
       "$ref": "#/definitions/space-nat"
+    },
+    "space-topology": {
+      "$ref": "#/definitions/space-topology"
     },
     "space-transfer": {
       "$ref": "#/definitions/space-transfer"
