@@ -112,7 +112,7 @@ module PlatformAPI
       @account_resource ||= Account.new(@client)
     end
 
-    # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
+    # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
     #
     # @return [AddonAction]
     def addon_action
@@ -180,6 +180,13 @@ module PlatformAPI
     # @return [Addon]
     def addon
       @addon_resource ||= Addon.new(@client)
+    end
+
+    # Entities that have been allowed to be used by a Team
+    #
+    # @return [AllowedAddonService]
+    def allowed_addon_service
+      @allowed_addon_service_resource ||= AllowedAddonService.new(@client)
     end
 
     # An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.
@@ -860,7 +867,7 @@ module PlatformAPI
     end
   end
 
-  # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
+  # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
   class AddonAction
     def initialize(client)
       @client = client
@@ -1185,6 +1192,36 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def resolution(body = {})
       @client.addon.resolution(body)
+    end
+  end
+
+  # Entities that have been allowed to be used by a Team
+  class AllowedAddonService
+    def initialize(client)
+      @client = client
+    end
+
+    # List all allowed add-on services for a team
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list_by_team(team_name_or_team_id)
+      @client.allowed_addon_service.list_by_team(team_name_or_team_id)
+    end
+
+    # Allow an Add-on Service
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param body: the object to pass as the request payload
+    def create_by_team(team_name_or_team_id, body = {})
+      @client.allowed_addon_service.create_by_team(team_name_or_team_id, body)
+    end
+
+    # Remove an allowed add-on service
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    # @param allowed_addon_service_id_or_addon_service_name: unique identifier for this allowed add-on service record or unique name of this add-on-service
+    def delete_by_team(team_name_or_team_id, allowed_addon_service_id_or_addon_service_name)
+      @client.allowed_addon_service.delete_by_team(team_name_or_team_id, allowed_addon_service_id_or_addon_service_name)
     end
   end
 
@@ -3961,6 +3998,42 @@ module PlatformAPI
           "type": [
             "boolean"
           ]
+        },
+        "acknowledged_msa": {
+          "description": "whether account has acknowledged the MSA terms of service",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "acknowledged_msa_at": {
+          "description": "when account has acknowledged the MSA terms of service",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "italian_customer_terms": {
+          "description": "whether account has acknowledged the Italian customer terms of service",
+          "example": "affirmatively_accepted",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "italian_partner_terms": {
+          "description": "whether account has acknowledged the Italian provider terms of service",
+          "example": "affirmatively_accepted",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "links": [
@@ -4174,6 +4247,18 @@ module PlatformAPI
         "verified": {
           "$ref": "#/definitions/account/definitions/verified"
         },
+        "acknowledged_msa": {
+          "$ref": "#/definitions/account/definitions/acknowledged_msa"
+        },
+        "acknowledged_msa_at": {
+          "$ref": "#/definitions/account/definitions/acknowledged_msa_at"
+        },
+        "italian_customer_terms": {
+          "$ref": "#/definitions/account/definitions/italian_customer_terms"
+        },
+        "italian_partner_terms": {
+          "$ref": "#/definitions/account/definitions/italian_partner_terms"
+        },
         "default_organization": {
           "description": "team selected by default",
           "properties": {
@@ -4209,7 +4294,7 @@ module PlatformAPI
       }
     },
     "add-on-action": {
-      "description": "Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.",
+      "description": "Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "development",
       "strictProperties": true,
@@ -5739,6 +5824,157 @@ module PlatformAPI
         },
         "web_url": {
           "$ref": "#/definitions/add-on/definitions/web_url"
+        }
+      }
+    },
+    "allowed-add-on-service": {
+      "description": "Entities that have been allowed to be used by a Team",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Allowed Add-on Service",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "added_at": {
+          "description": "when the add-on service was allowed",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "added_by": {
+          "description": "the user which allowed the add-on service",
+          "properties": {
+            "email": {
+              "$ref": "#/definitions/account/definitions/email",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "id": {
+              "$ref": "#/definitions/account/definitions/id",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "readOnly": true,
+          "type": [
+            "object"
+          ]
+        },
+        "addon_service": {
+          "description": "the add-on service allowed for use",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/add-on-service/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/add-on-service/definitions/name"
+            },
+            "human_name": {
+              "$ref": "#/definitions/add-on-service/definitions/human_name"
+            }
+          },
+          "readOnly": true,
+          "type": [
+            "object"
+          ]
+        },
+        "id": {
+          "description": "unique identifier for this allowed add-on service record",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/allowed-add-on-service/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/add-on-service/definitions/name"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "List all allowed add-on services for a team",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/allowed-addon-services",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/allowed-add-on-service"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List By Team"
+        },
+        {
+          "description": "Allow an Add-on Service",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/allowed-addon-services",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "addon_service": {
+                "description": "name of the add-on service to allow",
+                "example": "heroku-postgresql",
+                "type": [
+                  "string"
+                ]
+              }
+            }
+          },
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/allowed-add-on-service"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "Create By Team"
+        },
+        {
+          "description": "Remove an allowed add-on service",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/allowed-addon-services/{(%23%2Fdefinitions%2Fallowed-add-on-service%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/allowed-add-on-service"
+          },
+          "title": "Delete By Team"
+        }
+      ],
+      "properties": {
+        "added_at": {
+          "$ref": "#/definitions/allowed-add-on-service/definitions/added_at"
+        },
+        "added_by": {
+          "$ref": "#/definitions/allowed-add-on-service/definitions/added_by"
+        },
+        "addon_service": {
+          "$ref": "#/definitions/allowed-add-on-service/definitions/addon_service"
+        },
+        "id": {
+          "$ref": "#/definitions/allowed-add-on-service/definitions/id"
         }
       }
     },
@@ -7630,7 +7866,7 @@ module PlatformAPI
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Heroku Platform API - Audit Trail Archive",
       "description": "An audit trail archive represents a monthly json zipped file containing events",
-      "stability": "development",
+      "stability": "production",
       "strictProperties": true,
       "type": [
         "object"
@@ -7737,7 +7973,7 @@ module PlatformAPI
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Heroku Platform API - Audit Trail Event",
       "description": "An audit trail event represents some action on the platform",
-      "stability": "development",
+      "stability": "production",
       "strictProperties": true,
       "type": [
         "object"
@@ -15727,7 +15963,7 @@ module PlatformAPI
               "size": 2048,
               "stack": {
                 "id": "01234567-89ab-cdef-0123-456789abcdef",
-                "name": "cedar-14"
+                "name": "heroku-18"
               },
               "updated_at": "2012-01-01T12:00:00Z"
             }
@@ -16395,7 +16631,10 @@ module PlatformAPI
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "object"
+          ]
         },
         "formation": {
           "description": "formations for application",
@@ -16785,6 +17024,24 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "acm": {
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "ca_signed?": {
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "cert_domains": {
+          "readOnly": true,
+          "type": [
+            "array"
+          ]
+        },
         "certificate_chain": {
           "description": "raw contents of the public certificate chain (eg: .crt or .pem file)",
           "example": "-----BEGIN CERTIFICATE----- ...",
@@ -16810,6 +17067,22 @@ module PlatformAPI
             "string"
           ]
         },
+        "display_name": {
+          "description": "unique name for SSL endpoint",
+          "example": "example",
+          "pattern": "^[a-z][a-z0-9-]{2,29}$",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "expires_at": {
+          "readOnly": true,
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
         "id": {
           "description": "unique identifier of this SSL endpoint",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
@@ -16827,6 +17100,12 @@ module PlatformAPI
             {
               "$ref": "#/definitions/ssl-endpoint/definitions/name"
             }
+          ]
+        },
+        "issuer": {
+          "readOnly": true,
+          "type": [
+            "string"
           ]
         },
         "name": {
@@ -16851,6 +17130,25 @@ module PlatformAPI
           "description": "contents of the private key (eg .key file)",
           "example": "-----BEGIN RSA PRIVATE KEY----- ...",
           "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "self_signed?": {
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
+        },
+        "starts_at": {
+          "readOnly": true,
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "subject": {
+          "readOnly": true,
           "type": [
             "string"
           ]
@@ -16983,11 +17281,58 @@ module PlatformAPI
         "created_at": {
           "$ref": "#/definitions/ssl-endpoint/definitions/created_at"
         },
+        "display_name": {
+          "$ref": "#/definitions/ssl-endpoint/definitions/display_name"
+        },
+        "domains": {
+          "description": "domains associated with this endpoint",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/domain/definitions/id"
+          }
+        },
         "id": {
           "$ref": "#/definitions/ssl-endpoint/definitions/id"
         },
         "name": {
           "$ref": "#/definitions/ssl-endpoint/definitions/name"
+        },
+        "ssl_cert": {
+          "description": "certificate provided by this endpoint",
+          "properties": {
+            "ca_signed?": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/ca_signed?"
+            },
+            "cert_domains": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/cert_domains"
+            },
+            "expires_at": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/expires_at"
+            },
+            "issuer": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/issuer"
+            },
+            "self_signed?": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/self_signed?"
+            },
+            "starts_at": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/starts_at"
+            },
+            "subject": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/subject"
+            },
+            "id": {
+              "description": "unique identifier of this SSL certificate",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          }
         },
         "updated_at": {
           "$ref": "#/definitions/ssl-endpoint/definitions/updated_at"
@@ -17042,7 +17387,7 @@ module PlatformAPI
         },
         "name": {
           "description": "unique name of stack",
-          "example": "cedar-14",
+          "example": "heroku-18",
           "readOnly": true,
           "type": [
             "string"
@@ -18602,6 +18947,15 @@ module PlatformAPI
             "boolean",
             "null"
           ]
+        },
+        "addons-controls": {
+          "description": "Whether add-on service rules should be applied to add-on installations",
+          "example": true,
+          "readOnly": false,
+          "type": [
+            "boolean",
+            "null"
+          ]
         }
       },
       "links": [
@@ -18627,6 +18981,9 @@ module PlatformAPI
             "properties": {
               "whitelisting-enabled": {
                 "$ref": "#/definitions/team-preferences/definitions/whitelisting-enabled"
+              },
+              "addons-controls": {
+                "$ref": "#/definitions/team-preferences/definitions/addons-controls"
               }
             }
           },
@@ -18642,6 +18999,9 @@ module PlatformAPI
         },
         "whitelisting-enabled": {
           "$ref": "#/definitions/team-preferences/definitions/whitelisting-enabled"
+        },
+        "addons-controls": {
+          "$ref": "#/definitions/team-preferences/definitions/addons-controls"
         }
       }
     },
@@ -20758,6 +21118,9 @@ module PlatformAPI
     },
     "add-on": {
       "$ref": "#/definitions/add-on"
+    },
+    "allowed-add-on-service": {
+      "$ref": "#/definitions/allowed-add-on-service"
     },
     "app-feature": {
       "$ref": "#/definitions/app-feature"

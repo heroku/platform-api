@@ -1,5 +1,9 @@
 ## Master (unreleased)
 
+## 3.1.0
+
+- Pull latest JSON Schema and regenerated API.
+
 ## 3.0.0
 
 - Rate throttling is on by default. (https://github.com/heroku/platform-api/pull/104)
