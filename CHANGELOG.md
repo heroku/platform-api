@@ -1,5 +1,9 @@
 ## Master (unreleased)
 
+## 3.2.0
+
+- Pull latest JSON Schema and regenerated API.
+
 ## 3.1.0
 
 - Pull latest JSON Schema and regenerated API.
