@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.0.0"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.2.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -1681,12 +1681,29 @@ module PlatformAPI
       @client = client
     end
 
+    # Create a new domain. Deprecated in favor of this same endpoint, but with a new required attribute of `sni_endpoint`. During the transitional phase sni_endpoint can be omitted entirely (current behavior), can be a valid id, or can be null which will skip auto-association.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param body: the object to pass as the request payload
+    def create_deprecated(app_id_or_app_name, body = {})
+      @client.domain.create_deprecated(app_id_or_app_name, body)
+    end
+
     # Create a new domain.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
     def create(app_id_or_app_name, body = {})
       @client.domain.create(app_id_or_app_name, body)
+    end
+
+    # Associate an SNI endpoint
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param domain_id_or_domain_hostname: unique identifier of this domain or full hostname
+    # @param body: the object to pass as the request payload
+    def update(app_id_or_app_name, domain_id_or_domain_hostname, body = {})
+      @client.domain.update(app_id_or_app_name, domain_id_or_domain_hostname, body)
     end
 
     # Delete an existing domain
@@ -9147,11 +9164,19 @@ module PlatformAPI
           "type": [
             "string"
           ]
+        },
+        "sni_endpoint": {
+          "description": "null or unique identifier or name for SNI endpoint",
+          "type": [
+            "null",
+            "string"
+          ]
         }
       },
       "links": [
         {
-          "description": "Create a new domain.",
+          "deactivate_on": "2021-10-31",
+          "description": "Create a new domain. Deprecated in favor of this same endpoint, but with a new required attribute of `sni_endpoint`. During the transitional phase sni_endpoint can be omitted entirely (current behavior), can be a valid id, or can be null which will skip auto-association.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/domains",
           "method": "POST",
           "rel": "create",
@@ -9171,7 +9196,57 @@ module PlatformAPI
           "targetSchema": {
             "$ref": "#/definitions/domain"
           },
+          "title": "Create - Deprecated"
+        },
+        {
+          "description": "Create a new domain.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/domains",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "hostname": {
+                "$ref": "#/definitions/domain/definitions/hostname"
+              },
+              "sni_endpoint": {
+                "$ref": "#/definitions/domain/definitions/sni_endpoint"
+              }
+            },
+            "required": [
+              "hostname",
+              "sni_endpoint"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/domain"
+          },
           "title": "Create"
+        },
+        {
+          "description": "Associate an SNI endpoint",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/domains/{(%23%2Fdefinitions%2Fdomain%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "sni_endpoint": {
+                "$ref": "#/definitions/domain/definitions/sni_endpoint"
+              }
+            },
+            "required": [
+              "sni_endpoint"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/domain"
+          },
+          "title": "Update"
         },
         {
           "description": "Delete an existing domain",
@@ -9250,6 +9325,21 @@ module PlatformAPI
         },
         "status": {
           "$ref": "#/definitions/domain/definitions/status"
+        },
+        "sni_endpoint": {
+          "description": "sni endpoint the domain is associated with",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/sni-endpoint/definitions/name"
+            },
+            "id": {
+              "$ref": "#/definitions/sni-endpoint/definitions/id"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
       }
     },
@@ -17301,6 +17391,9 @@ module PlatformAPI
         },
         "ssl_cert": {
           "description": "certificate provided by this endpoint",
+          "type": [
+            "object"
+          ],
           "properties": {
             "ca_signed?": {
               "$ref": "#/definitions/ssl-endpoint/definitions/ca_signed?"
