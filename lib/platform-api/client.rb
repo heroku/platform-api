@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.2.0"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.3.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -784,7 +784,7 @@ module PlatformAPI
       @vpn_connection_resource ||= VpnConnection.new(@client)
     end
 
-    # Entities that have been whitelisted to be used by an Team
+    # Entities that have been whitelisted to be used by a Team. Deprecated in favor of [Allowed Add-on Service](#allowed-add-on-service) endpoints.
     #
     # @return [WhitelistedAddonService]
     def whitelisted_addon_service
@@ -1514,7 +1514,7 @@ module PlatformAPI
       @client = client
     end
 
-    # List existing events.
+    # List existing events. Returns all events for one date, defaulting to current date. Order, actor, action, and type, and date query params can be specified as query parameters. For example, '/enterprise-accounts/:id/events?order=desc&actor=user@example.com&action=create&type=app&date=2020-09-30' would return events in descending order and only return app created events by the user with user@example.com email address.
     #
     # @param enterprise_account_id: unique identifier of the enterprise account
     def list(enterprise_account_id)
@@ -3413,7 +3413,7 @@ module PlatformAPI
       @client = client
     end
 
-    # Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/teams/example-team/usage?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.
+    # Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/teams/example-team/usage/daily?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.
     #
     # @param team_id: unique identifier of team
     def info(team_id)
@@ -3427,7 +3427,7 @@ module PlatformAPI
       @client = client
     end
 
-    # Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/teams/example-team/usage?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.
+    # Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/teams/example-team/usage/monthly?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.
     #
     # @param team_id: unique identifier of team
     def info(team_id)
@@ -3621,35 +3621,44 @@ module PlatformAPI
     def info(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name)
       @client.vpn_connection.info(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name)
     end
+
+    # Update a VPN connection in a private space.
+    #
+    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    # @param vpn_connection_id_or_vpn_connection_name: VPN ID or VPN Name
+    # @param body: the object to pass as the request payload
+    def update(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name, body = {})
+      @client.vpn_connection.update(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name, body)
+    end
   end
 
-  # Entities that have been whitelisted to be used by an Team
+  # Entities that have been whitelisted to be used by a Team. Deprecated in favor of [Allowed Add-on Service](#allowed-add-on-service) endpoints.
   class WhitelistedAddonService
     def initialize(client)
       @client = client
     end
 
-    # List all whitelisted Add-on Services for an Team
+    # List all whitelisted Add-on Services for a Team - Deprecated in favor of [`GET /teams/{team_name_or_id}/allowed-addon-services`](#allowed-add-on-service-list-by-team) endpoint.
     #
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    def list_by_team(team_name_or_team_id)
-      @client.whitelisted_addon_service.list_by_team(team_name_or_team_id)
+    def list_by_team_deprecated(team_name_or_team_id)
+      @client.whitelisted_addon_service.list_by_team_deprecated(team_name_or_team_id)
     end
 
-    # Whitelist an Add-on Service
+    # Whitelist an Add-on Service - Deprecated in favor of [`POST /teams/{team_name_or_id}/allowed-addon-services`](#allowed-add-on-service-create-by-team) endpoint.
     #
     # @param team_name_or_team_id: unique name of team or unique identifier of team
     # @param body: the object to pass as the request payload
-    def create_by_team(team_name_or_team_id, body = {})
-      @client.whitelisted_addon_service.create_by_team(team_name_or_team_id, body)
+    def create_by_team_deprecated(team_name_or_team_id, body = {})
+      @client.whitelisted_addon_service.create_by_team_deprecated(team_name_or_team_id, body)
     end
 
-    # Remove a whitelisted entity
+    # Remove a whitelisted entity - Deprecated in favor of [`DELETE /teams/{team_name_or_id}/allowed-addon-services/{allowed_add_on_service_id_or_name}`](#allowed-add-on-service-delete-by-team) endpoint.
     #
     # @param team_name_or_team_id: unique name of team or unique identifier of team
     # @param whitelisted_addon_service_id_or_addon_service_name: unique identifier for this whitelisting entity or unique name of this add-on-service
-    def delete_by_team(team_name_or_team_id, whitelisted_addon_service_id_or_addon_service_name)
-      @client.whitelisted_addon_service.delete_by_team(team_name_or_team_id, whitelisted_addon_service_id_or_addon_service_name)
+    def delete_by_team_deprecated(team_name_or_team_id, whitelisted_addon_service_id_or_addon_service_name)
+      @client.whitelisted_addon_service.delete_by_team_deprecated(team_name_or_team_id, whitelisted_addon_service_id_or_addon_service_name)
     end
   end
 
@@ -3884,6 +3893,15 @@ module PlatformAPI
             "string"
           ]
         },
+        "country_of_residence": {
+          "description": "country where account owner resides",
+          "example": "United States",
+          "readOnly": false,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "email": {
           "description": "unique email address of account",
           "example": "username@example.com",
@@ -4017,7 +4035,8 @@ module PlatformAPI
           ]
         },
         "acknowledged_msa": {
-          "description": "whether account has acknowledged the MSA terms of service",
+          "deprecated": true,
+          "description": "deprecated. whether account has acknowledged the MSA terms of service",
           "example": false,
           "readOnly": true,
           "type": [
@@ -4025,7 +4044,8 @@ module PlatformAPI
           ]
         },
         "acknowledged_msa_at": {
-          "description": "when account has acknowledged the MSA terms of service",
+          "deprecated": true,
+          "description": "deprecated. when account has acknowledged the MSA terms of service",
           "example": "2012-01-01T12:00:00Z",
           "format": "date-time",
           "readOnly": true,
@@ -4035,7 +4055,8 @@ module PlatformAPI
           ]
         },
         "italian_customer_terms": {
-          "description": "whether account has acknowledged the Italian customer terms of service",
+          "deprecated": true,
+          "description": "deprecated. whether account has acknowledged the Italian customer terms of service",
           "example": "affirmatively_accepted",
           "readOnly": true,
           "type": [
@@ -4044,7 +4065,8 @@ module PlatformAPI
           ]
         },
         "italian_partner_terms": {
-          "description": "whether account has acknowledged the Italian provider terms of service",
+          "deprecated": true,
+          "description": "deprecated. whether account has acknowledged the Italian provider terms of service",
           "example": "affirmatively_accepted",
           "readOnly": true,
           "type": [
@@ -4275,6 +4297,9 @@ module PlatformAPI
         },
         "italian_partner_terms": {
           "$ref": "#/definitions/account/definitions/italian_partner_terms"
+        },
+        "country_of_residence": {
+          "$ref": "#/definitions/account/definitions/country_of_residence"
         },
         "default_organization": {
           "description": "team selected by default",
@@ -7902,12 +7927,24 @@ module PlatformAPI
         },
         "month": {
           "description": "month of the archive",
-          "example": 10,
+          "enum": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "example": "10",
           "readOnly": true,
-          "minimum": 1,
-          "maximum": 12,
           "type": [
-            "integer"
+            "string"
           ]
         },
         "year": {
@@ -8002,13 +8039,6 @@ module PlatformAPI
           "format": "uuid",
           "type": [
             "string"
-          ]
-        },
-        "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/audit-trail-event/definitions/id"
-            }
           ]
         },
         "type": {
@@ -8159,7 +8189,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "List existing events.",
+          "description": "List existing events. Returns all events for one date, defaulting to current date. Order, actor, action, and type, and date query params can be specified as query parameters. For example, '/enterprise-accounts/:id/events?order=desc&actor=user@example.com&action=create&type=app&date=2020-09-30' would return events in descending order and only return app created events by the user with user@example.com email address.",
           "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}/events",
           "method": "GET",
           "rel": "instances",
@@ -10144,8 +10174,8 @@ module PlatformAPI
           "description": "Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/enterprise-accounts/example-account/usage/daily?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.",
           "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fid)}/usage/daily",
           "method": "GET",
-          "title": "Info",
           "rel": "instances",
+          "title": "Info",
           "targetSchema": {
             "items": {
               "$ref": "#/definitions/enterprise-account-usage-daily"
@@ -16196,7 +16226,8 @@ module PlatformAPI
           "example": "example.herokussl.com",
           "readOnly": false,
           "type": [
-            "string"
+            "string",
+            "null"
           ]
         },
         "created_at": {
@@ -16251,6 +16282,26 @@ module PlatformAPI
           "readOnly": true,
           "type": [
             "string"
+          ]
+        },
+        "domains": {
+          "description": "domains associated with this SSL certificate",
+          "type": [
+            "array"
+          ],
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/domain/definitions/id"
+          }
+        },
+        "display_name": {
+          "description": "unique name for SSL certificate",
+          "example": "example",
+          "pattern": "^[a-z][a-z0-9-]{2,29}$",
+          "readOnly": false,
+          "type": [
+            "string",
+            "null"
           ]
         }
       },
@@ -16363,6 +16414,65 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/sni-endpoint/definitions/updated_at"
+        },
+        "display_name": {
+          "$ref": "#/definitions/sni-endpoint/definitions/display_name"
+        },
+        "domains": {
+          "$ref": "#/definitions/sni-endpoint/definitions/domains"
+        },
+        "app": {
+          "description": "application that this SSL certificate is on",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/app/definitions/name"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "ssl_cert": {
+          "description": "certificate provided by this endpoint",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "ca_signed?": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/ca_signed?"
+            },
+            "cert_domains": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/cert_domains"
+            },
+            "expires_at": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/expires_at"
+            },
+            "issuer": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/issuer"
+            },
+            "self_signed?": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/self_signed?"
+            },
+            "starts_at": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/starts_at"
+            },
+            "subject": {
+              "$ref": "#/definitions/ssl-endpoint/definitions/subject"
+            },
+            "id": {
+              "description": "unique identifier of this SSL certificate",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          }
         }
       }
     },
@@ -17163,7 +17273,8 @@ module PlatformAPI
           "pattern": "^[a-z][a-z0-9-]{2,29}$",
           "readOnly": false,
           "type": [
-            "string"
+            "string",
+            "null"
           ]
         },
         "expires_at": {
@@ -19033,7 +19144,8 @@ module PlatformAPI
           "$ref": "#/definitions/team/definitions/identity"
         },
         "whitelisting-enabled": {
-          "description": "Whether whitelisting rules should be applied to add-on installations",
+          "deactivate_on": "2021-02-05",
+          "description": "Whether whitelisting rules should be applied to add-on installations. Deprecated in favor of `addons-controls`",
           "example": true,
           "readOnly": false,
           "type": [
@@ -19227,7 +19339,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/teams/example-team/usage?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.",
+          "description": "Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format, YYYY-MM-DD format. For example, '/teams/example-team/usage/daily?start=2019-01-01&end=2019-01-31' specifies all days in January for 2019.",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fid)}/usage/daily",
           "method": "GET",
           "title": "Info",
@@ -19388,11 +19500,11 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/teams/example-team/usage?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.",
+          "description": "Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, '/teams/example-team/usage/monthly?start=2019-01&end=2019-02' specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fid)}/usage/monthly",
           "method": "GET",
-          "rel": "instances",
           "title": "Info",
+          "rel": "instances",
           "targetSchema": {
             "items": {
               "$ref": "#/definitions/team-usage-monthly"
@@ -21020,11 +21132,34 @@ module PlatformAPI
             "$ref": "#/definitions/vpn-connection"
           },
           "title": "Info"
+        },
+        {
+          "description": "Update a VPN connection in a private space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/vpn-connections/{(%23%2Fdefinitions%2Fvpn-connection%2Fdefinitions%2Fidentity)}",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "routable_cidrs": {
+                "$ref": "#/definitions/vpn-connection/definitions/routable_cidrs"
+              }
+            },
+            "required": [
+              "routable_cidrs"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/vpn-connection"
+          },
+          "method": "PATCH",
+          "title": "Update"
         }
       ]
     },
     "whitelisted-add-on-service": {
-      "description": "Entities that have been whitelisted to be used by an Team",
+      "description": "Entities that have been whitelisted to be used by a Team. Deprecated in favor of [Allowed Add-on Service](#allowed-add-on-service) endpoints.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "prototype",
       "strictProperties": true,
@@ -21105,7 +21240,8 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "List all whitelisted Add-on Services for an Team",
+          "deactivate_on": "2021-02-05",
+          "description": "List all whitelisted Add-on Services for a Team - Deprecated in favor of [`GET /teams/{team_name_or_id}/allowed-addon-services`](#allowed-add-on-service-list-by-team) endpoint.",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
           "method": "GET",
           "rel": "instances",
@@ -21117,10 +21253,11 @@ module PlatformAPI
               "array"
             ]
           },
-          "title": "List By Team"
+          "title": "List By Team - Deprecated"
         },
         {
-          "description": "Whitelist an Add-on Service",
+          "deactivate_on": "2021-02-05",
+          "description": "Whitelist an Add-on Service - Deprecated in favor of [`POST /teams/{team_name_or_id}/allowed-addon-services`](#allowed-add-on-service-create-by-team) endpoint.",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/whitelisted-addon-services",
           "method": "POST",
           "rel": "create",
@@ -21146,17 +21283,18 @@ module PlatformAPI
               "array"
             ]
           },
-          "title": "Create By Team"
+          "title": "Create By Team - Deprecated"
         },
         {
-          "description": "Remove a whitelisted entity",
+          "deactivate_on": "2021-02-05",
+          "description": "Remove a whitelisted entity - Deprecated in favor of [`DELETE /teams/{team_name_or_id}/allowed-addon-services/{allowed_add_on_service_id_or_name}`](#allowed-add-on-service-delete-by-team) endpoint.",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/whitelisted-addon-services/{(%23%2Fdefinitions%2Fwhitelisted-add-on-service%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
           "rel": "destroy",
           "targetSchema": {
             "$ref": "#/definitions/whitelisted-add-on-service"
           },
-          "title": "Delete By Team"
+          "title": "Delete By Team - Deprecated"
         }
       ],
       "properties": {
