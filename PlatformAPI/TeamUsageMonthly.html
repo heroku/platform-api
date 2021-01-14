@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::TeamUsageMonthly
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -207,12 +207,12 @@
       <pre class="lines">
 
 
-3372
-3373
-3374</pre>
+3426
+3427
+3428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3372</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3426</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -241,7 +241,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, &#39;/teams/example-team/usage?start=2019-01&amp;end=2019-02&#39; specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.</p>
+<p>Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date format, YYYY-MM format. For example, &#39;/teams/example-team/usage/monthly?start=2019-01&amp;end=2019-02&#39; specifies usage in January and February for 2019. If no end date is specified, one month of usage is returned.</p>
 
 
   </div>
@@ -275,12 +275,12 @@
       <pre class="lines">
 
 
-3379
-3380
-3381</pre>
+3433
+3434
+3435</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3379</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3433</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_usage_monthly'>team_usage_monthly</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_id'>team_id</span><span class='rparen'>)</span>
@@ -295,9 +295,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jun  4 09:54:06 2020 by
+  Generated on Thu Jan 14 12:26:06 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.7.1).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

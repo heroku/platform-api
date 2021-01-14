@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: PlatformAPI::ConfigVar
+  Class: PlatformAPI::AllowedAddonService
   
     &mdash; Documentation by YARD 0.9.26
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "PlatformAPI::ConfigVar";
+  pathId = "PlatformAPI::AllowedAddonService";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (C)</a> &raquo;
+    <a href="../_index.html">Index (A)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../PlatformAPI.html" title="PlatformAPI (module)">PlatformAPI</a></span></span>
      &raquo; 
-    <span class="title">ConfigVar</span>
+    <span class="title">AllowedAddonService</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: PlatformAPI::ConfigVar
+      <div id="content"><h1>Class: PlatformAPI::AllowedAddonService
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">PlatformAPI::ConfigVar</li>
+            <li class="next">PlatformAPI::AllowedAddonService</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Config Vars allow you to manage the configuration information provided to an app on Heroku.</p>
+<p>Entities that have been allowed to be used by a Team</p>
 
 
   </div>
@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info_for_app-instance_method" title="#info_for_app (instance method)">#<strong>info_for_app</strong>(app_id_or_app_name)  &#x21d2; Object </a>
+      <a href="#create_by_team-instance_method" title="#create_by_team (instance method)">#<strong>create_by_team</strong>(team_name_or_team_id, body = {})  &#x21d2; Object </a>
     
 
     
@@ -143,7 +143,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Get config-vars for app.</p>
+<p>Allow an Add-on Service.</p>
 </div></span>
   
 </li>
@@ -152,7 +152,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info_for_app_release-instance_method" title="#info_for_app_release (instance method)">#<strong>info_for_app_release</strong>(app_id_or_app_name, release_id_or_release_version)  &#x21d2; Object </a>
+      <a href="#delete_by_team-instance_method" title="#delete_by_team (instance method)">#<strong>delete_by_team</strong>(team_name_or_team_id, allowed_addon_service_id_or_addon_service_name)  &#x21d2; Object </a>
     
 
     
@@ -167,7 +167,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Get config-vars for a release.</p>
+<p>Remove an allowed add-on service.</p>
 </div></span>
   
 </li>
@@ -176,7 +176,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client)  &#x21d2; ConfigVar </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client)  &#x21d2; AllowedAddonService </a>
     
 
     
@@ -193,7 +193,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of ConfigVar.</p>
+<p>A new instance of AllowedAddonService.</p>
 </div></span>
   
 </li>
@@ -202,7 +202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(app_id_or_app_name, body = {})  &#x21d2; Object </a>
+      <a href="#list_by_team-instance_method" title="#list_by_team (instance method)">#<strong>list_by_team</strong>(team_name_or_team_id)  &#x21d2; Object </a>
     
 
     
@@ -217,7 +217,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Update config-vars for app.</p>
+<p>List all allowed add-on services for a team.</p>
 </div></span>
   
 </li>
@@ -232,7 +232,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(client)  &#x21d2; <tt><span class='object_link'><a href="" title="PlatformAPI::ConfigVar (class)">ConfigVar</a></span></tt> 
+    #<strong>initialize</strong>(client)  &#x21d2; <tt><span class='object_link'><a href="" title="PlatformAPI::AllowedAddonService (class)">AllowedAddonService</a></span></tt> 
   
 
   
@@ -241,7 +241,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of ConfigVar.</p>
+<p>Returns a new instance of AllowedAddonService.</p>
 
 
   </div>
@@ -255,12 +255,12 @@
       <pre class="lines">
 
 
-1624
-1625
-1626</pre>
+1200
+1201
+1202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1624</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1200</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -278,9 +278,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="info_for_app-instance_method">
+  <h3 class="signature first" id="create_by_team-instance_method">
   
-    #<strong>info_for_app</strong>(app_id_or_app_name)  &#x21d2; <tt>Object</tt> 
+    #<strong>create_by_team</strong>(team_name_or_team_id, body = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -289,7 +289,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Get config-vars for app.</p>
+<p>Allow an Add-on Service</p>
 
 
   </div>
@@ -300,7 +300,7 @@
   
     <li>
       
-        <span class='name'>app_id_or_app_name:</span>
+        <span class='name'>team_name_or_team_id:</span>
       
       
         <span class='type'></span>
@@ -309,145 +309,7 @@
       
         &mdash;
         <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-1631
-1632
-1633</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1631</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="info_for_app_release-instance_method">
-  
-    #<strong>info_for_app_release</strong>(app_id_or_app_name, release_id_or_release_version)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Get config-vars for a release.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>release_id_or_release_version:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of release or unique version assigned to the release</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-1639
-1640
-1641</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1639</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_info_for_app_release'>info_for_app_release</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info_for_app_release'>info_for_app_release</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update-instance_method">
-  
-    #<strong>update</strong>(app_id_or_app_name, body = {})  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to <code>null</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -477,15 +339,153 @@
       <pre class="lines">
 
 
-1647
-1648
-1649</pre>
+1215
+1216
+1217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1647</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1215</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_allowed_addon_service'>allowed_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_by_team-instance_method">
+  
+    #<strong>delete_by_team</strong>(team_name_or_team_id, allowed_addon_service_id_or_addon_service_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove an allowed add-on service</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>team_name_or_team_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>allowed_addon_service_id_or_addon_service_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier for this allowed add-on service record or unique name of this add-on-service</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1223
+1224
+1225</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1223</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_allowed_addon_service_id_or_addon_service_name'>allowed_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_allowed_addon_service'>allowed_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_allowed_addon_service_id_or_addon_service_name'>allowed_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_by_team-instance_method">
+  
+    #<strong>list_by_team</strong>(team_name_or_team_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List all allowed add-on services for a team</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>team_name_or_team_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1207
+1208
+1209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1207</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_allowed_addon_service'>allowed_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -497,7 +497,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 14 12:26:04 2021 by
+  Generated on Thu Jan 14 12:26:03 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.6.6).
 </div>

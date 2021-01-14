@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::TestRun
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -303,12 +303,12 @@
       <pre class="lines">
 
 
-3470
-3471
-3472</pre>
+3524
+3525
+3526</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3470</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3524</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -371,12 +371,12 @@
       <pre class="lines">
 
 
-3477
-3478
-3479</pre>
+3531
+3532
+3533</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3477</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3531</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_test_run'>test_run</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -432,12 +432,12 @@
       <pre class="lines">
 
 
-3484
-3485
-3486</pre>
+3538
+3539
+3540</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3484</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3538</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_test_run_id'>test_run_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_test_run'>test_run</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_test_run_id'>test_run_id</span><span class='rparen'>)</span>
@@ -509,12 +509,12 @@
       <pre class="lines">
 
 
-3499
-3500
-3501</pre>
+3553
+3554
+3555</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3499</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3553</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_by_pipeline'>info_by_pipeline</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='comma'>,</span> <span class='id identifier rubyid_test_run_number'>test_run_number</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_test_run'>test_run</span><span class='period'>.</span><span class='id identifier rubyid_info_by_pipeline'>info_by_pipeline</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='comma'>,</span> <span class='id identifier rubyid_test_run_number'>test_run_number</span><span class='rparen'>)</span>
@@ -570,12 +570,12 @@
       <pre class="lines">
 
 
-3491
-3492
-3493</pre>
+3545
+3546
+3547</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3491</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3545</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_test_run'>test_run</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
@@ -647,12 +647,12 @@
       <pre class="lines">
 
 
-3507
-3508
-3509</pre>
+3561
+3562
+3563</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3507</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3561</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_test_run_number'>test_run_number</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_test_run'>test_run</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_test_run_number'>test_run_number</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -667,9 +667,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jun  4 09:54:07 2020 by
+  Generated on Thu Jan 14 12:26:06 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.7.1).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

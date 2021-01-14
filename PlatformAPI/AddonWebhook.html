@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AddonWebhook
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -303,12 +303,12 @@
       <pre class="lines">
 
 
-1066
-1067
-1068</pre>
+1073
+1074
+1075</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1066</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1073</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -387,12 +387,12 @@
       <pre class="lines">
 
 
-1074
-1075
-1076</pre>
+1081
+1082
+1083</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1074</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1081</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_webhook'>addon_webhook</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -464,12 +464,12 @@
       <pre class="lines">
 
 
-1082
-1083
-1084</pre>
+1089
+1090
+1091</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1082</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1089</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_webhook'>addon_webhook</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
@@ -541,12 +541,12 @@
       <pre class="lines">
 
 
-1090
-1091
-1092</pre>
+1097
+1098
+1099</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1090</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1097</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_webhook'>addon_webhook</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
@@ -602,12 +602,12 @@
       <pre class="lines">
 
 
-1097
-1098
-1099</pre>
+1104
+1105
+1106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1097</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_webhook'>addon_webhook</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -695,12 +695,12 @@
       <pre class="lines">
 
 
-1106
-1107
-1108</pre>
+1113
+1114
+1115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1106</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_webhook'>addon_webhook</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -715,9 +715,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jun  4 09:54:03 2020 by
+  Generated on Thu Jan 14 12:26:03 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.7.1).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

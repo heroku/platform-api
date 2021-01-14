@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AddonAction
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow whitelisted add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.</p>
+<p>Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.</p>
 
 
   </div>
@@ -231,12 +231,12 @@
       <pre class="lines">
 
 
-865
-866
-867</pre>
+872
+873
+874</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 865</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 872</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -299,12 +299,12 @@
       <pre class="lines">
 
 
-879
-880
-881</pre>
+886
+887
+888</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 879</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 886</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deprovision'>deprovision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_action'>addon_action</span><span class='period'>.</span><span class='id identifier rubyid_deprovision'>deprovision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -360,12 +360,12 @@
       <pre class="lines">
 
 
-872
-873
-874</pre>
+879
+880
+881</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 872</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 879</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_provision'>provision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_action'>addon_action</span><span class='period'>.</span><span class='id identifier rubyid_provision'>provision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -380,9 +380,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jun  4 09:54:02 2020 by
+  Generated on Thu Jan 14 12:26:02 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.7.1).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>

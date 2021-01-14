@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Collaborator
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -279,12 +279,12 @@
       <pre class="lines">
 
 
-1549
-1550
-1551</pre>
+1586
+1587
+1588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1549</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1586</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -363,12 +363,12 @@
       <pre class="lines">
 
 
-1557
-1558
-1559</pre>
+1594
+1595
+1596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1557</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1594</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -440,12 +440,12 @@
       <pre class="lines">
 
 
-1565
-1566
-1567</pre>
+1602
+1603
+1604</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1565</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1602</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -517,12 +517,12 @@
       <pre class="lines">
 
 
-1573
-1574
-1575</pre>
+1610
+1611
+1612</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1573</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1610</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -578,12 +578,12 @@
       <pre class="lines">
 
 
-1580
-1581
-1582</pre>
+1617
+1618
+1619</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1580</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1617</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -598,9 +598,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jun  4 09:54:03 2020 by
+  Generated on Thu Jan 14 12:26:04 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.7.1).
+  0.9.26 (ruby-2.6.6).
 </div>
 
     </div>
