@@ -159,7 +159,7 @@ heroku.app.info('floating-retreat-4255')
 Let's add a Heroku PostgreSQL database to our app now:
 
 ```ruby
-heroku.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:dev'})
+heroku.addon.create('floating-retreat-4255', {'plan' => 'heroku-postgresql:hobby-dev'})
 => {"config_vars"=>["HEROKU_POSTGRESQL_COBALT_URL"],
     "created_at"=>"2014-03-13T00:28:55Z",
     "id"=>"79a0c826-06be-4dcd-8bb5-f2c1b1bc2beb",
