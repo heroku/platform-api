@@ -236,7 +236,7 @@ heroku.formation.list('floating-retreat-4255')
      "id"=>"f682b260-8089-4e18-b792-688cc02bf923",
      "type"=>"web",
      "quantity"=>1,
-     "size"=>"1X",
+     "size"=>"Standard-1X",
      "updated_at"=>"2014-03-13T04:13:37Z"}]
 ```
 
@@ -246,13 +246,13 @@ Let's change `web` process to run on a 2X dyno:
 heroku.formation.batch_update('floating-retreat-4255',
                               {"updates" => [{"process" => "web",
                                               "quantity" => 1,
-                                              "size" => "2X"}]})
+                                              "size" => "Standard-2X"}]})
 => [{"command"=>"coffee index.coffee",
      "created_at"=>"2014-03-13T04:13:37Z",
      "id"=>"f682b260-8089-4e18-b792-688cc02bf923",
      "type"=>"web",
      "quantity"=>1,
-     "size"=>"2X",
+     "size"=>"Standard-2X",
      "updated_at"=>"2014-03-13T04:22:15Z"}]
 ```
 
@@ -261,13 +261,13 @@ command.  We can use the singular update action to modify a single formation
 type:
 
 ```ruby
-heroku.formation.update('floating-retreat-4255', 'web', {"size" => "1X"})
+heroku.formation.update('floating-retreat-4255', 'web', {"size" => "Standard-1X"})
 => {"command"=>"coffee index.coffee",
     "created_at"=>"2014-03-13T04:13:37Z",
     "id"=>"f682b260-8089-4e18-b792-688cc02bf923",
     "type"=>"web",
     "quantity"=>1,
-    "size"=>"1X",
+    "size"=>"Standard-1X",
     "updated_at"=>"2014-03-13T04:24:46Z"}
 ```
 
