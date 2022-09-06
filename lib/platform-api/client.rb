@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.3.0"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.4.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
