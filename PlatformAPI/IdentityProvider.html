@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::IdentityProvider
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Identity Providers represent the SAML configuration of an Team.</p>
+<p>Identity Providers represent the SAML configuration of an Enterprise Account or Team.</p>
 
 
   </div>
@@ -279,12 +279,12 @@
       <pre class="lines">
 
 
-1954
-1955
-1956</pre>
+1936
+1937
+1938</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1954</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1936</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -363,12 +363,12 @@
       <pre class="lines">
 
 
-1969
-1970
-1971</pre>
+1951
+1952
+1953</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1969</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1951</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -440,12 +440,12 @@
       <pre class="lines">
 
 
-1986
-1987
-1988</pre>
+1968
+1969
+1970</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1986</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1968</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
@@ -501,12 +501,12 @@
       <pre class="lines">
 
 
-1961
-1962
-1963</pre>
+1943
+1944
+1945</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1961</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1943</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='rparen'>)</span>
@@ -594,12 +594,12 @@
       <pre class="lines">
 
 
-1978
-1979
-1980</pre>
+1960
+1961
+1962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1978</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1960</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_by_team'>update_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_update_by_team'>update_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -614,9 +614,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 14 13:11:50 2021 by
+  Generated on Tue Sep  6 19:37:51 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.6.6).
+  0.9.25 (ruby-2.6.8).
 </div>
 
     </div>

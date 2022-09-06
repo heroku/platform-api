@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
@@ -194,7 +194,7 @@ Created OAuth authorization.
 
 <p>Let&#39;s add a Heroku PostgreSQL database to our app now:</p>
 
-<pre class="code ruby"><code class="ruby">heroku.addon.create(&#39;floating-retreat-4255&#39;, {&#39;plan&#39; =&gt; &#39;heroku-postgresql:dev&#39;})
+<pre class="code ruby"><code class="ruby">heroku.addon.create(&#39;floating-retreat-4255&#39;, {&#39;plan&#39; =&gt; &#39;heroku-postgresql:hobby-dev&#39;})
 =&gt; {&quot;config_vars&quot;=&gt;[&quot;HEROKU_POSTGRESQL_COBALT_URL&quot;],
     &quot;created_at&quot;=&gt;&quot;2014-03-13T00:28:55Z&quot;,
     &quot;id&quot;=&gt;&quot;79a0c826-06be-4dcd-8bb5-f2c1b1bc2beb&quot;,
@@ -261,7 +261,7 @@ Total 489 (delta 244), reused 489 (delta 244)
      &quot;id&quot;=&gt;&quot;f682b260-8089-4e18-b792-688cc02bf923&quot;,
      &quot;type&quot;=&gt;&quot;web&quot;,
      &quot;quantity&quot;=&gt;1,
-     &quot;size&quot;=&gt;&quot;1X&quot;,
+     &quot;size&quot;=&gt;&quot;Standard-1X&quot;,
      &quot;updated_at&quot;=&gt;&quot;2014-03-13T04:13:37Z&quot;}]
 </code></pre>
 
@@ -270,25 +270,25 @@ Total 489 (delta 244), reused 489 (delta 244)
 <pre class="code ruby"><code class="ruby">heroku.formation.batch_update(&#39;floating-retreat-4255&#39;,
                               {&quot;updates&quot; =&gt; [{&quot;process&quot; =&gt; &quot;web&quot;,
                                               &quot;quantity&quot; =&gt; 1,
-                                              &quot;size&quot; =&gt; &quot;2X&quot;}]})
+                                              &quot;size&quot; =&gt; &quot;Standard-2X&quot;}]})
 =&gt; [{&quot;command&quot;=&gt;&quot;coffee index.coffee&quot;,
      &quot;created_at&quot;=&gt;&quot;2014-03-13T04:13:37Z&quot;,
      &quot;id&quot;=&gt;&quot;f682b260-8089-4e18-b792-688cc02bf923&quot;,
      &quot;type&quot;=&gt;&quot;web&quot;,
      &quot;quantity&quot;=&gt;1,
-     &quot;size&quot;=&gt;&quot;2X&quot;,
+     &quot;size&quot;=&gt;&quot;Standard-2X&quot;,
      &quot;updated_at&quot;=&gt;&quot;2014-03-13T04:22:15Z&quot;}]
 </code></pre>
 
 <p>We could have included a number of different kinds of processes in the last command. We can use the singular update action to modify a single formation type:</p>
 
-<pre class="code ruby"><code class="ruby">heroku.formation.update(&#39;floating-retreat-4255&#39;, &#39;web&#39;, {&quot;size&quot; =&gt; &quot;1X&quot;})
+<pre class="code ruby"><code class="ruby">heroku.formation.update(&#39;floating-retreat-4255&#39;, &#39;web&#39;, {&quot;size&quot; =&gt; &quot;Standard-1X&quot;})
 =&gt; {&quot;command&quot;=&gt;&quot;coffee index.coffee&quot;,
     &quot;created_at&quot;=&gt;&quot;2014-03-13T04:13:37Z&quot;,
     &quot;id&quot;=&gt;&quot;f682b260-8089-4e18-b792-688cc02bf923&quot;,
     &quot;type&quot;=&gt;&quot;web&quot;,
     &quot;quantity&quot;=&gt;1,
-    &quot;size&quot;=&gt;&quot;1X&quot;,
+    &quot;size&quot;=&gt;&quot;Standard-1X&quot;,
     &quot;updated_at&quot;=&gt;&quot;2014-03-13T04:24:46Z&quot;}
 </code></pre>
 
@@ -426,9 +426,9 @@ $ git push heroku master
 </div></div>
 
       <div id="footer">
-  Generated on Thu Jan 14 13:11:47 2021 by
+  Generated on Tue Sep  6 19:37:49 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.6.6).
+  0.9.25 (ruby-2.6.8).
 </div>
 
     </div>

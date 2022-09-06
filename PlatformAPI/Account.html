@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Account
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
@@ -327,12 +327,12 @@
       <pre class="lines">
 
 
-826
-827
-828</pre>
+812
+813
+814</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 826</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 812</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -361,7 +361,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Delete account. Note that this action cannot be undone.</p>
+<p>Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.</p>
 
 
   </div>
@@ -375,12 +375,12 @@
       <pre class="lines">
 
 
-843
-844
-845</pre>
+829
+830
+831</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 843</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 829</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -402,7 +402,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Delete account. Note that this action cannot be undone.</p>
+<p>Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.</p>
 
 
   </div>
@@ -436,12 +436,12 @@
       <pre class="lines">
 
 
-865
-866
-867</pre>
+851
+852
+853</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 865</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 851</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_by_user'>delete_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_user'>delete_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -477,12 +477,12 @@
       <pre class="lines">
 
 
-831
-832
-833</pre>
+817
+818
+819</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 831</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 817</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -538,12 +538,12 @@
       <pre class="lines">
 
 
-850
-851
-852</pre>
+836
+837
+838</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 850</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 836</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_by_user'>info_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_info_by_user'>info_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -599,12 +599,12 @@
       <pre class="lines">
 
 
-838
-839
-840</pre>
+824
+825
+826</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 838</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 824</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -676,12 +676,12 @@
       <pre class="lines">
 
 
-858
-859
-860</pre>
+844
+845
+846</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 858</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 844</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_by_user'>update_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_update_by_user'>update_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -696,9 +696,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 14 13:11:48 2021 by
+  Generated on Tue Sep  6 19:37:50 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.6.6).
+  0.9.25 (ruby-2.6.8).
 </div>
 
     </div>
