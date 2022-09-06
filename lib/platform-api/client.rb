@@ -1786,8 +1786,7 @@ module PlatformAPI
       @client = client
     end
 
-    # Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD.
-    # The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).
+    # Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD. The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).
 
     #
     # @param enterprise_account_id: unique identifier of the enterprise account
@@ -1842,8 +1841,7 @@ module PlatformAPI
       @client = client
     end
 
-    # Retrieves usage for an enterprise account for a range of months. Start and end dates can be specified as query parameters using the date format YYYY-MM. If no end date is specified, one month of usage is returned.
-    # The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).
+    # Retrieves usage for an enterprise account for a range of months. Start and end dates can be specified as query parameters using the date format YYYY-MM. If no end date is specified, one month of usage is returned. The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).
 
     #
     # @param enterprise_account_id: unique identifier of the enterprise account
@@ -3172,8 +3170,7 @@ module PlatformAPI
       @client = client
     end
 
-    # Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD.
-    # The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).
+    # Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD. The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).
 
     #
     # @param team_id: unique identifier of team
@@ -3331,8 +3328,7 @@ module PlatformAPI
       @client = client
     end
 
-    # Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date, YYYY-MM. If no end date is specified, one month of usage is returned.
-    # The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).
+    # Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date, YYYY-MM. If no end date is specified, one month of usage is returned. The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).
 
     #
     # @param team_id: unique identifier of team
@@ -9747,7 +9743,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD.\nThe enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).\n",
+          "description": "Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD. The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).\n",
           "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fid)}/usage/daily",
           "method": "GET",
           "rel": "instances",
@@ -10206,7 +10202,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Retrieves usage for an enterprise account for a range of months. Start and end dates can be specified as query parameters using the date format YYYY-MM. If no end date is specified, one month of usage is returned.\nThe enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).\n",
+          "description": "Retrieves usage for an enterprise account for a range of months. Start and end dates can be specified as query parameters using the date format YYYY-MM. If no end date is specified, one month of usage is returned. The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).\n",
           "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fid)}/usage/monthly",
           "method": "GET",
           "rel": "instances",
@@ -17951,7 +17947,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD.\nThe team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).\n",
+          "description": "Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD. The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).\n",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fid)}/usage/daily",
           "method": "GET",
           "title": "Info",
@@ -19028,7 +19024,7 @@ module PlatformAPI
       },
       "links": [
         {
-          "description": "Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date, YYYY-MM. If no end date is specified, one month of usage is returned.\nThe team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).\n",
+          "description": "Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date, YYYY-MM. If no end date is specified, one month of usage is returned. The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).\n",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fid)}/usage/monthly",
           "method": "GET",
           "title": "Info",
