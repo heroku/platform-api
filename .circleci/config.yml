@@ -63,6 +63,22 @@ jobs:
       - <<: *bundle
       - <<: *hatchet_setup
       - <<: *unit
+  "ruby-3.0":
+    docker:
+      - image: circleci/ruby:3.0
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
+  "ruby-3.1":
+    docker:
+      - image: circleci/ruby:3.1
+    steps:
+      - checkout
+      - <<: *bundle
+      - <<: *hatchet_setup
+      - <<: *unit
 
 workflows:
   version: 2
@@ -74,3 +90,5 @@ workflows:
       - "ruby-2.5"
       - "ruby-2.6"
       - "ruby-2.7"
+      - "ruby-3.0"
+      - "ruby-3.1"
