@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.5.0"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.6.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -194,13 +194,6 @@ module PlatformAPI
     # @return [AppFeature]
     def app_feature
       @app_feature_resource ||= AppFeature.new(@client)
-    end
-
-    # App formation set describes the combination of process types with their quantities and sizes as well as application process tier
-    #
-    # @return [AppFormationSet]
-    def app_formation_set
-      @app_formation_set_resource ||= AppFormationSet.new(@client)
     end
 
     # An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.
@@ -1242,13 +1235,6 @@ module PlatformAPI
     end
   end
 
-  # App formation set describes the combination of process types with their quantities and sizes as well as application process tier
-  class AppFormationSet
-    def initialize(client)
-      @client = client
-    end
-  end
-
   # An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.
   class AppSetup
     def initialize(client)
@@ -1542,6 +1528,14 @@ module PlatformAPI
     # @param app_id_or_app_name: unique identifier of app or unique name of app
     def delete_cache(app_id_or_app_name)
       @client.build.delete_cache(app_id_or_app_name)
+    end
+
+    # Cancel running build.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param build_id: unique identifier of build
+    def cancel(app_id_or_app_name, build_id)
+      @client.build.cancel(app_id_or_app_name, build_id)
     end
   end
 
@@ -4173,7 +4167,7 @@ module PlatformAPI
           "description": "Mark an add-on as provisioned for use.",
           "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/actions/provision",
           "method": "POST",
-          "rel": "create",
+          "rel": "update",
           "targetSchema": {
             "$ref": "#/definitions/add-on"
           },
@@ -4183,7 +4177,7 @@ module PlatformAPI
           "description": "Mark an add-on as deprovisioned.",
           "href": "/addons/{(%23%2Fdefinitions%2Fadd-on%2Fdefinitions%2Fidentity)}/actions/deprovision",
           "method": "POST",
-          "rel": "create",
+          "rel": "update",
           "targetSchema": {
             "$ref": "#/definitions/add-on"
           },
@@ -5196,8 +5190,24 @@ module PlatformAPI
       "description": "Add-ons represent add-ons that have been provisioned and attached to one or more apps.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
-      "strictProperties": true,
       "title": "Heroku Platform API - Add-on",
+      "additionalProperties": false,
+      "required": [
+        "actions",
+        "addon_service",
+        "billing_entity",
+        "app",
+        "billed_price",
+        "config_vars",
+        "created_at",
+        "id",
+        "name",
+        "plan",
+        "provider_id",
+        "state",
+        "updated_at",
+        "web_url"
+      ],
       "type": [
         "object"
       ],
@@ -5362,6 +5372,57 @@ module PlatformAPI
             "null",
             "string"
           ]
+        },
+        "addon_service": {
+          "description": "identity of add-on service",
+          "anyOf": [
+            {
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/add-on-service/definitions/id"
+                },
+                "name": {
+                  "$ref": "#/definitions/add-on-service/definitions/name"
+                }
+              },
+              "strictProperties": true,
+              "type": [
+                "object"
+              ]
+            },
+            {
+              "$ref": "#/definitions/add-on-service"
+            }
+          ]
+        },
+        "plan": {
+          "description": "identity of add-on plan",
+          "anyOf": [
+            {
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/plan/definitions/id"
+                },
+                "name": {
+                  "$ref": "#/definitions/plan/definitions/name"
+                }
+              },
+              "strictProperties": true,
+              "type": [
+                "object"
+              ]
+            },
+            {
+              "$ref": "#/definitions/plan"
+            }
+          ]
+        },
+        "provision_message": {
+          "description": "A provision message",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
         }
       },
       "links": [
@@ -5492,6 +5553,9 @@ module PlatformAPI
               "object"
             ]
           },
+          "targetSchema": {
+            "$ref": "#/definitions/add-on"
+          },
           "title": "Update"
         },
         {
@@ -5564,19 +5628,7 @@ module PlatformAPI
           "$ref": "#/definitions/add-on/definitions/actions"
         },
         "addon_service": {
-          "description": "identity of add-on service",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/add-on-service/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/add-on-service/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
+          "$ref": "#/definitions/add-on/definitions/addon_service"
         },
         "billing_entity": {
           "description": "billing entity associated with this add-on",
@@ -5663,22 +5715,13 @@ module PlatformAPI
           "$ref": "#/definitions/add-on/definitions/name"
         },
         "plan": {
-          "description": "identity of add-on plan",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/plan/definitions/id"
-            },
-            "name": {
-              "$ref": "#/definitions/plan/definitions/name"
-            }
-          },
-          "strictProperties": true,
-          "type": [
-            "object"
-          ]
+          "$ref": "#/definitions/add-on/definitions/plan"
         },
         "provider_id": {
           "$ref": "#/definitions/add-on/definitions/provider_id"
+        },
+        "provision_message": {
+          "$ref": "#/definitions/add-on/definitions/provision_message"
         },
         "state": {
           "$ref": "#/definitions/add-on/definitions/state"
@@ -6026,63 +6069,6 @@ module PlatformAPI
         },
         "feedback_email": {
           "$ref": "#/definitions/app-feature/definitions/feedback_email"
-        }
-      }
-    },
-    "app-formation-set": {
-      "description": "App formation set describes the combination of process types with their quantities and sizes as well as application process tier",
-      "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "development",
-      "strictProperties": true,
-      "title": "Heroku Platform API - Application Formation Set",
-      "type": [
-        "object"
-      ],
-      "properties": {
-        "description": {
-          "description": "a string representation of the formation set",
-          "example": "web@2:Standard-2X worker@3:Performance-M",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "process_tier": {
-          "description": "application process tier",
-          "enum": [
-            "production",
-            "free",
-            "hobby",
-            "private"
-          ],
-          "example": "production",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
-        "app": {
-          "description": "app being described by the formation-set",
-          "properties": {
-            "name": {
-              "$ref": "#/definitions/app/definitions/name"
-            },
-            "id": {
-              "$ref": "#/definitions/app/definitions/id"
-            }
-          },
-          "type": [
-            "object"
-          ]
-        },
-        "updated_at": {
-          "description": "last time fomation-set was updated",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
         }
       }
     },
@@ -7413,9 +7399,10 @@ module PlatformAPI
           "description": "web URL of app",
           "example": "https://example.herokuapp.com/",
           "format": "uri",
-          "pattern": "^https?://[a-z][a-z0-9-]{3,30}\\.herokuapp\\.com/$",
+          "pattern": "^https?://[a-z][a-z0-9-]{3,43}\\.herokuapp\\.com/$",
           "readOnly": true,
           "type": [
+            "null",
             "string"
           ]
         },
@@ -8068,7 +8055,15 @@ module PlatformAPI
       "description": "A build represents the process of transforming a code tarball into a slug",
       "title": "Heroku Build API - Build",
       "stability": "production",
-      "strictProperties": true,
+      "strictProperties": false,
+      "required": [
+        "created_at",
+        "id",
+        "source_blob",
+        "status",
+        "updated_at",
+        "user"
+      ],
       "type": [
         "object"
       ],
@@ -8191,6 +8186,15 @@ module PlatformAPI
                 "string",
                 "null"
               ]
+            },
+            "version_description": {
+              "description": "Version description of the gzipped tarball.",
+              "example": "* Fake User: Change session key",
+              "readOnly": true,
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
           "strictProperties": true,
@@ -8200,7 +8204,7 @@ module PlatformAPI
         },
         "stack": {
           "description": "stack of build",
-          "example": "heroku-16",
+          "example": "heroku-22",
           "readOnly": true,
           "type": [
             "string"
@@ -8291,6 +8295,16 @@ module PlatformAPI
           "method": "DELETE",
           "rel": "empty",
           "title": "Delete cache"
+        },
+        {
+          "description": "Cancel running build.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/builds/{(%23%2Fdefinitions%2Fbuild%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/build"
+          },
+          "title": "Cancel"
         }
       ],
       "properties": {
@@ -9235,7 +9249,7 @@ module PlatformAPI
         },
         "name": {
           "description": "the name of this dyno-size",
-          "example": "free",
+          "example": "eco",
           "readOnly": true,
           "type": [
             "string"
@@ -9268,11 +9282,20 @@ module PlatformAPI
           }
         },
         "dyno_units": {
-          "description": "unit of consumption for Heroku Enterprise customers",
+          "deprecated": true,
+          "description": "deprecated. See precise_dyno_units instead",
           "example": 0,
           "readOnly": true,
           "type": [
             "integer"
+          ]
+        },
+        "precise_dyno_units": {
+          "description": "unit of consumption for Heroku Enterprise customers to 2 decimal places",
+          "example": 0.28,
+          "readOnly": true,
+          "type": [
+            "number"
           ]
         },
         "private_space_only": {
@@ -9323,6 +9346,9 @@ module PlatformAPI
         },
         "dyno_units": {
           "$ref": "#/definitions/dyno-size/definitions/dyno_units"
+        },
+        "precise_dyno_units": {
+          "$ref": "#/definitions/dyno-size/definitions/precise_dyno_units"
         },
         "id": {
           "$ref": "#/definitions/dyno-size/definitions/id"
@@ -10423,6 +10449,9 @@ module PlatformAPI
           "href": "/enterprise-accounts/{(%23%2Fdefinitions%2Fenterprise-account%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/enterprise-account"
+          },
           "title": "Info"
         },
         {
@@ -11265,6 +11294,9 @@ module PlatformAPI
           "href": "/account/invoice-address",
           "method": "GET",
           "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/invoice-address"
+          },
           "title": "info"
         },
         {
@@ -11303,6 +11335,9 @@ module PlatformAPI
             "type": [
               "object"
             ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/invoice-address"
           }
         }
       ],
@@ -11643,7 +11678,11 @@ module PlatformAPI
           "description": "add-on that created the drain",
           "example": {
             "id": "01234567-89ab-cdef-0123-456789abcdef",
-            "name": "singing-swiftly-1242"
+            "name": "singing-swiftly-1242",
+            "app": {
+              "id": "01234567-89ab-cdef-0123-456789abcdef",
+              "name": "example"
+            }
           },
           "properties": {
             "id": {
@@ -11651,8 +11690,44 @@ module PlatformAPI
             },
             "name": {
               "$ref": "#/definitions/add-on/definitions/name"
+            },
+            "app": {
+              "description": "billing application associated with this add-on",
+              "type": [
+                "object"
+              ],
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/app/definitions/id"
+                },
+                "name": {
+                  "$ref": "#/definitions/app/definitions/name"
+                }
+              },
+              "strictProperties": true
             }
           },
+          "readOnly": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "app": {
+          "description": "application that is attached to this drain",
+          "example": {
+            "id": "01234567-89ab-cdef-0123-456789abcdef",
+            "name": "example"
+          },
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/app/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/app/definitions/name"
+            }
+          },
+          "strictProperties": true,
           "readOnly": true,
           "type": [
             "object",
@@ -11824,6 +11899,9 @@ module PlatformAPI
       "properties": {
         "addon": {
           "$ref": "#/definitions/log-drain/definitions/addon"
+        },
+        "app": {
+          "$ref": "#/definitions/log-drain/definitions/app"
         },
         "created_at": {
           "$ref": "#/definitions/log-drain/definitions/created_at"
@@ -12957,9 +13035,15 @@ module PlatformAPI
                 "$ref": "#/definitions/account/definitions/email"
               }
             },
+            "required": [
+              "email"
+            ],
             "type": [
               "object"
             ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/password-reset"
           },
           "title": "Reset Password"
         },
@@ -12977,9 +13061,16 @@ module PlatformAPI
                 "$ref": "#/definitions/password-reset/definitions/password_confirmation"
               }
             },
+            "required": [
+              "password",
+              "password_confirmation"
+            ],
             "type": [
               "object"
             ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/password-reset"
           },
           "title": "Complete Reset Password"
         }
@@ -13210,14 +13301,20 @@ module PlatformAPI
           "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/peerings/{(%23%2Fdefinitions%2Fpeering%2Fdefinitions%2Fpcx_id)}/actions/accept",
           "method": "POST",
           "rel": "empty",
-          "title": "Accept"
+          "title": "Accept",
+          "targetSchema": {
+            "$ref": "#/definitions/peering"
+          }
         },
         {
           "description": "Destroy an active peering connection with a private space.",
           "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/peerings/{(%23%2Fdefinitions%2Fpeering%2Fdefinitions%2Fpcx_id)}",
           "rel": "empty",
           "method": "DELETE",
-          "title": "Destroy"
+          "title": "Destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/peering"
+          }
         },
         {
           "description": "Fetch information for existing peering connection",
@@ -14843,12 +14940,14 @@ module PlatformAPI
                 "ap-southeast-1",
                 "ap-southeast-2",
                 "eu-central-1",
+                "eu-west-2",
                 "ap-northeast-2",
                 "ap-northeast-1",
                 "us-east-1",
                 "sa-east-1",
                 "us-west-1",
-                "us-west-2"
+                "us-west-2",
+                "ca-central-1"
               ]
             }
           },
@@ -17604,6 +17703,9 @@ module PlatformAPI
               "object"
             ]
           },
+          "targetSchema": {
+            "$ref": "#/definitions/team-app"
+          },
           "title": "Create"
         },
         {
@@ -17611,6 +17713,9 @@ module PlatformAPI
           "href": "/teams/apps/{(%23%2Fdefinitions%2Fteam-app%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/team-app"
+          },
           "title": "Info"
         },
         {
@@ -18269,6 +18374,9 @@ module PlatformAPI
             "type": [
               "object"
             ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/team-invitation"
           }
         },
         {
@@ -18276,7 +18384,10 @@ module PlatformAPI
           "title": "Revoke",
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/invitations/{(%23%2Fdefinitions%2Fteam-invitation%2Fdefinitions%2Fidentity)}",
           "method": "DELETE",
-          "rel": "self"
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/team-invitation"
+          }
         },
         {
           "description": "Get an invitation by its token",
@@ -19484,6 +19595,9 @@ module PlatformAPI
           "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/team"
+          },
           "title": "Info"
         },
         {
@@ -20751,6 +20865,9 @@ module PlatformAPI
           "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/vpn-connections/{(%23%2Fdefinitions%2Fvpn-connection%2Fdefinitions%2Fidentity)}",
           "rel": "empty",
           "method": "DELETE",
+          "targetSchema": {
+            "$ref": "#/definitions/vpn-connection"
+          },
           "title": "Destroy"
         },
         {
@@ -20846,9 +20963,6 @@ module PlatformAPI
     },
     "app-feature": {
       "$ref": "#/definitions/app-feature"
-    },
-    "app-formation-set": {
-      "$ref": "#/definitions/app-formation-set"
     },
     "app-setup": {
       "$ref": "#/definitions/app-setup"
