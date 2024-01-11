@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -68,7 +68,7 @@
 
 <h2 id="label-Installation">Installation</h2>
 
-<p>Add this line to your application&#39;s Gemfile:</p>
+<p>Add this line to your application’s Gemfile:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>platform-api</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
@@ -93,9 +93,9 @@
 
 <p>The table of contents lists all the resources that are supported, such as App, Add-on, Config Vars, Formation, etc. Each resource includes detailed information about the support actions. For example, the <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation">Formation</a> resource has <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">Info</a>, <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-list">List</a>, <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-batch-update">Batch update</a>, and <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-update">Update</a> actions.</p>
 
-<p>Resources and their related actions are available as methods on the client. When the URL for an action includes parameters they&#39;re passed as arguments to the method. When the request expects a request payload it&#39;s passed as a Hash in the final argument to the method.</p>
+<p>Resources and their related actions are available as methods on the client. When the URL for an action includes parameters they’re passed as arguments to the method. When the request expects a request payload it’s passed as a Hash in the final argument to the method.</p>
 
-<p>For example, to get information about the <code>web</code> formation on the <code>sushi</code> app you&#39;d invoke <code>heroku.formation.info(&#39;sushi&#39;, &#39;web&#39;)</code> and it would return a Ruby object that matches the one given in the <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">response example</a>.</p>
+<p>For example, to get information about the <code>web</code> formation on the <code>sushi</code> app you’d invoke <code>heroku.formation.info(&#39;sushi&#39;, &#39;web&#39;)</code> and it would return a Ruby object that matches the one given in the <a href="https://devcenter.heroku.com/articles/platform-api-reference#formation-info">response example</a>.</p>
 
 <p>The <a href="http://heroku.github.io/platform-api/_index.html">API documentation</a> contains a description of all available resources and methods.</p>
 
@@ -105,7 +105,7 @@
 
 <h3 id="label-A+real+world+example">A real world example</h3>
 
-<p>Let&#39;s go through an example of creating an app and using the API to work with it. The first thing you need is a client setup with an OAuth token. You can create an OAuth token using the <code>heroku-oauth</code> toolbelt plugin:</p>
+<p>Let’s go through an example of creating an app and using the API to work with it. The first thing you need is a client setup with an OAuth token. You can create an OAuth token using the <code>heroku-oauth</code> toolbelt plugin:</p>
 
 <pre class="code ruby"><code class="ruby">$ heroku plugins:install heroku-cli-oauth
 $ heroku authorizations:create -d &quot;Platform API example token&quot;
@@ -124,7 +124,7 @@ Created OAuth authorization.
 
 <p>The <a href="https://devcenter.heroku.com/articles/oauth">OAuth article</a> has more information about OAuth tokens, including how to create tokens with specific scopes.</p>
 
-<p>Now let&#39;s create an app:</p>
+<p>Now let’s create an app:</p>
 
 <pre class="code ruby"><code class="ruby">heroku.app.create({})
 =&gt; {&quot;id&quot;=&gt;22979756,
@@ -192,7 +192,7 @@ Created OAuth authorization.
     &quot;updated_at&quot;=&gt;&quot;2014/03/12 16:44:12 -0700&quot;}
 </code></pre>
 
-<p>Let&#39;s add a Heroku PostgreSQL database to our app now:</p>
+<p>Let’s add a Heroku PostgreSQL database to our app now:</p>
 
 <pre class="code ruby"><code class="ruby">heroku.addon.create(&#39;floating-retreat-4255&#39;, {&#39;plan&#39; =&gt; &#39;heroku-postgresql:hobby-dev&#39;})
 =&gt; {&quot;config_vars&quot;=&gt;[&quot;HEROKU_POSTGRESQL_COBALT_URL&quot;],
@@ -212,7 +212,7 @@ Created OAuth authorization.
 =&gt; {&quot;HEROKU_POSTGRESQL_COBALT_URL&quot;=&gt;&quot;postgres://&lt;redacted&gt;&quot;}
 </code></pre>
 
-<p>And there we go, we have the config var. Let&#39;s set an additional config var, which will also demonstrate how to make a request that needs a payload:</p>
+<p>And there we go, we have the config var. Let’s set an additional config var, which will also demonstrate how to make a request that needs a payload:</p>
 
 <pre class="code ruby"><code class="ruby">heroku.config_var.update(&#39;floating-retreat-4255&#39;, {&#39;MYAPP&#39; =&gt; &#39;ROCKS&#39;})
 =&gt; {&quot;HEROKU_POSTGRESQL_COBALT_URL&quot;=&gt;&quot;postgres://&lt;redacted&gt;&quot;,
@@ -228,7 +228,7 @@ Created OAuth authorization.
 
 <p>Make sure to use the correct version. If the version is incorrect or unsupported, it will just error out.</p>
 
-<p>Let&#39;s continue by deploying a sample app. We&#39;ll use the <a href="https://github.com/heroku-examples/geosockets">Geosockets</a> example app:</p>
+<p>Let’s continue by deploying a sample app. We’ll use the <a href="https://github.com/heroku-examples/geosockets">Geosockets</a> example app:</p>
 
 <pre class="code ruby"><code class="ruby">$ git clone https://github.com/heroku-examples/geosockets.git
 Cloning into &#39;geosockets&#39;...
@@ -265,7 +265,7 @@ Total 489 (delta 244), reused 489 (delta 244)
      &quot;updated_at&quot;=&gt;&quot;2014-03-13T04:13:37Z&quot;}]
 </code></pre>
 
-<p>Let&#39;s change <code>web</code> process to run on a 2X dyno:</p>
+<p>Let’s change <code>web</code> process to run on a 2X dyno:</p>
 
 <pre class="code ruby"><code class="ruby">heroku.formation.batch_update(&#39;floating-retreat-4255&#39;,
                               {&quot;updates&quot; =&gt; [{&quot;process&quot; =&gt; &quot;web&quot;,
@@ -323,7 +323,7 @@ Total 489 (delta 244), reused 489 (delta 244)
 
 <p>Rate throttling capability is inclued in PlatformAPI v2.3.0, but is disabled by default. The following section describes the behavior of the PlatformAPI gem v3.0.0+. To enable rate throttling logic, upgrade to the latest released version.</p>
 
-<p>By default client requests from this library will respect Heroku&#39;s rate-limiting. The client can make as many requests as possible until Heroku&#39;s server says that it has gone over. Once a request has been rate-limited the client will sleep and then retry the request again. This process will repeat until the request is successful.</p>
+<p>By default client requests from this library will respect Heroku’s rate-limiting. The client can make as many requests as possible until Heroku’s server says that it has gone over. Once a request has been rate-limited the client will sleep and then retry the request again. This process will repeat until the request is successful.</p>
 
 <p>Once a single request has been rate-limited, the client will auto-tune a sleep value so that future requests are less likely to be rate-limited by the server.</p>
 
@@ -366,15 +366,15 @@ Total 489 (delta 244), reused 489 (delta 244)
 
 <h3 id="label-Release+a+new+gem">Release a new gem</h3>
 <ul><li>
-<p>This project follows <a href="http://semver.org">semver</a> from version 1.0.0. Please  be sure to keep this in mind if you&#39;re the project maintainer.</p>
+<p>This project follows <a href="http://semver.org">semver</a> from version 1.0.0. Please  be sure to keep this in mind if you’re the project maintainer.</p>
 </li><li>
-<p>Be sure to run the very basic acceptance rspecs. The rspecs will attempt  to parse your oauth token for <code>api.heroku.com</code> from your <code>.netrc</code>. You can  optionally use the <code>OAUTH_TOKEN</code> and <code>ACCOUNT_EMAIL</code> environment variables.  They don&#39;t mutate anything but they might in the future.</p>
+<p>Be sure to run the very basic acceptance rspecs. The rspecs will attempt  to parse your oauth token for <code>api.heroku.com</code> from your <code>.netrc</code>. You can  optionally use the <code>OAUTH_TOKEN</code> and <code>ACCOUNT_EMAIL</code> environment variables.  They don’t mutate anything but they might in the future.</p>
 </li><li>
 <p>Bump the version in <code>lib/platform-api/version.rb</code></p>
 </li><li>
 <p><code>bundle install</code> to update Gemfile.lock</p>
 </li><li>
-<p>`git commit -m &#39;vX.Y.Z&#39; to stage the version and Gemfile.lock changes</p>
+<p>‘git commit -m ’vX.Y.Z’ to stage the version and Gemfile.lock changes</p>
 </li><li>
 <p><code>rake release</code> to push git changes and to release to Rubygems</p>
 </li></ul>
@@ -408,7 +408,7 @@ Total 489 (delta 244), reused 489 (delta 244)
 
 <h2 id="label-Testing">Testing</h2>
 
-<p>The tests make live network calls so you&#39;ll need to ensure that you&#39;re logged into your Heroku account. You&#39;ll also need an application that uses a set of Heroku&#39;s features, if you don&#39;t have one you can create one. E.g.</p>
+<p>The tests make live network calls so you’ll need to ensure that you’re logged into your Heroku account. You’ll also need an application that uses a set of Heroku’s features, if you don’t have one you can create one. E.g.</p>
 
 <pre class="code ruby"><code class="ruby">$ git clone https://github.com/heroku/ruby-getting-started.git
 $ cd ruby-getting-started/
@@ -426,9 +426,9 @@ $ git push heroku master
 </div></div>
 
       <div id="footer">
-  Generated on Tue Sep  6 19:37:50 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.6.8).
+  Generated on Thu Jan 11 17:01:59 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.2.2).
 </div>
 
     </div>

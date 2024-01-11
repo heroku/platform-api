@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Client
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -480,30 +480,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#app_formation_set-instance_method" title="#app_formation_set (instance method)">#<strong>app_formation_set</strong>  &#x21d2; AppFormationSet </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>App formation set describes the combination of process types with their quantities and sizes as well as application process tier.</p>
 </div></span>
   
 </li>
@@ -1417,7 +1393,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>An owned entity including users&#39; permissions.</p>
+<p>An owned entity including users’ permissions.</p>
 </div></span>
   
 </li>
@@ -1513,7 +1489,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Information about an app&#39;s coupling to a pipeline.</p>
+<p>Information about an app’s coupling to a pipeline.</p>
 </div></span>
   
 </li>
@@ -1633,7 +1609,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A pipeline&#39;s stack is determined by the apps in the pipeline.</p>
+<p>A pipeline’s stack is determined by the apps in the pipeline.</p>
 </div></span>
   
 </li>
@@ -1897,7 +1873,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A source is a location for uploading and downloading an application&#39;s source code.</p>
+<p>A source is a location for uploading and downloading an application’s source code.</p>
 </div></span>
   
 </li>
@@ -2327,7 +2303,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Tracks a Team&#39;s Preferences.</p>
+<p>Tracks a Team’s Preferences.</p>
 </div></span>
   
 </li>
@@ -2447,7 +2423,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Tracks a user&#39;s preferences and message dismissals.</p>
+<p>Tracks a user’s preferences and message dismissals.</p>
 </div></span>
   
 </li>
@@ -3272,12 +3248,12 @@
       <pre class="lines">
 
 
-244
-245
-246</pre>
+237
+238
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 237</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app'>app</span>
   <span class='ivar'>@app_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="App.html" title="PlatformAPI::App (class)">App</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="App.html#initialize-instance_method" title="PlatformAPI::App#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3342,60 +3318,6 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="app_formation_set-instance_method">
-  
-    #<strong>app_formation_set</strong>  &#x21d2; <tt><span class='object_link'><a href="AppFormationSet.html" title="PlatformAPI::AppFormationSet (class)">AppFormationSet</a></span></tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>App formation set describes the combination of process types with their quantities and sizes as well as application process tier</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="AppFormationSet.html" title="PlatformAPI::AppFormationSet (class)">AppFormationSet</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-202
-203
-204</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 202</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_app_formation_set'>app_formation_set</span>
-  <span class='ivar'>@app_formation_set_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AppFormationSet.html" title="PlatformAPI::AppFormationSet (class)">AppFormationSet</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AppFormationSet.html#initialize-instance_method" title="PlatformAPI::AppFormationSet#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="app_setup-instance_method">
   
     #<strong>app_setup</strong>  &#x21d2; <tt><span class='object_link'><a href="AppSetup.html" title="PlatformAPI::AppSetup (class)">AppSetup</a></span></tt> 
@@ -3434,12 +3356,12 @@
       <pre class="lines">
 
 
-209
-210
-211</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_setup'>app_setup</span>
   <span class='ivar'>@app_setup_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AppSetup.html" title="PlatformAPI::AppSetup (class)">AppSetup</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AppSetup.html#initialize-instance_method" title="PlatformAPI::AppSetup#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3488,12 +3410,12 @@
       <pre class="lines">
 
 
-216
-217
-218</pre>
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 216</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 209</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_transfer'>app_transfer</span>
   <span class='ivar'>@app_transfer_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AppTransfer.html" title="PlatformAPI::AppTransfer (class)">AppTransfer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AppTransfer.html#initialize-instance_method" title="PlatformAPI::AppTransfer#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3542,12 +3464,12 @@
       <pre class="lines">
 
 
-237
-238
-239</pre>
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 230</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_webhook'>app_webhook</span>
   <span class='ivar'>@app_webhook_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AppWebhook.html" title="PlatformAPI::AppWebhook (class)">AppWebhook</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AppWebhook.html#initialize-instance_method" title="PlatformAPI::AppWebhook#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3596,12 +3518,12 @@
       <pre class="lines">
 
 
-223
-224
-225</pre>
+216
+217
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 216</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_webhook_delivery'>app_webhook_delivery</span>
   <span class='ivar'>@app_webhook_delivery_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AppWebhookDelivery.html" title="PlatformAPI::AppWebhookDelivery (class)">AppWebhookDelivery</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AppWebhookDelivery.html#initialize-instance_method" title="PlatformAPI::AppWebhookDelivery#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3650,12 +3572,12 @@
       <pre class="lines">
 
 
-230
-231
-232</pre>
+223
+224
+225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_app_webhook_event'>app_webhook_event</span>
   <span class='ivar'>@app_webhook_event_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AppWebhookEvent.html" title="PlatformAPI::AppWebhookEvent (class)">AppWebhookEvent</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AppWebhookEvent.html#initialize-instance_method" title="PlatformAPI::AppWebhookEvent#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3704,12 +3626,12 @@
       <pre class="lines">
 
 
-251
-252
-253</pre>
+244
+245
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_archive'>archive</span>
   <span class='ivar'>@archive_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Archive.html" title="PlatformAPI::Archive (class)">Archive</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Archive.html#initialize-instance_method" title="PlatformAPI::Archive#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3758,12 +3680,12 @@
       <pre class="lines">
 
 
-258
-259
-260</pre>
+251
+252
+253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 258</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 251</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_audit_trail_event'>audit_trail_event</span>
   <span class='ivar'>@audit_trail_event_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="AuditTrailEvent.html" title="PlatformAPI::AuditTrailEvent (class)">AuditTrailEvent</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="AuditTrailEvent.html#initialize-instance_method" title="PlatformAPI::AuditTrailEvent#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3812,12 +3734,12 @@
       <pre class="lines">
 
 
-265
-266
-267</pre>
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 258</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span>
   <span class='ivar'>@build_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Build.html" title="PlatformAPI::Build (class)">Build</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Build.html#initialize-instance_method" title="PlatformAPI::Build#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3866,12 +3788,12 @@
       <pre class="lines">
 
 
-272
-273
-274</pre>
+265
+266
+267</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 272</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 265</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_buildpack_installation'>buildpack_installation</span>
   <span class='ivar'>@buildpack_installation_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="BuildpackInstallation.html" title="PlatformAPI::BuildpackInstallation (class)">BuildpackInstallation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="BuildpackInstallation.html#initialize-instance_method" title="PlatformAPI::BuildpackInstallation#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3920,12 +3842,12 @@
       <pre class="lines">
 
 
-279
-280
-281</pre>
+272
+273
+274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 279</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 272</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_collaborator'>collaborator</span>
   <span class='ivar'>@collaborator_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Collaborator.html" title="PlatformAPI::Collaborator (class)">Collaborator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Collaborator.html#initialize-instance_method" title="PlatformAPI::Collaborator#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -3974,12 +3896,12 @@
       <pre class="lines">
 
 
-286
-287
-288</pre>
+279
+280
+281</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 286</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 279</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config_var'>config_var</span>
   <span class='ivar'>@config_var_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="ConfigVar.html" title="PlatformAPI::ConfigVar (class)">ConfigVar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ConfigVar.html#initialize-instance_method" title="PlatformAPI::ConfigVar#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4028,12 +3950,12 @@
       <pre class="lines">
 
 
-293
-294
-295</pre>
+286
+287
+288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 293</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 286</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_credit'>credit</span>
   <span class='ivar'>@credit_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Credit.html" title="PlatformAPI::Credit (class)">Credit</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Credit.html#initialize-instance_method" title="PlatformAPI::Credit#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4082,12 +4004,12 @@
       <pre class="lines">
 
 
-300
-301
-302</pre>
+293
+294
+295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 300</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 293</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_domain'>domain</span>
   <span class='ivar'>@domain_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Domain.html" title="PlatformAPI::Domain (class)">Domain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Domain.html#initialize-instance_method" title="PlatformAPI::Domain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4136,12 +4058,12 @@
       <pre class="lines">
 
 
-314
-315
-316</pre>
+307
+308
+309</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 314</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 307</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dyno'>dyno</span>
   <span class='ivar'>@dyno_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Dyno.html" title="PlatformAPI::Dyno (class)">Dyno</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Dyno.html#initialize-instance_method" title="PlatformAPI::Dyno#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4190,12 +4112,12 @@
       <pre class="lines">
 
 
-307
-308
-309</pre>
+300
+301
+302</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 307</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 300</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dyno_size'>dyno_size</span>
   <span class='ivar'>@dyno_size_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="DynoSize.html" title="PlatformAPI::DynoSize (class)">DynoSize</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DynoSize.html#initialize-instance_method" title="PlatformAPI::DynoSize#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4244,12 +4166,12 @@
       <pre class="lines">
 
 
-342
-343
-344</pre>
+335
+336
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 342</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 335</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enterprise_account'>enterprise_account</span>
   <span class='ivar'>@enterprise_account_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="EnterpriseAccount.html" title="PlatformAPI::EnterpriseAccount (class)">EnterpriseAccount</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="EnterpriseAccount.html#initialize-instance_method" title="PlatformAPI::EnterpriseAccount#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4298,12 +4220,12 @@
       <pre class="lines">
 
 
-321
-322
-323</pre>
+314
+315
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 321</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 314</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enterprise_account_daily_usage'>enterprise_account_daily_usage</span>
   <span class='ivar'>@enterprise_account_daily_usage_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="EnterpriseAccountDailyUsage.html" title="PlatformAPI::EnterpriseAccountDailyUsage (class)">EnterpriseAccountDailyUsage</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="EnterpriseAccountDailyUsage.html#initialize-instance_method" title="PlatformAPI::EnterpriseAccountDailyUsage#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4352,12 +4274,12 @@
       <pre class="lines">
 
 
-328
-329
-330</pre>
+321
+322
+323</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 328</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 321</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enterprise_account_member'>enterprise_account_member</span>
   <span class='ivar'>@enterprise_account_member_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="EnterpriseAccountMember.html" title="PlatformAPI::EnterpriseAccountMember (class)">EnterpriseAccountMember</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="EnterpriseAccountMember.html#initialize-instance_method" title="PlatformAPI::EnterpriseAccountMember#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4406,12 +4328,12 @@
       <pre class="lines">
 
 
-335
-336
-337</pre>
+328
+329
+330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 335</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enterprise_account_monthly_usage'>enterprise_account_monthly_usage</span>
   <span class='ivar'>@enterprise_account_monthly_usage_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="EnterpriseAccountMonthlyUsage.html" title="PlatformAPI::EnterpriseAccountMonthlyUsage (class)">EnterpriseAccountMonthlyUsage</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="EnterpriseAccountMonthlyUsage.html#initialize-instance_method" title="PlatformAPI::EnterpriseAccountMonthlyUsage#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4460,12 +4382,12 @@
       <pre class="lines">
 
 
-349
-350
-351</pre>
+342
+343
+344</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 342</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter_apps'>filter_apps</span>
   <span class='ivar'>@filter_apps_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="FilterApps.html" title="PlatformAPI::FilterApps (class)">FilterApps</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="FilterApps.html#initialize-instance_method" title="PlatformAPI::FilterApps#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4514,12 +4436,12 @@
       <pre class="lines">
 
 
-356
-357
-358</pre>
+349
+350
+351</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 356</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 349</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_formation'>formation</span>
   <span class='ivar'>@formation_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Formation.html" title="PlatformAPI::Formation (class)">Formation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Formation.html#initialize-instance_method" title="PlatformAPI::Formation#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4568,12 +4490,12 @@
       <pre class="lines">
 
 
-363
-364
-365</pre>
+356
+357
+358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 363</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 356</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_identity_provider'>identity_provider</span>
   <span class='ivar'>@identity_provider_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="IdentityProvider.html" title="PlatformAPI::IdentityProvider (class)">IdentityProvider</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="IdentityProvider.html#initialize-instance_method" title="PlatformAPI::IdentityProvider#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4622,12 +4544,12 @@
       <pre class="lines">
 
 
-370
-371
-372</pre>
+363
+364
+365</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 370</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 363</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span>
   <span class='ivar'>@inbound_ruleset_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="InboundRuleset.html" title="PlatformAPI::InboundRuleset (class)">InboundRuleset</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="InboundRuleset.html#initialize-instance_method" title="PlatformAPI::InboundRuleset#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4676,12 +4598,12 @@
       <pre class="lines">
 
 
-384
-385
-386</pre>
+377
+378
+379</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 384</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 377</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_invoice'>invoice</span>
   <span class='ivar'>@invoice_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Invoice.html" title="PlatformAPI::Invoice (class)">Invoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Invoice.html#initialize-instance_method" title="PlatformAPI::Invoice#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4730,12 +4652,12 @@
       <pre class="lines">
 
 
-377
-378
-379</pre>
+370
+371
+372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 377</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 370</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_invoice_address'>invoice_address</span>
   <span class='ivar'>@invoice_address_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="InvoiceAddress.html" title="PlatformAPI::InvoiceAddress (class)">InvoiceAddress</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="InvoiceAddress.html#initialize-instance_method" title="PlatformAPI::InvoiceAddress#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4784,12 +4706,12 @@
       <pre class="lines">
 
 
-391
-392
-393</pre>
+384
+385
+386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 391</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 384</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_key'>key</span>
   <span class='ivar'>@key_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Key.html" title="PlatformAPI::Key (class)">Key</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Key.html#initialize-instance_method" title="PlatformAPI::Key#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4838,12 +4760,12 @@
       <pre class="lines">
 
 
-398
-399
-400</pre>
+391
+392
+393</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 398</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 391</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_drain'>log_drain</span>
   <span class='ivar'>@log_drain_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="LogDrain.html" title="PlatformAPI::LogDrain (class)">LogDrain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LogDrain.html#initialize-instance_method" title="PlatformAPI::LogDrain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4892,12 +4814,12 @@
       <pre class="lines">
 
 
-405
-406
-407</pre>
+398
+399
+400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 405</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 398</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_session'>log_session</span>
   <span class='ivar'>@log_session_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="LogSession.html" title="PlatformAPI::LogSession (class)">LogSession</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LogSession.html#initialize-instance_method" title="PlatformAPI::LogSession#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -4946,12 +4868,12 @@
       <pre class="lines">
 
 
-412
-413
-414</pre>
+405
+406
+407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 412</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 405</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span>
   <span class='ivar'>@oauth_authorization_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="OauthAuthorization.html" title="PlatformAPI::OauthAuthorization (class)">OauthAuthorization</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="OauthAuthorization.html#initialize-instance_method" title="PlatformAPI::OauthAuthorization#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5000,12 +4922,12 @@
       <pre class="lines">
 
 
-419
-420
-421</pre>
+412
+413
+414</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 419</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 412</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_client'>oauth_client</span>
   <span class='ivar'>@oauth_client_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="OauthClient.html" title="PlatformAPI::OauthClient (class)">OauthClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="OauthClient.html#initialize-instance_method" title="PlatformAPI::OauthClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5054,12 +4976,12 @@
       <pre class="lines">
 
 
-426
-427
-428</pre>
+419
+420
+421</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 426</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 419</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_grant'>oauth_grant</span>
   <span class='ivar'>@oauth_grant_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="OauthGrant.html" title="PlatformAPI::OauthGrant (class)">OauthGrant</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="OauthGrant.html#initialize-instance_method" title="PlatformAPI::OauthGrant#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5108,12 +5030,12 @@
       <pre class="lines">
 
 
-433
-434
-435</pre>
+426
+427
+428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 433</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 426</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth_token'>oauth_token</span>
   <span class='ivar'>@oauth_token_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="OauthToken.html" title="PlatformAPI::OauthToken (class)">OauthToken</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="OauthToken.html#initialize-instance_method" title="PlatformAPI::OauthToken#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5162,12 +5084,12 @@
       <pre class="lines">
 
 
-440
-441
-442</pre>
+433
+434
+435</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 440</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 433</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outbound_ruleset'>outbound_ruleset</span>
   <span class='ivar'>@outbound_ruleset_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="OutboundRuleset.html" title="PlatformAPI::OutboundRuleset (class)">OutboundRuleset</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="OutboundRuleset.html#initialize-instance_method" title="PlatformAPI::OutboundRuleset#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5216,12 +5138,12 @@
       <pre class="lines">
 
 
-447
-448
-449</pre>
+440
+441
+442</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 447</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 440</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_password_reset'>password_reset</span>
   <span class='ivar'>@password_reset_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PasswordReset.html" title="PlatformAPI::PasswordReset (class)">PasswordReset</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PasswordReset.html#initialize-instance_method" title="PlatformAPI::PasswordReset#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5270,12 +5192,12 @@
       <pre class="lines">
 
 
-461
-462
-463</pre>
+454
+455
+456</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 461</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 454</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_peering'>peering</span>
   <span class='ivar'>@peering_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Peering.html" title="PlatformAPI::Peering (class)">Peering</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Peering.html#initialize-instance_method" title="PlatformAPI::Peering#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5324,12 +5246,12 @@
       <pre class="lines">
 
 
-454
-455
-456</pre>
+447
+448
+449</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 454</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 447</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_peering_info'>peering_info</span>
   <span class='ivar'>@peering_info_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PeeringInfo.html" title="PlatformAPI::PeeringInfo (class)">PeeringInfo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PeeringInfo.html#initialize-instance_method" title="PlatformAPI::PeeringInfo#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5351,7 +5273,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>An owned entity including users&#39; permissions.</p>
+<p>An owned entity including users’ permissions.</p>
 
 
   </div>
@@ -5378,12 +5300,12 @@
       <pre class="lines">
 
 
-468
-469
-470</pre>
+461
+462
+463</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 468</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 461</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_permission_entity'>permission_entity</span>
   <span class='ivar'>@permission_entity_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PermissionEntity.html" title="PlatformAPI::PermissionEntity (class)">PermissionEntity</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PermissionEntity.html#initialize-instance_method" title="PlatformAPI::PermissionEntity#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5432,12 +5354,12 @@
       <pre class="lines">
 
 
-538
-539
-540</pre>
+531
+532
+533</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 538</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 531</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline'>pipeline</span>
   <span class='ivar'>@pipeline_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Pipeline.html" title="PlatformAPI::Pipeline (class)">Pipeline</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Pipeline.html#initialize-instance_method" title="PlatformAPI::Pipeline#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5486,12 +5408,12 @@
       <pre class="lines">
 
 
-475
-476
-477</pre>
+468
+469
+470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 475</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 468</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_build'>pipeline_build</span>
   <span class='ivar'>@pipeline_build_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelineBuild.html" title="PlatformAPI::PipelineBuild (class)">PipelineBuild</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelineBuild.html#initialize-instance_method" title="PlatformAPI::PipelineBuild#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5540,12 +5462,12 @@
       <pre class="lines">
 
 
-482
-483
-484</pre>
+475
+476
+477</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 482</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 475</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_config_var'>pipeline_config_var</span>
   <span class='ivar'>@pipeline_config_var_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelineConfigVar.html" title="PlatformAPI::PipelineConfigVar (class)">PipelineConfigVar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelineConfigVar.html#initialize-instance_method" title="PlatformAPI::PipelineConfigVar#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5567,7 +5489,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Information about an app&#39;s coupling to a pipeline</p>
+<p>Information about an app’s coupling to a pipeline</p>
 
 
   </div>
@@ -5594,12 +5516,12 @@
       <pre class="lines">
 
 
-489
-490
-491</pre>
+482
+483
+484</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 489</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 482</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_coupling'>pipeline_coupling</span>
   <span class='ivar'>@pipeline_coupling_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelineCoupling.html" title="PlatformAPI::PipelineCoupling (class)">PipelineCoupling</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelineCoupling.html#initialize-instance_method" title="PlatformAPI::PipelineCoupling#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5648,12 +5570,12 @@
       <pre class="lines">
 
 
-496
-497
-498</pre>
+489
+490
+491</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 496</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 489</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_deployment'>pipeline_deployment</span>
   <span class='ivar'>@pipeline_deployment_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelineDeployment.html" title="PlatformAPI::PipelineDeployment (class)">PipelineDeployment</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelineDeployment.html#initialize-instance_method" title="PlatformAPI::PipelineDeployment#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5702,12 +5624,12 @@
       <pre class="lines">
 
 
-510
-511
-512</pre>
+503
+504
+505</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 510</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 503</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_promotion'>pipeline_promotion</span>
   <span class='ivar'>@pipeline_promotion_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelinePromotion.html" title="PlatformAPI::PipelinePromotion (class)">PipelinePromotion</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelinePromotion.html#initialize-instance_method" title="PlatformAPI::PipelinePromotion#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5756,12 +5678,12 @@
       <pre class="lines">
 
 
-503
-504
-505</pre>
+496
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 503</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 496</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_promotion_target'>pipeline_promotion_target</span>
   <span class='ivar'>@pipeline_promotion_target_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelinePromotionTarget.html" title="PlatformAPI::PipelinePromotionTarget (class)">PipelinePromotionTarget</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelinePromotionTarget.html#initialize-instance_method" title="PlatformAPI::PipelinePromotionTarget#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5810,12 +5732,12 @@
       <pre class="lines">
 
 
-517
-518
-519</pre>
+510
+511
+512</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 517</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 510</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_release'>pipeline_release</span>
   <span class='ivar'>@pipeline_release_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelineRelease.html" title="PlatformAPI::PipelineRelease (class)">PipelineRelease</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelineRelease.html#initialize-instance_method" title="PlatformAPI::PipelineRelease#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5837,7 +5759,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>A pipeline&#39;s stack is determined by the apps in the pipeline. This is used during creation of CI and Review Apps that have no stack defined in app.json</p>
+<p>A pipeline’s stack is determined by the apps in the pipeline. This is used during creation of CI and Review Apps that have no stack defined in app.json</p>
 
 
   </div>
@@ -5864,12 +5786,12 @@
       <pre class="lines">
 
 
-524
-525
-526</pre>
+517
+518
+519</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 524</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 517</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_stack'>pipeline_stack</span>
   <span class='ivar'>@pipeline_stack_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelineStack.html" title="PlatformAPI::PipelineStack (class)">PipelineStack</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelineStack.html#initialize-instance_method" title="PlatformAPI::PipelineStack#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5918,12 +5840,12 @@
       <pre class="lines">
 
 
-531
-532
-533</pre>
+524
+525
+526</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 531</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 524</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pipeline_transfer'>pipeline_transfer</span>
   <span class='ivar'>@pipeline_transfer_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="PipelineTransfer.html" title="PlatformAPI::PipelineTransfer (class)">PipelineTransfer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PipelineTransfer.html#initialize-instance_method" title="PlatformAPI::PipelineTransfer#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -5972,12 +5894,12 @@
       <pre class="lines">
 
 
-545
-546
-547</pre>
+538
+539
+540</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 545</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 538</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_plan'>plan</span>
   <span class='ivar'>@plan_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Plan.html" title="PlatformAPI::Plan (class)">Plan</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Plan.html#initialize-instance_method" title="PlatformAPI::Plan#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6026,12 +5948,12 @@
       <pre class="lines">
 
 
-552
-553
-554</pre>
+545
+546
+547</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 552</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 545</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rate_limit'>rate_limit</span>
   <span class='ivar'>@rate_limit_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="RateLimit.html" title="PlatformAPI::RateLimit (class)">RateLimit</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="RateLimit.html#initialize-instance_method" title="PlatformAPI::RateLimit#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6080,12 +6002,12 @@
       <pre class="lines">
 
 
-559
-560
-561</pre>
+552
+553
+554</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 559</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 552</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_region'>region</span>
   <span class='ivar'>@region_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Region.html" title="PlatformAPI::Region (class)">Region</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Region.html#initialize-instance_method" title="PlatformAPI::Region#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6134,12 +6056,12 @@
       <pre class="lines">
 
 
-566
-567
-568</pre>
+559
+560
+561</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 566</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 559</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_release'>release</span>
   <span class='ivar'>@release_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Release.html" title="PlatformAPI::Release (class)">Release</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Release.html#initialize-instance_method" title="PlatformAPI::Release#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6188,12 +6110,12 @@
       <pre class="lines">
 
 
-573
-574
-575</pre>
+566
+567
+568</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 573</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 566</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_review_app'>review_app</span>
   <span class='ivar'>@review_app_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="ReviewApp.html" title="PlatformAPI::ReviewApp (class)">ReviewApp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ReviewApp.html#initialize-instance_method" title="PlatformAPI::ReviewApp#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6242,12 +6164,12 @@
       <pre class="lines">
 
 
-580
-581
-582</pre>
+573
+574
+575</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 580</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 573</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_review_app_config'>review_app_config</span>
   <span class='ivar'>@review_app_config_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="ReviewAppConfig.html" title="PlatformAPI::ReviewAppConfig (class)">ReviewAppConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ReviewAppConfig.html#initialize-instance_method" title="PlatformAPI::ReviewAppConfig#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6296,12 +6218,12 @@
       <pre class="lines">
 
 
-587
-588
-589</pre>
+580
+581
+582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 587</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 580</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_slug'>slug</span>
   <span class='ivar'>@slug_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Slug.html" title="PlatformAPI::Slug (class)">Slug</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Slug.html#initialize-instance_method" title="PlatformAPI::Slug#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6350,12 +6272,12 @@
       <pre class="lines">
 
 
-594
-595
-596</pre>
+587
+588
+589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 594</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 587</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sms_number'>sms_number</span>
   <span class='ivar'>@sms_number_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="SmsNumber.html" title="PlatformAPI::SmsNumber (class)">SmsNumber</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="SmsNumber.html#initialize-instance_method" title="PlatformAPI::SmsNumber#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6404,12 +6326,12 @@
       <pre class="lines">
 
 
-601
-602
-603</pre>
+594
+595
+596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 601</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 594</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span>
   <span class='ivar'>@sni_endpoint_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="SniEndpoint.html" title="PlatformAPI::SniEndpoint (class)">SniEndpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="SniEndpoint.html#initialize-instance_method" title="PlatformAPI::SniEndpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6431,7 +6353,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>A source is a location for uploading and downloading an application&#39;s source code.</p>
+<p>A source is a location for uploading and downloading an application’s source code.</p>
 
 
   </div>
@@ -6458,12 +6380,12 @@
       <pre class="lines">
 
 
-608
-609
-610</pre>
+601
+602
+603</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 608</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 601</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_source'>source</span>
   <span class='ivar'>@source_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Source.html" title="PlatformAPI::Source (class)">Source</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Source.html#initialize-instance_method" title="PlatformAPI::Source#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6512,12 +6434,12 @@
       <pre class="lines">
 
 
-643
-644
-645</pre>
+636
+637
+638</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 643</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 636</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_space'>space</span>
   <span class='ivar'>@space_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Space.html" title="PlatformAPI::Space (class)">Space</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Space.html#initialize-instance_method" title="PlatformAPI::Space#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6566,12 +6488,12 @@
       <pre class="lines">
 
 
-615
-616
-617</pre>
+608
+609
+610</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 615</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 608</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_space_app_access'>space_app_access</span>
   <span class='ivar'>@space_app_access_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="SpaceAppAccess.html" title="PlatformAPI::SpaceAppAccess (class)">SpaceAppAccess</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="SpaceAppAccess.html#initialize-instance_method" title="PlatformAPI::SpaceAppAccess#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6620,12 +6542,12 @@
       <pre class="lines">
 
 
-622
-623
-624</pre>
+615
+616
+617</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 622</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 615</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_space_nat'>space_nat</span>
   <span class='ivar'>@space_nat_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="SpaceNat.html" title="PlatformAPI::SpaceNat (class)">SpaceNat</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="SpaceNat.html#initialize-instance_method" title="PlatformAPI::SpaceNat#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6674,12 +6596,12 @@
       <pre class="lines">
 
 
-629
-630
-631</pre>
+622
+623
+624</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 629</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 622</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_space_topology'>space_topology</span>
   <span class='ivar'>@space_topology_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="SpaceTopology.html" title="PlatformAPI::SpaceTopology (class)">SpaceTopology</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="SpaceTopology.html#initialize-instance_method" title="PlatformAPI::SpaceTopology#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6728,12 +6650,12 @@
       <pre class="lines">
 
 
-636
-637
-638</pre>
+629
+630
+631</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 636</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 629</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_space_transfer'>space_transfer</span>
   <span class='ivar'>@space_transfer_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="SpaceTransfer.html" title="PlatformAPI::SpaceTransfer (class)">SpaceTransfer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="SpaceTransfer.html#initialize-instance_method" title="PlatformAPI::SpaceTransfer#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6782,12 +6704,12 @@
       <pre class="lines">
 
 
-650
-651
-652</pre>
+643
+644
+645</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 650</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 643</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stack'>stack</span>
   <span class='ivar'>@stack_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Stack.html" title="PlatformAPI::Stack (class)">Stack</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Stack.html#initialize-instance_method" title="PlatformAPI::Stack#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6836,12 +6758,12 @@
       <pre class="lines">
 
 
-741
-742
-743</pre>
+734
+735
+736</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 741</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 734</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team'>team</span>
   <span class='ivar'>@team_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Team.html" title="PlatformAPI::Team (class)">Team</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Team.html#initialize-instance_method" title="PlatformAPI::Team#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6888,12 +6810,12 @@
       <pre class="lines">
 
 
-657
-658
-659</pre>
+650
+651
+652</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 657</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 650</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_addon'>team_addon</span>
   <span class='ivar'>@team_addon_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamAddon.html" title="PlatformAPI::TeamAddon (class)">TeamAddon</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamAddon.html#initialize-instance_method" title="PlatformAPI::TeamAddon#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6942,12 +6864,12 @@
       <pre class="lines">
 
 
-678
-679
-680</pre>
+671
+672
+673</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 678</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 671</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_app'>team_app</span>
   <span class='ivar'>@team_app_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamApp.html" title="PlatformAPI::TeamApp (class)">TeamApp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamApp.html#initialize-instance_method" title="PlatformAPI::TeamApp#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -6996,12 +6918,12 @@
       <pre class="lines">
 
 
-664
-665
-666</pre>
+657
+658
+659</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 664</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 657</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_app_collaborator'>team_app_collaborator</span>
   <span class='ivar'>@team_app_collaborator_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamAppCollaborator.html" title="PlatformAPI::TeamAppCollaborator (class)">TeamAppCollaborator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamAppCollaborator.html#initialize-instance_method" title="PlatformAPI::TeamAppCollaborator#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7050,12 +6972,12 @@
       <pre class="lines">
 
 
-671
-672
-673</pre>
+664
+665
+666</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 671</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 664</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_app_permission'>team_app_permission</span>
   <span class='ivar'>@team_app_permission_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamAppPermission.html" title="PlatformAPI::TeamAppPermission (class)">TeamAppPermission</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamAppPermission.html#initialize-instance_method" title="PlatformAPI::TeamAppPermission#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7104,12 +7026,12 @@
       <pre class="lines">
 
 
-685
-686
-687</pre>
+678
+679
+680</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 685</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 678</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_daily_usage'>team_daily_usage</span>
   <span class='ivar'>@team_daily_usage_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamDailyUsage.html" title="PlatformAPI::TeamDailyUsage (class)">TeamDailyUsage</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamDailyUsage.html#initialize-instance_method" title="PlatformAPI::TeamDailyUsage#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7158,12 +7080,12 @@
       <pre class="lines">
 
 
-692
-693
-694</pre>
+685
+686
+687</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 692</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 685</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_feature'>team_feature</span>
   <span class='ivar'>@team_feature_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamFeature.html" title="PlatformAPI::TeamFeature (class)">TeamFeature</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamFeature.html#initialize-instance_method" title="PlatformAPI::TeamFeature#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7212,12 +7134,12 @@
       <pre class="lines">
 
 
-699
-700
-701</pre>
+692
+693
+694</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 699</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 692</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_invitation'>team_invitation</span>
   <span class='ivar'>@team_invitation_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamInvitation.html" title="PlatformAPI::TeamInvitation (class)">TeamInvitation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamInvitation.html#initialize-instance_method" title="PlatformAPI::TeamInvitation#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7266,12 +7188,12 @@
       <pre class="lines">
 
 
-706
-707
-708</pre>
+699
+700
+701</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 706</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 699</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_invoice'>team_invoice</span>
   <span class='ivar'>@team_invoice_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamInvoice.html" title="PlatformAPI::TeamInvoice (class)">TeamInvoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamInvoice.html#initialize-instance_method" title="PlatformAPI::TeamInvoice#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7320,12 +7242,12 @@
       <pre class="lines">
 
 
-713
-714
-715</pre>
+706
+707
+708</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 713</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 706</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_member'>team_member</span>
   <span class='ivar'>@team_member_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamMember.html" title="PlatformAPI::TeamMember (class)">TeamMember</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamMember.html#initialize-instance_method" title="PlatformAPI::TeamMember#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7374,12 +7296,12 @@
       <pre class="lines">
 
 
-720
-721
-722</pre>
+713
+714
+715</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 720</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 713</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_monthly_usage'>team_monthly_usage</span>
   <span class='ivar'>@team_monthly_usage_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamMonthlyUsage.html" title="PlatformAPI::TeamMonthlyUsage (class)">TeamMonthlyUsage</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamMonthlyUsage.html#initialize-instance_method" title="PlatformAPI::TeamMonthlyUsage#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7401,7 +7323,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Tracks a Team&#39;s Preferences</p>
+<p>Tracks a Team’s Preferences</p>
 
 
   </div>
@@ -7428,12 +7350,12 @@
       <pre class="lines">
 
 
-727
-728
-729</pre>
+720
+721
+722</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 727</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 720</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_preferences'>team_preferences</span>
   <span class='ivar'>@team_preferences_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamPreferences.html" title="PlatformAPI::TeamPreferences (class)">TeamPreferences</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamPreferences.html#initialize-instance_method" title="PlatformAPI::TeamPreferences#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7482,12 +7404,12 @@
       <pre class="lines">
 
 
-734
-735
-736</pre>
+727
+728
+729</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 734</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 727</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_team_space'>team_space</span>
   <span class='ivar'>@team_space_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TeamSpace.html" title="PlatformAPI::TeamSpace (class)">TeamSpace</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TeamSpace.html#initialize-instance_method" title="PlatformAPI::TeamSpace#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7536,12 +7458,12 @@
       <pre class="lines">
 
 
-748
-749
-750</pre>
+741
+742
+743</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 748</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 741</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_test_case'>test_case</span>
   <span class='ivar'>@test_case_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TestCase.html" title="PlatformAPI::TestCase (class)">TestCase</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TestCase.html#initialize-instance_method" title="PlatformAPI::TestCase#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7590,12 +7512,12 @@
       <pre class="lines">
 
 
-755
-756
-757</pre>
+748
+749
+750</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 755</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 748</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_test_node'>test_node</span>
   <span class='ivar'>@test_node_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TestNode.html" title="PlatformAPI::TestNode (class)">TestNode</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TestNode.html#initialize-instance_method" title="PlatformAPI::TestNode#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7644,12 +7566,12 @@
       <pre class="lines">
 
 
-762
-763
-764</pre>
+755
+756
+757</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 762</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 755</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_test_run'>test_run</span>
   <span class='ivar'>@test_run_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="TestRun.html" title="PlatformAPI::TestRun (class)">TestRun</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TestRun.html#initialize-instance_method" title="PlatformAPI::TestRun#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7671,7 +7593,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Tracks a user&#39;s preferences and message dismissals</p>
+<p>Tracks a user’s preferences and message dismissals</p>
 
 
   </div>
@@ -7698,12 +7620,12 @@
       <pre class="lines">
 
 
-769
-770
-771</pre>
+762
+763
+764</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 769</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 762</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_preferences'>user_preferences</span>
   <span class='ivar'>@user_preferences_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="UserPreferences.html" title="PlatformAPI::UserPreferences (class)">UserPreferences</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="UserPreferences.html#initialize-instance_method" title="PlatformAPI::UserPreferences#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7752,12 +7674,12 @@
       <pre class="lines">
 
 
-776
-777
-778</pre>
+769
+770
+771</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 776</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 769</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vpn_connection'>vpn_connection</span>
   <span class='ivar'>@vpn_connection_resource</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="VpnConnection.html" title="PlatformAPI::VpnConnection (class)">VpnConnection</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="VpnConnection.html#initialize-instance_method" title="PlatformAPI::VpnConnection#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -7772,9 +7694,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Sep  6 19:37:50 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.6.8).
+  Generated on Thu Jan 11 17:02:00 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.2.2).
 </div>
 
     </div>
