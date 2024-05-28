@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AppFeature
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.</p>
+    <p>An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an existing app feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for an existing app feature.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AppFeature.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AppFeature.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing app features.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing app features.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing app feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing app feature.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AppFeature.</p>
+    <p>Returns a new instance of AppFeature.</p>
 
 
   </div>
@@ -255,12 +249,12 @@
       <pre class="lines">
 
 
-1209
-1210
-1211</pre>
+1235
+1236
+1237</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1209</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -288,8 +282,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for an existing app feature.</p>
+    <p>Info for an existing app feature.</p>
 
 
   </div>
@@ -308,8 +301,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -324,8 +316,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app feature or unique name of app feature</p>
+        <div class='inline'><p>unique identifier of app feature or unique name of app feature</p>
 </div>
       
     </li>
@@ -339,12 +330,12 @@
       <pre class="lines">
 
 
-1217
-1218
-1219</pre>
+1243
+1244
+1245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1217</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1243</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='rparen'>)</span>
@@ -365,8 +356,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing app features.</p>
+    <p>List existing app features.</p>
 
 
   </div>
@@ -385,8 +375,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -400,12 +389,12 @@
       <pre class="lines">
 
 
-1224
-1225
-1226</pre>
+1250
+1251
+1252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1224</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1250</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -426,8 +415,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing app feature.</p>
+    <p>Update an existing app feature.</p>
 
 
   </div>
@@ -446,8 +434,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -462,8 +449,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app feature or unique name of app feature</p>
+        <div class='inline'><p>unique identifier of app feature or unique name of app feature</p>
 </div>
       
     </li>
@@ -478,8 +464,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -493,12 +478,12 @@
       <pre class="lines">
 
 
-1233
-1234
-1235</pre>
+1259
+1260
+1261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1233</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_feature'>app_feature</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_feature_id_or_app_feature_name'>app_feature_id_or_app_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -513,9 +498,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

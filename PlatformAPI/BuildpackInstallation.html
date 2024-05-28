@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::BuildpackInstallation
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A buildpack installation represents a buildpack that will be run against an app.</p>
+    <p>A buildpack installation represents a buildpack that will be run against an app.</p>
 
 
   </div>
@@ -144,8 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of BuildpackInstallation.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of BuildpackInstallation.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List an app’s existing buildpack installations.</p>
+    <span class="summary_desc"><div class='inline'><p>List an app&#39;s existing buildpack installations.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an app’s buildpack installations.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an app&#39;s buildpack installations.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of BuildpackInstallation.</p>
+    <p>Returns a new instance of BuildpackInstallation.</p>
 
 
   </div>
@@ -231,12 +226,12 @@
       <pre class="lines">
 
 
-1544
-1545
-1546</pre>
+1570
+1571
+1572</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1544</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1570</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,8 +259,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List an app’s existing buildpack installations.</p>
+    <p>List an app&#39;s existing buildpack installations.</p>
 
 
   </div>
@@ -284,8 +278,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -299,12 +292,12 @@
       <pre class="lines">
 
 
-1559
-1560
-1561</pre>
+1585
+1586
+1587</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1559</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1585</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_buildpack_installation'>buildpack_installation</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -325,8 +318,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an app’s buildpack installations.</p>
+    <p>Update an app&#39;s buildpack installations.</p>
 
 
   </div>
@@ -345,8 +337,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -361,8 +352,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -376,12 +366,12 @@
       <pre class="lines">
 
 
-1552
-1553
-1554</pre>
+1578
+1579
+1580</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1552</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1578</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_buildpack_installation'>buildpack_installation</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -396,9 +386,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

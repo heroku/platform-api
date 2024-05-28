@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::OauthToken
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>OAuth tokens provide access for authorized clients to act on behalf of a Heroku user to automate, customize or extend their usage of the platform. For more information please refer to the <a href="https://devcenter.heroku.com/articles/oauth">Heroku OAuth documentation</a></p>
+    <p>OAuth tokens provide access for authorized clients to act on behalf of a Heroku user to automate, customize or extend their usage of the platform. For more information please refer to the <a href="https://devcenter.heroku.com/articles/oauth">Heroku OAuth documentation</a></p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new OAuth token.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new OAuth token.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Revoke OAuth access token.</p>
+    <span class="summary_desc"><div class='inline'><p>Revoke OAuth access token.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of OauthToken.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of OauthToken.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of OauthToken.</p>
+    <p>Returns a new instance of OauthToken.</p>
 
 
   </div>
@@ -231,12 +226,12 @@
       <pre class="lines">
 
 
-2227
-2228
-2229</pre>
+2253
+2254
+2255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2227</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2253</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,8 +259,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new OAuth token.</p>
+    <p>Create a new OAuth token.</p>
 
 
   </div>
@@ -284,8 +278,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -299,12 +292,12 @@
       <pre class="lines">
 
 
-2234
-2235
-2236</pre>
+2260
+2261
+2262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2234</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2260</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_token'>oauth_token</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -325,8 +318,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Revoke OAuth access token.</p>
+    <p>Revoke OAuth access token.</p>
 
 
   </div>
@@ -345,8 +337,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of OAuth token</p>
+        <div class='inline'><p>unique identifier of OAuth token</p>
 </div>
       
     </li>
@@ -360,12 +351,12 @@
       <pre class="lines">
 
 
-2241
-2242
-2243</pre>
+2267
+2268
+2269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2241</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2267</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_token_id'>oauth_token_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_token'>oauth_token</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_token_id'>oauth_token_id</span><span class='rparen'>)</span>
@@ -380,9 +371,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:02 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

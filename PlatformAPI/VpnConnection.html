@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::VpnConnection
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p><a href="https://devcenter.heroku.com/articles/private-space-vpn-connection">VPN</a> provides a way to connect your Private Spaces to your network via VPN.</p>
+    <p><a href="https://devcenter.heroku.com/articles/private-space-vpn-connection">VPN</a> provides a way to connect your Private Spaces to your network via VPN.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new VPN connection in a private space.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new VPN connection in a private space.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Destroy existing VPN Connection.</p>
+    <span class="summary_desc"><div class='inline'><p>Destroy existing VPN Connection.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an existing vpn-connection.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for an existing vpn-connection.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of VpnConnection.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of VpnConnection.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List VPN connections for a space.</p>
+    <span class="summary_desc"><div class='inline'><p>List VPN connections for a space.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update a VPN connection in a private space.</p>
+    <span class="summary_desc"><div class='inline'><p>Update a VPN connection in a private space.</p>
 </div></span>
   
 </li>
@@ -288,8 +281,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of VpnConnection.</p>
+    <p>Returns a new instance of VpnConnection.</p>
 
 
   </div>
@@ -303,12 +295,12 @@
       <pre class="lines">
 
 
-3523
-3524
-3525</pre>
+3563
+3564
+3565</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3523</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3563</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -336,8 +328,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new VPN connection in a private space.</p>
+    <p>Create a new VPN connection in a private space.</p>
 
 
   </div>
@@ -356,8 +347,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -372,8 +362,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -387,12 +376,12 @@
       <pre class="lines">
 
 
-3531
-3532
-3533</pre>
+3571
+3572
+3573</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3531</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3571</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_vpn_connection'>vpn_connection</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -413,8 +402,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Destroy existing VPN Connection</p>
+    <p>Destroy existing VPN Connection</p>
 
 
   </div>
@@ -433,8 +421,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -449,8 +436,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>VPN ID or VPN Name</p>
+        <div class='inline'><p>VPN ID or VPN Name</p>
 </div>
       
     </li>
@@ -464,12 +450,12 @@
       <pre class="lines">
 
 
-3539
-3540
-3541</pre>
+3579
+3580
+3581</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3539</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3579</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_vpn_connection_id_or_vpn_connection_name'>vpn_connection_id_or_vpn_connection_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_vpn_connection'>vpn_connection</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_vpn_connection_id_or_vpn_connection_name'>vpn_connection_id_or_vpn_connection_name</span><span class='rparen'>)</span>
@@ -490,8 +476,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for an existing vpn-connection.</p>
+    <p>Info for an existing vpn-connection.</p>
 
 
   </div>
@@ -510,8 +495,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -526,8 +510,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>VPN ID or VPN Name</p>
+        <div class='inline'><p>VPN ID or VPN Name</p>
 </div>
       
     </li>
@@ -541,12 +524,12 @@
       <pre class="lines">
 
 
-3554
-3555
-3556</pre>
+3594
+3595
+3596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3554</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3594</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_vpn_connection_id_or_vpn_connection_name'>vpn_connection_id_or_vpn_connection_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_vpn_connection'>vpn_connection</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_vpn_connection_id_or_vpn_connection_name'>vpn_connection_id_or_vpn_connection_name</span><span class='rparen'>)</span>
@@ -567,8 +550,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List VPN connections for a space.</p>
+    <p>List VPN connections for a space.</p>
 
 
   </div>
@@ -587,8 +569,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -602,12 +583,12 @@
       <pre class="lines">
 
 
-3546
-3547
-3548</pre>
+3586
+3587
+3588</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3546</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3586</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_vpn_connection'>vpn_connection</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -628,8 +609,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update a VPN connection in a private space.</p>
+    <p>Update a VPN connection in a private space.</p>
 
 
   </div>
@@ -648,8 +628,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -664,8 +643,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>VPN ID or VPN Name</p>
+        <div class='inline'><p>VPN ID or VPN Name</p>
 </div>
       
     </li>
@@ -680,8 +658,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -695,12 +672,12 @@
       <pre class="lines">
 
 
-3563
-3564
-3565</pre>
+3603
+3604
+3605</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3563</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3603</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_vpn_connection_id_or_vpn_connection_name'>vpn_connection_id_or_vpn_connection_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_vpn_connection'>vpn_connection</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_vpn_connection_id_or_vpn_connection_name'>vpn_connection_id_or_vpn_connection_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -715,9 +692,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:04 2024 by
+  Generated on Tue May 28 13:37:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

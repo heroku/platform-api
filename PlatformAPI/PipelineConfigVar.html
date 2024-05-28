@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::PipelineConfigVar
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.</p>
+    <p>Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get config-vars for a pipeline stage.</p>
+    <span class="summary_desc"><div class='inline'><p>Get config-vars for a pipeline stage.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of PipelineConfigVar.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of PipelineConfigVar.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update config-vars for a pipeline stage.</p>
+    <span class="summary_desc"><div class='inline'><p>Update config-vars for a pipeline stage.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of PipelineConfigVar.</p>
+    <p>Returns a new instance of PipelineConfigVar.</p>
 
 
   </div>
@@ -231,12 +226,12 @@
       <pre class="lines">
 
 
-2387
-2388
-2389</pre>
+2413
+2414
+2415</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2387</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2413</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,8 +259,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get config-vars for a pipeline stage.</p>
+    <p>Get config-vars for a pipeline stage.</p>
 
 
   </div>
@@ -284,8 +278,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of pipeline</p>
+        <div class='inline'><p>unique identifier of pipeline</p>
 </div>
       
     </li>
@@ -300,8 +293,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>target pipeline stage</p>
+        <div class='inline'><p>target pipeline stage</p>
 </div>
       
     </li>
@@ -315,12 +307,12 @@
       <pre class="lines">
 
 
-2395
-2396
-2397</pre>
+2421
+2422
+2423</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2395</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2421</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='comma'>,</span> <span class='id identifier rubyid_pipeline_coupling_stage'>pipeline_coupling_stage</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_pipeline_config_var'>pipeline_config_var</span><span class='period'>.</span><span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='comma'>,</span> <span class='id identifier rubyid_pipeline_coupling_stage'>pipeline_coupling_stage</span><span class='rparen'>)</span>
@@ -341,8 +333,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update config-vars for a pipeline stage. You can update existing config-vars by setting them again, and remove by setting it to <code>null</code>.</p>
+    <p>Update config-vars for a pipeline stage. You can update existing config-vars by setting them again, and remove by setting it to <code>null</code>.</p>
 
 
   </div>
@@ -361,8 +352,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of pipeline</p>
+        <div class='inline'><p>unique identifier of pipeline</p>
 </div>
       
     </li>
@@ -377,8 +367,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>target pipeline stage</p>
+        <div class='inline'><p>target pipeline stage</p>
 </div>
       
     </li>
@@ -393,8 +382,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -408,12 +396,12 @@
       <pre class="lines">
 
 
-2404
-2405
-2406</pre>
+2430
+2431
+2432</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2404</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2430</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='comma'>,</span> <span class='id identifier rubyid_pipeline_coupling_stage'>pipeline_coupling_stage</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_pipeline_config_var'>pipeline_config_var</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='comma'>,</span> <span class='id identifier rubyid_pipeline_coupling_stage'>pipeline_coupling_stage</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -428,9 +416,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:02 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

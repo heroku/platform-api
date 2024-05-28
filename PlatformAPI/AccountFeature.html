@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AccountFeature
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.</p>
+    <p>An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an existing account feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for an existing account feature.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AccountFeature.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AccountFeature.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing account features.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing account features.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing account feature.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing account feature.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AccountFeature.</p>
+    <p>Returns a new instance of AccountFeature.</p>
 
 
   </div>
@@ -255,12 +249,12 @@
       <pre class="lines">
 
 
-778
-779
-780</pre>
+804
+805
+806</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 778</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 804</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -288,8 +282,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for an existing account feature.</p>
+    <p>Info for an existing account feature.</p>
 
 
   </div>
@@ -308,8 +301,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of account feature or unique name of account feature</p>
+        <div class='inline'><p>unique identifier of account feature or unique name of account feature</p>
 </div>
       
     </li>
@@ -323,12 +315,12 @@
       <pre class="lines">
 
 
-785
-786
-787</pre>
+811
+812
+813</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 785</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 811</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='rparen'>)</span>
@@ -349,8 +341,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing account features.</p>
+    <p>List existing account features.</p>
 
 
   </div>
@@ -364,12 +355,12 @@
       <pre class="lines">
 
 
-790
-791
-792</pre>
+816
+817
+818</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 790</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 816</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -390,8 +381,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing account feature.</p>
+    <p>Update an existing account feature.</p>
 
 
   </div>
@@ -410,8 +400,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of account feature or unique name of account feature</p>
+        <div class='inline'><p>unique identifier of account feature or unique name of account feature</p>
 </div>
       
     </li>
@@ -426,8 +415,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -441,12 +429,12 @@
       <pre class="lines">
 
 
-798
-799
-800</pre>
+824
+825
+826</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 798</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 824</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account_feature'>account_feature</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_account_feature_id_or_account_feature_name'>account_feature_id_or_account_feature_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -461,9 +449,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:00 2024 by
+  Generated on Tue May 28 13:37:24 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

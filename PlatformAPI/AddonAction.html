@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AddonAction
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.</p>
+    <p>Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Mark an add-on as deprovisioned.</p>
+    <span class="summary_desc"><div class='inline'><p>Mark an add-on as deprovisioned.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AddonAction.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AddonAction.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Mark an add-on as provisioned for use.</p>
+    <span class="summary_desc"><div class='inline'><p>Mark an add-on as provisioned for use.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AddonAction.</p>
+    <p>Returns a new instance of AddonAction.</p>
 
 
   </div>
@@ -231,12 +226,12 @@
       <pre class="lines">
 
 
-851
-852
-853</pre>
+877
+878
+879</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 851</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 877</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,8 +259,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Mark an add-on as deprovisioned.</p>
+    <p>Mark an add-on as deprovisioned.</p>
 
 
   </div>
@@ -284,8 +278,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -299,12 +292,12 @@
       <pre class="lines">
 
 
-865
-866
-867</pre>
+891
+892
+893</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 865</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 891</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deprovision'>deprovision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_action'>addon_action</span><span class='period'>.</span><span class='id identifier rubyid_deprovision'>deprovision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -325,8 +318,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Mark an add-on as provisioned for use.</p>
+    <p>Mark an add-on as provisioned for use.</p>
 
 
   </div>
@@ -345,8 +337,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -360,12 +351,12 @@
       <pre class="lines">
 
 
-858
-859
-860</pre>
+884
+885
+886</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 858</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 884</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_provision'>provision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_action'>addon_action</span><span class='period'>.</span><span class='id identifier rubyid_provision'>provision</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -380,9 +371,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:00 2024 by
+  Generated on Tue May 28 13:37:24 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

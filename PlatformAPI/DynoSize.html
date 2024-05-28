@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::DynoSize
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : <a href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/articles/dyno-types</a>.</p>
+    <p>Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : <a href="https://devcenter.heroku.com/articles/dyno-types">https://devcenter.heroku.com/articles/dyno-types</a>.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing dyno size.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing dyno size.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of DynoSize.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of DynoSize.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing dyno sizes.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing dyno sizes.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of DynoSize.</p>
+    <p>Returns a new instance of DynoSize.</p>
 
 
   </div>
@@ -231,12 +226,12 @@
       <pre class="lines">
 
 
-1707
-1708
-1709</pre>
+1733
+1734
+1735</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1707</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1733</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,8 +259,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing dyno size.</p>
+    <p>Info for existing dyno size.</p>
 
 
   </div>
@@ -284,8 +278,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this dyno size or the name of this dyno-size</p>
+        <div class='inline'><p>unique identifier of this dyno size or the name of this dyno-size</p>
 </div>
       
     </li>
@@ -299,12 +292,12 @@
       <pre class="lines">
 
 
-1714
-1715
-1716</pre>
+1740
+1741
+1742</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1714</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1740</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_dyno_size_id_or_dyno_size_name'>dyno_size_id_or_dyno_size_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno_size'>dyno_size</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_dyno_size_id_or_dyno_size_name'>dyno_size_id_or_dyno_size_name</span><span class='rparen'>)</span>
@@ -325,8 +318,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing dyno sizes.</p>
+    <p>List existing dyno sizes.</p>
 
 
   </div>
@@ -340,12 +332,12 @@
       <pre class="lines">
 
 
-1719
-1720
-1721</pre>
+1745
+1746
+1747</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1719</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1745</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno_size'>dyno_size</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -360,9 +352,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:02 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

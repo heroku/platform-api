@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Space
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A space is an isolated, highly available, secure app execution environment.</p>
+    <p>A space is an isolated, highly available, secure app execution environment.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new space.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new space.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing space.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing space.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing space.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing space.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Space.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Space.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing spaces.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing spaces.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing space.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing space.</p>
 </div></span>
   
 </li>
@@ -288,8 +281,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Space.</p>
+    <p>Returns a new instance of Space.</p>
 
 
   </div>
@@ -303,12 +295,12 @@
       <pre class="lines">
 
 
-2978
-2979
-2980</pre>
+3004
+3005
+3006</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2978</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3004</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -336,8 +328,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new space.</p>
+    <p>Create a new space.</p>
 
 
   </div>
@@ -356,8 +347,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -371,12 +361,12 @@
       <pre class="lines">
 
 
-3012
-3013
-3014</pre>
+3038
+3039
+3040</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3012</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3038</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -397,8 +387,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing space.</p>
+    <p>Delete an existing space.</p>
 
 
   </div>
@@ -417,8 +406,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -432,12 +420,12 @@
       <pre class="lines">
 
 
-3005
-3006
-3007</pre>
+3031
+3032
+3033</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3005</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3031</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -458,8 +446,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing space.</p>
+    <p>Info for existing space.</p>
 
 
   </div>
@@ -478,8 +465,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -493,12 +479,12 @@
       <pre class="lines">
 
 
-2990
-2991
-2992</pre>
+3016
+3017
+3018</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2990</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3016</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -519,8 +505,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing spaces.</p>
+    <p>List existing spaces.</p>
 
 
   </div>
@@ -534,12 +519,12 @@
       <pre class="lines">
 
 
-2983
-2984
-2985</pre>
+3009
+3010
+3011</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2983</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3009</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -560,8 +545,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing space.</p>
+    <p>Update an existing space.</p>
 
 
   </div>
@@ -580,8 +564,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -596,8 +579,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -611,12 +593,12 @@
       <pre class="lines">
 
 
-2998
-2999
-3000</pre>
+3024
+3025
+3026</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2998</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3024</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -631,9 +613,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:03 2024 by
+  Generated on Tue May 28 13:37:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

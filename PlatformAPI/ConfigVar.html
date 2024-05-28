@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::ConfigVar
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Config Vars allow you to manage the configuration information provided to an app on Heroku.</p>
+    <p>Config Vars allow you to manage the configuration information provided to an app on Heroku.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get config-vars for app.</p>
+    <span class="summary_desc"><div class='inline'><p>Get config-vars for app.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get config-vars for a release.</p>
+    <span class="summary_desc"><div class='inline'><p>Get config-vars for a release.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of ConfigVar.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of ConfigVar.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update config-vars for app.</p>
+    <span class="summary_desc"><div class='inline'><p>Update config-vars for app.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of ConfigVar.</p>
+    <p>Returns a new instance of ConfigVar.</p>
 
 
   </div>
@@ -255,12 +249,12 @@
       <pre class="lines">
 
 
-1604
-1605
-1606</pre>
+1630
+1631
+1632</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1604</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1630</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -288,8 +282,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get config-vars for app.</p>
+    <p>Get config-vars for app.</p>
 
 
   </div>
@@ -308,8 +301,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -323,12 +315,12 @@
       <pre class="lines">
 
 
-1611
-1612
-1613</pre>
+1637
+1638
+1639</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1611</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1637</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info_for_app'>info_for_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -349,8 +341,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get config-vars for a release.</p>
+    <p>Get config-vars for a release.</p>
 
 
   </div>
@@ -369,8 +360,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -385,8 +375,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of release or unique version assigned to the release</p>
+        <div class='inline'><p>unique identifier of release or unique version assigned to the release</p>
 </div>
       
     </li>
@@ -400,12 +389,12 @@
       <pre class="lines">
 
 
-1619
-1620
-1621</pre>
+1645
+1646
+1647</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1619</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1645</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_for_app_release'>info_for_app_release</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_info_for_app_release'>info_for_app_release</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
@@ -426,8 +415,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to <code>null</code>.</p>
+    <p>Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to <code>null</code>.</p>
 
 
   </div>
@@ -446,8 +434,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -462,8 +449,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -477,12 +463,12 @@
       <pre class="lines">
 
 
-1627
-1628
-1629</pre>
+1653
+1654
+1655</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1627</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1653</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_config_var'>config_var</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -497,9 +483,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AddonWebhookDelivery
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Represents the delivery of a webhook notification, including its current status.</p>
+    <p>Represents the delivery of a webhook notification, including its current status.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the info for an existing delivery.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the info for an existing delivery.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AddonWebhookDelivery.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AddonWebhookDelivery.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Lists existing deliveries for an add-on.</p>
+    <span class="summary_desc"><div class='inline'><p>Lists existing deliveries for an add-on.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AddonWebhookDelivery.</p>
+    <p>Returns a new instance of AddonWebhookDelivery.</p>
 
 
   </div>
@@ -231,12 +226,12 @@
       <pre class="lines">
 
 
-1008
-1009
-1010</pre>
+1034
+1035
+1036</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1008</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1034</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,8 +259,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the info for an existing delivery. Can only be accessed by the add-on partner providing this add-on.</p>
+    <p>Returns the info for an existing delivery.  Can only be accessed by the add-on partner providing this add-on.</p>
 
 
   </div>
@@ -284,8 +278,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -300,8 +293,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the delivery’s unique identifier</p>
+        <div class='inline'><p>the delivery&#39;s unique identifier</p>
 </div>
       
     </li>
@@ -315,12 +307,12 @@
       <pre class="lines">
 
 
-1016
-1017
-1018</pre>
+1042
+1043
+1044</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1016</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1042</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_delivery_id'>app_webhook_delivery_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_webhook_delivery'>addon_webhook_delivery</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_delivery_id'>app_webhook_delivery_id</span><span class='rparen'>)</span>
@@ -341,8 +333,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Lists existing deliveries for an add-on. Can only be accessed by the add-on partner providing this add-on.</p>
+    <p>Lists existing deliveries for an add-on.  Can only be accessed by the add-on partner providing this add-on.</p>
 
 
   </div>
@@ -361,8 +352,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -376,12 +366,12 @@
       <pre class="lines">
 
 
-1023
-1024
-1025</pre>
+1049
+1050
+1051</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1023</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1049</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_webhook_delivery'>addon_webhook_delivery</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -396,9 +386,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:24 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

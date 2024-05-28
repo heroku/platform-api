@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::TeamApp
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A team app encapsulates the team specific functionality of Heroku apps.</p>
+    <p>A team app encapsulates the team specific functionality of Heroku apps.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
 </div></span>
   
 </li>
@@ -152,7 +150,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info-instance_method" title="#info (instance method)">#<strong>info</strong>(app_name)  &#x21d2; Object </a>
+      <a href="#info-instance_method" title="#info (instance method)">#<strong>info</strong>(team_app_identity)  &#x21d2; Object </a>
     
 
     
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for a team app.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for a team app.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of TeamApp.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of TeamApp.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List team apps.</p>
+    <span class="summary_desc"><div class='inline'><p>List team apps.</p>
 </div></span>
   
 </li>
@@ -226,7 +221,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#transfer_to_account-instance_method" title="#transfer_to_account (instance method)">#<strong>transfer_to_account</strong>(app_name, body = {})  &#x21d2; Object </a>
+      <a href="#transfer_to_account-instance_method" title="#transfer_to_account (instance method)">#<strong>transfer_to_account</strong>(team_app_identity, body = {})  &#x21d2; Object </a>
     
 
     
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Transfer an existing team app to another Heroku account.</p>
+    <span class="summary_desc"><div class='inline'><p>Transfer an existing team app to another Heroku account.</p>
 </div></span>
   
 </li>
@@ -250,7 +244,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#transfer_to_team-instance_method" title="#transfer_to_team (instance method)">#<strong>transfer_to_team</strong>(app_name, body = {})  &#x21d2; Object </a>
+      <a href="#transfer_to_team-instance_method" title="#transfer_to_team (instance method)">#<strong>transfer_to_team</strong>(team_app_identity, body = {})  &#x21d2; Object </a>
     
 
     
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Transfer an existing team app to another team.</p>
+    <span class="summary_desc"><div class='inline'><p>Transfer an existing team app to another team.</p>
 </div></span>
   
 </li>
@@ -274,7 +267,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_locked-instance_method" title="#update_locked (instance method)">#<strong>update_locked</strong>(app_name, body = {})  &#x21d2; Object </a>
+      <a href="#update_locked-instance_method" title="#update_locked (instance method)">#<strong>update_locked</strong>(team_app_identity, body = {})  &#x21d2; Object </a>
     
 
     
@@ -288,8 +281,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Lock or unlock a team app.</p>
+    <span class="summary_desc"><div class='inline'><p>Lock or unlock a team app.</p>
 </div></span>
   
 </li>
@@ -312,8 +304,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of TeamApp.</p>
+    <p>Returns a new instance of TeamApp.</p>
 
 
   </div>
@@ -327,12 +318,12 @@
       <pre class="lines">
 
 
-3111
-3112
-3113</pre>
+3137
+3138
+3139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3111</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -360,8 +351,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
+    <p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
 
 
   </div>
@@ -380,8 +370,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -395,12 +384,12 @@
       <pre class="lines">
 
 
-3118
-3119
-3120</pre>
+3144
+3145
+3146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3118</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -413,7 +402,7 @@
       <div class="method_details ">
   <h3 class="signature " id="info-instance_method">
   
-    #<strong>info</strong>(app_name)  &#x21d2; <tt>Object</tt> 
+    #<strong>info</strong>(team_app_identity)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -421,8 +410,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for a team app.</p>
+    <p>Info for a team app.</p>
 
 
   </div>
@@ -433,17 +421,12 @@
   
     <li>
       
-        <span class='name'>app_name:</span>
+        <span class='name'>team_app_identity:</span>
       
       
         <span class='type'></span>
       
       
-      
-        &mdash;
-        <div class='inline'>
-<p>unique name of app</p>
-</div>
       
     </li>
   
@@ -456,15 +439,15 @@
       <pre class="lines">
 
 
-3125
-3126
-3127</pre>
+3151
+3152
+3153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3125</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3151</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -482,8 +465,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List team apps.</p>
+    <p>List team apps.</p>
 
 
   </div>
@@ -502,8 +484,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team or unique identifier of team</p>
+        <div class='inline'><p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -517,12 +498,12 @@
       <pre class="lines">
 
 
-3156
-3157
-3158</pre>
+3182
+3183
+3184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3156</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -535,7 +516,7 @@
       <div class="method_details ">
   <h3 class="signature " id="transfer_to_account-instance_method">
   
-    #<strong>transfer_to_account</strong>(app_name, body = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>transfer_to_account</strong>(team_app_identity, body = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -543,8 +524,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Transfer an existing team app to another Heroku account.</p>
+    <p>Transfer an existing team app to another Heroku account.</p>
 
 
   </div>
@@ -555,17 +535,12 @@
   
     <li>
       
-        <span class='name'>app_name:</span>
+        <span class='name'>team_app_identity:</span>
       
       
         <span class='type'></span>
       
       
-      
-        &mdash;
-        <div class='inline'>
-<p>unique name of app</p>
-</div>
       
     </li>
   
@@ -579,8 +554,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -594,15 +568,15 @@
       <pre class="lines">
 
 
-3141
-3142
-3143</pre>
+3167
+3168
+3169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3141</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3167</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -612,7 +586,7 @@
       <div class="method_details ">
   <h3 class="signature " id="transfer_to_team-instance_method">
   
-    #<strong>transfer_to_team</strong>(app_name, body = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>transfer_to_team</strong>(team_app_identity, body = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -620,8 +594,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Transfer an existing team app to another team.</p>
+    <p>Transfer an existing team app to another team.</p>
 
 
   </div>
@@ -632,17 +605,12 @@
   
     <li>
       
-        <span class='name'>app_name:</span>
+        <span class='name'>team_app_identity:</span>
       
       
         <span class='type'></span>
       
       
-      
-        &mdash;
-        <div class='inline'>
-<p>unique name of app</p>
-</div>
       
     </li>
   
@@ -656,8 +624,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -671,15 +638,15 @@
       <pre class="lines">
 
 
-3149
-3150
-3151</pre>
+3175
+3176
+3177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3149</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3175</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -689,7 +656,7 @@
       <div class="method_details ">
   <h3 class="signature " id="update_locked-instance_method">
   
-    #<strong>update_locked</strong>(app_name, body = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>update_locked</strong>(team_app_identity, body = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -697,8 +664,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Lock or unlock a team app.</p>
+    <p>Lock or unlock a team app.</p>
 
 
   </div>
@@ -709,17 +675,12 @@
   
     <li>
       
-        <span class='name'>app_name:</span>
+        <span class='name'>team_app_identity:</span>
       
       
         <span class='type'></span>
       
       
-      
-        &mdash;
-        <div class='inline'>
-<p>unique name of app</p>
-</div>
       
     </li>
   
@@ -733,8 +694,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -748,15 +708,15 @@
       <pre class="lines">
 
 
-3133
-3134
-3135</pre>
+3159
+3160
+3161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3133</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3159</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -768,9 +728,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:03 2024 by
+  Generated on Tue May 28 13:37:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AllowedAddonService
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Entities that have been allowed to be used by a Team</p>
+    <p>Entities that have been allowed to be used by a Team</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Allow an Add-on Service.</p>
+    <span class="summary_desc"><div class='inline'><p>Allow an Add-on Service.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Remove an allowed add-on service.</p>
+    <span class="summary_desc"><div class='inline'><p>Remove an allowed add-on service.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AllowedAddonService.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AllowedAddonService.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List all allowed add-on services for a team.</p>
+    <span class="summary_desc"><div class='inline'><p>List all allowed add-on services for a team.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AllowedAddonService.</p>
+    <p>Returns a new instance of AllowedAddonService.</p>
 
 
   </div>
@@ -255,12 +249,12 @@
       <pre class="lines">
 
 
-1179
-1180
-1181</pre>
+1205
+1206
+1207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1179</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -288,8 +282,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Allow an Add-on Service</p>
+    <p>Allow an Add-on Service</p>
 
 
   </div>
@@ -308,8 +301,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team or unique identifier of team</p>
+        <div class='inline'><p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -324,8 +316,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -339,12 +330,12 @@
       <pre class="lines">
 
 
-1194
-1195
-1196</pre>
+1220
+1221
+1222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1194</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_allowed_addon_service'>allowed_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -365,8 +356,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Remove an allowed add-on service</p>
+    <p>Remove an allowed add-on service</p>
 
 
   </div>
@@ -385,8 +375,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team or unique identifier of team</p>
+        <div class='inline'><p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -401,8 +390,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier for this allowed add-on service record or unique name of this add-on-service</p>
+        <div class='inline'><p>unique identifier for this allowed add-on service record or unique name of this add-on-service</p>
 </div>
       
     </li>
@@ -416,12 +404,12 @@
       <pre class="lines">
 
 
-1202
-1203
-1204</pre>
+1228
+1229
+1230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1202</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1228</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_allowed_addon_service_id_or_addon_service_name'>allowed_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_allowed_addon_service'>allowed_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_allowed_addon_service_id_or_addon_service_name'>allowed_addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
@@ -442,8 +430,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List all allowed add-on services for a team</p>
+    <p>List all allowed add-on services for a team</p>
 
 
   </div>
@@ -462,8 +449,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team or unique identifier of team</p>
+        <div class='inline'><p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -477,12 +463,12 @@
       <pre class="lines">
 
 
-1186
-1187
-1188</pre>
+1212
+1213
+1214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1186</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_allowed_addon_service'>allowed_addon_service</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -497,9 +483,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

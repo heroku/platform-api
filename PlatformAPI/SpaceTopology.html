@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::SpaceTopology
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Space Topology provides you with a mechanism for viewing all the running dynos, formations and applications for a space. This is the same data thats used to power our DNS Service Discovery.</p>
+    <p>Space Topology provides you with a mechanism for viewing all the running dynos, formations and applications for a space. This is the same data thats used to power our DNS Service Discovery.</p>
 
 
   </div>
@@ -144,8 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of SpaceTopology.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of SpaceTopology.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Current space topology.</p>
+    <span class="summary_desc"><div class='inline'><p>Current space topology.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of SpaceTopology.</p>
+    <p>Returns a new instance of SpaceTopology.</p>
 
 
   </div>
@@ -207,12 +203,12 @@
       <pre class="lines">
 
 
-2949
-2950
-2951</pre>
+2975
+2976
+2977</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2949</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2975</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -240,8 +236,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Current space topology</p>
+    <p>Current space topology</p>
 
 
   </div>
@@ -260,8 +255,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -275,12 +269,12 @@
       <pre class="lines">
 
 
-2956
-2957
-2958</pre>
+2982
+2983
+2984</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2956</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2982</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_topology'>topology</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space_topology'>space_topology</span><span class='period'>.</span><span class='id identifier rubyid_topology'>topology</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -295,9 +289,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:03 2024 by
+  Generated on Tue May 28 13:37:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

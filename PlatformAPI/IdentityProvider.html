@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::IdentityProvider
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Identity Providers represent the SAML configuration of an Enterprise Account or Team.</p>
+    <p>Identity Providers represent the SAML configuration of teams or an Enterprise account</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create an Identity Provider for a team.</p>
+    <span class="summary_desc"><div class='inline'><p>Create an Identity Provider for a team.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete a team’s Identity Provider.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete a team&#39;s Identity Provider.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of IdentityProvider.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of IdentityProvider.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get a list of a team’s Identity Providers.</p>
+    <span class="summary_desc"><div class='inline'><p>Get a list of a team&#39;s Identity Providers.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update a team’s Identity Provider.</p>
+    <span class="summary_desc"><div class='inline'><p>Update a team&#39;s Identity Provider.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of IdentityProvider.</p>
+    <p>Returns a new instance of IdentityProvider.</p>
 
 
   </div>
@@ -279,12 +272,12 @@
       <pre class="lines">
 
 
-1930
-1931
-1932</pre>
+1956
+1957
+1958</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1930</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1956</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -312,8 +305,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create an Identity Provider for a team</p>
+    <p>Create an Identity Provider for a team</p>
 
 
   </div>
@@ -332,8 +324,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team</p>
+        <div class='inline'><p>unique name of team</p>
 </div>
       
     </li>
@@ -348,8 +339,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -363,12 +353,12 @@
       <pre class="lines">
 
 
-1945
-1946
-1947</pre>
+1971
+1972
+1973</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1945</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1971</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_create_by_team'>create_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -389,8 +379,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete a team’s Identity Provider</p>
+    <p>Delete a team&#39;s Identity Provider</p>
 
 
   </div>
@@ -409,8 +398,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team</p>
+        <div class='inline'><p>unique name of team</p>
 </div>
       
     </li>
@@ -425,8 +413,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this identity provider</p>
+        <div class='inline'><p>unique identifier of this identity provider</p>
 </div>
       
     </li>
@@ -440,12 +427,12 @@
       <pre class="lines">
 
 
-1962
-1963
-1964</pre>
+1988
+1989
+1990</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1962</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1988</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_team'>delete_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='rparen'>)</span>
@@ -466,8 +453,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get a list of a team’s Identity Providers</p>
+    <p>Get a list of a team&#39;s Identity Providers</p>
 
 
   </div>
@@ -486,8 +472,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team</p>
+        <div class='inline'><p>unique name of team</p>
 </div>
       
     </li>
@@ -501,12 +486,12 @@
       <pre class="lines">
 
 
-1937
-1938
-1939</pre>
+1963
+1964
+1965</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1937</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1963</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='rparen'>)</span>
@@ -527,8 +512,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update a team’s Identity Provider</p>
+    <p>Update a team&#39;s Identity Provider</p>
 
 
   </div>
@@ -547,8 +531,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team</p>
+        <div class='inline'><p>unique name of team</p>
 </div>
       
     </li>
@@ -563,8 +546,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this identity provider</p>
+        <div class='inline'><p>unique identifier of this identity provider</p>
 </div>
       
     </li>
@@ -579,8 +561,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -594,12 +575,12 @@
       <pre class="lines">
 
 
-1954
-1955
-1956</pre>
+1980
+1981
+1982</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1954</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1980</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_by_team'>update_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_identity_provider'>identity_provider</span><span class='period'>.</span><span class='id identifier rubyid_update_by_team'>update_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='comma'>,</span> <span class='id identifier rubyid_identity_provider_id'>identity_provider_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -614,9 +595,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:02 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

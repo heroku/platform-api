@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Domain
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Domains define what web routes should be routed to an app on Heroku.</p>
+    <p>Domains define what web routes should be routed to an app on Heroku.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new domain.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new domain.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing domain.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing domain.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing domain.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing domain.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Domain.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Domain.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing domains.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing domains.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Associate an SNI endpoint.</p>
+    <span class="summary_desc"><div class='inline'><p>Associate an SNI endpoint.</p>
 </div></span>
   
 </li>
@@ -288,8 +281,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Domain.</p>
+    <p>Returns a new instance of Domain.</p>
 
 
   </div>
@@ -303,12 +295,12 @@
       <pre class="lines">
 
 
-1660
-1661
-1662</pre>
+1686
+1687
+1688</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1660</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1686</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -336,8 +328,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new domain.</p>
+    <p>Create a new domain.</p>
 
 
   </div>
@@ -356,8 +347,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -372,8 +362,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -387,12 +376,12 @@
       <pre class="lines">
 
 
-1668
-1669
-1670</pre>
+1694
+1695
+1696</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1668</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1694</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -413,8 +402,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing domain</p>
+    <p>Delete an existing domain</p>
 
 
   </div>
@@ -433,8 +421,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -449,8 +436,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this domain or full hostname</p>
+        <div class='inline'><p>unique identifier of this domain or full hostname</p>
 </div>
       
     </li>
@@ -464,12 +450,12 @@
       <pre class="lines">
 
 
-1685
-1686
-1687</pre>
+1711
+1712
+1713</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1685</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1711</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
@@ -490,8 +476,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing domain.</p>
+    <p>Info for existing domain.</p>
 
 
   </div>
@@ -510,8 +495,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -526,8 +510,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this domain or full hostname</p>
+        <div class='inline'><p>unique identifier of this domain or full hostname</p>
 </div>
       
     </li>
@@ -541,12 +524,12 @@
       <pre class="lines">
 
 
-1693
-1694
-1695</pre>
+1719
+1720
+1721</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1693</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1719</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='rparen'>)</span>
@@ -567,8 +550,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing domains.</p>
+    <p>List existing domains.</p>
 
 
   </div>
@@ -587,8 +569,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -602,12 +583,12 @@
       <pre class="lines">
 
 
-1700
-1701
-1702</pre>
+1726
+1727
+1728</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1700</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1726</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -628,8 +609,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Associate an SNI endpoint</p>
+    <p>Associate an SNI endpoint</p>
 
 
   </div>
@@ -648,8 +628,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -664,8 +643,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this domain or full hostname</p>
+        <div class='inline'><p>unique identifier of this domain or full hostname</p>
 </div>
       
     </li>
@@ -680,8 +658,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -695,12 +672,12 @@
       <pre class="lines">
 
 
-1677
-1678
-1679</pre>
+1703
+1704
+1705</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1677</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1703</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_domain'>domain</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_domain_id_or_domain_hostname'>domain_id_or_domain_hostname</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -715,9 +692,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:02 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

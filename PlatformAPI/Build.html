@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Build
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A build represents the process of transforming a code tarball into a slug</p>
+    <p>A build represents the process of transforming a code tarball into a slug</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Cancel running build.</p>
+    <span class="summary_desc"><div class='inline'><p>Cancel running build.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new build.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new build.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Destroy a build cache.</p>
+    <span class="summary_desc"><div class='inline'><p>Destroy a build cache.</p>
 </div></span>
   
 </li>
@@ -214,8 +210,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing build.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing build.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Build.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Build.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing build.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing build.</p>
 </div></span>
   
 </li>
@@ -288,8 +281,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Build.</p>
+    <p>Returns a new instance of Build.</p>
 
 
   </div>
@@ -303,12 +295,12 @@
       <pre class="lines">
 
 
-1499
-1500
-1501</pre>
+1525
+1526
+1527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1499</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1525</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -336,8 +328,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Cancel running build.</p>
+    <p>Cancel running build.</p>
 
 
   </div>
@@ -356,8 +347,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -372,8 +362,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of build</p>
+        <div class='inline'><p>unique identifier of build</p>
 </div>
       
     </li>
@@ -387,12 +376,12 @@
       <pre class="lines">
 
 
-1537
-1538
-1539</pre>
+1563
+1564
+1565</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1537</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1563</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cancel'>cancel</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_build_id'>build_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='period'>.</span><span class='id identifier rubyid_cancel'>cancel</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_build_id'>build_id</span><span class='rparen'>)</span>
@@ -413,8 +402,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new build.</p>
+    <p>Create a new build.</p>
 
 
   </div>
@@ -433,8 +421,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -449,8 +436,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -464,12 +450,12 @@
       <pre class="lines">
 
 
-1507
-1508
-1509</pre>
+1533
+1534
+1535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1507</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1533</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -490,8 +476,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Destroy a build cache.</p>
+    <p>Destroy a build cache.</p>
 
 
   </div>
@@ -510,8 +495,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -525,12 +509,12 @@
       <pre class="lines">
 
 
-1529
-1530
-1531</pre>
+1555
+1556
+1557</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1529</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1555</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_cache'>delete_cache</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='period'>.</span><span class='id identifier rubyid_delete_cache'>delete_cache</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -551,8 +535,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing build.</p>
+    <p>Info for existing build.</p>
 
 
   </div>
@@ -571,8 +554,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -587,8 +569,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of build</p>
+        <div class='inline'><p>unique identifier of build</p>
 </div>
       
     </li>
@@ -602,12 +583,12 @@
       <pre class="lines">
 
 
-1515
-1516
-1517</pre>
+1541
+1542
+1543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1515</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1541</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_build_id'>build_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_build_id'>build_id</span><span class='rparen'>)</span>
@@ -628,8 +609,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing build.</p>
+    <p>List existing build.</p>
 
 
   </div>
@@ -648,8 +628,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -663,12 +642,12 @@
       <pre class="lines">
 
 
-1522
-1523
-1524</pre>
+1548
+1549
+1550</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1522</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1548</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -683,9 +662,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AppSetup
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.</p>
+    <p>An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new app setup from a gzipped tar archive containing an app.json manifest file.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new app setup from a gzipped tar archive containing an app.json manifest file.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get the status of an app setup.</p>
+    <span class="summary_desc"><div class='inline'><p>Get the status of an app setup.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AppSetup.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AppSetup.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of AppSetup.</p>
+    <p>Returns a new instance of AppSetup.</p>
 
 
   </div>
@@ -231,12 +226,12 @@
       <pre class="lines">
 
 
-1240
-1241
-1242</pre>
+1266
+1267
+1268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1240</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,8 +259,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new app setup from a gzipped tar archive containing an app.json manifest file.</p>
+    <p>Create a new app setup from a gzipped tar archive containing an app.json manifest file.</p>
 
 
   </div>
@@ -284,8 +278,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -299,12 +292,12 @@
       <pre class="lines">
 
 
-1247
-1248
-1249</pre>
+1273
+1274
+1275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1247</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1273</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_setup'>app_setup</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -325,8 +318,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get the status of an app setup.</p>
+    <p>Get the status of an app setup.</p>
 
 
   </div>
@@ -345,8 +337,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app setup</p>
+        <div class='inline'><p>unique identifier of app setup</p>
 </div>
       
     </li>
@@ -360,12 +351,12 @@
       <pre class="lines">
 
 
-1254
-1255
-1256</pre>
+1280
+1281
+1282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1254</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_setup_id'>app_setup_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_setup'>app_setup</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_setup_id'>app_setup_id</span><span class='rparen'>)</span>
@@ -380,9 +371,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

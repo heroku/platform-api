@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Addon
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Add-ons represent add-ons that have been provisioned and attached to one or more apps.</p>
+    <p>Add-ons represent add-ons that have been provisioned and attached to one or more apps.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new add-on.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new add-on.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing add-on.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing add-on.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an existing add-on.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for an existing add-on.</p>
 </div></span>
   
 </li>
@@ -214,8 +210,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an existing add-on.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for an existing add-on.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Addon.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Addon.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List all existing add-ons.</p>
+    <span class="summary_desc"><div class='inline'><p>List all existing add-ons.</p>
 </div></span>
   
 </li>
@@ -288,8 +281,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing add-ons for an app.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing add-ons for an app.</p>
 </div></span>
   
 </li>
@@ -312,8 +304,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List add-ons used across all Team apps.</p>
+    <span class="summary_desc"><div class='inline'><p>List add-ons used across all Team apps.</p>
 </div></span>
   
 </li>
@@ -336,8 +327,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List all existing add-ons a user has access to.</p>
+    <span class="summary_desc"><div class='inline'><p>List all existing add-ons a user has access to.</p>
 </div></span>
   
 </li>
@@ -360,8 +350,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Resolve an add-on from a name, optionally passing an app name.</p>
+    <span class="summary_desc"><div class='inline'><p>Resolve an add-on from a name, optionally passing an app name.</p>
 </div></span>
   
 </li>
@@ -384,8 +373,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Change add-on plan.</p>
+    <span class="summary_desc"><div class='inline'><p>Change add-on plan.</p>
 </div></span>
   
 </li>
@@ -408,8 +396,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Addon.</p>
+    <p>Returns a new instance of Addon.</p>
 
 
   </div>
@@ -423,12 +410,12 @@
       <pre class="lines">
 
 
-1099
-1100
-1101</pre>
+1125
+1126
+1127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1099</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -456,8 +443,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new add-on.</p>
+    <p>Create a new add-on.</p>
 
 
   </div>
@@ -476,8 +462,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -492,8 +477,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -507,12 +491,12 @@
       <pre class="lines">
 
 
-1119
-1120
-1121</pre>
+1145
+1146
+1147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1119</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -533,8 +517,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing add-on.</p>
+    <p>Delete an existing add-on.</p>
 
 
   </div>
@@ -553,8 +536,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -569,8 +551,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -584,12 +565,12 @@
       <pre class="lines">
 
 
-1127
-1128
-1129</pre>
+1153
+1154
+1155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1127</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -610,8 +591,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for an existing add-on.</p>
+    <p>Info for an existing add-on.</p>
 
 
   </div>
@@ -630,8 +610,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -645,12 +624,12 @@
       <pre class="lines">
 
 
-1111
-1112
-1113</pre>
+1137
+1138
+1139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1111</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -671,8 +650,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for an existing add-on.</p>
+    <p>Info for an existing add-on.</p>
 
 
   </div>
@@ -691,8 +669,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -707,8 +684,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -722,12 +698,12 @@
       <pre class="lines">
 
 
-1135
-1136
-1137</pre>
+1161
+1162
+1163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1135</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_by_app'>info_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_info_by_app'>info_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -748,8 +724,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List all existing add-ons.</p>
+    <p>List all existing add-ons.</p>
 
 
   </div>
@@ -763,12 +738,12 @@
       <pre class="lines">
 
 
-1104
-1105
-1106</pre>
+1130
+1131
+1132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1104</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -789,8 +764,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing add-ons for an app.</p>
+    <p>List existing add-ons for an app.</p>
 
 
   </div>
@@ -809,8 +783,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -824,12 +797,12 @@
       <pre class="lines">
 
 
-1142
-1143
-1144</pre>
+1168
+1169
+1170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1142</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -850,8 +823,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List add-ons used across all Team apps</p>
+    <p>List add-ons used across all Team apps</p>
 
 
   </div>
@@ -870,8 +842,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique name of team or unique identifier of team</p>
+        <div class='inline'><p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -885,12 +856,12 @@
       <pre class="lines">
 
 
-1165
-1166
-1167</pre>
+1191
+1192
+1193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1165</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -911,8 +882,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List all existing add-ons a user has access to</p>
+    <p>List all existing add-ons a user has access to</p>
 
 
   </div>
@@ -931,8 +901,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -946,12 +915,12 @@
       <pre class="lines">
 
 
-1158
-1159
-1160</pre>
+1184
+1185
+1186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1158</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1184</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_user'>list_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_list_by_user'>list_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -972,8 +941,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Resolve an add-on from a name, optionally passing an app name. If there are matches it returns at least one add-on (exact match) or many.</p>
+    <p>Resolve an add-on from a name, optionally passing an app name. If there are matches it returns at least one add-on (exact match) or many.</p>
 
 
   </div>
@@ -992,8 +960,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -1007,12 +974,12 @@
       <pre class="lines">
 
 
-1172
-1173
-1174</pre>
+1198
+1199
+1200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1172</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolution'>resolution</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_resolution'>resolution</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -1033,8 +1000,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.</p>
+    <p>Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.</p>
 
 
   </div>
@@ -1053,8 +1019,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -1069,8 +1034,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -1085,8 +1049,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -1100,12 +1063,12 @@
       <pre class="lines">
 
 
-1151
-1152
-1153</pre>
+1177
+1178
+1179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1151</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon'>addon</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -1120,9 +1083,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::SpaceAppAccess
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Space access represents the permissions a particular user has on a particular space.</p>
+    <p>Space access represents the permissions a particular user has on a particular space.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List permissions for a given user on a given space.</p>
+    <span class="summary_desc"><div class='inline'><p>List permissions for a given user on a given space.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of SpaceAppAccess.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of SpaceAppAccess.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List all users and their permissions on a space.</p>
+    <span class="summary_desc"><div class='inline'><p>List all users and their permissions on a space.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing user’s set of permissions on a space.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing user&#39;s set of permissions on a space.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of SpaceAppAccess.</p>
+    <p>Returns a new instance of SpaceAppAccess.</p>
 
 
   </div>
@@ -255,12 +249,12 @@
       <pre class="lines">
 
 
-2904
-2905
-2906</pre>
+2930
+2931
+2932</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2904</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2930</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -288,8 +282,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List permissions for a given user on a given space.</p>
+    <p>List permissions for a given user on a given space.</p>
 
 
   </div>
@@ -308,8 +301,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -324,8 +316,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -339,12 +330,12 @@
       <pre class="lines">
 
 
-2912
-2913
-2914</pre>
+2938
+2939
+2940</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2912</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2938</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space_app_access'>space_app_access</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -365,8 +356,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List all users and their permissions on a space.</p>
+    <p>List all users and their permissions on a space.</p>
 
 
   </div>
@@ -385,8 +375,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -400,12 +389,12 @@
       <pre class="lines">
 
 
-2928
-2929
-2930</pre>
+2954
+2955
+2956</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2928</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2954</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space_app_access'>space_app_access</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -426,8 +415,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing user’s set of permissions on a space.</p>
+    <p>Update an existing user&#39;s set of permissions on a space.</p>
 
 
   </div>
@@ -446,8 +434,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
+        <div class='inline'><p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -462,8 +449,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -478,8 +464,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -493,12 +478,12 @@
       <pre class="lines">
 
 
-2921
-2922
-2923</pre>
+2947
+2948
+2949</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2921</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2947</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_space_app_access'>space_app_access</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -513,9 +498,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:03 2024 by
+  Generated on Tue May 28 13:37:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

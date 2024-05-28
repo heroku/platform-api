@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Collaborator
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A collaborator represents an account that has been given access to an app on Heroku.</p>
+    <p>A collaborator represents an account that has been given access to an app on Heroku.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new collaborator.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new collaborator.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing collaborator.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete an existing collaborator.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing collaborator.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing collaborator.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Collaborator.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Collaborator.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing collaborators.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing collaborators.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Collaborator.</p>
+    <p>Returns a new instance of Collaborator.</p>
 
 
   </div>
@@ -279,12 +272,12 @@
       <pre class="lines">
 
 
-1566
-1567
-1568</pre>
+1592
+1593
+1594</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1566</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1592</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -312,8 +305,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new collaborator.</p>
+    <p>Create a new collaborator.</p>
 
 
   </div>
@@ -332,8 +324,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -348,8 +339,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -363,12 +353,12 @@
       <pre class="lines">
 
 
-1574
-1575
-1576</pre>
+1600
+1601
+1602</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1574</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1600</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -389,8 +379,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete an existing collaborator.</p>
+    <p>Delete an existing collaborator.</p>
 
 
   </div>
@@ -409,8 +398,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -425,8 +413,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>invited email address of collaborator or unique identifier of collaborator</p>
+        <div class='inline'><p>invited email address of collaborator or unique identifier of collaborator</p>
 </div>
       
     </li>
@@ -440,12 +427,12 @@
       <pre class="lines">
 
 
-1582
-1583
-1584</pre>
+1608
+1609
+1610</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1582</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1608</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -466,8 +453,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing collaborator.</p>
+    <p>Info for existing collaborator.</p>
 
 
   </div>
@@ -486,8 +472,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -502,8 +487,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>invited email address of collaborator or unique identifier of collaborator</p>
+        <div class='inline'><p>invited email address of collaborator or unique identifier of collaborator</p>
 </div>
       
     </li>
@@ -517,12 +501,12 @@
       <pre class="lines">
 
 
-1590
-1591
-1592</pre>
+1616
+1617
+1618</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1590</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1616</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email_or_collaborator_id'>collaborator_email_or_collaborator_id</span><span class='rparen'>)</span>
@@ -543,8 +527,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing collaborators.</p>
+    <p>List existing collaborators.</p>
 
 
   </div>
@@ -563,8 +546,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -578,12 +560,12 @@
       <pre class="lines">
 
 
-1597
-1598
-1599</pre>
+1623
+1624
+1625</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1597</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1623</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_collaborator'>collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -598,9 +580,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:01 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

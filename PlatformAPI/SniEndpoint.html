@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::SniEndpoint
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.</p>
+    <p>SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new SNI endpoint.</p>
+    <span class="summary_desc"><div class='inline'><p>Create a new SNI endpoint.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete existing SNI endpoint.</p>
+    <span class="summary_desc"><div class='inline'><p>Delete existing SNI endpoint.</p>
 </div></span>
   
 </li>
@@ -190,8 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing SNI endpoint.</p>
+    <span class="summary_desc"><div class='inline'><p>Info for existing SNI endpoint.</p>
 </div></span>
   
 </li>
@@ -216,8 +212,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of SniEndpoint.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of SniEndpoint.</p>
 </div></span>
   
 </li>
@@ -240,8 +235,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing SNI endpoints.</p>
+    <span class="summary_desc"><div class='inline'><p>List existing SNI endpoints.</p>
 </div></span>
   
 </li>
@@ -264,8 +258,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing SNI endpoint.</p>
+    <span class="summary_desc"><div class='inline'><p>Update an existing SNI endpoint.</p>
 </div></span>
   
 </li>
@@ -288,8 +281,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of SniEndpoint.</p>
+    <p>Returns a new instance of SniEndpoint.</p>
 
 
   </div>
@@ -303,12 +295,12 @@
       <pre class="lines">
 
 
-2838
-2839
-2840</pre>
+2864
+2865
+2866</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2838</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2864</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -336,8 +328,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Create a new SNI endpoint.</p>
+    <p>Create a new SNI endpoint.</p>
 
 
   </div>
@@ -356,8 +347,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -372,8 +362,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -387,12 +376,12 @@
       <pre class="lines">
 
 
-2846
-2847
-2848</pre>
+2872
+2873
+2874</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2846</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2872</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -413,8 +402,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete existing SNI endpoint.</p>
+    <p>Delete existing SNI endpoint.</p>
 
 
   </div>
@@ -433,8 +421,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -449,8 +436,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this SNI endpoint or unique name for SNI endpoint</p>
+        <div class='inline'><p>unique identifier of this SNI endpoint or unique name for SNI endpoint</p>
 </div>
       
     </li>
@@ -464,12 +450,12 @@
       <pre class="lines">
 
 
-2854
-2855
-2856</pre>
+2880
+2881
+2882</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2854</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2880</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
@@ -490,8 +476,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for existing SNI endpoint.</p>
+    <p>Info for existing SNI endpoint.</p>
 
 
   </div>
@@ -510,8 +495,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -526,8 +510,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this SNI endpoint or unique name for SNI endpoint</p>
+        <div class='inline'><p>unique identifier of this SNI endpoint or unique name for SNI endpoint</p>
 </div>
       
     </li>
@@ -541,12 +524,12 @@
       <pre class="lines">
 
 
-2862
-2863
-2864</pre>
+2888
+2889
+2890</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2862</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2888</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='rparen'>)</span>
@@ -567,8 +550,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing SNI endpoints.</p>
+    <p>List existing SNI endpoints.</p>
 
 
   </div>
@@ -587,8 +569,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -602,12 +583,12 @@
       <pre class="lines">
 
 
-2869
-2870
-2871</pre>
+2895
+2896
+2897</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2869</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2895</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -628,8 +609,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Update an existing SNI endpoint.</p>
+    <p>Update an existing SNI endpoint.</p>
 
 
   </div>
@@ -648,8 +628,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
+        <div class='inline'><p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -664,8 +643,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>unique identifier of this SNI endpoint or unique name for SNI endpoint</p>
+        <div class='inline'><p>unique identifier of this SNI endpoint or unique name for SNI endpoint</p>
 </div>
       
     </li>
@@ -680,8 +658,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -695,12 +672,12 @@
       <pre class="lines">
 
 
-2878
-2879
-2880</pre>
+2904
+2905
+2906</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2878</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2904</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sni_endpoint'>sni_endpoint</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sni_endpoint_id_or_sni_endpoint_name'>sni_endpoint_id_or_sni_endpoint_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -715,9 +692,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:03 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>

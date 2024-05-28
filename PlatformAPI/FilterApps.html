@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::FilterApps
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed. Each filter endpoint endpoint is responsible for determining its supported request format. The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.</p>
+    <p>Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.</p>
 
 
   </div>
@@ -142,8 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Request an apps list filtered by app id.</p>
+    <span class="summary_desc"><div class='inline'><p>Request an apps list filtered by app id.</p>
 </div></span>
   
 </li>
@@ -168,8 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of FilterApps.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of FilterApps.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of FilterApps.</p>
+    <p>Returns a new instance of FilterApps.</p>
 
 
   </div>
@@ -207,12 +203,12 @@
       <pre class="lines">
 
 
-1877
-1878
-1879</pre>
+1903
+1904
+1905</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1877</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1903</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -240,8 +236,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Request an apps list filtered by app id.</p>
+    <p>Request an apps list filtered by app id.</p>
 
 
   </div>
@@ -260,8 +255,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
+        <div class='inline'><p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -275,12 +269,12 @@
       <pre class="lines">
 
 
-1884
-1885
-1886</pre>
+1910
+1911
+1912</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1884</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1910</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apps'>apps</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_filter_apps'>filter_apps</span><span class='period'>.</span><span class='id identifier rubyid_apps'>apps</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -295,9 +289,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 11 17:02:02 2024 by
+  Generated on Tue May 28 13:37:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-2.6.6).
 </div>
 
     </div>
