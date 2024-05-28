@@ -4,6 +4,10 @@
 
 - Pull latest JSON Schema and regenerated API.
 
+## 3.6.0
+
+- Pull latest JSON Schema and regenerated API.
+
 ## 3.5.0
 
 - Pull latest JSON Schema and regenerated API.

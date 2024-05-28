@@ -4,6 +4,58 @@
     "object"
   ],
   "definitions": {
+    "account-delinquency": {
+      "description": "A Heroku account becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent accounts if their invoices remain unpaid.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Account Delinquency",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "scheduled_suspension_time": {
+          "description": "scheduled time of when we will suspend your account due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scheduled_deletion_time": {
+          "description": "scheduled time of when we will delete your account due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Account delinquency information.",
+          "href": "/account/delinquency",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/account-delinquency"
+          },
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "scheduled_suspension_time": {
+          "$ref": "#/definitions/account-delinquency/definitions/scheduled_suspension_time"
+        },
+        "scheduled_deletion_time": {
+          "$ref": "#/definitions/account-delinquency/definitions/scheduled_deletion_time"
+        }
+      }
+    },
     "account-feature": {
       "description": "An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -5897,7 +5949,7 @@
           ]
         },
         "size": {
-          "description": "dyno size (default: \"standard-1X\")",
+          "description": "dyno size",
           "example": "standard-1X",
           "readOnly": false,
           "type": [
@@ -6799,6 +6851,9 @@
           "anyOf": [
             {
               "$ref": "#/definitions/enterprise-account/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/enterprise-account/definitions/name"
             }
           ]
         },
@@ -7049,7 +7104,7 @@
           ]
         },
         "size": {
-          "description": "dyno size (default: \"standard-1X\")",
+          "description": "dyno size",
           "example": "standard-1X",
           "readOnly": false,
           "type": [
@@ -7223,7 +7278,7 @@
       }
     },
     "identity-provider": {
-      "description": "Identity Providers represent the SAML configuration of an Enterprise Account or Team.",
+      "description": "Identity Providers represent the SAML configuration of teams or an Enterprise account",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -8854,7 +8909,7 @@
           "title": "Delete"
         },
         {
-          "description": "Info for an OAuth client",
+          "description": "Info for an OAuth client. The output for unauthenticated requests excludes the `secret` parameter.",
           "href": "/oauth/clients/{(%23%2Fdefinitions%2Foauth-client%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
@@ -9035,7 +9090,7 @@
         },
         "token": {
           "description": "contents of the token to be used for authorization",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "example": "HRKU-01234567-89ab-cdef-0123-456789abcdef",
           "readOnly": true,
           "type": [
             "string"
@@ -9233,9 +9288,11 @@
     "outbound-ruleset": {
       "description": "An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. ",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
+      "stability": "deprecation",
       "strictProperties": true,
       "title": "Heroku Platform API - Outbound Ruleset",
+      "deprecated_at": "2024-04-30",
+      "deactivate_on": "2024-06-03",
       "type": [
         "object"
       ],
@@ -13399,7 +13456,7 @@
     "space": {
       "description": "A space is an isolated, highly available, secure app execution environment.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
+      "stability": "production",
       "strictProperties": true,
       "title": "Heroku Platform API - Space",
       "type": [
@@ -14062,11 +14119,7 @@
           ]
         },
         "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/app/definitions/name"
-            }
-          ]
+          "$ref": "#/definitions/app/definitions/name"
         },
         "internal_routing": {
           "default": false,
@@ -14545,6 +14598,58 @@
         },
         "space": {
           "$ref": "#/definitions/team-daily-usage/definitions/space"
+        }
+      }
+    },
+    "team-delinquency": {
+      "description": "A Heroku team becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent teams if their invoices remain unpaid.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Team Delinquency",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "scheduled_suspension_time": {
+          "description": "scheduled time of when we will suspend your team due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scheduled_deletion_time": {
+          "description": "scheduled time of when we will delete your team due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Team delinquency information.",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/delinquency",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/team-delinquency"
+          },
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "scheduled_suspension_time": {
+          "$ref": "#/definitions/team-delinquency/definitions/scheduled_suspension_time"
+        },
+        "scheduled_deletion_time": {
+          "$ref": "#/definitions/team-delinquency/definitions/scheduled_deletion_time"
         }
       }
     },
@@ -15211,7 +15316,7 @@
           ]
         },
         "two_factor_authentication": {
-          "description": "whether the Enterprise team member has two factor authentication enabled",
+          "description": "whether the team member has two factor authentication enabled",
           "example": true,
           "readOnly": true,
           "type": [
@@ -17351,6 +17456,9 @@
     }
   },
   "properties": {
+    "account-delinquency": {
+      "$ref": "#/definitions/account-delinquency"
+    },
     "account-feature": {
       "$ref": "#/definitions/account-feature"
     },
@@ -17599,6 +17707,9 @@
     },
     "team-daily-usage": {
       "$ref": "#/definitions/team-daily-usage"
+    },
+    "team-delinquency": {
+      "$ref": "#/definitions/team-delinquency"
     },
     "team-feature": {
       "$ref": "#/definitions/team-feature"

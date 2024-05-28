@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.6.0"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.7.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -96,6 +96,13 @@ module PlatformAPI
   class Client
     def initialize(client)
       @client = client
+    end
+
+    # A Heroku account becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent accounts if their invoices remain unpaid.
+    #
+    # @return [AccountDelinquency]
+    def account_delinquency
+      @account_delinquency_resource ||= AccountDelinquency.new(@client)
     end
 
     # An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.
@@ -350,7 +357,7 @@ module PlatformAPI
       @formation_resource ||= Formation.new(@client)
     end
 
-    # Identity Providers represent the SAML configuration of an Enterprise Account or Team.
+    # Identity Providers represent the SAML configuration of teams or an Enterprise account
     #
     # @return [IdentityProvider]
     def identity_provider
@@ -679,6 +686,13 @@ module PlatformAPI
       @team_daily_usage_resource ||= TeamDailyUsage.new(@client)
     end
 
+    # A Heroku team becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent teams if their invoices remain unpaid.
+    #
+    # @return [TeamDelinquency]
+    def team_delinquency
+      @team_delinquency_resource ||= TeamDelinquency.new(@client)
+    end
+
     # A team feature represents a feature enabled on a team account.
     #
     # @return [TeamFeature]
@@ -772,6 +786,18 @@ module PlatformAPI
   end
 
   private
+
+  # A Heroku account becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent accounts if their invoices remain unpaid.
+  class AccountDelinquency
+    def initialize(client)
+      @client = client
+    end
+
+    # Account delinquency information.
+    def info()
+      @client.account_delinquency.info()
+    end
+  end
 
   # An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.
   class AccountFeature
@@ -1465,18 +1491,18 @@ module PlatformAPI
 
     # Get archive for a single month.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
     # @param archive_year: year of the archive
     # @param archive_month: month of the archive
-    def info(enterprise_account_id, archive_year, archive_month)
-      @client.archive.info(enterprise_account_id, archive_year, archive_month)
+    def info(enterprise_account_id_or_enterprise_account_name, archive_year, archive_month)
+      @client.archive.info(enterprise_account_id_or_enterprise_account_name, archive_year, archive_month)
     end
 
     # List existing archives.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
-    def list(enterprise_account_id)
-      @client.archive.list(enterprise_account_id)
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
+    def list(enterprise_account_id_or_enterprise_account_name)
+      @client.archive.list(enterprise_account_id_or_enterprise_account_name)
     end
   end
 
@@ -1488,9 +1514,9 @@ module PlatformAPI
 
     # List existing events. Returns all events for one day, defaulting to current day. Order, actor, action, and type, and day query params can be specified as query parameters. For example, '/enterprise-accounts/:id/events?order=desc&actor=user@example.com&action=create&type=app&day=2020-09-30' would return events in descending order and only return app created events by the user with user@example.com email address.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
-    def list(enterprise_account_id)
-      @client.audit_trail_event.list(enterprise_account_id)
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
+    def list(enterprise_account_id_or_enterprise_account_name)
+      @client.audit_trail_event.list(enterprise_account_id_or_enterprise_account_name)
     end
   end
 
@@ -1798,34 +1824,34 @@ module PlatformAPI
 
     # List members in an enterprise account.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
-    def list(enterprise_account_id)
-      @client.enterprise_account_member.list(enterprise_account_id)
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
+    def list(enterprise_account_id_or_enterprise_account_name)
+      @client.enterprise_account_member.list(enterprise_account_id_or_enterprise_account_name)
     end
 
     # Create a member in an enterprise account.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
     # @param body: the object to pass as the request payload
-    def create(enterprise_account_id, body = {})
-      @client.enterprise_account_member.create(enterprise_account_id, body)
+    def create(enterprise_account_id_or_enterprise_account_name, body = {})
+      @client.enterprise_account_member.create(enterprise_account_id_or_enterprise_account_name, body)
     end
 
     # Update a member in an enterprise account.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
     # @param account_email_or_account_id: unique email address of account or unique identifier of an account
     # @param body: the object to pass as the request payload
-    def update(enterprise_account_id, account_email_or_account_id, body = {})
-      @client.enterprise_account_member.update(enterprise_account_id, account_email_or_account_id, body)
+    def update(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id, body = {})
+      @client.enterprise_account_member.update(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id, body)
     end
 
     # delete a member in an enterprise account.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
     # @param account_email_or_account_id: unique email address of account or unique identifier of an account
-    def delete(enterprise_account_id, account_email_or_account_id)
-      @client.enterprise_account_member.delete(enterprise_account_id, account_email_or_account_id)
+    def delete(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id)
+      @client.enterprise_account_member.delete(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id)
     end
   end
 
@@ -1858,17 +1884,17 @@ module PlatformAPI
 
     # Information about an enterprise account.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
-    def info(enterprise_account_id)
-      @client.enterprise_account.info(enterprise_account_id)
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
+    def info(enterprise_account_id_or_enterprise_account_name)
+      @client.enterprise_account.info(enterprise_account_id_or_enterprise_account_name)
     end
 
     # Update enterprise account properties
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
     # @param body: the object to pass as the request payload
-    def update(enterprise_account_id, body = {})
-      @client.enterprise_account.update(enterprise_account_id, body)
+    def update(enterprise_account_id_or_enterprise_account_name, body = {})
+      @client.enterprise_account.update(enterprise_account_id_or_enterprise_account_name, body)
     end
   end
 
@@ -1925,7 +1951,7 @@ module PlatformAPI
     end
   end
 
-  # Identity Providers represent the SAML configuration of an Enterprise Account or Team.
+  # Identity Providers represent the SAML configuration of teams or an Enterprise account
   class IdentityProvider
     def initialize(client)
       @client = client
@@ -2187,7 +2213,7 @@ module PlatformAPI
       @client.oauth_client.delete(oauth_client_id)
     end
 
-    # Info for an OAuth client
+    # Info for an OAuth client. The output for unauthenticated requests excludes the `secret` parameter.
     #
     # @param oauth_client_id: unique identifier of this OAuth client
     def info(oauth_client_id)
@@ -3063,34 +3089,34 @@ module PlatformAPI
 
     # Delete an existing collaborator from a team app.
     #
-    # @param app_name: unique name of app
+    # @param team_app_identity: 
     # @param collaborator_email: invited email address of collaborator
-    def delete(app_name, collaborator_email)
-      @client.team_app_collaborator.delete(app_name, collaborator_email)
+    def delete(team_app_identity, collaborator_email)
+      @client.team_app_collaborator.delete(team_app_identity, collaborator_email)
     end
 
     # Info for a collaborator on a team app.
     #
-    # @param app_name: unique name of app
+    # @param team_app_identity: 
     # @param collaborator_email: invited email address of collaborator
-    def info(app_name, collaborator_email)
-      @client.team_app_collaborator.info(app_name, collaborator_email)
+    def info(team_app_identity, collaborator_email)
+      @client.team_app_collaborator.info(team_app_identity, collaborator_email)
     end
 
     # Update an existing collaborator from a team app.
     #
-    # @param app_name: unique name of app
+    # @param team_app_identity: 
     # @param collaborator_email: invited email address of collaborator
     # @param body: the object to pass as the request payload
-    def update(app_name, collaborator_email, body = {})
-      @client.team_app_collaborator.update(app_name, collaborator_email, body)
+    def update(team_app_identity, collaborator_email, body = {})
+      @client.team_app_collaborator.update(team_app_identity, collaborator_email, body)
     end
 
     # List collaborators on a team app.
     #
-    # @param app_name: unique name of app
-    def list(app_name)
-      @client.team_app_collaborator.list(app_name)
+    # @param team_app_identity: 
+    def list(team_app_identity)
+      @client.team_app_collaborator.list(team_app_identity)
     end
   end
 
@@ -3121,33 +3147,33 @@ module PlatformAPI
 
     # Info for a team app.
     #
-    # @param app_name: unique name of app
-    def info(app_name)
-      @client.team_app.info(app_name)
+    # @param team_app_identity: 
+    def info(team_app_identity)
+      @client.team_app.info(team_app_identity)
     end
 
     # Lock or unlock a team app.
     #
-    # @param app_name: unique name of app
+    # @param team_app_identity: 
     # @param body: the object to pass as the request payload
-    def update_locked(app_name, body = {})
-      @client.team_app.update_locked(app_name, body)
+    def update_locked(team_app_identity, body = {})
+      @client.team_app.update_locked(team_app_identity, body)
     end
 
     # Transfer an existing team app to another Heroku account.
     #
-    # @param app_name: unique name of app
+    # @param team_app_identity: 
     # @param body: the object to pass as the request payload
-    def transfer_to_account(app_name, body = {})
-      @client.team_app.transfer_to_account(app_name, body)
+    def transfer_to_account(team_app_identity, body = {})
+      @client.team_app.transfer_to_account(team_app_identity, body)
     end
 
     # Transfer an existing team app to another team.
     #
-    # @param app_name: unique name of app
+    # @param team_app_identity: 
     # @param body: the object to pass as the request payload
-    def transfer_to_team(app_name, body = {})
-      @client.team_app.transfer_to_team(app_name, body)
+    def transfer_to_team(team_app_identity, body = {})
+      @client.team_app.transfer_to_team(team_app_identity, body)
     end
 
     # List team apps.
@@ -3171,6 +3197,20 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def info(team_id, body = {})
       @client.team_daily_usage.info(team_id, body)
+    end
+  end
+
+  # A Heroku team becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent teams if their invoices remain unpaid.
+  class TeamDelinquency
+    def initialize(client)
+      @client = client
+    end
+
+    # Team delinquency information.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def info(team_name_or_team_id)
+      @client.team_delinquency.info(team_name_or_team_id)
     end
   end
 
@@ -3410,17 +3450,17 @@ module PlatformAPI
 
     # List teams for an enterprise account.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
-    def list_by_enterprise_account(enterprise_account_id)
-      @client.team.list_by_enterprise_account(enterprise_account_id)
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
+    def list_by_enterprise_account(enterprise_account_id_or_enterprise_account_name)
+      @client.team.list_by_enterprise_account(enterprise_account_id_or_enterprise_account_name)
     end
 
     # Create a team in an enterprise account.
     #
-    # @param enterprise_account_id: unique identifier of the enterprise account
+    # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
     # @param body: the object to pass as the request payload
-    def create_in_enterprise_account(enterprise_account_id, body = {})
-      @client.team.create_in_enterprise_account(enterprise_account_id, body)
+    def create_in_enterprise_account(enterprise_account_id_or_enterprise_account_name, body = {})
+      @client.team.create_in_enterprise_account(enterprise_account_id_or_enterprise_account_name, body)
     end
   end
 
@@ -3572,6 +3612,58 @@ module PlatformAPI
     "object"
   ],
   "definitions": {
+    "account-delinquency": {
+      "description": "A Heroku account becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent accounts if their invoices remain unpaid.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Account Delinquency",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "scheduled_suspension_time": {
+          "description": "scheduled time of when we will suspend your account due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scheduled_deletion_time": {
+          "description": "scheduled time of when we will delete your account due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Account delinquency information.",
+          "href": "/account/delinquency",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/account-delinquency"
+          },
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "scheduled_suspension_time": {
+          "$ref": "#/definitions/account-delinquency/definitions/scheduled_suspension_time"
+        },
+        "scheduled_deletion_time": {
+          "$ref": "#/definitions/account-delinquency/definitions/scheduled_deletion_time"
+        }
+      }
+    },
     "account-feature": {
       "description": "An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -9465,7 +9557,7 @@ module PlatformAPI
           ]
         },
         "size": {
-          "description": "dyno size (default: \"standard-1X\")",
+          "description": "dyno size",
           "example": "standard-1X",
           "readOnly": false,
           "type": [
@@ -10367,6 +10459,9 @@ module PlatformAPI
           "anyOf": [
             {
               "$ref": "#/definitions/enterprise-account/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/enterprise-account/definitions/name"
             }
           ]
         },
@@ -10617,7 +10712,7 @@ module PlatformAPI
           ]
         },
         "size": {
-          "description": "dyno size (default: \"standard-1X\")",
+          "description": "dyno size",
           "example": "standard-1X",
           "readOnly": false,
           "type": [
@@ -10791,7 +10886,7 @@ module PlatformAPI
       }
     },
     "identity-provider": {
-      "description": "Identity Providers represent the SAML configuration of an Enterprise Account or Team.",
+      "description": "Identity Providers represent the SAML configuration of teams or an Enterprise account",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -12422,7 +12517,7 @@ module PlatformAPI
           "title": "Delete"
         },
         {
-          "description": "Info for an OAuth client",
+          "description": "Info for an OAuth client. The output for unauthenticated requests excludes the `secret` parameter.",
           "href": "/oauth/clients/{(%23%2Fdefinitions%2Foauth-client%2Fdefinitions%2Fidentity)}",
           "method": "GET",
           "rel": "self",
@@ -12604,7 +12699,7 @@ module PlatformAPI
         },
         "token": {
           "description": "contents of the token to be used for authorization",
-          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "example": "HRKU-01234567-89ab-cdef-0123-456789abcdef",
           "readOnly": true,
           "type": [
             "string"
@@ -12802,9 +12897,11 @@ module PlatformAPI
     "outbound-ruleset": {
       "description": "An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. ",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
+      "stability": "deprecation",
       "strictProperties": true,
       "title": "Heroku Platform API - Outbound Ruleset",
+      "deprecated_at": "2024-04-30",
+      "deactivate_on": "2024-06-03",
       "type": [
         "object"
       ],
@@ -16970,7 +17067,7 @@ module PlatformAPI
     "space": {
       "description": "A space is an isolated, highly available, secure app execution environment.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "prototype",
+      "stability": "production",
       "strictProperties": true,
       "title": "Heroku Platform API - Space",
       "type": [
@@ -17633,11 +17730,7 @@ module PlatformAPI
           ]
         },
         "identity": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/app/definitions/name"
-            }
-          ]
+          "$ref": "#/definitions/app/definitions/name"
         },
         "internal_routing": {
           "default": false,
@@ -18116,6 +18209,58 @@ module PlatformAPI
         },
         "space": {
           "$ref": "#/definitions/team-daily-usage/definitions/space"
+        }
+      }
+    },
+    "team-delinquency": {
+      "description": "A Heroku team becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent teams if their invoices remain unpaid.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "development",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Team Delinquency",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "scheduled_suspension_time": {
+          "description": "scheduled time of when we will suspend your team due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scheduled_deletion_time": {
+          "description": "scheduled time of when we will delete your team due to delinquency",
+          "example": "2024-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Team delinquency information.",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/delinquency",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/team-delinquency"
+          },
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "scheduled_suspension_time": {
+          "$ref": "#/definitions/team-delinquency/definitions/scheduled_suspension_time"
+        },
+        "scheduled_deletion_time": {
+          "$ref": "#/definitions/team-delinquency/definitions/scheduled_deletion_time"
         }
       }
     },
@@ -18782,7 +18927,7 @@ module PlatformAPI
           ]
         },
         "two_factor_authentication": {
-          "description": "whether the Enterprise team member has two factor authentication enabled",
+          "description": "whether the team member has two factor authentication enabled",
           "example": true,
           "readOnly": true,
           "type": [
@@ -20922,6 +21067,9 @@ module PlatformAPI
     }
   },
   "properties": {
+    "account-delinquency": {
+      "$ref": "#/definitions/account-delinquency"
+    },
     "account-feature": {
       "$ref": "#/definitions/account-feature"
     },
@@ -21170,6 +21318,9 @@ module PlatformAPI
     },
     "team-daily-usage": {
       "$ref": "#/definitions/team-daily-usage"
+    },
+    "team-delinquency": {
+      "$ref": "#/definitions/team-delinquency"
     },
     "team-feature": {
       "$ref": "#/definitions/team-feature"
