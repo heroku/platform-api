@@ -18,6 +18,7 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ${{ matrix.ruby }}
-
+      - name: "Install hatchet"
+        run: hatchet install
       - name: "Run tests"
         run: bundle exec rspec
