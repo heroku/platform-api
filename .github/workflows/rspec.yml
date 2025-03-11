@@ -20,4 +20,4 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
 
       - name: "Run tests"
-        run: bin/rspec
+        run: bundle exec rspec
