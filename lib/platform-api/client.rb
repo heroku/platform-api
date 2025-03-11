@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.7.0"}
+    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.8.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -259,7 +259,7 @@ module PlatformAPI
       @audit_trail_event_resource ||= AuditTrailEvent.new(@client)
     end
 
-    # A build represents the process of transforming a code tarball into a slug
+    # A build represents the process of transforming a code tarball into build artifacts
     #
     # @return [Build]
     def build
@@ -357,6 +357,13 @@ module PlatformAPI
       @formation_resource ||= Formation.new(@client)
     end
 
+    # A generation represents a version of the Heroku platform that includes the app execution environment, routing, telemetry, and build systems.
+    #
+    # @return [Generation]
+    def generation
+      @generation_resource ||= Generation.new(@client)
+    end
+
     # Identity Providers represent the SAML configuration of teams or an Enterprise account
     #
     # @return [IdentityProvider]
@@ -434,11 +441,11 @@ module PlatformAPI
       @oauth_token_resource ||= OauthToken.new(@client)
     end
 
-    # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
+    # An OCI (Open Container Initiative) image is a standardized format for packaging and distributing containerized applications, ready to run on the platform.
     #
-    # @return [OutboundRuleset]
-    def outbound_ruleset
-      @outbound_ruleset_resource ||= OutboundRuleset.new(@client)
+    # @return [OciImage]
+    def oci_image
+      @oci_image_resource ||= OciImage.new(@client)
     end
 
     # A password reset represents a in-process password reset attempt.
@@ -469,14 +476,14 @@ module PlatformAPI
       @permission_entity_resource ||= PermissionEntity.new(@client)
     end
 
-    # Information about latest builds of apps in a pipeline.
+    # Information about the latest builds of apps in a pipeline. A build represents the process of transforming code into build artifacts.
     #
     # @return [PipelineBuild]
     def pipeline_build
       @pipeline_build_resource ||= PipelineBuild.new(@client)
     end
 
-    # Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.
+    # Pipeline config vars in Heroku CI and review apps used to manage the configuration information for a pipeline.
     #
     # @return [PipelineConfigVar]
     def pipeline_config_var
@@ -490,7 +497,7 @@ module PlatformAPI
       @pipeline_coupling_resource ||= PipelineCoupling.new(@client)
     end
 
-    # Information about latest deployments of apps in a pipeline.
+    # Information about the latest deployment of each app in a pipeline. A deployment is the process of moving the build artifacts to a target environment.
     #
     # @return [PipelineDeployment]
     def pipeline_deployment
@@ -511,7 +518,7 @@ module PlatformAPI
       @pipeline_promotion_resource ||= PipelinePromotion.new(@client)
     end
 
-    # Information about latest releases of apps in a pipeline.
+    # Information about the latest release of each app in a pipeline. A release makes a deployment available to end-users.
     #
     # @return [PipelineRelease]
     def pipeline_release
@@ -747,6 +754,13 @@ module PlatformAPI
     # @return [Team]
     def team
       @team_resource ||= Team.new(@client)
+    end
+
+    # A telemetry drain forwards OpenTelemetry traces, metrics, and logs to your own consumer. For Fir-generation apps only.
+    #
+    # @return [TelemetryDrain]
+    def telemetry_drain
+      @telemetry_drain_resource ||= TelemetryDrain.new(@client)
     end
 
     # A single test case belonging to a test run
@@ -1520,7 +1534,7 @@ module PlatformAPI
     end
   end
 
-  # A build represents the process of transforming a code tarball into a slug
+  # A build represents the process of transforming a code tarball into build artifacts
   class Build
     def initialize(client)
       @client = client
@@ -1736,7 +1750,7 @@ module PlatformAPI
 
     # Info for existing dyno size.
     #
-    # @param dyno_size_id_or_dyno_size_name: unique identifier of this dyno size or the name of this dyno-size
+    # @param dyno_size_id_or_dyno_size_name: unique identifier of the dyno size or name of the dyno size
     def info(dyno_size_id_or_dyno_size_name)
       @client.dyno_size.info(dyno_size_id_or_dyno_size_name)
     end
@@ -1744,6 +1758,13 @@ module PlatformAPI
     # List existing dyno sizes.
     def list()
       @client.dyno_size.list()
+    end
+
+    # List available dyno sizes for an app
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def list_app_dyno_sizes(app_id_or_app_name)
+      @client.dyno_size.list_app_dyno_sizes(app_id_or_app_name)
     end
   end
 
@@ -1769,6 +1790,14 @@ module PlatformAPI
       @client.dyno.restart(app_id_or_app_name, dyno_id_or_dyno_name)
     end
 
+    # Restart dynos of a given formation type.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param dyno_formation_type: the formation type of this process on this dyno
+    def restart_formation(app_id_or_app_name, dyno_formation_type)
+      @client.dyno.restart_formation(app_id_or_app_name, dyno_formation_type)
+    end
+
     # Restart all dynos.
     #
     # @param app_id_or_app_name: unique identifier of app or unique name of app
@@ -1782,6 +1811,14 @@ module PlatformAPI
     # @param dyno_id_or_dyno_name: unique identifier of this dyno or the name of this process on this dyno
     def stop(app_id_or_app_name, dyno_id_or_dyno_name)
       @client.dyno.stop(app_id_or_app_name, dyno_id_or_dyno_name)
+    end
+
+    # Stop dynos of a given formation type.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param dyno_formation_type: the formation type of this process on this dyno
+    def stop_formation(app_id_or_app_name, dyno_formation_type)
+      @client.dyno.stop_formation(app_id_or_app_name, dyno_formation_type)
     end
 
     # Info for existing dyno.
@@ -1948,6 +1985,32 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def update(app_id_or_app_name, formation_id_or_formation_type, body = {})
       @client.formation.update(app_id_or_app_name, formation_id_or_formation_type, body)
+    end
+  end
+
+  # A generation represents a version of the Heroku platform that includes the app execution environment, routing, telemetry, and build systems.
+  class Generation
+    def initialize(client)
+      @client = client
+    end
+
+    # Info for generation.
+    #
+    # @param stack_name_or_stack_id: unique name of stack or unique identifier of stack
+    def info(stack_name_or_stack_id)
+      @client.generation.info(stack_name_or_stack_id)
+    end
+
+    # List available generations.
+    def list()
+      @client.generation.list()
+    end
+
+    # List available generations for a team.
+    #
+    # @param team_name_or_team_id: unique name of team or unique identifier of team
+    def list_by_team(team_name_or_team_id)
+      @client.generation.list_by_team(team_name_or_team_id)
     end
   end
 
@@ -2180,6 +2243,14 @@ module PlatformAPI
       @client.oauth_authorization.info(oauth_authorization_id)
     end
 
+    # Update an existing OAuth authorization.
+    #
+    # @param oauth_authorization_id: unique identifier of OAuth authorization
+    # @param body: the object to pass as the request payload
+    def update(oauth_authorization_id, body = {})
+      @client.oauth_authorization.update(oauth_authorization_id, body)
+    end
+
     # List OAuth authorizations.
     def list()
       @client.oauth_authorization.list()
@@ -2269,40 +2340,26 @@ module PlatformAPI
     end
   end
 
-  # An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. 
-  class OutboundRuleset
+  # An OCI (Open Container Initiative) image is a standardized format for packaging and distributing containerized applications, ready to run on the platform.
+  class OciImage
     def initialize(client)
       @client = client
     end
 
-    # Current outbound ruleset for a space
+    # Info for the OCI images of an app, filtered by identifier.
     #
-    # @param space_id_or_space_name: unique identifier of space or unique name of space
-    def current(space_id_or_space_name)
-      @client.outbound_ruleset.current(space_id_or_space_name)
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    # @param oci_image_id_or_oci_image_digest: unique identifier of the OCI image or unique identifier representing the content of the OCI image
+    def info(app_id_or_app_name, oci_image_id_or_oci_image_digest)
+      @client.oci_image.info(app_id_or_app_name, oci_image_id_or_oci_image_digest)
     end
 
-    # Info on an existing Outbound Ruleset
+    # Create an new OCI image of an app
     #
-    # @param space_id_or_space_name: unique identifier of space or unique name of space
-    # @param outbound_ruleset_id: unique identifier of an outbound-ruleset
-    def info(space_id_or_space_name, outbound_ruleset_id)
-      @client.outbound_ruleset.info(space_id_or_space_name, outbound_ruleset_id)
-    end
-
-    # List all Outbound Rulesets for a space
-    #
-    # @param space_id_or_space_name: unique identifier of space or unique name of space
-    def list(space_id_or_space_name)
-      @client.outbound_ruleset.list(space_id_or_space_name)
-    end
-
-    # Create a new outbound ruleset
-    #
-    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
     # @param body: the object to pass as the request payload
-    def create(space_id_or_space_name, body = {})
-      @client.outbound_ruleset.create(space_id_or_space_name, body)
+    def create(app_id_or_app_name, body = {})
+      @client.oci_image.create(app_id_or_app_name, body)
     end
   end
 
@@ -2394,7 +2451,7 @@ module PlatformAPI
     end
   end
 
-  # Information about latest builds of apps in a pipeline.
+  # Information about the latest builds of apps in a pipeline. A build represents the process of transforming code into build artifacts.
   class PipelineBuild
     def initialize(client)
       @client = client
@@ -2408,7 +2465,7 @@ module PlatformAPI
     end
   end
 
-  # Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.
+  # Pipeline config vars in Heroku CI and review apps used to manage the configuration information for a pipeline.
   class PipelineConfigVar
     def initialize(client)
       @client = client
@@ -2499,13 +2556,13 @@ module PlatformAPI
     end
   end
 
-  # Information about latest deployments of apps in a pipeline.
+  # Information about the latest deployment of each app in a pipeline. A deployment is the process of moving the build artifacts to a target environment.
   class PipelineDeployment
     def initialize(client)
       @client = client
     end
 
-    # List latest slug releases for each app in a pipeline
+    # List latest deployments for each app in a pipeline. A deployment is a release that changed your source slug, container image, or Heroku processes.
     #
     # @param pipeline_id: unique identifier of pipeline
     def list(pipeline_id)
@@ -2548,7 +2605,7 @@ module PlatformAPI
     end
   end
 
-  # Information about latest releases of apps in a pipeline.
+  # Information about the latest release of each app in a pipeline. A release makes a deployment available to end-users.
   class PipelineRelease
     def initialize(client)
       @client = client
@@ -3057,6 +3114,13 @@ module PlatformAPI
     def list()
       @client.stack.list()
     end
+
+    # List available app stacks for an app.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def list_by_app(app_id_or_app_name)
+      @client.stack.list_by_app(app_id_or_app_name)
+    end
   end
 
   # 
@@ -3461,6 +3525,56 @@ module PlatformAPI
     # @param body: the object to pass as the request payload
     def create_in_enterprise_account(enterprise_account_id_or_enterprise_account_name, body = {})
       @client.team.create_in_enterprise_account(enterprise_account_id_or_enterprise_account_name, body)
+    end
+  end
+
+  # A telemetry drain forwards OpenTelemetry traces, metrics, and logs to your own consumer. For Fir-generation apps only.
+  class TelemetryDrain
+    def initialize(client)
+      @client = client
+    end
+
+    # Create a telemetry drain.
+    #
+    # @param body: the object to pass as the request payload
+    def create(body = {})
+      @client.telemetry_drain.create(body)
+    end
+
+    # List telemetry drains for an app.
+    #
+    # @param app_id_or_app_name: unique identifier of app or unique name of app
+    def list_by_app(app_id_or_app_name)
+      @client.telemetry_drain.list_by_app(app_id_or_app_name)
+    end
+
+    # List telemetry drains for a space.
+    #
+    # @param space_id_or_space_name: unique identifier of space or unique name of space
+    def list_by_space(space_id_or_space_name)
+      @client.telemetry_drain.list_by_space(space_id_or_space_name)
+    end
+
+    # Update a telemetry drain.
+    #
+    # @param telemetry_drain_id: unique identifier of telemetry drain
+    # @param body: the object to pass as the request payload
+    def update(telemetry_drain_id, body = {})
+      @client.telemetry_drain.update(telemetry_drain_id, body)
+    end
+
+    # Delete a telemetry drain.
+    #
+    # @param telemetry_drain_id: unique identifier of telemetry drain
+    def delete(telemetry_drain_id)
+      @client.telemetry_drain.delete(telemetry_drain_id)
+    end
+
+    # Info for a telemetry drain.
+    #
+    # @param telemetry_drain_id: unique identifier of telemetry drain
+    def info(telemetry_drain_id)
+      @client.telemetry_drain.info(telemetry_drain_id)
     end
   end
 
@@ -4955,6 +5069,27 @@ module PlatformAPI
           "type": [
             "string"
           ]
+        },
+        "supported_generations": {
+          "description": "generations supported by this add-on",
+          "readonly": true,
+          "type": [
+            "array"
+          ],
+          "items": {
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/generation/definitions/name",
+                "example": "cedar"
+              },
+              "id": {
+                "$ref": "#/definitions/generation/definitions/id"
+              }
+            }
+          }
         }
       },
       "links": [
@@ -5011,6 +5146,9 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/add-on-service/definitions/updated_at"
+        },
+        "supported_generations": {
+          "$ref": "#/definitions/add-on-service/definitions/supported_generations"
         }
       }
     },
@@ -7401,6 +7539,32 @@ module PlatformAPI
             "string"
           ]
         },
+        "generation": {
+          "description": "Generation of the Heroku platform for this app",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "description": "unique identifier of the generation of the Heroku platform for this app",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "description": "unique name of the generation of the Heroku platform for this app",
+              "example": "cedar",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
         "git_url": {
           "description": "git repo URL of app",
           "example": "https://git.heroku.com/example.git",
@@ -7688,6 +7852,9 @@ module PlatformAPI
         },
         "created_at": {
           "$ref": "#/definitions/app/definitions/created_at"
+        },
+        "generation": {
+          "$ref": "#/definitions/app/definitions/generation"
         },
         "git_url": {
           "$ref": "#/definitions/app/definitions/git_url"
@@ -8144,7 +8311,7 @@ module PlatformAPI
     },
     "build": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "description": "A build represents the process of transforming a code tarball into a slug",
+      "description": "A build represents the process of transforming a code tarball into build artifacts",
       "title": "Heroku Build API - Build",
       "stability": "production",
       "strictProperties": false,
@@ -8161,7 +8328,7 @@ module PlatformAPI
       ],
       "definitions": {
         "buildpacks": {
-          "description": "buildpacks executed for this build, in order",
+          "description": "buildpacks executed for this build, in order (only applicable to Cedar-generation apps)",
           "type": [
             "array",
             "null"
@@ -8431,7 +8598,7 @@ module PlatformAPI
           "$ref": "#/definitions/build/definitions/release"
         },
         "slug": {
-          "description": "slug created by this build",
+          "description": "slug created by this build (only applicable for Cedar-generation apps)",
           "properties": {
             "id": {
               "$ref": "#/definitions/slug/definitions/id"
@@ -9296,6 +9463,14 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "architecture": {
+          "description": "CPU architecture of this dyno size",
+          "example": "amd64",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "compute": {
           "description": "minimum vCPUs, non-dedicated may get more depending on load",
           "example": 1,
@@ -9312,8 +9487,34 @@ module PlatformAPI
             "boolean"
           ]
         },
+        "generation": {
+          "description": "Generation of the Heroku platform for this dyno size",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "description": "unique identifier of the generation of the Heroku platform for this dyno size",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "description": "unique name of the generation of the Heroku platform for this dyno size",
+              "example": "cedar",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
         "id": {
-          "description": "unique identifier of this dyno size",
+          "description": "unique identifier of the dyno size",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
@@ -9340,7 +9541,7 @@ module PlatformAPI
           ]
         },
         "name": {
-          "description": "the name of this dyno-size",
+          "description": "name of the dyno size",
           "example": "eco",
           "readOnly": true,
           "type": [
@@ -9372,15 +9573,6 @@ module PlatformAPI
               ]
             }
           }
-        },
-        "dyno_units": {
-          "deprecated": true,
-          "description": "deprecated. See precise_dyno_units instead",
-          "example": 0,
-          "readOnly": true,
-          "type": [
-            "integer"
-          ]
         },
         "precise_dyno_units": {
           "description": "unit of consumption for Heroku Enterprise customers to 2 decimal places",
@@ -9424,9 +9616,24 @@ module PlatformAPI
             ]
           },
           "title": "List"
+        },
+        {
+          "description": "List available dyno sizes for an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/available-dyno-sizes",
+          "method": "GET",
+          "rel": "available-app-dynos",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/dyno-size"
+            }
+          },
+          "title": "List App Dyno Sizes"
         }
       ],
       "properties": {
+        "architecture": {
+          "$ref": "#/definitions/dyno-size/definitions/architecture"
+        },
         "compute": {
           "$ref": "#/definitions/dyno-size/definitions/compute"
         },
@@ -9436,11 +9643,11 @@ module PlatformAPI
         "dedicated": {
           "$ref": "#/definitions/dyno-size/definitions/dedicated"
         },
-        "dyno_units": {
-          "$ref": "#/definitions/dyno-size/definitions/dyno_units"
-        },
         "precise_dyno_units": {
           "$ref": "#/definitions/dyno-size/definitions/precise_dyno_units"
+        },
+        "generation": {
+          "$ref": "#/definitions/dyno-size/definitions/generation"
         },
         "id": {
           "$ref": "#/definitions/dyno-size/definitions/id"
@@ -9542,6 +9749,14 @@ module PlatformAPI
         "name": {
           "description": "the name of this process on this dyno",
           "example": "run.1",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "formation_type": {
+          "description": "the formation type of this process on this dyno",
+          "example": "run",
           "readOnly": true,
           "type": [
             "string"
@@ -9654,6 +9869,19 @@ module PlatformAPI
           "title": "Restart"
         },
         {
+          "description": "Restart dynos of a given formation type.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/formations/{(%23%2Fdefinitions%2Fdyno%2Fdefinitions%2Fformation_type)}",
+          "method": "DELETE",
+          "rel": "empty",
+          "targetSchema": {
+            "additionalProperties": false,
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Restart formation"
+        },
+        {
           "description": "Restart all dynos.",
           "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/dynos",
           "method": "DELETE",
@@ -9678,6 +9906,19 @@ module PlatformAPI
             ]
           },
           "title": "Stop"
+        },
+        {
+          "description": "Stop dynos of a given formation type.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/formations/{(%23%2Fdefinitions%2Fdyno%2Fdefinitions%2Fformation_type)}/actions/stop",
+          "method": "POST",
+          "rel": "empty",
+          "targetSchema": {
+            "additionalProperties": false,
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Stop formation"
         },
         {
           "description": "Info for existing dyno.",
@@ -10234,7 +10475,7 @@ module PlatformAPI
           ]
         },
         "connect": {
-          "description": "average connect rows synced",
+          "description": "max connect rows synced",
           "example": 15000,
           "readOnly": true,
           "type": [
@@ -10684,6 +10925,50 @@ module PlatformAPI
             "string"
           ]
         },
+        "dyno_size": {
+          "description": "dyno size",
+          "example": {
+            "id": "01234567-89ab-cdef-0123-456789abcdef"
+          },
+          "oneOf": [
+            {
+              "required": [
+                "id"
+              ]
+            },
+            {
+              "required": [
+                "name"
+              ]
+            }
+          ],
+          "properties": {
+            "id": {
+              "description": "unique identifier of the dyno size",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "description": "name of the dyno size",
+              "example": "Standard-1X",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "readOnly": false,
+          "required": [
+            "id"
+          ],
+          "type": [
+            "object"
+          ]
+        },
         "id": {
           "description": "unique identifier of this process type",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
@@ -10712,7 +10997,8 @@ module PlatformAPI
           ]
         },
         "size": {
-          "description": "dyno size",
+          "deprecated": true,
+          "description": "deprecated, refer to 'dyno_size' instead",
           "example": "standard-1X",
           "readOnly": false,
           "type": [
@@ -10741,11 +11027,11 @@ module PlatformAPI
           "additionalProperties": false,
           "description": "Properties to update a process type",
           "properties": {
+            "dyno_size": {
+              "$ref": "#/definitions/formation/definitions/dyno_size"
+            },
             "quantity": {
               "$ref": "#/definitions/formation/definitions/quantity"
-            },
-            "size": {
-              "$ref": "#/definitions/formation/definitions/size"
             },
             "type": {
               "$ref": "#/definitions/formation/definitions/type"
@@ -10800,7 +11086,7 @@ module PlatformAPI
                 "items": {
                   "$ref": "#/definitions/formation/definitions/update"
                 },
-                "description": "Array with formation updates. Each element must have \"type\", the id or name of the process type to be updated, and can optionally update its \"quantity\" or \"size\"."
+                "description": "Array with formation updates. Each element must have \"type\", the id or name of the process type to be updated, and can optionally update its \"quantity\" or \"dyno_size\"."
               }
             },
             "required": [
@@ -10827,11 +11113,11 @@ module PlatformAPI
           "rel": "update",
           "schema": {
             "properties": {
+              "dyno_size": {
+                "$ref": "#/definitions/formation/definitions/dyno_size"
+              },
               "quantity": {
                 "$ref": "#/definitions/formation/definitions/quantity"
-              },
-              "size": {
-                "$ref": "#/definitions/formation/definitions/size"
               }
             },
             "type": [
@@ -10868,6 +11154,20 @@ module PlatformAPI
         "created_at": {
           "$ref": "#/definitions/formation/definitions/created_at"
         },
+        "dyno_size": {
+          "description": "dyno size",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/dyno-size/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/dyno-size/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
         "id": {
           "$ref": "#/definitions/formation/definitions/id"
         },
@@ -10882,6 +11182,119 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/formation/definitions/updated_at"
+        }
+      }
+    },
+    "generation": {
+      "description": "A generation represents a version of the Heroku platform that includes the app execution environment, routing, telemetry, and build systems.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Generation",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "created_at": {
+          "description": "when generation was created",
+          "example": "2024-12-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "unique identifier of generation",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/generation/definitions/name"
+            },
+            {
+              "$ref": "#/definitions/generation/definitions/id"
+            }
+          ]
+        },
+        "name": {
+          "description": "unique name of generation",
+          "example": "fir",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when generation was updated",
+          "example": "2024-12-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Info for generation.",
+          "href": "/generations/{(%23%2Fdefinitions%2Fstack%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/generation"
+          },
+          "title": "Info"
+        },
+        {
+          "description": "List available generations.",
+          "href": "/generations",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/generation"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List"
+        },
+        {
+          "description": "List available generations for a team.",
+          "href": "/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/available-generations",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/generation"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List by Team"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/generation/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/generation/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/generation/definitions/name"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/generation/definitions/updated_at"
         }
       }
     },
@@ -11249,6 +11662,9 @@ module PlatformAPI
           "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/inbound-ruleset",
           "method": "PUT",
           "rel": "create",
+          "targetSchema": {
+            "$ref": "#/definitions/inbound-ruleset"
+          },
           "schema": {
             "type": [
               "object"
@@ -12034,9 +12450,17 @@ module PlatformAPI
             "string"
           ]
         },
-        "dyno": {
-          "description": "dyno to limit results to",
-          "example": "web.1",
+        "dyno_name": {
+          "description": "dyno name to limit results to",
+          "example": "'web.1' (Cedar-generation) or 'web-1234abcde-123ab' (Fir-generation)",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "description": "process type to limit results to",
+          "example": "web",
           "readOnly": false,
           "type": [
             "string"
@@ -12108,8 +12532,11 @@ module PlatformAPI
           "rel": "create",
           "schema": {
             "properties": {
-              "dyno": {
-                "$ref": "#/definitions/log-session/definitions/dyno"
+              "dyno_name": {
+                "$ref": "#/definitions/log-session/definitions/dyno_name"
+              },
+              "type": {
+                "$ref": "#/definitions/log-session/definitions/type"
               },
               "lines": {
                 "$ref": "#/definitions/log-session/definitions/lines"
@@ -12268,6 +12695,43 @@ module PlatformAPI
           "title": "Info"
         },
         {
+          "description": "Update an existing OAuth authorization.",
+          "href": "/oauth/authorizations/{(%23%2Fdefinitions%2Foauth-authorization%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "targetSchema": {
+            "$ref": "#/definitions/oauth-authorization"
+          },
+          "schema": {
+            "properties": {
+              "description": {
+                "$ref": "#/definitions/oauth-authorization/definitions/description"
+              },
+              "client": {
+                "type": [
+                  "object"
+                ],
+                "description": "identifier of the client that obtained this authorization",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/oauth-client/definitions/id"
+                  },
+                  "secret": {
+                    "$ref": "#/definitions/oauth-client/definitions/secret"
+                  }
+                }
+              }
+            },
+            "required": [
+              "client"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "title": "Update"
+        },
+        {
           "description": "List OAuth authorizations.",
           "href": "/oauth/authorizations",
           "method": "GET",
@@ -12333,6 +12797,9 @@ module PlatformAPI
         "created_at": {
           "$ref": "#/definitions/oauth-authorization/definitions/created_at"
         },
+        "description": {
+          "$ref": "#/definitions/oauth-authorization/definitions/description"
+        },
         "grant": {
           "description": "this authorization's grant",
           "properties": {
@@ -12376,6 +12843,19 @@ module PlatformAPI
         },
         "scope": {
           "$ref": "#/definitions/oauth-authorization/definitions/scope"
+        },
+        "session": {
+          "description": "this authorization's session",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/oauth-token/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "updated_at": {
           "$ref": "#/definitions/oauth-authorization/definitions/updated_at"
@@ -12894,38 +13374,18 @@ module PlatformAPI
         }
       }
     },
-    "outbound-ruleset": {
-      "description": "An outbound-ruleset is a collection of rules that specify what hosts Dynos are allowed to communicate with. ",
+    "oci-image": {
+      "description": "An OCI (Open Container Initiative) image is a standardized format for packaging and distributing containerized applications, ready to run on the platform.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "stability": "deprecation",
+      "stability": "prototype",
       "strictProperties": true,
-      "title": "Heroku Platform API - Outbound Ruleset",
-      "deprecated_at": "2024-04-30",
-      "deactivate_on": "2024-06-03",
+      "title": "Heroku Platform API - OCI Image",
       "type": [
         "object"
       ],
       "definitions": {
-        "target": {
-          "description": "is the target destination in CIDR notation",
-          "example": "1.1.1.1/1",
-          "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
-          "readOnly": false,
-          "type": [
-            "string"
-          ]
-        },
-        "created_at": {
-          "description": "when outbound-ruleset was created",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
-          "readOnly": true,
-          "type": [
-            "string"
-          ]
-        },
         "id": {
-          "description": "unique identifier of an outbound-ruleset",
+          "description": "unique identifier of the OCI image",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
           "format": "uuid",
           "readOnly": true,
@@ -12933,127 +13393,200 @@ module PlatformAPI
             "string"
           ]
         },
-        "port": {
-          "description": "an endpoint of communication in an operating system.",
-          "example": 80,
-          "readOnly": false,
-          "type": [
-            "integer"
-          ]
-        },
-        "protocol": {
-          "description": "formal standards and policies comprised of rules, procedures and formats that define communication between two or more devices over a network",
-          "example": "tcp",
+        "digest": {
+          "description": "unique identifier representing the content of the OCI image",
+          "example": "sha256:dc14ae5fbc1e7230e0a782bf216fb46500e210631703bcc6bab8acf2c6a23f42",
           "readOnly": false,
           "type": [
             "string"
           ]
         },
+        "architecture": {
+          "description": "build architecture for OCI image",
+          "example": "arm64",
+          "readOnly": false,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
-              "$ref": "#/definitions/outbound-ruleset/definitions/id"
+              "$ref": "#/definitions/oci-image/definitions/id"
+            },
+            {
+              "$ref": "#/definitions/oci-image/definitions/digest"
             }
           ]
         },
-        "rule": {
-          "description": "the combination of an IP address in CIDR notation, a from_port, to_port and protocol.",
+        "base_image_name": {
+          "description": "name of the image used for the base layers of the OCI image",
+          "example": "heroku/heroku:22-cnb",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "base_top_layer": {
+          "description": "the digest of the top most layer of the base image.",
+          "example": "sha256:ea36ae5fbc1e7230e0a782bf216fb46500e210382703baa6bab8acf2c6a23f78",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "commit": {
+          "description": "identification of the code in your version control system (eg: SHA of the git HEAD)",
+          "example": "60883d9e8947a57e04dc9124f25df004866a2051",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "commit_description": {
+          "description": "an optional description of the provided commit",
+          "example": "fixed a bug with API documentation",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "image_repo": {
+          "description": "name of the image registry repository used for storage",
+          "example": "d7ba1ace-b396-4691-968c-37ae53153426/builds",
+          "readOnly": false,
+          "type": [
+            "string"
+          ]
+        },
+        "process_type": {
+          "description": "process type information such as names and commands",
+          "readOnly": false,
+          "properties": {
+            "name": {
+              "description": "name of the process type",
+              "example": "web",
+              "type": [
+                "string"
+              ]
+            },
+            "display_cmd": {
+              "description": "the detailed command used for display purposes",
+              "example": "bundle exec puma -p $PORT",
+              "type": [
+                "string"
+              ]
+            },
+            "command": {
+              "description": "the command that will be executed",
+              "example": "/cnb/process/web",
+              "type": [
+                "string"
+              ]
+            },
+            "working_dir": {
+              "description": "working directory",
+              "example": "/worspace/webapp",
+              "type": [
+                "string"
+              ]
+            },
+            "default": {
+              "description": "true if it is the default process type",
+              "example": true,
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "example": {
+            "name": "web",
+            "display_cmd": "bundle exec puma -p $PORT",
+            "command": "/cnb/process/web",
+            "working_dir": "/workspace/webapp",
+            "default": true
+          },
           "type": [
             "object"
-          ],
-          "properties": {
-            "target": {
-              "$ref": "#/definitions/outbound-ruleset/definitions/target"
-            },
-            "from_port": {
-              "$ref": "#/definitions/outbound-ruleset/definitions/port"
-            },
-            "to_port": {
-              "$ref": "#/definitions/outbound-ruleset/definitions/port"
-            },
-            "protocol": {
-              "$ref": "#/definitions/outbound-ruleset/definitions/protocol"
-            }
-          },
-          "required": [
-            "target",
-            "from_port",
-            "to_port",
-            "protocol"
           ]
-        }
-      },
-      "links": [
-        {
-          "description": "Current outbound ruleset for a space",
-          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-ruleset",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/outbound-ruleset"
-          },
-          "title": "Current"
         },
-        {
-          "description": "Info on an existing Outbound Ruleset",
-          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-rulesets/{(%23%2Fdefinitions%2Foutbound-ruleset%2Fdefinitions%2Fidentity)}",
-          "method": "GET",
-          "rel": "self",
-          "targetSchema": {
-            "$ref": "#/definitions/outbound-ruleset"
-          },
-          "title": "Info"
-        },
-        {
-          "description": "List all Outbound Rulesets for a space",
-          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-rulesets",
-          "method": "GET",
-          "rel": "instances",
-          "targetSchema": {
-            "items": {
-              "$ref": "#/definitions/outbound-ruleset"
-            },
-            "type": [
-              "array"
-            ]
-          },
-          "title": "List"
-        },
-        {
-          "description": "Create a new outbound ruleset",
-          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/outbound-ruleset",
-          "method": "PUT",
-          "rel": "create",
-          "schema": {
-            "type": [
-              "object"
-            ],
-            "properties": {
-              "rules": {
-                "type": [
-                  "array"
-                ],
-                "items": {
-                  "$ref": "#/definitions/outbound-ruleset/definitions/rule"
-                }
-              }
+        "process_types": {
+          "description": "process types of the OCI image",
+          "patternProperties": {
+            "^[-\\w]{1,128}$": {
+              "$ref": "#/definitions/oci-image/definitions/process_type"
             }
           },
-          "title": "Create"
-        }
-      ],
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/outbound-ruleset/definitions/id"
+          "example": {
+            "web": {
+              "name": "web",
+              "display_cmd": "bundle exec puma -p $PORT",
+              "command": "/cnb/process/web",
+              "working_dir": "/workspace/webapp",
+              "default": true
+            }
+          },
+          "type": [
+            "object"
+          ]
         },
-        "space": {
-          "description": "identity of space",
+        "buildpack": {
+          "description": "set of executables that inspects app source code and creates a plan to build and run your image",
+          "readOnly": false,
           "properties": {
             "id": {
-              "$ref": "#/definitions/space/definitions/id"
+              "description": "identifier of the buildpack",
+              "example": "heroku/ruby",
+              "type": [
+                "string"
+              ]
+            },
+            "version": {
+              "description": "version of the buildpack",
+              "example": "2.0.0",
+              "type": [
+                "string"
+              ]
+            },
+            "homepage": {
+              "description": "homepage of the buildpack",
+              "example": "https://github.com/heroku/buildpacks-ruby",
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "example": {
+            "id": "heroku/ruby",
+            "version": "2.0.0",
+            "homepage": "https://github.com/heroku/buildpacks-ruby"
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "buildpacks": {
+          "description": "buildpacks of the OCI image",
+          "items": {
+            "$ref": "#/definitions/oci-image/definitions/buildpack"
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "stack": {
+          "description": "stack associated to the OCI image",
+          "readOnly": false,
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/stack/definitions/id",
+              "example": "ba46bf09-7bd1-42fd-90df-a1a9a93eb4a2"
             },
             "name": {
-              "$ref": "#/definitions/space/definitions/name"
+              "$ref": "#/definitions/stack/definitions/name",
+              "example": "cnb"
             }
           },
           "type": [
@@ -13061,18 +13594,135 @@ module PlatformAPI
           ]
         },
         "created_at": {
-          "$ref": "#/definitions/outbound-ruleset/definitions/created_at"
-        },
-        "rules": {
+          "description": "when the OCI image was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
           "type": [
-            "array"
-          ],
-          "items": {
-            "$ref": "#/definitions/outbound-ruleset/definitions/rule"
-          }
+            "string"
+          ]
         },
-        "created_by": {
-          "$ref": "#/definitions/account/definitions/email"
+        "updated_at": {
+          "description": "when the OCI image was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Info for the OCI images of an app, filtered by identifier.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/oci-images/{(%23%2Fdefinitions%2Foci-image%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/oci-image"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "Info"
+        },
+        {
+          "description": "Create an new OCI image of an app",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/oci-images",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "architecture": {
+                "$ref": "#/definitions/oci-image/definitions/architecture"
+              },
+              "base_image_name": {
+                "$ref": "#/definitions/oci-image/definitions/base_image_name"
+              },
+              "base_top_layer": {
+                "$ref": "#/definitions/oci-image/definitions/base_top_layer"
+              },
+              "commit": {
+                "$ref": "#/definitions/oci-image/definitions/commit"
+              },
+              "commit_description": {
+                "$ref": "#/definitions/oci-image/definitions/commit_description"
+              },
+              "image_repo": {
+                "$ref": "#/definitions/oci-image/definitions/image_repo"
+              },
+              "digest": {
+                "$ref": "#/definitions/oci-image/definitions/digest"
+              },
+              "stack": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/stack/definitions/name",
+                    "example": "cnb"
+                  },
+                  {
+                    "$ref": "#/definitions/stack/definitions/id"
+                  }
+                ]
+              },
+              "process_types": {
+                "$ref": "#/definitions/oci-image/definitions/process_types"
+              },
+              "buildpacks": {
+                "$ref": "#/definitions/oci-image/definitions/buildpacks"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/oci-image"
+          },
+          "title": "Create"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/oci-image/definitions/id"
+        },
+        "base_image_name": {
+          "$ref": "#/definitions/oci-image/definitions/base_image_name"
+        },
+        "base_top_layer": {
+          "$ref": "#/definitions/oci-image/definitions/base_top_layer"
+        },
+        "commit": {
+          "$ref": "#/definitions/oci-image/definitions/commit"
+        },
+        "commit_description": {
+          "$ref": "#/definitions/oci-image/definitions/commit_description"
+        },
+        "image_repo": {
+          "$ref": "#/definitions/oci-image/definitions/image_repo"
+        },
+        "digest": {
+          "$ref": "#/definitions/oci-image/definitions/digest"
+        },
+        "stack": {
+          "$ref": "#/definitions/oci-image/definitions/stack"
+        },
+        "process_types": {
+          "$ref": "#/definitions/oci-image/definitions/process_types"
+        },
+        "buildpacks": {
+          "$ref": "#/definitions/oci-image/definitions/buildpacks"
+        },
+        "created_at": {
+          "$ref": "#/definitions/oci-image/definitions/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/oci-image/definitions/updated_at"
+        },
+        "architecture": {
+          "$ref": "#/definitions/oci-image/definitions/architecture"
         }
       }
     },
@@ -13536,7 +14186,7 @@ module PlatformAPI
       }
     },
     "pipeline-build": {
-      "description": "Information about latest builds of apps in a pipeline.",
+      "description": "Information about the latest builds of apps in a pipeline. A build represents the process of transforming code into build artifacts.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -13546,6 +14196,131 @@ module PlatformAPI
       ],
       "definitions": {
       },
+      "properties": {
+        "app": {
+          "description": "app that the build belongs to",
+          "properties": {
+            "id": {
+              "description": "unique identifier of the app",
+              "$ref": "#/definitions/app/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "buildpacks": {
+          "$ref": "#/definitions/build/definitions/buildpacks"
+        },
+        "created_at": {
+          "description": "when the build was created",
+          "$ref": "#/definitions/build/definitions/created_at"
+        },
+        "id": {
+          "description": "unique identifier of the build",
+          "$ref": "#/definitions/build/definitions/id"
+        },
+        "output_stream_url": {
+          "description": "streaming URL of the build process output",
+          "$ref": "#/definitions/build/definitions/output_stream_url"
+        },
+        "source_blob": {
+          "description": "location of gzipped tarball of source code used to create build",
+          "properties": {
+            "checksum": {
+              "description": "an optional checksum of the gzipped tarball for verifying its integrity",
+              "example": "SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "readOnly": true,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "description": "URL where gzipped tar archive of source code for build was downloaded.",
+              "example": "https://example.com/source.tgz?token=xyz",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "version": {
+              "description": "version of the gzipped tarball",
+              "example": "v1.3.0",
+              "readOnly": true,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "version_description": {
+              "description": "version description of the gzipped tarball",
+              "example": "* Fake User: Change session key",
+              "readOnly": true,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "release": {
+          "properties": {
+            "id": {
+              "description": "unique identifier of the release",
+              "$ref": "#/definitions/release/definitions/id"
+            }
+          },
+          "$ref": "#/definitions/build/definitions/release"
+        },
+        "slug": {
+          "description": "slug created by this build",
+          "properties": {
+            "id": {
+              "description": "unique identifier of the slug",
+              "$ref": "#/definitions/slug/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "stack": {
+          "description": "stack of the build",
+          "example": "heroku-24",
+          "$ref": "#/definitions/build/definitions/stack"
+        },
+        "status": {
+          "description": "status of the build",
+          "$ref": "#/definitions/build/definitions/status"
+        },
+        "updated_at": {
+          "description": "when the build was updated",
+          "$ref": "#/definitions/build/definitions/updated_at"
+        },
+        "user": {
+          "description": "user that started the build",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        }
+      },
       "links": [
         {
           "description": "List latest builds for each app in a pipeline",
@@ -13554,7 +14329,7 @@ module PlatformAPI
           "rel": "instances",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/build"
+              "$ref": "#/definitions/pipeline-build"
             },
             "type": [
               "array"
@@ -13565,7 +14340,7 @@ module PlatformAPI
       ]
     },
     "pipeline-config-var": {
-      "description": "Pipeline Config Vars allow you to manage the configuration information provided to a pipeline.",
+      "description": "Pipeline config vars in Heroku CI and review apps used to manage the configuration information for a pipeline.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -13592,6 +14367,17 @@ module PlatformAPI
           "type": [
             "object"
           ]
+        }
+      },
+      "properties": {
+        "[\"NAME\"]: [\"value\"]": {
+          "type": [
+            "object"
+          ],
+          "description": "user-defined config var name and value",
+          "example": {
+            "FOO": "bar"
+          }
         }
       },
       "links": [
@@ -13886,7 +14672,7 @@ module PlatformAPI
       }
     },
     "pipeline-deployment": {
-      "description": "Information about latest deployments of apps in a pipeline.",
+      "description": "Information about the latest deployment of each app in a pipeline. A deployment is the process of moving the build artifacts to a target environment.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -13894,11 +14680,105 @@ module PlatformAPI
       "type": [
         "object"
       ],
-      "definitions": {
+      "$ref": "#/definitions/release",
+      "properties": {
+        "addon_plan_names": {
+          "description": "add-on plans installed on the app for this deployment",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/plan/definitions/name"
+          }
+        },
+        "artifacts": {
+          "$ref": "#/definitions/release/definitions/artifact"
+        },
+        "app": {
+          "description": "app involved in the deployment",
+          "properties": {
+            "name": {
+              "description": "unique name of the app",
+              "$ref": "#/definitions/app/definitions/name"
+            },
+            "id": {
+              "description": "unique identifier of the app",
+              "$ref": "#/definitions/app/definitions/id"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "created_at": {
+          "description": "when the deployment was created",
+          "$ref": "#/definitions/release/definitions/created_at"
+        },
+        "description": {
+          "description": "description of changes in this deployment",
+          "$ref": "#/definitions/release/definitions/description"
+        },
+        "id": {
+          "description": "unique identifier of the deployment",
+          "$ref": "#/definitions/release/definitions/id"
+        },
+        "updated_at": {
+          "description": "when the deployment was updated",
+          "$ref": "#/definitions/release/definitions/updated_at"
+        },
+        "slug": {
+          "description": "slug running in this deployment",
+          "properties": {
+            "id": {
+              "description": "unique identifier of the slug",
+              "$ref": "#/definitions/slug/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "status": {
+          "description": "current status of the deployment",
+          "$ref": "#/definitions/release/definitions/status"
+        },
+        "user": {
+          "description": "user that created the deployment",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "version": {
+          "description": "unique version assigned to the deployment",
+          "$ref": "#/definitions/release/definitions/version"
+        },
+        "current": {
+          "description": "indicates if this deployment is the current one for the app",
+          "$ref": "#/definitions/release/definitions/current"
+        },
+        "output_stream_url": {
+          "description": "streaming URL for the release command output",
+          "$ref": "#/definitions/release/definitions/output_stream_url"
+        },
+        "eligible_for_rollback": {
+          "description": "indicates if this deployment is eligible for rollback",
+          "$ref": "#/definitions/release/definitions/eligible_for_rollback"
+        }
       },
       "links": [
         {
-          "description": "List latest slug releases for each app in a pipeline",
+          "description": "List latest deployments for each app in a pipeline. A deployment is a release that changed your source slug, container image, or Heroku processes.",
           "href": "/pipelines/{(%23%2Fdefinitions%2Fpipeline%2Fdefinitions%2Fid)}/latest-deployments",
           "method": "GET",
           "rel": "instances",
@@ -14235,7 +15115,7 @@ module PlatformAPI
       }
     },
     "pipeline-release": {
-      "description": "Information about latest releases of apps in a pipeline.",
+      "description": "Information about the latest release of each app in a pipeline. A release makes a deployment available to end-users.",
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "stability": "production",
       "strictProperties": true,
@@ -14243,7 +15123,96 @@ module PlatformAPI
       "type": [
         "object"
       ],
-      "definitions": {
+      "properties": {
+        "addon_plan_names": {
+          "description": "add-on plans installed on the app for this release",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/plan/definitions/name"
+          }
+        },
+        "artifacts": {
+          "$ref": "#/definitions/release/definitions/artifact"
+        },
+        "app": {
+          "description": "app involved in the release",
+          "properties": {
+            "name": {
+              "description": "unique name of the app",
+              "$ref": "#/definitions/app/definitions/name"
+            },
+            "id": {
+              "description": "unique identifier of the app",
+              "$ref": "#/definitions/app/definitions/id"
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "created_at": {
+          "description": "when the release was created",
+          "$ref": "#/definitions/release/definitions/created_at"
+        },
+        "description": {
+          "$ref": "#/definitions/release/definitions/description"
+        },
+        "id": {
+          "description": "unique identifier of the release",
+          "$ref": "#/definitions/release/definitions/id"
+        },
+        "updated_at": {
+          "description": "when the release was updated",
+          "$ref": "#/definitions/release/definitions/updated_at"
+        },
+        "slug": {
+          "description": "slug running in the release",
+          "properties": {
+            "id": {
+              "description": "unique identifier of the slug",
+              "$ref": "#/definitions/slug/definitions/id"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "status": {
+          "$ref": "#/definitions/release/definitions/status"
+        },
+        "user": {
+          "description": "user that created the release",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/account/definitions/id"
+            },
+            "email": {
+              "$ref": "#/definitions/account/definitions/email"
+            }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
+          ]
+        },
+        "version": {
+          "$ref": "#/definitions/release/definitions/version"
+        },
+        "current": {
+          "description": "indicates if this release is the current one for the app",
+          "$ref": "#/definitions/release/definitions/current"
+        },
+        "output_stream_url": {
+          "description": "streaming URL of the build process output",
+          "$ref": "#/definitions/release/definitions/output_stream_url"
+        },
+        "eligible_for_rollback": {
+          "$ref": "#/definitions/release/definitions/eligible_for_rollback"
+        }
       },
       "links": [
         {
@@ -14503,6 +15472,49 @@ module PlatformAPI
           "type": [
             "string"
           ]
+        },
+        "generation": {
+          "description": "the generation of the Heroku platform for this pipeline",
+          "definitions": {
+            "id": {
+              "description": "unique identifier of the generation of the Heroku platform for this pipeline",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "identity": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/pipeline/definitions/generation/definitions/id"
+                },
+                {
+                  "$ref": "#/definitions/pipeline/definitions/generation/definitions/name"
+                }
+              ]
+            },
+            "name": {
+              "description": "unique name of the generation of the Heroku platform for this pipeline",
+              "example": "cedar",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/pipeline/definitions/generation/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/pipeline/definitions/generation/definitions/name"
+            }
+          },
+          "type": [
+            "object"
+          ]
         }
       },
       "links": [
@@ -14608,6 +15620,9 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/pipeline/definitions/updated_at"
+        },
+        "generation": {
+          "$ref": "#/definitions/pipeline/definitions/generation"
         }
       }
     },
@@ -15127,6 +16142,32 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
+        "artifact": {
+          "description": "a build artifact for the release",
+          "properties": {
+            "type": {
+              "description": "type of artifact",
+              "example": "slug",
+              "type": [
+                "string"
+              ]
+            },
+            "id": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/slug/definitions/id"
+                },
+                {
+                  "$ref": "#/definitions/oci-image/definitions/id"
+                }
+              ]
+            }
+          },
+          "readOnly": true,
+          "type": [
+            "object"
+          ]
+        },
         "created_at": {
           "description": "when release was created",
           "example": "2012-01-01T12:00:00Z",
@@ -15209,6 +16250,14 @@ module PlatformAPI
             "string",
             "null"
           ]
+        },
+        "eligible_for_rollback": {
+          "description": "indicates if this release is eligible for rollback",
+          "example": true,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
@@ -15246,6 +16295,9 @@ module PlatformAPI
             "properties": {
               "description": {
                 "$ref": "#/definitions/release/definitions/description"
+              },
+              "oci_image": {
+                "$ref": "#/definitions/oci-image/definitions/identity"
               },
               "slug": {
                 "$ref": "#/definitions/slug/definitions/identity"
@@ -15295,6 +16347,15 @@ module PlatformAPI
           ],
           "items": {
             "$ref": "#/definitions/plan/definitions/name"
+          }
+        },
+        "artifacts": {
+          "description": "build artifacts for the release",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/release/definitions/artifact"
           }
         },
         "app": {
@@ -15362,6 +16423,9 @@ module PlatformAPI
         },
         "output_stream_url": {
           "$ref": "#/definitions/release/definitions/output_stream_url"
+        },
+        "eligible_for_rollback": {
+          "$ref": "#/definitions/release/definitions/eligible_for_rollback"
         }
       }
     },
@@ -17165,6 +18229,32 @@ module PlatformAPI
           "type": [
             "string"
           ]
+        },
+        "generation": {
+          "description": "Generation of the Heroku platform for this space",
+          "readOnly": true,
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "description": "unique identifier of the generation of the Heroku platform for this space",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "description": "unique name of the generation of the Heroku platform for this space",
+              "example": "cedar",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          }
         }
       },
       "links": [
@@ -17250,6 +18340,14 @@ module PlatformAPI
               },
               "log_drain_url": {
                 "$ref": "#/definitions/space/definitions/log_drain_url"
+              },
+              "generation": {
+                "description": "unique name of the generation of the Heroku platform for this space",
+                "example": "cedar",
+                "readOnly": true,
+                "type": [
+                  "string"
+                ]
               }
             },
             "required": [
@@ -17330,6 +18428,9 @@ module PlatformAPI
         },
         "data_cidr": {
           "$ref": "#/definitions/space/definitions/data_cidr"
+        },
+        "generation": {
+          "$ref": "#/definitions/space/definitions/generation"
         }
       }
     },
@@ -17430,6 +18531,21 @@ module PlatformAPI
             ]
           },
           "title": "List"
+        },
+        {
+          "description": "List available app stacks for an app.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/available-stacks",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/stack"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List by App"
         }
       ],
       "properties": {
@@ -19194,7 +20310,7 @@ module PlatformAPI
           }
         },
         "connect": {
-          "description": "average connect rows synced",
+          "description": "max connect rows synced",
           "example": 15000,
           "readOnly": true,
           "type": [
@@ -19921,6 +21037,310 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/team/definitions/updated_at"
+        }
+      }
+    },
+    "telemetry-drain": {
+      "description": "A telemetry drain forwards OpenTelemetry traces, metrics, and logs to your own consumer. For Fir-generation apps only.",
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "stability": "prototype",
+      "strictProperties": true,
+      "title": "Heroku Platform API - Telemetry Drain",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of telemetry drain",
+          "example": "01234567-89ab-cdef-0123-456789abcdef",
+          "format": "uuid",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/telemetry-drain/definitions/id"
+            }
+          ]
+        },
+        "created_at": {
+          "description": "when the telemetry drain was created",
+          "example": "2024-12-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when telemetry drain was last updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "signal": {
+          "description": "OpenTelemetry signal to be sent to the telemetry drain",
+          "readOnly": true,
+          "example": "traces",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "traces",
+            "metrics",
+            "logs"
+          ]
+        },
+        "signals": {
+          "description": "OpenTelemetry signals to send to telemetry drain",
+          "example": [
+            "traces",
+            "metrics"
+          ],
+          "readOnly": false,
+          "minItems": 1,
+          "uniqueItems": true,
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/telemetry-drain/definitions/signal"
+          }
+        },
+        "exporter_type": {
+          "description": "the transport type to be used for your OpenTelemetry consumer",
+          "readOnly": true,
+          "example": "otlphttp",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "otlphttp",
+            "otlp"
+          ]
+        },
+        "exporter_endpoint": {
+          "description": "URI of your OpenTelemetry consumer",
+          "readOnly": false,
+          "example": "https://api.otelproduct.example/consumer",
+          "maxLength": 1000,
+          "type": [
+            "string"
+          ]
+        },
+        "exporter_headers": {
+          "description": "JSON headers to send to your OpenTelemetry consumer",
+          "readOnly": false,
+          "example": {
+            "API-Key": "example_api_key_012345",
+            "Environment": "production"
+          },
+          "default": {
+          },
+          "additionalProperties": false,
+          "maxItems": 20,
+          "patternProperties": {
+            "^[A-Za-z0-9\\-_]{1,100}$": {
+              "maxLength": 1000,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "exporter": {
+          "description": "OpenTelemetry exporter configuration",
+          "readOnly": false,
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "$ref": "#/definitions/telemetry-drain/definitions/exporter_type"
+            },
+            "endpoint": {
+              "$ref": "#/definitions/telemetry-drain/definitions/exporter_endpoint"
+            },
+            "headers": {
+              "$ref": "#/definitions/telemetry-drain/definitions/exporter_headers"
+            }
+          },
+          "required": [
+            "type",
+            "endpoint"
+          ],
+          "type": [
+            "object"
+          ]
+        },
+        "owner": {
+          "description": "entity that owns this telemetry drain",
+          "properties": {
+            "id": {
+              "description": "unique identifier of owner",
+              "example": "01234567-89ab-cdef-0123-456789abcdef",
+              "format": "uuid",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "description": "type of owner",
+              "enum": [
+                "app",
+                "space"
+              ],
+              "example": "app",
+              "readOnly": true,
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "readOnly": false,
+          "required": [
+            "id",
+            "type"
+          ],
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Create a telemetry drain.",
+          "href": "/telemetry-drains",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "owner": {
+                "$ref": "#/definitions/telemetry-drain/definitions/owner"
+              },
+              "signals": {
+                "$ref": "#/definitions/telemetry-drain/definitions/signals"
+              },
+              "exporter": {
+                "$ref": "#/definitions/telemetry-drain/definitions/exporter"
+              }
+            },
+            "required": [
+              "owner",
+              "signals",
+              "exporter"
+            ],
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/telemetry-drain"
+          },
+          "title": "Create"
+        },
+        {
+          "description": "List telemetry drains for an app.",
+          "href": "/apps/{(%23%2Fdefinitions%2Fapp%2Fdefinitions%2Fidentity)}/telemetry-drains",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/telemetry-drain"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List by App"
+        },
+        {
+          "description": "List telemetry drains for a space.",
+          "href": "/spaces/{(%23%2Fdefinitions%2Fspace%2Fdefinitions%2Fidentity)}/telemetry-drains",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/telemetry-drain"
+            },
+            "type": [
+              "array"
+            ]
+          },
+          "title": "List by Space"
+        },
+        {
+          "description": "Update a telemetry drain.",
+          "href": "/telemetry-drains/{(%23%2Fdefinitions%2Ftelemetry-drain%2Fdefinitions%2Fidentity)}",
+          "method": "PATCH",
+          "rel": "update",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "signals": {
+                "$ref": "#/definitions/telemetry-drain/definitions/signals"
+              },
+              "exporter": {
+                "$ref": "#/definitions/telemetry-drain/definitions/exporter"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/telemetry-drain"
+          },
+          "title": "Update"
+        },
+        {
+          "description": "Delete a telemetry drain.",
+          "href": "/telemetry-drains/{(%23%2Fdefinitions%2Ftelemetry-drain%2Fdefinitions%2Fidentity)}",
+          "method": "DELETE",
+          "rel": "destroy",
+          "targetSchema": {
+            "$ref": "#/definitions/telemetry-drain"
+          },
+          "title": "Delete"
+        },
+        {
+          "description": "Info for a telemetry drain.",
+          "href": "/telemetry-drains/{(%23%2Fdefinitions%2Ftelemetry-drain%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/telemetry-drain"
+          },
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/telemetry-drain/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/telemetry-drain/definitions/id"
+        },
+        "owner": {
+          "$ref": "#/definitions/telemetry-drain/definitions/owner"
+        },
+        "signals": {
+          "$ref": "#/definitions/telemetry-drain/definitions/signals"
+        },
+        "exporter": {
+          "$ref": "#/definitions/telemetry-drain/definitions/exporter"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/telemetry-drain/definitions/updated_at"
         }
       }
     },
@@ -21178,6 +22598,9 @@ module PlatformAPI
     "formation": {
       "$ref": "#/definitions/formation"
     },
+    "generation": {
+      "$ref": "#/definitions/generation"
+    },
     "identity-provider": {
       "$ref": "#/definitions/identity-provider"
     },
@@ -21211,8 +22634,8 @@ module PlatformAPI
     "oauth-token": {
       "$ref": "#/definitions/oauth-token"
     },
-    "outbound-ruleset": {
-      "$ref": "#/definitions/outbound-ruleset"
+    "oci-image": {
+      "$ref": "#/definitions/oci-image"
     },
     "password-reset": {
       "$ref": "#/definitions/password-reset"
@@ -21345,6 +22768,9 @@ module PlatformAPI
     },
     "team": {
       "$ref": "#/definitions/team"
+    },
+    "telemetry-drain": {
+      "$ref": "#/definitions/telemetry-drain"
     },
     "test-case": {
       "$ref": "#/definitions/test-case"
