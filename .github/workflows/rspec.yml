@@ -16,9 +16,11 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: ${{ matrix.ruby }}
-      - name: "Install hatchet"
-        run: hatchet install
+
+      - name: "Install dependencies"
+        run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - name: "Hatchet setup"
+        run: bundle exec hatchet ci:setup
       - name: "Run tests"
         run: bundle exec rspec
