@@ -26,7 +26,7 @@ gem install platform-api
 
 ## API documentation
 
-Jump right to the [API documentation](http://heroku.github.io/platform-api/_index.html)
+Jump right to the [API documentation](https://www.rubydoc.info/gems/platform-api)
 for the nitty gritty details.
 
 ## Usage guide
@@ -51,7 +51,7 @@ For example, to get information about the `web` formation on the `sushi` app
 you'd invoke `heroku.formation.info('sushi', 'web')` and it would return a
 Ruby object that matches the one given in the [response example](https://devcenter.heroku.com/articles/platform-api-reference#formation-info).
 
-The [API documentation](http://heroku.github.io/platform-api/_index.html) contains a
+The [API documentation](https://www.rubydoc.info/gems/platform-api) contains a
 description of all available resources and methods.
 
 ### Handling errors
@@ -369,23 +369,6 @@ Remember to commit and push the changes to Github.
 * `bundle install` to update Gemfile.lock
 * `git commit -m 'vX.Y.Z' to stage the version and Gemfile.lock changes
 * `rake release` to push git changes and to release to Rubygems
-
-### Building API documentation
-
-Build documentation with:
-
-```
-rake yard
-```
-
-And then visit `doc/index.html` to read it. Alternately, build and publish
-it to Github Pages in one step with:
-
-```
-rake publish_docs
-```
-
-You can see it live on [Github Pages](http://heroku.github.io/platform-api/).
 
 ## Contributing
 
