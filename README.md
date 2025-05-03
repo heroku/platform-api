@@ -49,7 +49,7 @@ in the final argument to the method.
 
 For example, to get information about the `web` formation on the `sushi` app
 you'd invoke `heroku.formation.info('sushi', 'web')` and it would return a
-Ruby object that matches the one given in the [response example](https://devcenter.heroku.com/articles/platform-api-reference#formation-info).
+Ruby Hash that matches the one given in the [response example](https://devcenter.heroku.com/articles/platform-api-reference#formation-info).
 
 The [API documentation](https://www.rubydoc.info/gems/platform-api) contains a
 description of all available resources and methods.
@@ -188,7 +188,7 @@ heroku.config_var.update('floating-retreat-4255', {'MYAPP' => 'ROCKS'})
 ```
 
 As you can see, any action that needs a request body takes it as a plain Ruby
-object, as the final parameter of the method call.
+Hash, as the final parameter of the method call.
 
 Using the same principle you can even pass in a specific version of PostgreSQL
 at the time of creation:
