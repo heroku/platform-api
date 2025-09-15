@@ -21,7 +21,7 @@ task :publish_docs => [:build] do
   sh 'git add -A .'
   sh 'git commit -am "Rebuild documentation"'
   sh 'git push origin gh-pages'
-  sh 'git checkout master'
+  sh 'git checkout main'
 end
 
 # After releasing publish the docs
