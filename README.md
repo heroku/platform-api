@@ -217,7 +217,7 @@ $ heroku labs:enable websockets
 $ heroku addons:add openredis:micro # $10/month
 Adding openredis:micro on floating-retreat-4255... done, v10 ($10/mo)
 Use `heroku addons:docs openredis` to view documentation.
-$ git push heroku master
+$ git push heroku main
 Initializing repository, done.
 Counting objects: 489, done.
 Delta compression using up to 4 threads.
@@ -387,7 +387,7 @@ $ git clone https://github.com/heroku/ruby-getting-started.git
 $ cd ruby-getting-started/
 $ heroku create <memorable-name-here>
 $ heroku webhooks:add -i api:dyno -l notify -u https://example.com/hooks
-$ git push heroku master
+$ git push heroku main
 ```
 
 Now you can specify your app name while you run tests:
