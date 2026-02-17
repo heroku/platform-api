@@ -1,7 +1,8 @@
 module PlatformAPI::SpecHelperMethods
   def hatchet_app
+    config = { "FOO" => "bar" }
     @hatchet_app ||= begin
-      app = Hatchet::Runner.new("default_ruby", buildpacks: ["heroku/ruby"])
+      app = Hatchet::Runner.new("default_ruby", buildpacks: ["heroku/ruby"], config: config)
       app.in_directory do
         app.setup!
         app.push_with_retry!
