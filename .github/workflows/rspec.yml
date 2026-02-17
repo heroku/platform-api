@@ -21,8 +21,10 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
 
+      - name: "Set bundler path"
+        run: bundle config set path 'vendor/bundle'
       - name: "Install dependencies"
-        run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+        run: bundle install --jobs=4 --retry=3
       - name: "Hatchet setup"
         run: bundle exec hatchet ci:setup
       - name: "Run tests"
