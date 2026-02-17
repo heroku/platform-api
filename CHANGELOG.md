@@ -1,5 +1,9 @@
 ## Main (unreleased)
 
+## 3.9.0
+
+- Pull latest JSON Schema and regenerated API.
+
 ## 3.8.0
 
 - Pull latest JSON Schema and regenerated API.
