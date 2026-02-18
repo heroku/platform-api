@@ -5,6 +5,10 @@ describe 'The generated platform api client' do
     @app_name = ENV["TEST_APP_NAME"] || hatchet_app.name
   end
 
+  after(:all) do
+    hatchet_app.teardown!
+  end
+
   def app_name
     @app_name
   end
