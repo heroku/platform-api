@@ -83,7 +83,7 @@ module PlatformAPI
 
   # Get the default options.
   def self.default_options
-    default_headers = {"Accept"=>"application/vnd.heroku+json; version=3", "User-Agent"=>"platform-api/3.8.0"}
+    default_headers = {"Accept" => "application/vnd.heroku+json; version=3", "User-Agent" => "platform-api/3.9.0"}
     {
       default_headers: default_headers,
       url:             "https://api.heroku.com"
@@ -4366,8 +4366,7 @@ module PlatformAPI
       "type": [
         "object"
       ],
-      "definitions": {
-      },
+      "definitions": {},
       "links": [
         {
           "description": "Mark an add-on as provisioned for use.",
@@ -4390,8 +4389,7 @@ module PlatformAPI
           "title": "Deprovision"
         }
       ],
-      "properties": {
-      }
+      "properties": {}
     },
     "add-on-attachment": {
       "description": "An add-on attachment represents a connection between an app and an add-on that it has been given access to.",
@@ -4462,6 +4460,21 @@ module PlatformAPI
             "string"
           ]
         },
+        "namespace_config": {
+          "description": "attachment namespace config, used to specify namespace via key-value pairs",
+          "example": {
+            "cred": "analyst"
+          },
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string"
+            ]
+          }
+        },
         "updated_at": {
           "description": "when add-on attachment was updated",
           "example": "2012-01-01T12:00:00Z",
@@ -4513,6 +4526,9 @@ module PlatformAPI
               },
               "namespace": {
                 "$ref": "#/definitions/add-on-attachment/definitions/namespace"
+              },
+              "namespace_config": {
+                "$ref": "#/definitions/add-on-attachment/definitions/namespace_config"
               }
             },
             "required": [
@@ -5605,46 +5621,52 @@ module PlatformAPI
         },
         "addon_service": {
           "description": "identity of add-on service",
-          "anyOf": [
-            {
-              "properties": {
-                "id": {
-                  "$ref": "#/definitions/add-on-service/definitions/id"
-                },
-                "name": {
-                  "$ref": "#/definitions/add-on-service/definitions/name"
-                }
+          "identity": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/add-on-service/definitions/id"
               },
-              "strictProperties": true,
-              "type": [
-                "object"
-              ]
+              {
+                "$ref": "#/definitions/add-on-service/definitions/name"
+              }
+            ]
+          },
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
-            {
-              "$ref": "#/definitions/add-on-service"
+            "name": {
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
           ]
         },
         "plan": {
           "description": "identity of add-on plan",
-          "anyOf": [
-            {
-              "properties": {
-                "id": {
-                  "$ref": "#/definitions/plan/definitions/id"
-                },
-                "name": {
-                  "$ref": "#/definitions/plan/definitions/name"
-                }
+          "identity": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/plan/definitions/id"
               },
-              "strictProperties": true,
-              "type": [
-                "object"
-              ]
+              {
+                "$ref": "#/definitions/plan/definitions/name"
+              }
+            ]
+          },
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/plan/definitions/id"
             },
-            {
-              "$ref": "#/definitions/plan"
+            "name": {
+              "$ref": "#/definitions/plan/definitions/name"
             }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
           ]
         },
         "provision_message": {
@@ -8367,6 +8389,14 @@ module PlatformAPI
             "string"
           ]
         },
+        "generation": {
+          "description": "generation of build",
+          "example": "cedar",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "id": {
           "description": "unique identifier of build",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
@@ -8584,6 +8614,9 @@ module PlatformAPI
         },
         "created_at": {
           "$ref": "#/definitions/build/definitions/created_at"
+        },
+        "generation": {
+          "$ref": "#/definitions/build/definitions/generation"
         },
         "id": {
           "$ref": "#/definitions/build/definitions/id"
@@ -10762,6 +10795,14 @@ module PlatformAPI
           "type": [
             "boolean"
           ]
+        },
+        "partner_benefits": {
+          "description": "whether the enterprise account is part of the Salesforce Partner Program",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
@@ -10828,6 +10869,9 @@ module PlatformAPI
         },
         "trial": {
           "$ref": "#/definitions/enterprise-account/definitions/trial"
+        },
+        "partner_benefits": {
+          "$ref": "#/definitions/enterprise-account/definitions/partner_benefits"
         },
         "identity_provider": {
           "$ref": "#/definitions/enterprise-account/definitions/identity_provider"
@@ -10930,18 +10974,16 @@ module PlatformAPI
           "example": {
             "id": "01234567-89ab-cdef-0123-456789abcdef"
           },
-          "oneOf": [
-            {
-              "required": [
-                "id"
-              ]
-            },
-            {
-              "required": [
-                "name"
-              ]
-            }
-          ],
+          "identity": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/dyno_size/definitions/id"
+              },
+              {
+                "$ref": "#/definitions/dyno_size/definitions/name"
+              }
+            ]
+          },
           "properties": {
             "id": {
               "description": "unique identifier of the dyno size",
@@ -10962,9 +11004,6 @@ module PlatformAPI
             }
           },
           "readOnly": false,
-          "required": [
-            "id"
-          ],
           "type": [
             "object"
           ]
@@ -13127,11 +13166,8 @@ module PlatformAPI
           ]
         }
       },
-      "links": [
-
-      ],
-      "properties": {
-      }
+      "links": [],
+      "properties": {}
     },
     "oauth-token": {
       "description": "OAuth tokens provide access for authorized clients to act on behalf of a Heroku user to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)",
@@ -13610,6 +13646,16 @@ module PlatformAPI
           "type": [
             "string"
           ]
+        },
+        "deleted_at": {
+          "description": "when OCI image was deleted",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "links": [
@@ -13723,6 +13769,9 @@ module PlatformAPI
         },
         "architecture": {
           "$ref": "#/definitions/oci-image/definitions/architecture"
+        },
+        "deleted_at": {
+          "$ref": "#/definitions/oci-image/definitions/deleted_at"
         }
       }
     },
@@ -14194,8 +14243,7 @@ module PlatformAPI
       "type": [
         "object"
       ],
-      "definitions": {
-      },
+      "definitions": {},
       "properties": {
         "app": {
           "description": "app that the build belongs to",
@@ -14999,6 +15047,18 @@ module PlatformAPI
                     "type": [
                       "object"
                     ]
+                  },
+                  "release": {
+                    "description": "the specific release to promote from (optional, defaults to current release)",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/release/definitions/id"
+                      }
+                    },
+                    "strictProperties": true,
+                    "type": [
+                      "object"
+                    ]
                   }
                 },
                 "type": [
@@ -15444,9 +15504,7 @@ module PlatformAPI
               ]
             }
           },
-          "links": [
-
-          ],
+          "links": [],
           "properties": {
             "id": {
               "$ref": "#/definitions/pipeline/definitions/owner/definitions/id"
@@ -15918,8 +15976,7 @@ module PlatformAPI
         "object"
       ],
       "definitions": {
-        "identity": {
-        },
+        "identity": {},
         "remaining": {
           "description": "allowed requests remaining in current interval",
           "example": 2399,
@@ -16190,7 +16247,8 @@ module PlatformAPI
           "enum": [
             "failed",
             "pending",
-            "succeeded"
+            "succeeded",
+            "expired"
           ],
           "example": "succeeded",
           "readOnly": true,
@@ -16869,9 +16927,7 @@ module PlatformAPI
               ]
             }
           },
-          "links": [
-
-          ],
+          "links": [],
           "properties": {
             "id": {
               "$ref": "#/definitions/review-app-config/definitions/deploy_target/definitions/id"
@@ -17159,6 +17215,16 @@ module PlatformAPI
           "type": [
             "string"
           ]
+        },
+        "deleted_at": {
+          "description": "when slug was deleted",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "links": [
@@ -17289,6 +17355,9 @@ module PlatformAPI
         },
         "updated_at": {
           "$ref": "#/definitions/slug/definitions/updated_at"
+        },
+        "deleted_at": {
+          "$ref": "#/definitions/slug/definitions/deleted_at"
         }
       }
     },
@@ -21141,8 +21210,7 @@ module PlatformAPI
             "API-Key": "example_api_key_012345",
             "Environment": "production"
           },
-          "default": {
-          },
+          "default": {},
           "additionalProperties": false,
           "maxItems": 20,
           "patternProperties": {

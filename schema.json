@@ -738,6 +738,21 @@
             "string"
           ]
         },
+        "namespace_config": {
+          "description": "attachment namespace config, used to specify namespace via key-value pairs",
+          "example": {
+            "cred": "analyst"
+          },
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string"
+            ]
+          }
+        },
         "updated_at": {
           "description": "when add-on attachment was updated",
           "example": "2012-01-01T12:00:00Z",
@@ -789,6 +804,9 @@
               },
               "namespace": {
                 "$ref": "#/definitions/add-on-attachment/definitions/namespace"
+              },
+              "namespace_config": {
+                "$ref": "#/definitions/add-on-attachment/definitions/namespace_config"
               }
             },
             "required": [
@@ -1881,46 +1899,52 @@
         },
         "addon_service": {
           "description": "identity of add-on service",
-          "anyOf": [
-            {
-              "properties": {
-                "id": {
-                  "$ref": "#/definitions/add-on-service/definitions/id"
-                },
-                "name": {
-                  "$ref": "#/definitions/add-on-service/definitions/name"
-                }
+          "identity": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/add-on-service/definitions/id"
               },
-              "strictProperties": true,
-              "type": [
-                "object"
-              ]
+              {
+                "$ref": "#/definitions/add-on-service/definitions/name"
+              }
+            ]
+          },
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/add-on-service/definitions/id"
             },
-            {
-              "$ref": "#/definitions/add-on-service"
+            "name": {
+              "$ref": "#/definitions/add-on-service/definitions/name"
             }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
           ]
         },
         "plan": {
           "description": "identity of add-on plan",
-          "anyOf": [
-            {
-              "properties": {
-                "id": {
-                  "$ref": "#/definitions/plan/definitions/id"
-                },
-                "name": {
-                  "$ref": "#/definitions/plan/definitions/name"
-                }
+          "identity": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/plan/definitions/id"
               },
-              "strictProperties": true,
-              "type": [
-                "object"
-              ]
+              {
+                "$ref": "#/definitions/plan/definitions/name"
+              }
+            ]
+          },
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/plan/definitions/id"
             },
-            {
-              "$ref": "#/definitions/plan"
+            "name": {
+              "$ref": "#/definitions/plan/definitions/name"
             }
+          },
+          "strictProperties": true,
+          "type": [
+            "object"
           ]
         },
         "provision_message": {
@@ -4643,6 +4667,14 @@
             "string"
           ]
         },
+        "generation": {
+          "description": "generation of build",
+          "example": "cedar",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
         "id": {
           "description": "unique identifier of build",
           "example": "01234567-89ab-cdef-0123-456789abcdef",
@@ -4860,6 +4892,9 @@
         },
         "created_at": {
           "$ref": "#/definitions/build/definitions/created_at"
+        },
+        "generation": {
+          "$ref": "#/definitions/build/definitions/generation"
         },
         "id": {
           "$ref": "#/definitions/build/definitions/id"
@@ -7038,6 +7073,14 @@
           "type": [
             "boolean"
           ]
+        },
+        "partner_benefits": {
+          "description": "whether the enterprise account is part of the Salesforce Partner Program",
+          "example": false,
+          "readOnly": true,
+          "type": [
+            "boolean"
+          ]
         }
       },
       "links": [
@@ -7104,6 +7147,9 @@
         },
         "trial": {
           "$ref": "#/definitions/enterprise-account/definitions/trial"
+        },
+        "partner_benefits": {
+          "$ref": "#/definitions/enterprise-account/definitions/partner_benefits"
         },
         "identity_provider": {
           "$ref": "#/definitions/enterprise-account/definitions/identity_provider"
@@ -7206,18 +7252,16 @@
           "example": {
             "id": "01234567-89ab-cdef-0123-456789abcdef"
           },
-          "oneOf": [
-            {
-              "required": [
-                "id"
-              ]
-            },
-            {
-              "required": [
-                "name"
-              ]
-            }
-          ],
+          "identity": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/dyno_size/definitions/id"
+              },
+              {
+                "$ref": "#/definitions/dyno_size/definitions/name"
+              }
+            ]
+          },
           "properties": {
             "id": {
               "description": "unique identifier of the dyno size",
@@ -7238,9 +7282,6 @@
             }
           },
           "readOnly": false,
-          "required": [
-            "id"
-          ],
           "type": [
             "object"
           ]
@@ -9883,6 +9924,16 @@
           "type": [
             "string"
           ]
+        },
+        "deleted_at": {
+          "description": "when OCI image was deleted",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "links": [
@@ -9996,6 +10047,9 @@
         },
         "architecture": {
           "$ref": "#/definitions/oci-image/definitions/architecture"
+        },
+        "deleted_at": {
+          "$ref": "#/definitions/oci-image/definitions/deleted_at"
         }
       }
     },
@@ -11271,6 +11325,18 @@
                     "type": [
                       "object"
                     ]
+                  },
+                  "release": {
+                    "description": "the specific release to promote from (optional, defaults to current release)",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/release/definitions/id"
+                      }
+                    },
+                    "strictProperties": true,
+                    "type": [
+                      "object"
+                    ]
                   }
                 },
                 "type": [
@@ -12459,7 +12525,8 @@
           "enum": [
             "failed",
             "pending",
-            "succeeded"
+            "succeeded",
+            "expired"
           ],
           "example": "succeeded",
           "readOnly": true,
@@ -13426,6 +13493,16 @@
           "type": [
             "string"
           ]
+        },
+        "deleted_at": {
+          "description": "when slug was deleted",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "readOnly": true,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "links": [
@@ -13556,6 +13633,9 @@
         },
         "updated_at": {
           "$ref": "#/definitions/slug/definitions/updated_at"
+        },
+        "deleted_at": {
+          "$ref": "#/definitions/slug/definitions/deleted_at"
         }
       }
     },
