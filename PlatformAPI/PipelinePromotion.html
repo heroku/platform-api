@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::PipelinePromotion
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Promotions allow you to move code from an app in a pipeline to all targets</p>
+    
+<p>Promotions allow you to move code from an app in a pipeline to all targets</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new promotion.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new promotion.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing pipeline promotion.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing pipeline promotion.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of PipelinePromotion.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of PipelinePromotion.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of PipelinePromotion.</p>
+    
+<p>Returns a new instance of PipelinePromotion.</p>
 
 
   </div>
@@ -226,12 +231,12 @@
       <pre class="lines">
 
 
-2532
-2533
-2534</pre>
+2589
+2590
+2591</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2532</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2589</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new promotion.</p>
+    
+<p>Create a new promotion.</p>
 
 
   </div>
@@ -278,7 +284,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -292,12 +299,12 @@
       <pre class="lines">
 
 
-2539
-2540
-2541</pre>
+2596
+2597
+2598</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2539</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2596</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_pipeline_promotion'>pipeline_promotion</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -318,7 +325,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing pipeline promotion.</p>
+    
+<p>Info for existing pipeline promotion.</p>
 
 
   </div>
@@ -337,7 +345,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of promotion</p>
+        <div class='inline'>
+<p>unique identifier of promotion</p>
 </div>
       
     </li>
@@ -351,12 +360,12 @@
       <pre class="lines">
 
 
-2546
-2547
-2548</pre>
+2603
+2604
+2605</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2546</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2603</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_promotion_id'>pipeline_promotion_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_pipeline_promotion'>pipeline_promotion</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_promotion_id'>pipeline_promotion_id</span><span class='rparen'>)</span>
@@ -371,9 +380,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

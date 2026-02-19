@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Dyno
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: <a href="https://devcenter.heroku.com/articles/dyno-types">https://devcenter.heroku.com/articles/dyno-types</a>.</p>
+    
+<p>Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: <a href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/articles/dyno-types</a>.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new dyno.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new dyno.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing dyno.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing dyno.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Dyno.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Dyno.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing dynos.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing dynos.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Restart dyno.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Restart dyno.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,32 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Restart all dynos.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Restart all dynos.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#restart_formation-instance_method" title="#restart_formation (instance method)">#<strong>restart_formation</strong>(app_id_or_app_name, dyno_formation_type)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Restart dynos of a given formation type.</p>
 </div></span>
   
 </li>
@@ -281,7 +312,32 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Stop dyno.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Stop dyno.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop_formation-instance_method" title="#stop_formation (instance method)">#<strong>stop_formation</strong>(app_id_or_app_name, dyno_formation_type)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stop dynos of a given formation type.</p>
 </div></span>
   
 </li>
@@ -304,7 +360,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Dyno.</p>
+    
+<p>Returns a new instance of Dyno.</p>
 
 
   </div>
@@ -318,12 +375,12 @@
       <pre class="lines">
 
 
-1752
-1753
-1754</pre>
+1773
+1774
+1775</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1752</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1773</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -351,7 +408,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new dyno.</p>
+    
+<p>Create a new dyno.</p>
 
 
   </div>
@@ -370,7 +428,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -385,7 +444,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -399,12 +459,12 @@
       <pre class="lines">
 
 
-1760
-1761
-1762</pre>
+1781
+1782
+1783</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1760</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1781</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -425,7 +485,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing dyno.</p>
+    
+<p>Info for existing dyno.</p>
 
 
   </div>
@@ -444,7 +505,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -459,7 +521,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this dyno or the name of this process on this dyno</p>
+        <div class='inline'>
+<p>unique identifier of this dyno or the name of this process on this dyno</p>
 </div>
       
     </li>
@@ -473,12 +536,12 @@
       <pre class="lines">
 
 
-1791
-1792
-1793</pre>
+1828
+1829
+1830</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1791</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1828</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
@@ -499,7 +562,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing dynos.</p>
+    
+<p>List existing dynos.</p>
 
 
   </div>
@@ -518,7 +582,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -532,12 +597,12 @@
       <pre class="lines">
 
 
-1798
-1799
-1800</pre>
+1835
+1836
+1837</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1798</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1835</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -558,7 +623,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Restart dyno.</p>
+    
+<p>Restart dyno.</p>
 
 
   </div>
@@ -577,7 +643,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -592,7 +659,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this dyno or the name of this process on this dyno</p>
+        <div class='inline'>
+<p>unique identifier of this dyno or the name of this process on this dyno</p>
 </div>
       
     </li>
@@ -606,12 +674,12 @@
       <pre class="lines">
 
 
-1768
-1769
-1770</pre>
+1789
+1790
+1791</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1768</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1789</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
@@ -632,7 +700,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Restart all dynos.</p>
+    
+<p>Restart all dynos.</p>
 
 
   </div>
@@ -651,7 +720,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -665,15 +735,92 @@
       <pre class="lines">
 
 
-1775
-1776
-1777</pre>
+1804
+1805
+1806</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1775</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1804</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart_all'>restart_all</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_restart_all'>restart_all</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="restart_formation-instance_method">
+  
+    #<strong>restart_formation</strong>(app_id_or_app_name, dyno_formation_type)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Restart dynos of a given formation type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dyno_formation_type:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the formation type of this process on this dyno</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1797
+1798
+1799</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1797</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_restart_formation'>restart_formation</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_formation_type'>dyno_formation_type</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_restart_formation'>restart_formation</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_formation_type'>dyno_formation_type</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -691,7 +838,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Stop dyno.</p>
+    
+<p>Stop dyno.</p>
 
 
   </div>
@@ -710,7 +858,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -725,7 +874,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this dyno or the name of this process on this dyno</p>
+        <div class='inline'>
+<p>unique identifier of this dyno or the name of this process on this dyno</p>
 </div>
       
     </li>
@@ -739,15 +889,92 @@
       <pre class="lines">
 
 
-1783
-1784
-1785</pre>
+1812
+1813
+1814</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1783</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1812</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_stop'>stop</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_id_or_dyno_name'>dyno_id_or_dyno_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop_formation-instance_method">
+  
+    #<strong>stop_formation</strong>(app_id_or_app_name, dyno_formation_type)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stop dynos of a given formation type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dyno_formation_type:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the formation type of this process on this dyno</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1820
+1821
+1822</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1820</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stop_formation'>stop_formation</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_formation_type'>dyno_formation_type</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno'>dyno</span><span class='period'>.</span><span class='id identifier rubyid_stop_formation'>stop_formation</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_dyno_formation_type'>dyno_formation_type</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -759,9 +986,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

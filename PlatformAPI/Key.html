@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Key
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Keys represent public SSH keys associated with an account and are used to authorize accounts as they are performing git operations.</p>
+    
+<p>Keys represent public SSH keys associated with an account and are used to authorize accounts as they are performing git operations.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing key.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing key.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Key.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Key.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing keys.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing keys.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Key.</p>
+    
+<p>Returns a new instance of Key.</p>
 
 
   </div>
@@ -226,12 +231,12 @@
       <pre class="lines">
 
 
-2070
-2071
-2072</pre>
+2133
+2134
+2135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2070</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2133</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing key.</p>
+    
+<p>Info for existing key.</p>
 
 
   </div>
@@ -278,7 +284,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this key or a unique identifying string based on contents</p>
+        <div class='inline'>
+<p>unique identifier of this key or a unique identifying string based on contents</p>
 </div>
       
     </li>
@@ -292,12 +299,12 @@
       <pre class="lines">
 
 
-2077
-2078
-2079</pre>
+2140
+2141
+2142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2077</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2140</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_key_id_or_key_fingerprint'>key_id_or_key_fingerprint</span><span class='rparen'>)</span>
@@ -318,7 +325,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing keys.</p>
+    
+<p>List existing keys.</p>
 
 
   </div>
@@ -332,12 +340,12 @@
       <pre class="lines">
 
 
-2082
-2083
-2084</pre>
+2145
+2146
+2147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2082</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -352,9 +360,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

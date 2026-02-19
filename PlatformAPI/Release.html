@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Release
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A release represents a combination of code, config vars and add-ons for an app on Heroku.</p>
+    
+<p>A release represents a combination of code, config vars and add-ons for an app on Heroku.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create new release.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create new release.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing release.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing release.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Release.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Release.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing releases.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing releases.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Rollback to an existing release.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Rollback to an existing release.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Release.</p>
+    
+<p>Returns a new instance of Release.</p>
 
 
   </div>
@@ -272,12 +279,12 @@
       <pre class="lines">
 
 
-2696
-2697
-2698</pre>
+2753
+2754
+2755</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2696</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2753</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -305,7 +312,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create new release.</p>
+    
+<p>Create new release.</p>
 
 
   </div>
@@ -324,7 +332,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -339,7 +348,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -353,12 +363,12 @@
       <pre class="lines">
 
 
-2719
-2720
-2721</pre>
+2776
+2777
+2778</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2719</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2776</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -379,7 +389,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing release.</p>
+    
+<p>Info for existing release.</p>
 
 
   </div>
@@ -398,7 +409,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -413,7 +425,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of release or unique version assigned to the release</p>
+        <div class='inline'>
+<p>unique identifier of release or unique version assigned to the release</p>
 </div>
       
     </li>
@@ -427,12 +440,12 @@
       <pre class="lines">
 
 
-2704
-2705
-2706</pre>
+2761
+2762
+2763</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2704</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2761</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_release_id_or_release_version'>release_id_or_release_version</span><span class='rparen'>)</span>
@@ -453,7 +466,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing releases.</p>
+    
+<p>List existing releases.</p>
 
 
   </div>
@@ -472,7 +486,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -486,12 +501,12 @@
       <pre class="lines">
 
 
-2711
-2712
-2713</pre>
+2768
+2769
+2770</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2711</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2768</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -512,7 +527,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Rollback to an existing release.</p>
+    
+<p>Rollback to an existing release.</p>
 
 
   </div>
@@ -531,7 +547,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -546,7 +563,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -560,12 +578,12 @@
       <pre class="lines">
 
 
-2727
-2728
-2729</pre>
+2784
+2785
+2786</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2727</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2784</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rollback'>rollback</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span><span class='period'>.</span><span class='id identifier rubyid_rollback'>rollback</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -580,9 +598,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

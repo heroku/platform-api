@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::TeamDelinquency
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A Heroku team becomes delinquent due to non-payment. We <a href="https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices">suspend and delete</a> delinquent teams if their invoices remain unpaid.</p>
+    
+<p>A Heroku team becomes delinquent due to non-payment. We <a href="https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices">suspend and delete</a> delinquent teams if their invoices remain unpaid.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Team delinquency information.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Team delinquency information.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of TeamDelinquency.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of TeamDelinquency.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of TeamDelinquency.</p>
+    
+<p>Returns a new instance of TeamDelinquency.</p>
 
 
   </div>
@@ -203,12 +207,12 @@
       <pre class="lines">
 
 
-3205
-3206
-3207</pre>
+3269
+3270
+3271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3205</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3269</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -236,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Team delinquency information.</p>
+    
+<p>Team delinquency information.</p>
 
 
   </div>
@@ -255,7 +260,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -269,12 +275,12 @@
       <pre class="lines">
 
 
-3212
-3213
-3214</pre>
+3276
+3277
+3278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3212</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3276</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_delinquency'>team_delinquency</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -289,9 +295,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

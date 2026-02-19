@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::DynoSize
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : <a href="https://devcenter.heroku.com/articles/dyno-types">https://devcenter.heroku.com/articles/dyno-types</a>.</p>
+    
+<p>Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : <a href="https://devcenter.heroku.com/articles/dyno-types">devcenter.heroku.com/articles/dyno-types</a>.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing dyno size.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing dyno size.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of DynoSize.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of DynoSize.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,32 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing dyno sizes.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing dyno sizes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_app_dyno_sizes-instance_method" title="#list_app_dyno_sizes (instance method)">#<strong>list_app_dyno_sizes</strong>(app_id_or_app_name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List available dyno sizes for an app.</p>
 </div></span>
   
 </li>
@@ -212,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of DynoSize.</p>
+    
+<p>Returns a new instance of DynoSize.</p>
 
 
   </div>
@@ -226,12 +255,12 @@
       <pre class="lines">
 
 
-1733
-1734
-1735</pre>
+1747
+1748
+1749</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1733</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1747</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing dyno size.</p>
+    
+<p>Info for existing dyno size.</p>
 
 
   </div>
@@ -278,7 +308,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this dyno size or the name of this dyno-size</p>
+        <div class='inline'>
+<p>unique identifier of the dyno size or name of the dyno size</p>
 </div>
       
     </li>
@@ -292,12 +323,12 @@
       <pre class="lines">
 
 
-1740
-1741
-1742</pre>
+1754
+1755
+1756</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1740</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1754</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_dyno_size_id_or_dyno_size_name'>dyno_size_id_or_dyno_size_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno_size'>dyno_size</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_dyno_size_id_or_dyno_size_name'>dyno_size_id_or_dyno_size_name</span><span class='rparen'>)</span>
@@ -318,7 +349,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing dyno sizes.</p>
+    
+<p>List existing dyno sizes.</p>
 
 
   </div>
@@ -332,15 +364,76 @@
       <pre class="lines">
 
 
-1745
-1746
-1747</pre>
+1759
+1760
+1761</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1745</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1759</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno_size'>dyno_size</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_app_dyno_sizes-instance_method">
+  
+    #<strong>list_app_dyno_sizes</strong>(app_id_or_app_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List available dyno sizes for an app</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1766
+1767
+1768</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1766</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_app_dyno_sizes'>list_app_dyno_sizes</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_dyno_size'>dyno_size</span><span class='period'>.</span><span class='id identifier rubyid_list_app_dyno_sizes'>list_app_dyno_sizes</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -352,9 +445,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

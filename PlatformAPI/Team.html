@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Team
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Teams allow you to manage access to a shared group of applications and other resources.</p>
+    
+<p>Teams allow you to manage access to a shared group of applications and other resources.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new team.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new team.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a team in an enterprise account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a team in an enterprise account.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing team.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing team.</p>
 </div></span>
   
 </li>
@@ -210,7 +214,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for a team.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for a team.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Team.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Team.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List teams in which you are a member.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List teams in which you are a member.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List teams for an enterprise account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List teams for an enterprise account.</p>
 </div></span>
   
 </li>
@@ -304,7 +312,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update team properties.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update team properties.</p>
 </div></span>
   
 </li>
@@ -327,7 +336,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Team.</p>
+    
+<p>Returns a new instance of Team.</p>
 
 
   </div>
@@ -341,12 +351,12 @@
       <pre class="lines">
 
 
-3413
-3414
-3415</pre>
+3477
+3478
+3479</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3413</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3477</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -374,7 +384,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new team.</p>
+    
+<p>Create a new team.</p>
 
 
   </div>
@@ -393,7 +404,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -407,12 +419,12 @@
       <pre class="lines">
 
 
-3440
-3441
-3442</pre>
+3504
+3505
+3506</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3440</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3504</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -433,7 +445,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a team in an enterprise account.</p>
+    
+<p>Create a team in an enterprise account.</p>
 
 
   </div>
@@ -452,7 +465,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -467,7 +481,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -481,12 +496,12 @@
       <pre class="lines">
 
 
-3462
-3463
-3464</pre>
+3526
+3527
+3528</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3462</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3526</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_in_enterprise_account'>create_in_enterprise_account</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_create_in_enterprise_account'>create_in_enterprise_account</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -507,7 +522,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete an existing team.</p>
+    
+<p>Delete an existing team.</p>
 
 
   </div>
@@ -526,7 +542,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -540,12 +557,12 @@
       <pre class="lines">
 
 
-3447
-3448
-3449</pre>
+3511
+3512
+3513</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3447</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3511</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -566,7 +583,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for a team.</p>
+    
+<p>Info for a team.</p>
 
 
   </div>
@@ -585,7 +603,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -599,12 +618,12 @@
       <pre class="lines">
 
 
-3425
-3426
-3427</pre>
+3489
+3490
+3491</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3425</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3489</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -625,7 +644,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List teams in which you are a member.</p>
+    
+<p>List teams in which you are a member.</p>
 
 
   </div>
@@ -639,12 +659,12 @@
       <pre class="lines">
 
 
-3418
-3419
-3420</pre>
+3482
+3483
+3484</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3418</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3482</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -665,7 +685,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List teams for an enterprise account.</p>
+    
+<p>List teams for an enterprise account.</p>
 
 
   </div>
@@ -684,7 +705,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -698,12 +720,12 @@
       <pre class="lines">
 
 
-3454
-3455
-3456</pre>
+3518
+3519
+3520</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3454</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3518</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_enterprise_account'>list_by_enterprise_account</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_list_by_enterprise_account'>list_by_enterprise_account</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
@@ -724,7 +746,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update team properties.</p>
+    
+<p>Update team properties.</p>
 
 
   </div>
@@ -743,7 +766,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -758,7 +782,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -772,12 +797,12 @@
       <pre class="lines">
 
 
-3433
-3434
-3435</pre>
+3497
+3498
+3499</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3433</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3497</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -792,9 +817,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:14 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

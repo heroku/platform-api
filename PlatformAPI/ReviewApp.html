@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::ReviewApp
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An ephemeral app to review a set of changes</p>
+    
+<p>An ephemeral app to review a set of changes</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new review app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new review app.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing review app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing review app.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Gets an existing review app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets an existing review app.</p>
 </div></span>
   
 </li>
@@ -210,7 +214,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get a review app using the associated app_id.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get a review app using the associated app_id.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of ReviewApp.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of ReviewApp.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List review apps for a pipeline.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List review apps for a pipeline.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of ReviewApp.</p>
+    
+<p>Returns a new instance of ReviewApp.</p>
 
 
   </div>
@@ -295,12 +303,12 @@
       <pre class="lines">
 
 
-2734
-2735
-2736</pre>
+2791
+2792
+2793</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2734</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2791</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +336,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new review app</p>
+    
+<p>Create a new review app</p>
 
 
   </div>
@@ -347,7 +356,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -361,12 +371,12 @@
       <pre class="lines">
 
 
-2741
-2742
-2743</pre>
+2798
+2799
+2800</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2741</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2798</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_review_app'>review_app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -387,7 +397,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete an existing review app</p>
+    
+<p>Delete an existing review app</p>
 
 
   </div>
@@ -406,7 +417,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the review app</p>
+        <div class='inline'>
+<p>unique identifier of the review app</p>
 </div>
       
     </li>
@@ -420,12 +432,12 @@
       <pre class="lines">
 
 
-2755
-2756
-2757</pre>
+2812
+2813
+2814</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2755</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2812</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_review_app_id'>review_app_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_review_app'>review_app</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_review_app_id'>review_app_id</span><span class='rparen'>)</span>
@@ -446,7 +458,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Gets an existing review app</p>
+    
+<p>Gets an existing review app</p>
 
 
   </div>
@@ -465,7 +478,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the review app</p>
+        <div class='inline'>
+<p>unique identifier of the review app</p>
 </div>
       
     </li>
@@ -479,12 +493,12 @@
       <pre class="lines">
 
 
-2748
-2749
-2750</pre>
+2805
+2806
+2807</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2748</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2805</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_review_app'>get_review_app</span><span class='lparen'>(</span><span class='id identifier rubyid_review_app_id'>review_app_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_review_app'>review_app</span><span class='period'>.</span><span class='id identifier rubyid_get_review_app'>get_review_app</span><span class='lparen'>(</span><span class='id identifier rubyid_review_app_id'>review_app_id</span><span class='rparen'>)</span>
@@ -505,7 +519,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get a review app using the associated app_id</p>
+    
+<p>Get a review app using the associated app_id</p>
 
 
   </div>
@@ -524,7 +539,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -538,12 +554,12 @@
       <pre class="lines">
 
 
-2762
-2763
-2764</pre>
+2819
+2820
+2821</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2762</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2819</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_review_app_by_app_id'>get_review_app_by_app_id</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_review_app'>review_app</span><span class='period'>.</span><span class='id identifier rubyid_get_review_app_by_app_id'>get_review_app_by_app_id</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -564,7 +580,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List review apps for a pipeline</p>
+    
+<p>List review apps for a pipeline</p>
 
 
   </div>
@@ -583,7 +600,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of pipeline</p>
+        <div class='inline'>
+<p>unique identifier of pipeline</p>
 </div>
       
     </li>
@@ -597,12 +615,12 @@
       <pre class="lines">
 
 
-2769
-2770
-2771</pre>
+2826
+2827
+2828</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2769</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2826</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_review_app'>review_app</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
@@ -617,9 +635,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

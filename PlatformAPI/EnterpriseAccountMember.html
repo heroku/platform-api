@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::EnterpriseAccountMember
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Enterprise account members are users with access to an enterprise account.</p>
+    
+<p>Enterprise account members are users with access to an enterprise account.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a member in an enterprise account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a member in an enterprise account.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>delete a member in an enterprise account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>delete a member in an enterprise account.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of EnterpriseAccountMember.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of EnterpriseAccountMember.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List members in an enterprise account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List members in an enterprise account.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update a member in an enterprise account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update a member in an enterprise account.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of EnterpriseAccountMember.</p>
+    
+<p>Returns a new instance of EnterpriseAccountMember.</p>
 
 
   </div>
@@ -272,12 +279,12 @@
       <pre class="lines">
 
 
-1821
-1822
-1823</pre>
+1858
+1859
+1860</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1821</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1858</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -305,7 +312,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a member in an enterprise account.</p>
+    
+<p>Create a member in an enterprise account.</p>
 
 
   </div>
@@ -324,7 +332,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -339,7 +348,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -353,12 +363,12 @@
       <pre class="lines">
 
 
-1836
-1837
-1838</pre>
+1873
+1874
+1875</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1836</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1873</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_enterprise_account_member'>enterprise_account_member</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -379,7 +389,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>delete a member in an enterprise account.</p>
+    
+<p>delete a member in an enterprise account.</p>
 
 
   </div>
@@ -398,7 +409,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -413,7 +425,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account</p>
 </div>
       
     </li>
@@ -427,12 +440,12 @@
       <pre class="lines">
 
 
-1853
-1854
-1855</pre>
+1890
+1891
+1892</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1853</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1890</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_enterprise_account_member'>enterprise_account_member</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='rparen'>)</span>
@@ -453,7 +466,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List members in an enterprise account.</p>
+    
+<p>List members in an enterprise account.</p>
 
 
   </div>
@@ -472,7 +486,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -486,12 +501,12 @@
       <pre class="lines">
 
 
-1828
-1829
-1830</pre>
+1865
+1866
+1867</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1828</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1865</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_enterprise_account_member'>enterprise_account_member</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
@@ -512,7 +527,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update a member in an enterprise account.</p>
+    
+<p>Update a member in an enterprise account.</p>
 
 
   </div>
@@ -531,7 +547,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -546,7 +563,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account</p>
 </div>
       
     </li>
@@ -561,7 +579,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -575,12 +594,12 @@
       <pre class="lines">
 
 
-1845
-1846
-1847</pre>
+1882
+1883
+1884</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1845</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1882</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_enterprise_account_member'>enterprise_account_member</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_account_email_or_account_id'>account_email_or_account_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -595,9 +614,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

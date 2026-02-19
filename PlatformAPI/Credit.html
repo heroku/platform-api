@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Credit
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A credit represents value that will be used up before further charges are assigned to an account.</p>
+    
+<p>A credit represents value that will be used up before further charges are assigned to an account.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new credit.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new credit.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing credit.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing credit.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Credit.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Credit.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing credits.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing credits.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Credit.</p>
+    
+<p>Returns a new instance of Credit.</p>
 
 
   </div>
@@ -249,12 +255,12 @@
       <pre class="lines">
 
 
-1660
-1661
-1662</pre>
+1674
+1675
+1676</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1660</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1674</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -282,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new credit.</p>
+    
+<p>Create a new credit.</p>
 
 
   </div>
@@ -301,7 +308,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -315,12 +323,12 @@
       <pre class="lines">
 
 
-1667
-1668
-1669</pre>
+1681
+1682
+1683</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1667</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1681</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_credit'>credit</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -341,7 +349,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing credit.</p>
+    
+<p>Info for existing credit.</p>
 
 
   </div>
@@ -360,7 +369,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of credit</p>
+        <div class='inline'>
+<p>unique identifier of credit</p>
 </div>
       
     </li>
@@ -374,12 +384,12 @@
       <pre class="lines">
 
 
-1674
-1675
-1676</pre>
+1688
+1689
+1690</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1674</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1688</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_credit_id'>credit_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_credit'>credit</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_credit_id'>credit_id</span><span class='rparen'>)</span>
@@ -400,7 +410,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing credits.</p>
+    
+<p>List existing credits.</p>
 
 
   </div>
@@ -414,12 +425,12 @@
       <pre class="lines">
 
 
-1679
-1680
-1681</pre>
+1693
+1694
+1695</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1679</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1693</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_credit'>credit</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -434,9 +445,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

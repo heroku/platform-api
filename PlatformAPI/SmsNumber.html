@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::SmsNumber
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>SMS numbers are used for recovery on accounts with two-factor authentication enabled.</p>
+    
+<p>SMS numbers are used for recovery on accounts with two-factor authentication enabled.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Confirm an SMS number change with a confirmation code.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Confirm an SMS number change with a confirmation code.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of SmsNumber.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of SmsNumber.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Recover an account using an SMS recovery code.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Recover an account using an SMS recovery code.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Recover an account using an SMS recovery code.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Recover an account using an SMS recovery code.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of SmsNumber.</p>
+    
+<p>Returns a new instance of SmsNumber.</p>
 
 
   </div>
@@ -249,12 +255,12 @@
       <pre class="lines">
 
 
-2836
-2837
-2838</pre>
+2893
+2894
+2895</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2836</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2893</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -282,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Confirm an SMS number change with a confirmation code</p>
+    
+<p>Confirm an SMS number change with a confirmation code</p>
 
 
   </div>
@@ -301,7 +308,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -315,12 +323,12 @@
       <pre class="lines">
 
 
-2857
-2858
-2859</pre>
+2914
+2915
+2916</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2857</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2914</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_confirm'>confirm</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_confirm'>confirm</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -341,7 +349,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Recover an account using an SMS recovery code</p>
+    
+<p>Recover an account using an SMS recovery code</p>
 
 
   </div>
@@ -360,7 +369,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -374,12 +384,12 @@
       <pre class="lines">
 
 
-2850
-2851
-2852</pre>
+2907
+2908
+2909</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2850</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2907</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_recover'>recover</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_recover'>recover</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -400,7 +410,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Recover an account using an SMS recovery code</p>
+    
+<p>Recover an account using an SMS recovery code</p>
 
 
   </div>
@@ -419,7 +430,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -433,12 +445,12 @@
       <pre class="lines">
 
 
-2843
-2844
-2845</pre>
+2900
+2901
+2902</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2843</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2900</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sms_number'>sms_number</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='period'>.</span><span class='id identifier rubyid_sms_number'>sms_number</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -453,9 +465,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

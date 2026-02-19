@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::PipelineRelease
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Information about latest releases of apps in a pipeline.</p>
+    
+<p>Information about the latest release of each app in a pipeline. A release makes a deployment available to end-users.</p>
 
 
   </div>
@@ -143,7 +144,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of PipelineRelease.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of PipelineRelease.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List latest releases for each app in a pipeline.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List latest releases for each app in a pipeline.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of PipelineRelease.</p>
+    
+<p>Returns a new instance of PipelineRelease.</p>
 
 
   </div>
@@ -203,12 +207,12 @@
       <pre class="lines">
 
 
-2553
-2554
-2555</pre>
+2610
+2611
+2612</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2553</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2610</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -236,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List latest releases for each app in a pipeline</p>
+    
+<p>List latest releases for each app in a pipeline</p>
 
 
   </div>
@@ -255,7 +260,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of pipeline</p>
+        <div class='inline'>
+<p>unique identifier of pipeline</p>
 </div>
       
     </li>
@@ -269,12 +275,12 @@
       <pre class="lines">
 
 
-2560
-2561
-2562</pre>
+2617
+2618
+2619</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2560</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2617</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_pipeline_release'>pipeline_release</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
@@ -289,9 +295,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

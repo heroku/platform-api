@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AppTransfer
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An app transfer represents a two party interaction for transferring ownership of an app.</p>
+    
+<p>An app transfer represents a two party interaction for transferring ownership of an app.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new app transfer.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing app transfer.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing app transfer.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of AppTransfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AppTransfer.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing apps transfers.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing apps transfers.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update an existing app transfer.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing app transfer.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of AppTransfer.</p>
+    
+<p>Returns a new instance of AppTransfer.</p>
 
 
   </div>
@@ -295,12 +303,12 @@
       <pre class="lines">
 
 
-1287
-1288
-1289</pre>
+1301
+1302
+1303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1287</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +336,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new app transfer.</p>
+    
+<p>Create a new app transfer.</p>
 
 
   </div>
@@ -347,125 +356,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-1294
-1295
-1296</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1294</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="delete-instance_method">
-  
-    #<strong>delete</strong>(app_transfer_id_or_app_name)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Delete an existing app transfer</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_transfer_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-1301
-1302
-1303</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1301</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="info-instance_method">
-  
-    #<strong>info</strong>(app_transfer_id_or_app_name)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Info for existing app transfer.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_transfer_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -486,6 +378,128 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1308</span>
 
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    #<strong>delete</strong>(app_transfer_id_or_app_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete an existing app transfer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_transfer_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app transfer or unique name of app</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1315
+1316
+1317</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1315</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="info-instance_method">
+  
+    #<strong>info</strong>(app_transfer_id_or_app_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Info for existing app transfer.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_transfer_id_or_app_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app transfer or unique name of app</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1322
+1323
+1324</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1322</span>
+
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -505,7 +519,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing apps transfers.</p>
+    
+<p>List existing apps transfers.</p>
 
 
   </div>
@@ -519,12 +534,12 @@
       <pre class="lines">
 
 
-1313
-1314
-1315</pre>
+1327
+1328
+1329</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1313</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1327</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -545,7 +560,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update an existing app transfer.</p>
+    
+<p>Update an existing app transfer.</p>
 
 
   </div>
@@ -564,7 +580,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app transfer or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app transfer or unique name of app</p>
 </div>
       
     </li>
@@ -579,7 +596,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -593,12 +611,12 @@
       <pre class="lines">
 
 
-1321
-1322
-1323</pre>
+1335
+1336
+1337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1321</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1335</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_transfer'>app_transfer</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_transfer_id_or_app_name'>app_transfer_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -613,9 +631,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:12 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

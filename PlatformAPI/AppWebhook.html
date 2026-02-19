@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AppWebhook
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Represents the details of a webhook subscription</p>
+    
+<p>Represents the details of a webhook subscription</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create an app webhook subscription.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create an app webhook subscription.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Removes an app webhook subscription.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Removes an app webhook subscription.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the info for an app webhook subscription.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the info for an app webhook subscription.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of AppWebhook.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AppWebhook.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List all webhook subscriptions for a particular app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List all webhook subscriptions for a particular app.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Updates the details of an app webhook subscription.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Updates the details of an app webhook subscription.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of AppWebhook.</p>
+    
+<p>Returns a new instance of AppWebhook.</p>
 
 
   </div>
@@ -295,12 +303,12 @@
       <pre class="lines">
 
 
-1372
-1373
-1374</pre>
+1386
+1387
+1388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1372</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1386</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +336,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create an app webhook subscription.</p>
+    
+<p>Create an app webhook subscription.</p>
 
 
   </div>
@@ -347,7 +356,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -362,7 +372,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -376,12 +387,12 @@
       <pre class="lines">
 
 
-1380
-1381
-1382</pre>
+1394
+1395
+1396</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1380</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1394</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_webhook'>app_webhook</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -402,7 +413,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Removes an app webhook subscription.</p>
+    
+<p>Removes an app webhook subscription.</p>
 
 
   </div>
@@ -421,7 +433,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -436,7 +449,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the webhook&#39;s unique identifier</p>
+        <div class='inline'>
+<p>the webhook’s unique identifier</p>
 </div>
       
     </li>
@@ -450,12 +464,12 @@
       <pre class="lines">
 
 
-1388
-1389
-1390</pre>
+1402
+1403
+1404</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1388</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1402</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_webhook'>app_webhook</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
@@ -476,7 +490,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the info for an app webhook subscription.</p>
+    
+<p>Returns the info for an app webhook subscription.</p>
 
 
   </div>
@@ -495,7 +510,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -510,7 +526,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the webhook&#39;s unique identifier</p>
+        <div class='inline'>
+<p>the webhook’s unique identifier</p>
 </div>
       
     </li>
@@ -524,12 +541,12 @@
       <pre class="lines">
 
 
-1396
-1397
-1398</pre>
+1410
+1411
+1412</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1396</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1410</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_webhook'>app_webhook</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='rparen'>)</span>
@@ -550,7 +567,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List all webhook subscriptions for a particular app.</p>
+    
+<p>List all webhook subscriptions for a particular app.</p>
 
 
   </div>
@@ -569,7 +587,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -583,12 +602,12 @@
       <pre class="lines">
 
 
-1403
-1404
-1405</pre>
+1417
+1418
+1419</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1403</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1417</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_webhook'>app_webhook</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -609,7 +628,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Updates the details of an app webhook subscription.</p>
+    
+<p>Updates the details of an app webhook subscription.</p>
 
 
   </div>
@@ -628,7 +648,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -643,7 +664,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the webhook&#39;s unique identifier</p>
+        <div class='inline'>
+<p>the webhook’s unique identifier</p>
 </div>
       
     </li>
@@ -658,7 +680,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -672,12 +695,12 @@
       <pre class="lines">
 
 
-1412
-1413
-1414</pre>
+1426
+1427
+1428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1412</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1426</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app_webhook'>app_webhook</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_app_webhook_id'>app_webhook_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -692,9 +715,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:12 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

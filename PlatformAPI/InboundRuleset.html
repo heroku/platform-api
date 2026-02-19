@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::InboundRuleset
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.</p>
+    
+<p>An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new inbound ruleset.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new inbound ruleset.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Current inbound ruleset for a space.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Current inbound ruleset for a space.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info on an existing Inbound Ruleset.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info on an existing Inbound Ruleset.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of InboundRuleset.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of InboundRuleset.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List all inbound rulesets for a space.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List all inbound rulesets for a space.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of InboundRuleset.</p>
+    
+<p>Returns a new instance of InboundRuleset.</p>
 
 
   </div>
@@ -272,12 +279,12 @@
       <pre class="lines">
 
 
-1995
-1996
-1997</pre>
+2058
+2059
+2060</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1995</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2058</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -305,7 +312,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new inbound ruleset</p>
+    
+<p>Create a new inbound ruleset</p>
 
 
   </div>
@@ -324,7 +332,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of space or unique name of space</p>
+        <div class='inline'>
+<p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -339,7 +348,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -353,12 +363,12 @@
       <pre class="lines">
 
 
-2025
-2026
-2027</pre>
+2088
+2089
+2090</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2025</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2088</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -379,7 +389,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Current inbound ruleset for a space</p>
+    
+<p>Current inbound ruleset for a space</p>
 
 
   </div>
@@ -398,7 +409,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of space or unique name of space</p>
+        <div class='inline'>
+<p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -412,12 +424,12 @@
       <pre class="lines">
 
 
-2002
-2003
-2004</pre>
+2065
+2066
+2067</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2002</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2065</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_current'>current</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -438,7 +450,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info on an existing Inbound Ruleset</p>
+    
+<p>Info on an existing Inbound Ruleset</p>
 
 
   </div>
@@ -457,7 +470,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of space or unique name of space</p>
+        <div class='inline'>
+<p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -472,7 +486,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of an inbound-ruleset</p>
+        <div class='inline'>
+<p>unique identifier of an inbound-ruleset</p>
 </div>
       
     </li>
@@ -486,12 +501,12 @@
       <pre class="lines">
 
 
-2010
-2011
-2012</pre>
+2073
+2074
+2075</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2010</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2073</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_inbound_ruleset_id'>inbound_ruleset_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_inbound_ruleset_id'>inbound_ruleset_id</span><span class='rparen'>)</span>
@@ -512,7 +527,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List all inbound rulesets for a space</p>
+    
+<p>List all inbound rulesets for a space</p>
 
 
   </div>
@@ -531,7 +547,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of space or unique name of space</p>
+        <div class='inline'>
+<p>unique identifier of space or unique name of space</p>
 </div>
       
     </li>
@@ -545,12 +562,12 @@
       <pre class="lines">
 
 
-2017
-2018
-2019</pre>
+2080
+2081
+2082</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2017</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2080</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_inbound_ruleset'>inbound_ruleset</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -565,9 +582,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

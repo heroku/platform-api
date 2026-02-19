@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::TeamMember
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A team member is an individual with access to a team.</p>
+    
+<p>A team member is an individual with access to a team.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new team member.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new team member.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new team member, or update their role.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new team member, or update their role.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Remove a member from the team.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Remove a member from the team.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of TeamMember.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of TeamMember.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List members of the team.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List members of the team.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List the apps of a team member.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List the apps of a team member.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update a team member.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update a team member.</p>
 </div></span>
   
 </li>
@@ -304,7 +312,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of TeamMember.</p>
+    
+<p>Returns a new instance of TeamMember.</p>
 
 
   </div>
@@ -318,12 +327,12 @@
       <pre class="lines">
 
 
-3307
-3308
-3309</pre>
+3371
+3372
+3373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3307</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3371</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -351,7 +360,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new team member.</p>
+    
+<p>Create a new team member.</p>
 
 
   </div>
@@ -370,7 +380,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -385,7 +396,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -399,12 +411,12 @@
       <pre class="lines">
 
 
-3323
-3324
-3325</pre>
+3387
+3388
+3389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3323</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3387</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_member'>team_member</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -425,7 +437,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new team member, or update their role.</p>
+    
+<p>Create a new team member, or update their role.</p>
 
 
   </div>
@@ -444,7 +457,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -459,7 +473,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -473,12 +488,12 @@
       <pre class="lines">
 
 
-3315
-3316
-3317</pre>
+3379
+3380
+3381</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3315</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3379</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_or_update'>create_or_update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_member'>team_member</span><span class='period'>.</span><span class='id identifier rubyid_create_or_update'>create_or_update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -499,7 +514,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Remove a member from the team.</p>
+    
+<p>Remove a member from the team.</p>
 
 
   </div>
@@ -518,7 +534,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -533,7 +550,8 @@
       
       
         &mdash;
-        <div class='inline'><p>email address of the team member or unique identifier of the team member</p>
+        <div class='inline'>
+<p>email address of the team member or unique identifier of the team member</p>
 </div>
       
     </li>
@@ -547,12 +565,12 @@
       <pre class="lines">
 
 
-3339
-3340
-3341</pre>
+3403
+3404
+3405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3339</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3403</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_team_member_email_or_team_member_id'>team_member_email_or_team_member_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_member'>team_member</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_team_member_email_or_team_member_id'>team_member_email_or_team_member_id</span><span class='rparen'>)</span>
@@ -573,7 +591,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List members of the team.</p>
+    
+<p>List members of the team.</p>
 
 
   </div>
@@ -592,7 +611,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -606,12 +626,12 @@
       <pre class="lines">
 
 
-3346
-3347
-3348</pre>
+3410
+3411
+3412</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3346</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3410</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_member'>team_member</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -632,7 +652,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List the apps of a team member.</p>
+    
+<p>List the apps of a team member.</p>
 
 
   </div>
@@ -651,7 +672,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -666,7 +688,8 @@
       
       
         &mdash;
-        <div class='inline'><p>email address of the team member or unique identifier of the team member</p>
+        <div class='inline'>
+<p>email address of the team member or unique identifier of the team member</p>
 </div>
       
     </li>
@@ -680,12 +703,12 @@
       <pre class="lines">
 
 
-3354
-3355
-3356</pre>
+3418
+3419
+3420</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3354</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3418</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_member'>list_by_member</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_team_member_email_or_team_member_id'>team_member_email_or_team_member_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_member'>team_member</span><span class='period'>.</span><span class='id identifier rubyid_list_by_member'>list_by_member</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_team_member_email_or_team_member_id'>team_member_email_or_team_member_id</span><span class='rparen'>)</span>
@@ -706,7 +729,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update a team member.</p>
+    
+<p>Update a team member.</p>
 
 
   </div>
@@ -725,7 +749,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -740,7 +765,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -754,12 +780,12 @@
       <pre class="lines">
 
 
-3331
-3332
-3333</pre>
+3395
+3396
+3397</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3331</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_member'>team_member</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -774,9 +800,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AddonConfig
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Configuration of an Add-on</p>
+    
+<p>Configuration of an Add-on</p>
 
 
   </div>
@@ -143,7 +144,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of AddonConfig.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AddonConfig.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get an add-on&#39;s config.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get an add-on’s config.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update an add-on&#39;s config.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update an add-on’s config.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of AddonConfig.</p>
+    
+<p>Returns a new instance of AddonConfig.</p>
 
 
   </div>
@@ -226,12 +231,12 @@
       <pre class="lines">
 
 
-960
-961
-962</pre>
+974
+975
+976</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 960</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 974</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get an add-on&#39;s config. Accessible by customers with access and by the add-on partner providing this add-on.</p>
+    
+<p>Get an add-on’s config. Accessible by customers with access and by the add-on partner providing this add-on.</p>
 
 
   </div>
@@ -278,7 +284,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'>
+<p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -292,12 +299,12 @@
       <pre class="lines">
 
 
-967
-968
-969</pre>
+981
+982
+983</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 967</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 981</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_config'>addon_config</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -318,7 +325,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update an add-on&#39;s config. Can only be accessed by the add-on partner providing this add-on.</p>
+    
+<p>Update an add-on’s config. Can only be accessed by the add-on partner providing this add-on.</p>
 
 
   </div>
@@ -337,7 +345,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'>
+<p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -352,7 +361,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -366,12 +376,12 @@
       <pre class="lines">
 
 
-975
-976
-977</pre>
+989
+990
+991</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 975</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 989</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_config'>addon_config</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -386,9 +396,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:12 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

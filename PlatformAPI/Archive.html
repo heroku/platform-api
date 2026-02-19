@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Archive
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An audit trail archive represents a monthly json zipped file containing events</p>
+    
+<p>An audit trail archive represents a monthly json zipped file containing events</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get archive for a single month.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get archive for a single month.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Archive.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Archive.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing archives.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing archives.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Archive.</p>
+    
+<p>Returns a new instance of Archive.</p>
 
 
   </div>
@@ -226,12 +231,12 @@
       <pre class="lines">
 
 
-1488
-1489
-1490</pre>
+1502
+1503
+1504</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1488</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1502</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -259,7 +264,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get archive for a single month.</p>
+    
+<p>Get archive for a single month.</p>
 
 
   </div>
@@ -278,7 +284,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -293,7 +300,8 @@
       
       
         &mdash;
-        <div class='inline'><p>year of the archive</p>
+        <div class='inline'>
+<p>year of the archive</p>
 </div>
       
     </li>
@@ -308,7 +316,8 @@
       
       
         &mdash;
-        <div class='inline'><p>month of the archive</p>
+        <div class='inline'>
+<p>month of the archive</p>
 </div>
       
     </li>
@@ -322,12 +331,12 @@
       <pre class="lines">
 
 
-1497
-1498
-1499</pre>
+1511
+1512
+1513</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1497</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1511</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_archive_year'>archive_year</span><span class='comma'>,</span> <span class='id identifier rubyid_archive_month'>archive_month</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_archive'>archive</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='comma'>,</span> <span class='id identifier rubyid_archive_year'>archive_year</span><span class='comma'>,</span> <span class='id identifier rubyid_archive_month'>archive_month</span><span class='rparen'>)</span>
@@ -348,7 +357,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing archives.</p>
+    
+<p>List existing archives.</p>
 
 
   </div>
@@ -367,7 +377,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -381,12 +392,12 @@
       <pre class="lines">
 
 
-1504
-1505
-1506</pre>
+1518
+1519
+1520</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1504</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1518</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_archive'>archive</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
@@ -401,9 +412,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:12 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

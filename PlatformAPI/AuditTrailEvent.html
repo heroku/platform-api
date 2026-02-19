@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AuditTrailEvent
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An audit trail event represents some action on the platform</p>
+    
+<p>An audit trail event represents some action on the platform</p>
 
 
   </div>
@@ -143,7 +144,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of AuditTrailEvent.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AuditTrailEvent.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing events.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing events.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of AuditTrailEvent.</p>
+    
+<p>Returns a new instance of AuditTrailEvent.</p>
 
 
   </div>
@@ -203,12 +207,12 @@
       <pre class="lines">
 
 
-1511
-1512
-1513</pre>
+1525
+1526
+1527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1511</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1525</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -236,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing events. Returns all events for one day, defaulting to current day. Order, actor, action, and type, and day query params can be specified as query parameters. For example, &#39;/enterprise-accounts/:id/events?order=desc&amp;actor=<a href="mailto:user@example.com">user@example.com</a>&amp;action=create&amp;type=app&amp;day=2020-09-30&#39; would return events in descending order and only return app created events by the user with <a href="mailto:user@example.com">user@example.com</a> email address.</p>
+    
+<p>List existing events. Returns all events for one day, defaulting to current day. Order, actor, action, and type, and day query params can be specified as query parameters. For example, ‘/enterprise-accounts/:id/events?order=desc&amp;actor=user@example.com&amp;action=create&amp;type=app&amp;day=2020-09-30’ would return events in descending order and only return app created events by the user with user@example.com email address.</p>
 
 
   </div>
@@ -255,7 +260,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of the enterprise account or unique name of the enterprise account</p>
+        <div class='inline'>
+<p>unique identifier of the enterprise account or unique name of the enterprise account</p>
 </div>
       
     </li>
@@ -269,12 +275,12 @@
       <pre class="lines">
 
 
-1518
-1519
-1520</pre>
+1532
+1533
+1534</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1518</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1532</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_audit_trail_event'>audit_trail_event</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_enterprise_account_id_or_enterprise_account_name'>enterprise_account_id_or_enterprise_account_name</span><span class='rparen'>)</span>
@@ -289,9 +295,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:12 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::Account
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An account represents an individual signed up to use the Heroku platform.</p>
+    
+<p>An account represents an individual signed up to use the Heroku platform.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete account.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete account.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for account.</p>
 </div></span>
   
 </li>
@@ -210,7 +214,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for account.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of Account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Account.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update account.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update account.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update account.</p>
 </div></span>
   
 </li>
@@ -304,7 +312,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Account.</p>
+    
+<p>Returns a new instance of Account.</p>
 
 
   </div>
@@ -318,12 +327,12 @@
       <pre class="lines">
 
 
-831
-832
-833</pre>
+845
+846
+847</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 831</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 845</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -351,7 +360,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.</p>
+    
+<p>Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.</p>
 
 
   </div>
@@ -365,12 +375,12 @@
       <pre class="lines">
 
 
-848
-849
-850</pre>
+862
+863
+864</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 848</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 862</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -391,7 +401,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.</p>
+    
+<p>Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.</p>
 
 
   </div>
@@ -410,7 +421,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -424,12 +436,12 @@
       <pre class="lines">
 
 
-870
-871
-872</pre>
+884
+885
+886</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 870</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 884</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_by_user'>delete_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_delete_by_user'>delete_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -450,7 +462,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for account.</p>
+    
+<p>Info for account.</p>
 
 
   </div>
@@ -464,12 +477,12 @@
       <pre class="lines">
 
 
-836
-837
-838</pre>
+850
+851
+852</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 836</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 850</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -490,7 +503,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for account.</p>
+    
+<p>Info for account.</p>
 
 
   </div>
@@ -509,7 +523,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -523,12 +538,12 @@
       <pre class="lines">
 
 
-855
-856
-857</pre>
+869
+870
+871</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 855</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 869</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_by_user'>info_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_info_by_user'>info_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -549,7 +564,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update account.</p>
+    
+<p>Update account.</p>
 
 
   </div>
@@ -568,7 +584,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -582,12 +599,12 @@
       <pre class="lines">
 
 
-843
-844
-845</pre>
+857
+858
+859</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 843</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 857</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -608,7 +625,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update account.</p>
+    
+<p>Update account.</p>
 
 
   </div>
@@ -627,7 +645,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
+        <div class='inline'>
+<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
 </div>
       
     </li>
@@ -642,7 +661,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -656,12 +676,12 @@
       <pre class="lines">
 
 
-863
-864
-865</pre>
+877
+878
+879</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 863</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 877</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_by_user'>update_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_update_by_user'>update_by_user</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -676,9 +696,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:12 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

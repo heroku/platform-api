@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: PlatformAPI::Slug
+  Class: PlatformAPI::OciImage
   
     &mdash; Documentation by YARD 0.9.38
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "PlatformAPI::Slug";
+  pathId = "PlatformAPI::OciImage";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (S)</a> &raquo;
+    <a href="../_index.html">Index (O)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../PlatformAPI.html" title="PlatformAPI (module)">PlatformAPI</a></span></span>
      &raquo; 
-    <span class="title">Slug</span>
+    <span class="title">OciImage</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: PlatformAPI::Slug
+      <div id="content"><h1>Class: PlatformAPI::OciImage
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">PlatformAPI::Slug</li>
+            <li class="next">PlatformAPI::OciImage</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A slug is a snapshot of your application code that is ready to run on the platform.</p>
+<p>An OCI (Open Container Initiative) image is a standardized format for packaging and distributing containerized applications, ready to run on the platform.</p>
 
 
   </div>
@@ -143,7 +143,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new slug.</p>
+<p>Create an new OCI image of an app.</p>
 </div></span>
   
 </li>
@@ -152,7 +152,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info-instance_method" title="#info (instance method)">#<strong>info</strong>(app_id_or_app_name, slug_id)  &#x21d2; Object </a>
+      <a href="#info-instance_method" title="#info (instance method)">#<strong>info</strong>(app_id_or_app_name, oci_image_id_or_oci_image_digest)  &#x21d2; Object </a>
     
 
     
@@ -167,7 +167,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Info for existing slug.</p>
+<p>Info for the OCI images of an app, filtered by identifier.</p>
 </div></span>
   
 </li>
@@ -176,7 +176,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client)  &#x21d2; Slug </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client)  &#x21d2; OciImage </a>
     
 
     
@@ -193,7 +193,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of Slug.</p>
+<p>A new instance of OciImage.</p>
 </div></span>
   
 </li>
@@ -208,7 +208,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(client)  &#x21d2; <tt><span class='object_link'><a href="" title="PlatformAPI::Slug (class)">Slug</a></span></tt> 
+    #<strong>initialize</strong>(client)  &#x21d2; <tt><span class='object_link'><a href="" title="PlatformAPI::OciImage (class)">OciImage</a></span></tt> 
   
 
   
@@ -217,7 +217,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of Slug.</p>
+<p>Returns a new instance of OciImage.</p>
 
 
   </div>
@@ -231,12 +231,12 @@
       <pre class="lines">
 
 
-2870
-2871
-2872</pre>
+2345
+2346
+2347</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2870</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2345</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -265,7 +265,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new slug. For more information please refer to <a href="https://devcenter.heroku.com/articles/platform-api-deploying-slugs">Deploying Slugs using the Platform API</a>.</p>
+<p>Create an new OCI image of an app</p>
 
 
   </div>
@@ -315,15 +315,15 @@
       <pre class="lines">
 
 
-2886
-2887
-2888</pre>
+2361
+2362
+2363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2886</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2361</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_slug'>slug</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oci_image'>oci_image</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -333,7 +333,7 @@
       <div class="method_details ">
   <h3 class="signature " id="info-instance_method">
   
-    #<strong>info</strong>(app_id_or_app_name, slug_id)  &#x21d2; <tt>Object</tt> 
+    #<strong>info</strong>(app_id_or_app_name, oci_image_id_or_oci_image_digest)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -342,7 +342,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Info for existing slug.</p>
+<p>Info for the OCI images of an app, filtered by identifier.</p>
 
 
   </div>
@@ -369,7 +369,7 @@
   
     <li>
       
-        <span class='name'>slug_id:</span>
+        <span class='name'>oci_image_id_or_oci_image_digest:</span>
       
       
         <span class='type'></span>
@@ -378,7 +378,7 @@
       
         &mdash;
         <div class='inline'>
-<p>unique identifier of slug</p>
+<p>unique identifier of the OCI image or unique identifier representing the content of the OCI image</p>
 </div>
       
     </li>
@@ -392,15 +392,15 @@
       <pre class="lines">
 
 
-2878
-2879
-2880</pre>
+2353
+2354
+2355</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2878</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2353</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_slug_id'>slug_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_slug'>slug</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_slug_id'>slug_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_oci_image_id_or_oci_image_digest'>oci_image_id_or_oci_image_digest</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oci_image'>oci_image</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_oci_image_id_or_oci_image_digest'>oci_image_id_or_oci_image_digest</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -412,7 +412,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:58 2026 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-3.4.1).
 </div>

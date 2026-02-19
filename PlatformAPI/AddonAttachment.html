@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::AddonAttachment
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An add-on attachment represents a connection between an app and an add-on that it has been given access to.</p>
+    
+<p>An add-on attachment represents a connection between an app and an add-on that it has been given access to.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new add-on attachment.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new add-on attachment.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing add-on attachment.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing add-on attachment.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing add-on attachment.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing add-on attachment.</p>
 </div></span>
   
 </li>
@@ -210,7 +214,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for existing add-on attachment for an app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for existing add-on attachment for an app.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of AddonAttachment.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AddonAttachment.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing add-on attachments.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing add-on attachments.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing add-on attachments for an add-on.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing add-on attachments for an add-on.</p>
 </div></span>
   
 </li>
@@ -304,7 +312,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List existing add-on attachments for an app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List existing add-on attachments for an app.</p>
 </div></span>
   
 </li>
@@ -327,7 +336,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Resolve an add-on attachment from a name, optionally passing an app name.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Resolve an add-on attachment from a name, optionally passing an app name.</p>
 </div></span>
   
 </li>
@@ -350,7 +360,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of AddonAttachment.</p>
+    
+<p>Returns a new instance of AddonAttachment.</p>
 
 
   </div>
@@ -364,12 +375,12 @@
       <pre class="lines">
 
 
-898
-899
-900</pre>
+912
+913
+914</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 898</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 912</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -397,7 +408,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new add-on attachment.</p>
+    
+<p>Create a new add-on attachment.</p>
 
 
   </div>
@@ -416,125 +428,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-905
-906
-907</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 905</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="delete-instance_method">
-  
-    #<strong>delete</strong>(addon_attachment_id)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Delete an existing add-on attachment.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>addon_attachment_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>unique identifier of this add-on attachment</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-912
-913
-914</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 912</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="info-instance_method">
-  
-    #<strong>info</strong>(addon_attachment_id)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Info for existing add-on attachment.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>addon_attachment_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>unique identifier of this add-on attachment</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -555,6 +450,128 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 919</span>
 
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    #<strong>delete</strong>(addon_attachment_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete an existing add-on attachment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>addon_attachment_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of this add-on attachment</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+926
+927
+928</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 926</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="info-instance_method">
+  
+    #<strong>info</strong>(addon_attachment_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Info for existing add-on attachment.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>addon_attachment_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of this add-on attachment</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+933
+934
+935</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 933</span>
+
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_attachment_id'>addon_attachment_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -574,7 +591,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for existing add-on attachment for an app.</p>
+    
+<p>Info for existing add-on attachment for an app.</p>
 
 
   </div>
@@ -593,7 +611,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -608,7 +627,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of this add-on attachment or unique name for this add-on attachment to this app</p>
+        <div class='inline'>
+<p>unique identifier of this add-on attachment or unique name for this add-on attachment to this app</p>
 </div>
       
     </li>
@@ -622,12 +642,12 @@
       <pre class="lines">
 
 
-946
-947
-948</pre>
+960
+961
+962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 946</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 960</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_by_app'>info_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_attachment_id_or_addon_attachment_name'>addon_attachment_id_or_addon_attachment_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_info_by_app'>info_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_addon_attachment_id_or_addon_attachment_name'>addon_attachment_id_or_addon_attachment_name</span><span class='rparen'>)</span>
@@ -648,7 +668,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing add-on attachments.</p>
+    
+<p>List existing add-on attachments.</p>
 
 
   </div>
@@ -662,12 +683,12 @@
       <pre class="lines">
 
 
-924
-925
-926</pre>
+938
+939
+940</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 924</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 938</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -688,7 +709,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing add-on attachments for an add-on.</p>
+    
+<p>List existing add-on attachments for an add-on.</p>
 
 
   </div>
@@ -707,7 +729,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of add-on or globally unique name of the add-on</p>
+        <div class='inline'>
+<p>unique identifier of add-on or globally unique name of the add-on</p>
 </div>
       
     </li>
@@ -721,12 +744,12 @@
       <pre class="lines">
 
 
-931
-932
-933</pre>
+945
+946
+947</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 931</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 945</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_id_or_addon_name'>addon_id_or_addon_name</span><span class='rparen'>)</span>
@@ -747,7 +770,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List existing add-on attachments for an app.</p>
+    
+<p>List existing add-on attachments for an app.</p>
 
 
   </div>
@@ -766,7 +790,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -780,12 +805,12 @@
       <pre class="lines">
 
 
-938
-939
-940</pre>
+952
+953
+954</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 938</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 952</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -806,7 +831,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Resolve an add-on attachment from a name, optionally passing an app name. If there are matches it returns at least one add-on attachment (exact match) or many.</p>
+    
+<p>Resolve an add-on attachment from a name, optionally passing an app name. If there are matches it returns at least one add-on attachment (exact match) or many.</p>
 
 
   </div>
@@ -825,7 +851,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -839,12 +866,12 @@
       <pre class="lines">
 
 
-953
-954
-955</pre>
+967
+968
+969</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 953</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 967</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolution'>resolution</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_addon_attachment'>addon_attachment</span><span class='period'>.</span><span class='id identifier rubyid_resolution'>resolution</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -859,9 +886,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:12 2024 by
+  Generated on Thu Feb 19 08:48:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

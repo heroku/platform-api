@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::TeamInvitation
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A team invitation represents an invite to a team.</p>
+    
+<p>A team invitation represents an invite to a team.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Accept Team Invitation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Accept Team Invitation.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create Team Invitation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create Team Invitation.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get an invitation by its token.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get an invitation by its token.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of TeamInvitation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of TeamInvitation.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Get a list of a team&#39;s Identity Providers.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get a list of a team’s Identity Providers.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Revoke a team invitation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Revoke a team invitation.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of TeamInvitation.</p>
+    
+<p>Returns a new instance of TeamInvitation.</p>
 
 
   </div>
@@ -295,12 +303,12 @@
       <pre class="lines">
 
 
-3241
-3242
-3243</pre>
+3305
+3306
+3307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3241</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3305</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +336,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Accept Team Invitation</p>
+    
+<p>Accept Team Invitation</p>
 
 
   </div>
@@ -347,7 +356,8 @@
       
       
         &mdash;
-        <div class='inline'><p>special token for invitation</p>
+        <div class='inline'>
+<p>special token for invitation</p>
 </div>
       
     </li>
@@ -361,12 +371,12 @@
       <pre class="lines">
 
 
-3278
-3279
-3280</pre>
+3342
+3343
+3344</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3278</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3342</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accept'>accept</span><span class='lparen'>(</span><span class='id identifier rubyid_team_invitation_token'>team_invitation_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_invitation'>team_invitation</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span><span class='lparen'>(</span><span class='id identifier rubyid_team_invitation_token'>team_invitation_token</span><span class='rparen'>)</span>
@@ -387,7 +397,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create Team Invitation</p>
+    
+<p>Create Team Invitation</p>
 
 
   </div>
@@ -406,7 +417,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -421,7 +433,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -435,12 +448,12 @@
       <pre class="lines">
 
 
-3256
-3257
-3258</pre>
+3320
+3321
+3322</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3256</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3320</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_invitation'>team_invitation</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -461,7 +474,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get an invitation by its token</p>
+    
+<p>Get an invitation by its token</p>
 
 
   </div>
@@ -480,7 +494,8 @@
       
       
         &mdash;
-        <div class='inline'><p>special token for invitation</p>
+        <div class='inline'>
+<p>special token for invitation</p>
 </div>
       
     </li>
@@ -494,12 +509,12 @@
       <pre class="lines">
 
 
-3271
-3272
-3273</pre>
+3335
+3336
+3337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3271</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3335</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_team_invitation_token'>team_invitation_token</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_invitation'>team_invitation</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_team_invitation_token'>team_invitation_token</span><span class='rparen'>)</span>
@@ -520,7 +535,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Get a list of a team&#39;s Identity Providers</p>
+    
+<p>Get a list of a team’s Identity Providers</p>
 
 
   </div>
@@ -539,7 +555,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team</p>
+        <div class='inline'>
+<p>unique name of team</p>
 </div>
       
     </li>
@@ -553,12 +570,12 @@
       <pre class="lines">
 
 
-3248
-3249
-3250</pre>
+3312
+3313
+3314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3248</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3312</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_invitation'>team_invitation</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name'>team_name</span><span class='rparen'>)</span>
@@ -579,7 +596,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Revoke a team invitation.</p>
+    
+<p>Revoke a team invitation.</p>
 
 
   </div>
@@ -598,7 +616,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique name of team or unique identifier of team</p>
+        <div class='inline'>
+<p>unique name of team or unique identifier of team</p>
 </div>
       
     </li>
@@ -613,7 +632,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of an invitation</p>
+        <div class='inline'>
+<p>unique identifier of an invitation</p>
 </div>
       
     </li>
@@ -627,12 +647,12 @@
       <pre class="lines">
 
 
-3264
-3265
-3266</pre>
+3328
+3329
+3330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3264</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_revoke'>revoke</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_team_invitation_id'>team_invitation_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_invitation'>team_invitation</span><span class='period'>.</span><span class='id identifier rubyid_revoke'>revoke</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='comma'>,</span> <span class='id identifier rubyid_team_invitation_id'>team_invitation_id</span><span class='rparen'>)</span>
@@ -647,9 +667,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

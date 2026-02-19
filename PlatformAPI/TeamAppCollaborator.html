@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::TeamAppCollaborator
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A team collaborator represents an account that has been given access to a team app on Heroku.</p>
+    
+<p>A team collaborator represents an account that has been given access to a team app on Heroku.</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Create a new collaborator on a team app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new collaborator on a team app.</p>
 </div></span>
   
 </li>
@@ -164,7 +166,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delete an existing collaborator from a team app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an existing collaborator from a team app.</p>
 </div></span>
   
 </li>
@@ -187,7 +190,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Info for a collaborator on a team app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Info for a collaborator on a team app.</p>
 </div></span>
   
 </li>
@@ -212,7 +216,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of TeamAppCollaborator.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of TeamAppCollaborator.</p>
 </div></span>
   
 </li>
@@ -235,7 +240,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>List collaborators on a team app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List collaborators on a team app.</p>
 </div></span>
   
 </li>
@@ -258,7 +264,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Update an existing collaborator from a team app.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing collaborator from a team app.</p>
 </div></span>
   
 </li>
@@ -281,7 +288,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of TeamAppCollaborator.</p>
+    
+<p>Returns a new instance of TeamAppCollaborator.</p>
 
 
   </div>
@@ -295,12 +303,12 @@
       <pre class="lines">
 
 
-3078
-3079
-3080</pre>
+3142
+3143
+3144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3078</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -328,7 +336,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Create a new collaborator on a team app. Use this endpoint instead of the <code>/apps/{app_id_or_name}/collaborator</code> endpoint when you want the collaborator to be granted <a href="https://devcenter.heroku.com/articles/org-users-access#roles-and-permissions">permissions</a> according to their role in the team.</p>
+    
+<p>Create a new collaborator on a team app. Use this endpoint instead of the <code>/apps/{app_id_or_name}/collaborator</code> endpoint when you want the collaborator to be granted [permissions] (<a href="https://devcenter.heroku.com/articles/org-users-access#roles-and-permissions">devcenter.heroku.com/articles/org-users-access#roles-and-permissions</a>) according to their role in the team.</p>
 
 
   </div>
@@ -347,7 +356,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of app or unique name of app</p>
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
 </div>
       
     </li>
@@ -362,7 +372,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -376,12 +387,12 @@
       <pre class="lines">
 
 
-3086
-3087
-3088</pre>
+3150
+3151
+3152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3086</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app_collaborator'>team_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -402,7 +413,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delete an existing collaborator from a team app.</p>
+    
+<p>Delete an existing collaborator from a team app.</p>
 
 
   </div>
@@ -432,7 +444,8 @@
       
       
         &mdash;
-        <div class='inline'><p>invited email address of collaborator</p>
+        <div class='inline'>
+<p>invited email address of collaborator</p>
 </div>
       
     </li>
@@ -446,12 +459,12 @@
       <pre class="lines">
 
 
-3094
-3095
-3096</pre>
+3158
+3159
+3160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3094</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3158</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app_collaborator'>team_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
@@ -472,7 +485,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Info for a collaborator on a team app.</p>
+    
+<p>Info for a collaborator on a team app.</p>
 
 
   </div>
@@ -502,7 +516,8 @@
       
       
         &mdash;
-        <div class='inline'><p>invited email address of collaborator</p>
+        <div class='inline'>
+<p>invited email address of collaborator</p>
 </div>
       
     </li>
@@ -516,12 +531,12 @@
       <pre class="lines">
 
 
-3102
-3103
-3104</pre>
+3166
+3167
+3168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3102</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app_collaborator'>team_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='rparen'>)</span>
@@ -542,7 +557,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>List collaborators on a team app.</p>
+    
+<p>List collaborators on a team app.</p>
 
 
   </div>
@@ -571,12 +587,12 @@
       <pre class="lines">
 
 
-3118
-3119
-3120</pre>
+3182
+3183
+3184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3118</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app_collaborator'>team_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
@@ -597,7 +613,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Update an existing collaborator from a team app.</p>
+    
+<p>Update an existing collaborator from a team app.</p>
 
 
   </div>
@@ -627,7 +644,8 @@
       
       
         &mdash;
-        <div class='inline'><p>invited email address of collaborator</p>
+        <div class='inline'>
+<p>invited email address of collaborator</p>
 </div>
       
     </li>
@@ -642,7 +660,8 @@
       
       
         &mdash;
-        <div class='inline'><p>the object to pass as the request payload</p>
+        <div class='inline'>
+<p>the object to pass as the request payload</p>
 </div>
       
     </li>
@@ -656,12 +675,12 @@
       <pre class="lines">
 
 
-3111
-3112
-3113</pre>
+3175
+3176
+3177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3111</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app_collaborator'>team_app_collaborator</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_collaborator_email'>collaborator_email</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -676,9 +695,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>

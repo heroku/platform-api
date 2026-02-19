@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: PlatformAPI::TeamApp
+  Class: PlatformAPI::TelemetryDrain
   
     &mdash; Documentation by YARD 0.9.38
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "PlatformAPI::TeamApp";
+  pathId = "PlatformAPI::TelemetryDrain";
   relpath = '../';
 </script>
 
@@ -39,7 +39,7 @@
     <a href="../_index.html">Index (T)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../PlatformAPI.html" title="PlatformAPI (module)">PlatformAPI</a></span></span>
      &raquo; 
-    <span class="title">TeamApp</span>
+    <span class="title">TelemetryDrain</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: PlatformAPI::TeamApp
+      <div id="content"><h1>Class: PlatformAPI::TelemetryDrain
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">PlatformAPI::TeamApp</li>
+            <li class="next">PlatformAPI::TelemetryDrain</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>A team app encapsulates the team specific functionality of Heroku apps.</p>
+<p>A telemetry drain forwards OpenTelemetry traces, metrics, and logs to your own consumer. For Fir-generation apps only.</p>
 
 
   </div>
@@ -143,7 +143,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
+<p>Create a telemetry drain.</p>
 </div></span>
   
 </li>
@@ -152,7 +152,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#info-instance_method" title="#info (instance method)">#<strong>info</strong>(team_app_identity)  &#x21d2; Object </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(telemetry_drain_id)  &#x21d2; Object </a>
     
 
     
@@ -167,7 +167,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Info for a team app.</p>
+<p>Delete a telemetry drain.</p>
 </div></span>
   
 </li>
@@ -176,7 +176,31 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client)  &#x21d2; TeamApp </a>
+      <a href="#info-instance_method" title="#info (instance method)">#<strong>info</strong>(telemetry_drain_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Info for a telemetry drain.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client)  &#x21d2; TelemetryDrain </a>
     
 
     
@@ -193,7 +217,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of TeamApp.</p>
+<p>A new instance of TelemetryDrain.</p>
 </div></span>
   
 </li>
@@ -202,7 +226,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_by_team-instance_method" title="#list_by_team (instance method)">#<strong>list_by_team</strong>(team_name_or_team_id)  &#x21d2; Object </a>
+      <a href="#list_by_app-instance_method" title="#list_by_app (instance method)">#<strong>list_by_app</strong>(app_id_or_app_name)  &#x21d2; Object </a>
     
 
     
@@ -217,7 +241,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>List team apps.</p>
+<p>List telemetry drains for an app.</p>
 </div></span>
   
 </li>
@@ -226,7 +250,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#transfer_to_account-instance_method" title="#transfer_to_account (instance method)">#<strong>transfer_to_account</strong>(team_app_identity, body = {})  &#x21d2; Object </a>
+      <a href="#list_by_space-instance_method" title="#list_by_space (instance method)">#<strong>list_by_space</strong>(space_id_or_space_name)  &#x21d2; Object </a>
     
 
     
@@ -241,7 +265,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Transfer an existing team app to another Heroku account.</p>
+<p>List telemetry drains for a space.</p>
 </div></span>
   
 </li>
@@ -250,7 +274,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#transfer_to_team-instance_method" title="#transfer_to_team (instance method)">#<strong>transfer_to_team</strong>(team_app_identity, body = {})  &#x21d2; Object </a>
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(telemetry_drain_id, body = {})  &#x21d2; Object </a>
     
 
     
@@ -265,31 +289,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Transfer an existing team app to another team.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#update_locked-instance_method" title="#update_locked (instance method)">#<strong>update_locked</strong>(team_app_identity, body = {})  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Lock or unlock a team app.</p>
+<p>Update a telemetry drain.</p>
 </div></span>
   
 </li>
@@ -304,7 +304,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(client)  &#x21d2; <tt><span class='object_link'><a href="" title="PlatformAPI::TeamApp (class)">TeamApp</a></span></tt> 
+    #<strong>initialize</strong>(client)  &#x21d2; <tt><span class='object_link'><a href="" title="PlatformAPI::TelemetryDrain (class)">TelemetryDrain</a></span></tt> 
   
 
   
@@ -313,7 +313,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of TeamApp.</p>
+<p>Returns a new instance of TelemetryDrain.</p>
 
 
   </div>
@@ -327,12 +327,12 @@
       <pre class="lines">
 
 
-3201
-3202
-3203</pre>
+3533
+3534
+3535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3201</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3533</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -361,7 +361,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
+<p>Create a telemetry drain.</p>
 
 
   </div>
@@ -395,15 +395,76 @@
       <pre class="lines">
 
 
-3208
-3209
-3210</pre>
+3540
+3541
+3542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3208</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3540</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_telemetry_drain'>telemetry_drain</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    #<strong>delete</strong>(telemetry_drain_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete a telemetry drain.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>telemetry_drain_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of telemetry drain</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3569
+3570
+3571</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3569</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_telemetry_drain_id'>telemetry_drain_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_telemetry_drain'>telemetry_drain</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_telemetry_drain_id'>telemetry_drain_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -413,7 +474,7 @@
       <div class="method_details ">
   <h3 class="signature " id="info-instance_method">
   
-    #<strong>info</strong>(team_app_identity)  &#x21d2; <tt>Object</tt> 
+    #<strong>info</strong>(telemetry_drain_id)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -422,7 +483,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Info for a team app.</p>
+<p>Info for a telemetry drain.</p>
 
 
   </div>
@@ -433,63 +494,7 @@
   
     <li>
       
-        <span class='name'>team_app_identity:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-3215
-3216
-3217</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3215</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="list_by_team-instance_method">
-  
-    #<strong>list_by_team</strong>(team_name_or_team_id)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>List team apps.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_name_or_team_id:</span>
+        <span class='name'>telemetry_drain_id:</span>
       
       
         <span class='type'></span>
@@ -498,7 +503,7 @@
       
         &mdash;
         <div class='inline'>
-<p>unique name of team or unique identifier of team</p>
+<p>unique identifier of telemetry drain</p>
 </div>
       
     </li>
@@ -512,15 +517,15 @@
       <pre class="lines">
 
 
-3246
-3247
-3248</pre>
+3576
+3577
+3578</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3246</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3576</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_telemetry_drain_id'>telemetry_drain_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_telemetry_drain'>telemetry_drain</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_telemetry_drain_id'>telemetry_drain_id</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -528,9 +533,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="transfer_to_account-instance_method">
+  <h3 class="signature " id="list_by_app-instance_method">
   
-    #<strong>transfer_to_account</strong>(team_app_identity, body = {})  &#x21d2; <tt>Object</tt> 
+    #<strong>list_by_app</strong>(app_id_or_app_name)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -539,7 +544,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Transfer an existing team app to another Heroku account.</p>
+<p>List telemetry drains for an app.</p>
 
 
   </div>
@@ -550,12 +555,139 @@
   
     <li>
       
-        <span class='name'>team_app_identity:</span>
+        <span class='name'>app_id_or_app_name:</span>
       
       
         <span class='type'></span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of app or unique name of app</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3547
+3548
+3549</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3547</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_telemetry_drain'>telemetry_drain</span><span class='period'>.</span><span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_by_space-instance_method">
+  
+    #<strong>list_by_space</strong>(space_id_or_space_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List telemetry drains for a space.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>space_id_or_space_name:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of space or unique name of space</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3554
+3555
+3556</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3554</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_by_space'>list_by_space</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_telemetry_drain'>telemetry_drain</span><span class='period'>.</span><span class='id identifier rubyid_list_by_space'>list_by_space</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>(telemetry_drain_id, body = {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update a telemetry drain.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>telemetry_drain_id:</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique identifier of telemetry drain</p>
+</div>
       
     </li>
   
@@ -584,159 +716,15 @@
       <pre class="lines">
 
 
-3231
-3232
-3233</pre>
+3562
+3563
+3564</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3231</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3562</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="transfer_to_team-instance_method">
-  
-    #<strong>transfer_to_team</strong>(team_app_identity, body = {})  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Transfer an existing team app to another team.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_app_identity:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-3239
-3240
-3241</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3239</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update_locked-instance_method">
-  
-    #<strong>update_locked</strong>(team_app_identity, body = {})  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Lock or unlock a team app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_app_identity:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-3223
-3224
-3225</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3223</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_telemetry_drain_id'>telemetry_drain_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_telemetry_drain'>telemetry_drain</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_telemetry_drain_id'>telemetry_drain_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

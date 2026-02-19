@@ -6,7 +6,7 @@
 <title>
   Class: PlatformAPI::PipelineStack
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.38
   
 </title>
 
@@ -101,7 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>A pipeline&#39;s stack is determined by the apps in the pipeline. This is used during creation of CI and Review Apps that have no stack defined in app.json</p>
+    
+<p>A pipeline’s stack is determined by the apps in the pipeline. This is used during creation of CI and Review Apps that have no stack defined in app.json</p>
 
 
   </div>
@@ -141,7 +142,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The stack for a given pipeline, used for CI and Review Apps that have no stack defined in app.json.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The stack for a given pipeline, used for CI and Review Apps that have no stack defined in app.json.</p>
 </div></span>
   
 </li>
@@ -166,7 +168,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A new instance of PipelineStack.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of PipelineStack.</p>
 </div></span>
   
 </li>
@@ -189,7 +192,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of PipelineStack.</p>
+    
+<p>Returns a new instance of PipelineStack.</p>
 
 
   </div>
@@ -203,12 +207,12 @@
       <pre class="lines">
 
 
-2567
-2568
-2569</pre>
+2624
+2625
+2626</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2567</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2624</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -236,7 +240,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The stack for a given pipeline, used for CI and Review Apps that have no stack defined in app.json.</p>
+    
+<p>The stack for a given pipeline, used for CI and Review Apps that have no stack defined in app.json.</p>
 
 
   </div>
@@ -255,7 +260,8 @@
       
       
         &mdash;
-        <div class='inline'><p>unique identifier of pipeline</p>
+        <div class='inline'>
+<p>unique identifier of pipeline</p>
 </div>
       
     </li>
@@ -269,12 +275,12 @@
       <pre class="lines">
 
 
-2574
-2575
-2576</pre>
+2631
+2632
+2633</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2574</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2631</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_stack'>default_stack</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_pipeline_stack'>pipeline_stack</span><span class='period'>.</span><span class='id identifier rubyid_default_stack'>default_stack</span><span class='lparen'>(</span><span class='id identifier rubyid_pipeline_id'>pipeline_id</span><span class='rparen'>)</span>
@@ -289,9 +295,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 28 14:12:13 2024 by
+  Generated on Thu Feb 19 08:48:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-2.6.6).
+  0.9.38 (ruby-3.4.1).
 </div>
 
     </div>
