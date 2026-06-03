@@ -1,5 +1,7 @@
 ## Main (unreleased)
 
+- Fix `NameError: uninitialized constant PlatformAPI::MultiJson` caused by heroics 0.1.4 dropping its multi_json dependency. Uses `JSON.parse` from the standard library instead. (#150)
+
 ## 3.9.0
 
 - Pull latest JSON Schema and regenerated API.
