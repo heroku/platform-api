@@ -6,8 +6,12 @@ YARD::Rake::YardocTask.new
 
 desc 'Download the latest schema and build a new client'
 task :build do
+  path = "lib/platform-api/client.rb"
   sh 'curl -o schema.json -H "Accept: application/vnd.heroku+json; version=3" https://api.heroku.com/schema'
-  sh 'bundle exec heroics-generate ./config/client-config.rb > lib/platform-api/client.rb'
+  sh "bundle exec heroics-generate ./config/client-config.rb > #{path}"
+
+  # Strip trailing whitespace (heroics ERB emits it after dropping erubis)
+  File.write(path, File.read(path).gsub(/[ \t]+$/, ''))
 end
 
 desc 'Publish API documentation'

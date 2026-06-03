@@ -97,7 +97,7 @@ module PlatformAPI
     def initialize(client)
       @client = client
     end
-    
+
 
     # A Heroku account becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent accounts if their invoices remain unpaid.
     #
@@ -105,7 +105,7 @@ module PlatformAPI
     def account_delinquency
       @account_delinquency_resource ||= AccountDelinquency.new(@client)
     end
-    
+
 
     # An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.
     #
@@ -113,7 +113,7 @@ module PlatformAPI
     def account_feature
       @account_feature_resource ||= AccountFeature.new(@client)
     end
-    
+
 
     # An account represents an individual signed up to use the Heroku platform.
     #
@@ -121,7 +121,7 @@ module PlatformAPI
     def account
       @account_resource ||= Account.new(@client)
     end
-    
+
 
     # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
     #
@@ -129,7 +129,7 @@ module PlatformAPI
     def addon_action
       @addon_action_resource ||= AddonAction.new(@client)
     end
-    
+
 
     # An add-on attachment represents a connection between an app and an add-on that it has been given access to.
     #
@@ -137,7 +137,7 @@ module PlatformAPI
     def addon_attachment
       @addon_attachment_resource ||= AddonAttachment.new(@client)
     end
-    
+
 
     # Configuration of an Add-on
     #
@@ -145,7 +145,7 @@ module PlatformAPI
     def addon_config
       @addon_config_resource ||= AddonConfig.new(@client)
     end
-    
+
 
     # Add-on Plan Actions are Provider functionality for specific add-on installations
     #
@@ -153,7 +153,7 @@ module PlatformAPI
     def addon_plan_action
       @addon_plan_action_resource ||= AddonPlanAction.new(@client)
     end
-    
+
 
     # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region. Only Beta and GA add-ons are returned by these endpoints.
     #
@@ -161,7 +161,7 @@ module PlatformAPI
     def addon_region_capability
       @addon_region_capability_resource ||= AddonRegionCapability.new(@client)
     end
-    
+
 
     # Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.
     #
@@ -169,7 +169,7 @@ module PlatformAPI
     def addon_service
       @addon_service_resource ||= AddonService.new(@client)
     end
-    
+
 
     # Represents the delivery of a webhook notification, including its current status.
     #
@@ -177,7 +177,7 @@ module PlatformAPI
     def addon_webhook_delivery
       @addon_webhook_delivery_resource ||= AddonWebhookDelivery.new(@client)
     end
-    
+
 
     # Represents a webhook event that occurred.
     #
@@ -185,7 +185,7 @@ module PlatformAPI
     def addon_webhook_event
       @addon_webhook_event_resource ||= AddonWebhookEvent.new(@client)
     end
-    
+
 
     # Represents the details of a webhook subscription
     #
@@ -193,7 +193,7 @@ module PlatformAPI
     def addon_webhook
       @addon_webhook_resource ||= AddonWebhook.new(@client)
     end
-    
+
 
     # Add-ons represent add-ons that have been provisioned and attached to one or more apps.
     #
@@ -201,7 +201,7 @@ module PlatformAPI
     def addon
       @addon_resource ||= Addon.new(@client)
     end
-    
+
 
     # Entities that have been allowed to be used by a Team
     #
@@ -209,7 +209,7 @@ module PlatformAPI
     def allowed_addon_service
       @allowed_addon_service_resource ||= AllowedAddonService.new(@client)
     end
-    
+
 
     # An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.
     #
@@ -217,7 +217,7 @@ module PlatformAPI
     def app_feature
       @app_feature_resource ||= AppFeature.new(@client)
     end
-    
+
 
     # An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.
     #
@@ -225,7 +225,7 @@ module PlatformAPI
     def app_setup
       @app_setup_resource ||= AppSetup.new(@client)
     end
-    
+
 
     # An app transfer represents a two party interaction for transferring ownership of an app.
     #
@@ -233,7 +233,7 @@ module PlatformAPI
     def app_transfer
       @app_transfer_resource ||= AppTransfer.new(@client)
     end
-    
+
 
     # Represents the delivery of a webhook notification, including its current status.
     #
@@ -241,7 +241,7 @@ module PlatformAPI
     def app_webhook_delivery
       @app_webhook_delivery_resource ||= AppWebhookDelivery.new(@client)
     end
-    
+
 
     # Represents a webhook event that occurred.
     #
@@ -249,7 +249,7 @@ module PlatformAPI
     def app_webhook_event
       @app_webhook_event_resource ||= AppWebhookEvent.new(@client)
     end
-    
+
 
     # Represents the details of a webhook subscription
     #
@@ -257,7 +257,7 @@ module PlatformAPI
     def app_webhook
       @app_webhook_resource ||= AppWebhook.new(@client)
     end
-    
+
 
     # An app represents the program that you would like to deploy and run on Heroku.
     #
@@ -265,7 +265,7 @@ module PlatformAPI
     def app
       @app_resource ||= App.new(@client)
     end
-    
+
 
     # An audit trail archive represents a monthly json zipped file containing events
     #
@@ -273,7 +273,7 @@ module PlatformAPI
     def archive
       @archive_resource ||= Archive.new(@client)
     end
-    
+
 
     # An audit trail event represents some action on the platform
     #
@@ -281,7 +281,7 @@ module PlatformAPI
     def audit_trail_event
       @audit_trail_event_resource ||= AuditTrailEvent.new(@client)
     end
-    
+
 
     # A build represents the process of transforming a code tarball into build artifacts
     #
@@ -289,7 +289,7 @@ module PlatformAPI
     def build
       @build_resource ||= Build.new(@client)
     end
-    
+
 
     # A buildpack installation represents a buildpack that will be run against an app.
     #
@@ -297,7 +297,7 @@ module PlatformAPI
     def buildpack_installation
       @buildpack_installation_resource ||= BuildpackInstallation.new(@client)
     end
-    
+
 
     # A collaborator represents an account that has been given access to an app on Heroku.
     #
@@ -305,7 +305,7 @@ module PlatformAPI
     def collaborator
       @collaborator_resource ||= Collaborator.new(@client)
     end
-    
+
 
     # Config Vars allow you to manage the configuration information provided to an app on Heroku.
     #
@@ -313,7 +313,7 @@ module PlatformAPI
     def config_var
       @config_var_resource ||= ConfigVar.new(@client)
     end
-    
+
 
     # A credit represents value that will be used up before further charges are assigned to an account.
     #
@@ -321,7 +321,7 @@ module PlatformAPI
     def credit
       @credit_resource ||= Credit.new(@client)
     end
-    
+
 
     # Domains define what web routes should be routed to an app on Heroku.
     #
@@ -329,7 +329,7 @@ module PlatformAPI
     def domain
       @domain_resource ||= Domain.new(@client)
     end
-    
+
 
     # Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
     #
@@ -337,7 +337,7 @@ module PlatformAPI
     def dyno_size
       @dyno_size_resource ||= DynoSize.new(@client)
     end
-    
+
 
     # Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
     #
@@ -345,7 +345,7 @@ module PlatformAPI
     def dyno
       @dyno_resource ||= Dyno.new(@client)
     end
-    
+
 
     # Usage for an enterprise account at a daily resolution.
     #
@@ -353,7 +353,7 @@ module PlatformAPI
     def enterprise_account_daily_usage
       @enterprise_account_daily_usage_resource ||= EnterpriseAccountDailyUsage.new(@client)
     end
-    
+
 
     # Enterprise account members are users with access to an enterprise account.
     #
@@ -361,7 +361,7 @@ module PlatformAPI
     def enterprise_account_member
       @enterprise_account_member_resource ||= EnterpriseAccountMember.new(@client)
     end
-    
+
 
     # Usage for an enterprise account at a monthly resolution.
     #
@@ -369,7 +369,7 @@ module PlatformAPI
     def enterprise_account_monthly_usage
       @enterprise_account_monthly_usage_resource ||= EnterpriseAccountMonthlyUsage.new(@client)
     end
-    
+
 
     # Enterprise accounts allow companies to manage their development teams and billing.
     #
@@ -377,7 +377,7 @@ module PlatformAPI
     def enterprise_account
       @enterprise_account_resource ||= EnterpriseAccount.new(@client)
     end
-    
+
 
     # Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
     #
@@ -385,7 +385,7 @@ module PlatformAPI
     def filter_apps
       @filter_apps_resource ||= FilterApps.new(@client)
     end
-    
+
 
     # The formation of processes that should be maintained for an app. Update the formation to scale processes or change dyno sizes. Available process type names and commands are defined by the `process_types` attribute for the [slug](#slug) currently released on an app.
     #
@@ -393,7 +393,7 @@ module PlatformAPI
     def formation
       @formation_resource ||= Formation.new(@client)
     end
-    
+
 
     # A generation represents a version of the Heroku platform that includes the app execution environment, routing, telemetry, and build systems.
     #
@@ -401,7 +401,7 @@ module PlatformAPI
     def generation
       @generation_resource ||= Generation.new(@client)
     end
-    
+
 
     # Identity Providers represent the SAML configuration of teams or an Enterprise account
     #
@@ -409,7 +409,7 @@ module PlatformAPI
     def identity_provider
       @identity_provider_resource ||= IdentityProvider.new(@client)
     end
-    
+
 
     # An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.
     #
@@ -417,7 +417,7 @@ module PlatformAPI
     def inbound_ruleset
       @inbound_ruleset_resource ||= InboundRuleset.new(@client)
     end
-    
+
 
     # An invoice address represents the address that should be listed on an invoice.
     #
@@ -425,7 +425,7 @@ module PlatformAPI
     def invoice_address
       @invoice_address_resource ||= InvoiceAddress.new(@client)
     end
-    
+
 
     # An invoice is an itemized bill of goods for an account which includes pricing and charges.
     #
@@ -433,7 +433,7 @@ module PlatformAPI
     def invoice
       @invoice_resource ||= Invoice.new(@client)
     end
-    
+
 
     # Keys represent public SSH keys associated with an account and are used to authorize accounts as they are performing git operations.
     #
@@ -441,7 +441,7 @@ module PlatformAPI
     def key
       @key_resource ||= Key.new(@client)
     end
-    
+
 
     # [Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some add-ons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.
     #
@@ -449,7 +449,7 @@ module PlatformAPI
     def log_drain
       @log_drain_resource ||= LogDrain.new(@client)
     end
-    
+
 
     # A log session is a reference to the http based log stream for an app.
     #
@@ -457,7 +457,7 @@ module PlatformAPI
     def log_session
       @log_session_resource ||= LogSession.new(@client)
     end
-    
+
 
     # OAuth authorizations represent clients that a Heroku user has authorized to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
     #
@@ -465,7 +465,7 @@ module PlatformAPI
     def oauth_authorization
       @oauth_authorization_resource ||= OauthAuthorization.new(@client)
     end
-    
+
 
     # OAuth clients are applications that Heroku users can authorize to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth).
     #
@@ -473,7 +473,7 @@ module PlatformAPI
     def oauth_client
       @oauth_client_resource ||= OauthClient.new(@client)
     end
-    
+
 
     # OAuth grants are used to obtain authorizations on behalf of a user. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
     #
@@ -481,7 +481,7 @@ module PlatformAPI
     def oauth_grant
       @oauth_grant_resource ||= OauthGrant.new(@client)
     end
-    
+
 
     # OAuth tokens provide access for authorized clients to act on behalf of a Heroku user to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
     #
@@ -489,7 +489,7 @@ module PlatformAPI
     def oauth_token
       @oauth_token_resource ||= OauthToken.new(@client)
     end
-    
+
 
     # An OCI (Open Container Initiative) image is a standardized format for packaging and distributing containerized applications, ready to run on the platform.
     #
@@ -497,7 +497,7 @@ module PlatformAPI
     def oci_image
       @oci_image_resource ||= OciImage.new(@client)
     end
-    
+
 
     # A password reset represents a in-process password reset attempt.
     #
@@ -505,7 +505,7 @@ module PlatformAPI
     def password_reset
       @password_reset_resource ||= PasswordReset.new(@client)
     end
-    
+
 
     # [Peering Info](https://devcenter.heroku.com/articles/private-space-peering) gives you the information necessary to peer an AWS VPC to a Private Space.
     #
@@ -513,7 +513,7 @@ module PlatformAPI
     def peering_info
       @peering_info_resource ||= PeeringInfo.new(@client)
     end
-    
+
 
     # [Peering](https://devcenter.heroku.com/articles/private-space-peering) provides a way to peer your Private Space VPC to another AWS VPC.
     #
@@ -521,7 +521,7 @@ module PlatformAPI
     def peering
       @peering_resource ||= Peering.new(@client)
     end
-    
+
 
     # An owned entity including users' permissions.
     #
@@ -529,7 +529,7 @@ module PlatformAPI
     def permission_entity
       @permission_entity_resource ||= PermissionEntity.new(@client)
     end
-    
+
 
     # Information about the latest builds of apps in a pipeline. A build represents the process of transforming code into build artifacts.
     #
@@ -537,7 +537,7 @@ module PlatformAPI
     def pipeline_build
       @pipeline_build_resource ||= PipelineBuild.new(@client)
     end
-    
+
 
     # Pipeline config vars in Heroku CI and review apps used to manage the configuration information for a pipeline.
     #
@@ -545,7 +545,7 @@ module PlatformAPI
     def pipeline_config_var
       @pipeline_config_var_resource ||= PipelineConfigVar.new(@client)
     end
-    
+
 
     # Information about an app's coupling to a pipeline
     #
@@ -553,7 +553,7 @@ module PlatformAPI
     def pipeline_coupling
       @pipeline_coupling_resource ||= PipelineCoupling.new(@client)
     end
-    
+
 
     # Information about the latest deployment of each app in a pipeline. A deployment is the process of moving the build artifacts to a target environment.
     #
@@ -561,7 +561,7 @@ module PlatformAPI
     def pipeline_deployment
       @pipeline_deployment_resource ||= PipelineDeployment.new(@client)
     end
-    
+
 
     # Promotion targets represent an individual app being promoted to
     #
@@ -569,7 +569,7 @@ module PlatformAPI
     def pipeline_promotion_target
       @pipeline_promotion_target_resource ||= PipelinePromotionTarget.new(@client)
     end
-    
+
 
     # Promotions allow you to move code from an app in a pipeline to all targets
     #
@@ -577,7 +577,7 @@ module PlatformAPI
     def pipeline_promotion
       @pipeline_promotion_resource ||= PipelinePromotion.new(@client)
     end
-    
+
 
     # Information about the latest release of each app in a pipeline. A release makes a deployment available to end-users.
     #
@@ -585,7 +585,7 @@ module PlatformAPI
     def pipeline_release
       @pipeline_release_resource ||= PipelineRelease.new(@client)
     end
-    
+
 
     # A pipeline's stack is determined by the apps in the pipeline. This is used during creation of CI and Review Apps that have no stack defined in app.json
     #
@@ -593,7 +593,7 @@ module PlatformAPI
     def pipeline_stack
       @pipeline_stack_resource ||= PipelineStack.new(@client)
     end
-    
+
 
     # A pipeline transfer is the process of changing pipeline ownership along with the contained apps.
     #
@@ -601,7 +601,7 @@ module PlatformAPI
     def pipeline_transfer
       @pipeline_transfer_resource ||= PipelineTransfer.new(@client)
     end
-    
+
 
     # A pipeline allows grouping of apps into different stages.
     #
@@ -609,7 +609,7 @@ module PlatformAPI
     def pipeline
       @pipeline_resource ||= Pipeline.new(@client)
     end
-    
+
 
     # Plans represent different configurations of add-ons that may be added to apps. Endpoints under add-on services can be accessed without authentication.
     #
@@ -617,7 +617,7 @@ module PlatformAPI
     def plan
       @plan_resource ||= Plan.new(@client)
     end
-    
+
 
     # Rate Limit represents the number of request tokens each account holds. Requests to this endpoint do not count towards the rate limit.
     #
@@ -625,7 +625,7 @@ module PlatformAPI
     def rate_limit
       @rate_limit_resource ||= RateLimit.new(@client)
     end
-    
+
 
     # A region represents a geographic location in which your application may run.
     #
@@ -633,7 +633,7 @@ module PlatformAPI
     def region
       @region_resource ||= Region.new(@client)
     end
-    
+
 
     # A release represents a combination of code, config vars and add-ons for an app on Heroku.
     #
@@ -641,7 +641,7 @@ module PlatformAPI
     def release
       @release_resource ||= Release.new(@client)
     end
-    
+
 
     # An ephemeral app to review a set of changes
     #
@@ -649,7 +649,7 @@ module PlatformAPI
     def review_app
       @review_app_resource ||= ReviewApp.new(@client)
     end
-    
+
 
     # Review apps can be configured for pipelines.
     #
@@ -657,7 +657,7 @@ module PlatformAPI
     def review_app_config
       @review_app_config_resource ||= ReviewAppConfig.new(@client)
     end
-    
+
 
     # A slug is a snapshot of your application code that is ready to run on the platform.
     #
@@ -665,7 +665,7 @@ module PlatformAPI
     def slug
       @slug_resource ||= Slug.new(@client)
     end
-    
+
 
     # SMS numbers are used for recovery on accounts with two-factor authentication enabled.
     #
@@ -673,7 +673,7 @@ module PlatformAPI
     def sms_number
       @sms_number_resource ||= SmsNumber.new(@client)
     end
-    
+
 
     # SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.
     #
@@ -681,7 +681,7 @@ module PlatformAPI
     def sni_endpoint
       @sni_endpoint_resource ||= SniEndpoint.new(@client)
     end
-    
+
 
     # A source is a location for uploading and downloading an application's source code.
     #
@@ -689,7 +689,7 @@ module PlatformAPI
     def source
       @source_resource ||= Source.new(@client)
     end
-    
+
 
     # Space access represents the permissions a particular user has on a particular space.
     #
@@ -697,7 +697,7 @@ module PlatformAPI
     def space_app_access
       @space_app_access_resource ||= SpaceAppAccess.new(@client)
     end
-    
+
 
     # Network address translation (NAT) for stable outbound IP addresses from a space
     #
@@ -705,7 +705,7 @@ module PlatformAPI
     def space_nat
       @space_nat_resource ||= SpaceNat.new(@client)
     end
-    
+
 
     # Space Topology provides you with a mechanism for viewing all the running dynos, formations and applications for a space. This is the same data thats used to power our DNS Service Discovery.
     #
@@ -713,7 +713,7 @@ module PlatformAPI
     def space_topology
       @space_topology_resource ||= SpaceTopology.new(@client)
     end
-    
+
 
     # Transfer spaces between enterprise teams with the same Enterprise Account.
     #
@@ -721,7 +721,7 @@ module PlatformAPI
     def space_transfer
       @space_transfer_resource ||= SpaceTransfer.new(@client)
     end
-    
+
 
     # A space is an isolated, highly available, secure app execution environment.
     #
@@ -729,7 +729,7 @@ module PlatformAPI
     def space
       @space_resource ||= Space.new(@client)
     end
-    
+
 
     # Stacks are the different application execution environments available in the Heroku platform.
     #
@@ -737,15 +737,15 @@ module PlatformAPI
     def stack
       @stack_resource ||= Stack.new(@client)
     end
-    
 
-    # 
+
+    #
     #
     # @return [TeamAddon]
     def team_addon
       @team_addon_resource ||= TeamAddon.new(@client)
     end
-    
+
 
     # A team collaborator represents an account that has been given access to a team app on Heroku.
     #
@@ -753,7 +753,7 @@ module PlatformAPI
     def team_app_collaborator
       @team_app_collaborator_resource ||= TeamAppCollaborator.new(@client)
     end
-    
+
 
     # A team app permission is a behavior that is assigned to a user in a team app.
     #
@@ -761,7 +761,7 @@ module PlatformAPI
     def team_app_permission
       @team_app_permission_resource ||= TeamAppPermission.new(@client)
     end
-    
+
 
     # A team app encapsulates the team specific functionality of Heroku apps.
     #
@@ -769,7 +769,7 @@ module PlatformAPI
     def team_app
       @team_app_resource ||= TeamApp.new(@client)
     end
-    
+
 
     # Usage for an enterprise team at a daily resolution.
     #
@@ -777,7 +777,7 @@ module PlatformAPI
     def team_daily_usage
       @team_daily_usage_resource ||= TeamDailyUsage.new(@client)
     end
-    
+
 
     # A Heroku team becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent teams if their invoices remain unpaid.
     #
@@ -785,7 +785,7 @@ module PlatformAPI
     def team_delinquency
       @team_delinquency_resource ||= TeamDelinquency.new(@client)
     end
-    
+
 
     # A team feature represents a feature enabled on a team account.
     #
@@ -793,7 +793,7 @@ module PlatformAPI
     def team_feature
       @team_feature_resource ||= TeamFeature.new(@client)
     end
-    
+
 
     # A team invitation represents an invite to a team.
     #
@@ -801,7 +801,7 @@ module PlatformAPI
     def team_invitation
       @team_invitation_resource ||= TeamInvitation.new(@client)
     end
-    
+
 
     # A Team Invoice is an itemized bill of goods for a team which includes pricing and charges.
     #
@@ -809,7 +809,7 @@ module PlatformAPI
     def team_invoice
       @team_invoice_resource ||= TeamInvoice.new(@client)
     end
-    
+
 
     # A team member is an individual with access to a team.
     #
@@ -817,7 +817,7 @@ module PlatformAPI
     def team_member
       @team_member_resource ||= TeamMember.new(@client)
     end
-    
+
 
     # Usage for an enterprise team at a monthly resolution.
     #
@@ -825,7 +825,7 @@ module PlatformAPI
     def team_monthly_usage
       @team_monthly_usage_resource ||= TeamMonthlyUsage.new(@client)
     end
-    
+
 
     # Tracks a Team's Preferences
     #
@@ -833,7 +833,7 @@ module PlatformAPI
     def team_preferences
       @team_preferences_resource ||= TeamPreferences.new(@client)
     end
-    
+
 
     # A space is an isolated, highly available, secure app execution environment.
     #
@@ -841,7 +841,7 @@ module PlatformAPI
     def team_space
       @team_space_resource ||= TeamSpace.new(@client)
     end
-    
+
 
     # Teams allow you to manage access to a shared group of applications and other resources.
     #
@@ -849,7 +849,7 @@ module PlatformAPI
     def team
       @team_resource ||= Team.new(@client)
     end
-    
+
 
     # A telemetry drain forwards OpenTelemetry traces, metrics, and logs to your own consumer. For Fir-generation apps only.
     #
@@ -857,7 +857,7 @@ module PlatformAPI
     def telemetry_drain
       @telemetry_drain_resource ||= TelemetryDrain.new(@client)
     end
-    
+
 
     # A single test case belonging to a test run
     #
@@ -865,7 +865,7 @@ module PlatformAPI
     def test_case
       @test_case_resource ||= TestCase.new(@client)
     end
-    
+
 
     # A single test node belonging to a test run
     #
@@ -873,7 +873,7 @@ module PlatformAPI
     def test_node
       @test_node_resource ||= TestNode.new(@client)
     end
-    
+
 
     # An execution or trial of one or more tests
     #
@@ -881,7 +881,7 @@ module PlatformAPI
     def test_run
       @test_run_resource ||= TestRun.new(@client)
     end
-    
+
 
     # Tracks a user's preferences and message dismissals
     #
@@ -889,7 +889,7 @@ module PlatformAPI
     def user_preferences
       @user_preferences_resource ||= UserPreferences.new(@client)
     end
-    
+
 
     # [VPN](https://devcenter.heroku.com/articles/private-space-vpn-connection) provides a way to connect your Private Spaces to your network via VPN.
     #
@@ -897,4704 +897,4704 @@ module PlatformAPI
     def vpn_connection
       @vpn_connection_resource ||= VpnConnection.new(@client)
     end
-    
+
   end
 
   private
-  
+
 
   # A Heroku account becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent accounts if their invoices remain unpaid.
   class AccountDelinquency
     def initialize(client)
       @client = client
     end
-    
+
 
     # Account delinquency information.
-    
+
     def info()
       @client.account_delinquency.info()
     end
-    
+
   end
-  
+
 
   # An account feature represents a Heroku labs capability that can be enabled or disabled for an account on Heroku.
   class AccountFeature
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for an existing account feature.
-    
+
     #
-    
+
     # @param account_feature_id_or_account_feature_name: unique identifier of account feature or unique name of account feature
-    
-    
+
+
     def info(account_feature_id_or_account_feature_name)
       @client.account_feature.info(account_feature_id_or_account_feature_name)
     end
-    
+
 
     # List existing account features.
-    
+
     def list()
       @client.account_feature.list()
     end
-    
+
 
     # Update an existing account feature.
-    
+
     #
-    
+
     # @param account_feature_id_or_account_feature_name: unique identifier of account feature or unique name of account feature
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(account_feature_id_or_account_feature_name, body = {})
       @client.account_feature.update(account_feature_id_or_account_feature_name, body)
     end
-    
+
   end
-  
+
 
   # An account represents an individual signed up to use the Heroku platform.
   class Account
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for account.
-    
+
     def info()
       @client.account.info()
     end
-    
+
 
     # Update account.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(body = {})
       @client.account.update(body)
     end
-    
+
 
     # Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.
-    
+
     def delete()
       @client.account.delete()
     end
-    
+
 
     # Info for account.
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def info_by_user(account_email_or_account_id_or_account_self)
       @client.account.info_by_user(account_email_or_account_id_or_account_self)
     end
-    
+
 
     # Update account.
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update_by_user(account_email_or_account_id_or_account_self, body = {})
       @client.account.update_by_user(account_email_or_account_id_or_account_self, body)
     end
-    
+
 
     # Delete account. Note that this action cannot be undone. Note: This endpoint requires the HTTP_HEROKU_PASSWORD or HTTP_HEROKU_PASSWORD_BASE64 header be set correctly for the user account.
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def delete_by_user(account_email_or_account_id_or_account_self)
       @client.account.delete_by_user(account_email_or_account_id_or_account_self)
     end
-    
+
   end
-  
+
 
   # Add-on Actions are lifecycle operations for add-on provisioning and deprovisioning. They allow add-on providers to (de)provision add-ons in the background and then report back when (de)provisioning is complete.
   class AddonAction
     def initialize(client)
       @client = client
     end
-    
+
 
     # Mark an add-on as provisioned for use.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def provision(addon_id_or_addon_name)
       @client.addon_action.provision(addon_id_or_addon_name)
     end
-    
+
 
     # Mark an add-on as deprovisioned.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def deprovision(addon_id_or_addon_name)
       @client.addon_action.deprovision(addon_id_or_addon_name)
     end
-    
+
   end
-  
+
 
   # An add-on attachment represents a connection between an app and an add-on that it has been given access to.
   class AddonAttachment
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new add-on attachment.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.addon_attachment.create(body)
     end
-    
+
 
     # Delete an existing add-on attachment.
-    
+
     #
-    
+
     # @param addon_attachment_id: unique identifier of this add-on attachment
-    
-    
+
+
     def delete(addon_attachment_id)
       @client.addon_attachment.delete(addon_attachment_id)
     end
-    
+
 
     # Info for existing add-on attachment.
-    
+
     #
-    
+
     # @param addon_attachment_id: unique identifier of this add-on attachment
-    
-    
+
+
     def info(addon_attachment_id)
       @client.addon_attachment.info(addon_attachment_id)
     end
-    
+
 
     # List existing add-on attachments.
-    
+
     def list()
       @client.addon_attachment.list()
     end
-    
+
 
     # List existing add-on attachments for an add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def list_by_addon(addon_id_or_addon_name)
       @client.addon_attachment.list_by_addon(addon_id_or_addon_name)
     end
-    
+
 
     # List existing add-on attachments for an app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list_by_app(app_id_or_app_name)
       @client.addon_attachment.list_by_app(app_id_or_app_name)
     end
-    
+
 
     # Info for existing add-on attachment for an app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param addon_attachment_id_or_addon_attachment_name: unique identifier of this add-on attachment or unique name for this add-on attachment to this app
-    
-    
+
+
     def info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
       @client.addon_attachment.info_by_app(app_id_or_app_name, addon_attachment_id_or_addon_attachment_name)
     end
-    
+
 
     # Resolve an add-on attachment from a name, optionally passing an app name. If there are matches it returns at least one add-on attachment (exact match) or many.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def resolution(body = {})
       @client.addon_attachment.resolution(body)
     end
-    
+
   end
-  
+
 
   # Configuration of an Add-on
   class AddonConfig
     def initialize(client)
       @client = client
     end
-    
+
 
     # Get an add-on's config. Accessible by customers with access and by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def list(addon_id_or_addon_name)
       @client.addon_config.list(addon_id_or_addon_name)
     end
-    
+
 
     # Update an add-on's config. Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(addon_id_or_addon_name, body = {})
       @client.addon_config.update(addon_id_or_addon_name, body)
     end
-    
+
   end
-  
+
 
   # Add-on Plan Actions are Provider functionality for specific add-on installations
   class AddonPlanAction
     def initialize(client)
       @client = client
     end
-    
+
   end
-  
+
 
   # Add-on region capabilities represent the relationship between an Add-on Service and a specific Region. Only Beta and GA add-ons are returned by these endpoints.
   class AddonRegionCapability
     def initialize(client)
       @client = client
     end
-    
+
 
     # List all existing add-on region capabilities.
-    
+
     def list()
       @client.addon_region_capability.list()
     end
-    
+
 
     # List existing add-on region capabilities for an add-on-service
-    
+
     #
-    
+
     # @param addon_service_id_or_addon_service_name: unique identifier of this add-on-service or unique name of this add-on-service
-    
-    
+
+
     def list_by_addon_service(addon_service_id_or_addon_service_name)
       @client.addon_region_capability.list_by_addon_service(addon_service_id_or_addon_service_name)
     end
-    
+
 
     # List existing add-on region capabilities for a region.
-    
+
     #
-    
+
     # @param region_id_or_region_name: unique identifier of region or unique name of region
-    
-    
+
+
     def list_by_region(region_id_or_region_name)
       @client.addon_region_capability.list_by_region(region_id_or_region_name)
     end
-    
+
   end
-  
+
 
   # Add-on services represent add-ons that may be provisioned for apps. Endpoints under add-on services can be accessed without authentication.
   class AddonService
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing add-on-service.
-    
+
     #
-    
+
     # @param addon_service_id_or_addon_service_name: unique identifier of this add-on-service or unique name of this add-on-service
-    
-    
+
+
     def info(addon_service_id_or_addon_service_name)
       @client.addon_service.info(addon_service_id_or_addon_service_name)
     end
-    
+
 
     # List existing add-on-services.
-    
+
     def list()
       @client.addon_service.list()
     end
-    
+
   end
-  
+
 
   # Represents the delivery of a webhook notification, including its current status.
   class AddonWebhookDelivery
     def initialize(client)
       @client = client
     end
-    
+
 
     # Returns the info for an existing delivery.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param app_webhook_delivery_id: the delivery's unique identifier
-    
-    
+
+
     def info(addon_id_or_addon_name, app_webhook_delivery_id)
       @client.addon_webhook_delivery.info(addon_id_or_addon_name, app_webhook_delivery_id)
     end
-    
+
 
     # Lists existing deliveries for an add-on.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def list(addon_id_or_addon_name)
       @client.addon_webhook_delivery.list(addon_id_or_addon_name)
     end
-    
+
   end
-  
+
 
   # Represents a webhook event that occurred.
   class AddonWebhookEvent
     def initialize(client)
       @client = client
     end
-    
+
 
     # Returns the info for a specified webhook event.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param app_webhook_event_id: the event's unique identifier
-    
-    
+
+
     def info(addon_id_or_addon_name, app_webhook_event_id)
       @client.addon_webhook_event.info(addon_id_or_addon_name, app_webhook_event_id)
     end
-    
+
 
     # Lists existing webhook events for an add-on.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def list(addon_id_or_addon_name)
       @client.addon_webhook_event.list(addon_id_or_addon_name)
     end
-    
+
   end
-  
+
 
   # Represents the details of a webhook subscription
   class AddonWebhook
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(addon_id_or_addon_name, body = {})
       @client.addon_webhook.create(addon_id_or_addon_name, body)
     end
-    
+
 
     # Removes an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param app_webhook_id: the webhook's unique identifier
-    
-    
+
+
     def delete(addon_id_or_addon_name, app_webhook_id)
       @client.addon_webhook.delete(addon_id_or_addon_name, app_webhook_id)
     end
-    
+
 
     # Returns the info for an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param app_webhook_id: the webhook's unique identifier
-    
-    
+
+
     def info(addon_id_or_addon_name, app_webhook_id)
       @client.addon_webhook.info(addon_id_or_addon_name, app_webhook_id)
     end
-    
+
 
     # List all webhook subscriptions for a particular add-on.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def list(addon_id_or_addon_name)
       @client.addon_webhook.list(addon_id_or_addon_name)
     end
-    
+
 
     # Updates the details of an add-on webhook subscription.  Can only be accessed by the add-on partner providing this add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param app_webhook_id: the webhook's unique identifier
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(addon_id_or_addon_name, app_webhook_id, body = {})
       @client.addon_webhook.update(addon_id_or_addon_name, app_webhook_id, body)
     end
-    
+
   end
-  
+
 
   # Add-ons represent add-ons that have been provisioned and attached to one or more apps.
   class Addon
     def initialize(client)
       @client = client
     end
-    
+
 
     # List all existing add-ons.
-    
+
     def list()
       @client.addon.list()
     end
-    
+
 
     # Info for an existing add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def info(addon_id_or_addon_name)
       @client.addon.info(addon_id_or_addon_name)
     end
-    
+
 
     # Create a new add-on.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.addon.create(app_id_or_app_name, body)
     end
-    
+
 
     # Delete an existing add-on.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def delete(app_id_or_app_name, addon_id_or_addon_name)
       @client.addon.delete(app_id_or_app_name, addon_id_or_addon_name)
     end
-    
+
 
     # Info for an existing add-on.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def info_by_app(app_id_or_app_name, addon_id_or_addon_name)
       @client.addon.info_by_app(app_id_or_app_name, addon_id_or_addon_name)
     end
-    
+
 
     # List existing add-ons for an app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list_by_app(app_id_or_app_name)
       @client.addon.list_by_app(app_id_or_app_name)
     end
-    
+
 
     # Change add-on plan. Some add-ons may not support changing plans. In that case, an error will be returned.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, addon_id_or_addon_name, body = {})
       @client.addon.update(app_id_or_app_name, addon_id_or_addon_name, body)
     end
-    
+
 
     # List all existing add-ons a user has access to
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def list_by_user(account_email_or_account_id_or_account_self)
       @client.addon.list_by_user(account_email_or_account_id_or_account_self)
     end
-    
+
 
     # List add-ons used across all Team apps
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list_by_team(team_name_or_team_id)
       @client.addon.list_by_team(team_name_or_team_id)
     end
-    
+
 
     # Resolve an add-on from a name, optionally passing an app name. If there are matches it returns at least one add-on (exact match) or many.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def resolution(body = {})
       @client.addon.resolution(body)
     end
-    
+
   end
-  
+
 
   # Entities that have been allowed to be used by a Team
   class AllowedAddonService
     def initialize(client)
       @client = client
     end
-    
+
 
     # List all allowed add-on services for a team
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list_by_team(team_name_or_team_id)
       @client.allowed_addon_service.list_by_team(team_name_or_team_id)
     end
-    
+
 
     # Allow an Add-on Service
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create_by_team(team_name_or_team_id, body = {})
       @client.allowed_addon_service.create_by_team(team_name_or_team_id, body)
     end
-    
+
 
     # Remove an allowed add-on service
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param allowed_addon_service_id_or_addon_service_name: unique identifier for this allowed add-on service record or unique name of this add-on-service
-    
-    
+
+
     def delete_by_team(team_name_or_team_id, allowed_addon_service_id_or_addon_service_name)
       @client.allowed_addon_service.delete_by_team(team_name_or_team_id, allowed_addon_service_id_or_addon_service_name)
     end
-    
+
   end
-  
+
 
   # An app feature represents a Heroku labs capability that can be enabled or disabled for an app on Heroku.
   class AppFeature
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for an existing app feature.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param app_feature_id_or_app_feature_name: unique identifier of app feature or unique name of app feature
-    
-    
+
+
     def info(app_id_or_app_name, app_feature_id_or_app_feature_name)
       @client.app_feature.info(app_id_or_app_name, app_feature_id_or_app_feature_name)
     end
-    
+
 
     # List existing app features.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.app_feature.list(app_id_or_app_name)
     end
-    
+
 
     # Update an existing app feature.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param app_feature_id_or_app_feature_name: unique identifier of app feature or unique name of app feature
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, app_feature_id_or_app_feature_name, body = {})
       @client.app_feature.update(app_id_or_app_name, app_feature_id_or_app_feature_name, body)
     end
-    
+
   end
-  
+
 
   # An app setup represents an app on Heroku that is setup using an environment, addons, and scripts described in an app.json manifest file.
   class AppSetup
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new app setup from a gzipped tar archive containing an app.json manifest file.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.app_setup.create(body)
     end
-    
+
 
     # Get the status of an app setup.
-    
+
     #
-    
+
     # @param app_setup_id: unique identifier of app setup
-    
-    
+
+
     def info(app_setup_id)
       @client.app_setup.info(app_setup_id)
     end
-    
+
   end
-  
+
 
   # An app transfer represents a two party interaction for transferring ownership of an app.
   class AppTransfer
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new app transfer.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.app_transfer.create(body)
     end
-    
+
 
     # Delete an existing app transfer
-    
+
     #
-    
+
     # @param app_transfer_id_or_app_name: unique identifier of app transfer or unique name of app
-    
-    
+
+
     def delete(app_transfer_id_or_app_name)
       @client.app_transfer.delete(app_transfer_id_or_app_name)
     end
-    
+
 
     # Info for existing app transfer.
-    
+
     #
-    
+
     # @param app_transfer_id_or_app_name: unique identifier of app transfer or unique name of app
-    
-    
+
+
     def info(app_transfer_id_or_app_name)
       @client.app_transfer.info(app_transfer_id_or_app_name)
     end
-    
+
 
     # List existing apps transfers.
-    
+
     def list()
       @client.app_transfer.list()
     end
-    
+
 
     # Update an existing app transfer.
-    
+
     #
-    
+
     # @param app_transfer_id_or_app_name: unique identifier of app transfer or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_transfer_id_or_app_name, body = {})
       @client.app_transfer.update(app_transfer_id_or_app_name, body)
     end
-    
+
   end
-  
+
 
   # Represents the delivery of a webhook notification, including its current status.
   class AppWebhookDelivery
     def initialize(client)
       @client = client
     end
-    
+
 
     # Returns the info for an existing delivery.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param app_webhook_delivery_id: the delivery's unique identifier
-    
-    
+
+
     def info(app_id_or_app_name, app_webhook_delivery_id)
       @client.app_webhook_delivery.info(app_id_or_app_name, app_webhook_delivery_id)
     end
-    
+
 
     # Lists existing deliveries for an app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.app_webhook_delivery.list(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Represents a webhook event that occurred.
   class AppWebhookEvent
     def initialize(client)
       @client = client
     end
-    
+
 
     # Returns the info for a specified webhook event.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param app_webhook_event_id: the event's unique identifier
-    
-    
+
+
     def info(app_id_or_app_name, app_webhook_event_id)
       @client.app_webhook_event.info(app_id_or_app_name, app_webhook_event_id)
     end
-    
+
 
     # Lists existing webhook events for an app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.app_webhook_event.list(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Represents the details of a webhook subscription
   class AppWebhook
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create an app webhook subscription.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.app_webhook.create(app_id_or_app_name, body)
     end
-    
+
 
     # Removes an app webhook subscription.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param app_webhook_id: the webhook's unique identifier
-    
-    
+
+
     def delete(app_id_or_app_name, app_webhook_id)
       @client.app_webhook.delete(app_id_or_app_name, app_webhook_id)
     end
-    
+
 
     # Returns the info for an app webhook subscription.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param app_webhook_id: the webhook's unique identifier
-    
-    
+
+
     def info(app_id_or_app_name, app_webhook_id)
       @client.app_webhook.info(app_id_or_app_name, app_webhook_id)
     end
-    
+
 
     # List all webhook subscriptions for a particular app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.app_webhook.list(app_id_or_app_name)
     end
-    
+
 
     # Updates the details of an app webhook subscription.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param app_webhook_id: the webhook's unique identifier
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, app_webhook_id, body = {})
       @client.app_webhook.update(app_id_or_app_name, app_webhook_id, body)
     end
-    
+
   end
-  
+
 
   # An app represents the program that you would like to deploy and run on Heroku.
   class App
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new app.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.app.create(body)
     end
-    
+
 
     # Delete an existing app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def delete(app_id_or_app_name)
       @client.app.delete(app_id_or_app_name)
     end
-    
+
 
     # Info for existing app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def info(app_id_or_app_name)
       @client.app.info(app_id_or_app_name)
     end
-    
+
 
     # List existing apps.
-    
+
     def list()
       @client.app.list()
     end
-    
+
 
     # List owned and collaborated apps (excludes team apps).
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def list_owned_and_collaborated(account_email_or_account_id_or_account_self)
       @client.app.list_owned_and_collaborated(account_email_or_account_id_or_account_self)
     end
-    
+
 
     # Update an existing app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, body = {})
       @client.app.update(app_id_or_app_name, body)
     end
-    
+
 
     # Enable ACM flag for an app
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def enable_acm(app_id_or_app_name)
       @client.app.enable_acm(app_id_or_app_name)
     end
-    
+
 
     # Disable ACM flag for an app
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def disable_acm(app_id_or_app_name)
       @client.app.disable_acm(app_id_or_app_name)
     end
-    
+
 
     # Refresh ACM for an app
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def refresh_acm(app_id_or_app_name)
       @client.app.refresh_acm(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # An audit trail archive represents a monthly json zipped file containing events
   class Archive
     def initialize(client)
       @client = client
     end
-    
+
 
     # Get archive for a single month.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
+
     # @param archive_year: year of the archive
-    
+
     # @param archive_month: month of the archive
-    
-    
+
+
     def info(enterprise_account_id_or_enterprise_account_name, archive_year, archive_month)
       @client.archive.info(enterprise_account_id_or_enterprise_account_name, archive_year, archive_month)
     end
-    
+
 
     # List existing archives.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
-    
+
+
     def list(enterprise_account_id_or_enterprise_account_name)
       @client.archive.list(enterprise_account_id_or_enterprise_account_name)
     end
-    
+
   end
-  
+
 
   # An audit trail event represents some action on the platform
   class AuditTrailEvent
     def initialize(client)
       @client = client
     end
-    
+
 
     # List existing events. Returns all events for one day, defaulting to current day. Order, actor, action, and type, and day query params can be specified as query parameters. For example, '/enterprise-accounts/:id/events?order=desc&actor=user@example.com&action=create&type=app&day=2020-09-30' would return events in descending order and only return app created events by the user with user@example.com email address.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
-    
+
+
     def list(enterprise_account_id_or_enterprise_account_name)
       @client.audit_trail_event.list(enterprise_account_id_or_enterprise_account_name)
     end
-    
+
   end
-  
+
 
   # A build represents the process of transforming a code tarball into build artifacts
   class Build
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new build.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.build.create(app_id_or_app_name, body)
     end
-    
+
 
     # Info for existing build.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param build_id: unique identifier of build
-    
-    
+
+
     def info(app_id_or_app_name, build_id)
       @client.build.info(app_id_or_app_name, build_id)
     end
-    
+
 
     # List existing build.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.build.list(app_id_or_app_name)
     end
-    
+
 
     # Destroy a build cache.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def delete_cache(app_id_or_app_name)
       @client.build.delete_cache(app_id_or_app_name)
     end
-    
+
 
     # Cancel running build.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param build_id: unique identifier of build
-    
-    
+
+
     def cancel(app_id_or_app_name, build_id)
       @client.build.cancel(app_id_or_app_name, build_id)
     end
-    
+
   end
-  
+
 
   # A buildpack installation represents a buildpack that will be run against an app.
   class BuildpackInstallation
     def initialize(client)
       @client = client
     end
-    
+
 
     # Update an app's buildpack installations.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, body = {})
       @client.buildpack_installation.update(app_id_or_app_name, body)
     end
-    
+
 
     # List an app's existing buildpack installations.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.buildpack_installation.list(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # A collaborator represents an account that has been given access to an app on Heroku.
   class Collaborator
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new collaborator.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.collaborator.create(app_id_or_app_name, body)
     end
-    
+
 
     # Delete an existing collaborator.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param collaborator_email_or_collaborator_id: invited email address of collaborator or unique identifier of collaborator
-    
-    
+
+
     def delete(app_id_or_app_name, collaborator_email_or_collaborator_id)
       @client.collaborator.delete(app_id_or_app_name, collaborator_email_or_collaborator_id)
     end
-    
+
 
     # Info for existing collaborator.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param collaborator_email_or_collaborator_id: invited email address of collaborator or unique identifier of collaborator
-    
-    
+
+
     def info(app_id_or_app_name, collaborator_email_or_collaborator_id)
       @client.collaborator.info(app_id_or_app_name, collaborator_email_or_collaborator_id)
     end
-    
+
 
     # List existing collaborators.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.collaborator.list(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Config Vars allow you to manage the configuration information provided to an app on Heroku.
   class ConfigVar
     def initialize(client)
       @client = client
     end
-    
+
 
     # Get config-vars for app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def info_for_app(app_id_or_app_name)
       @client.config_var.info_for_app(app_id_or_app_name)
     end
-    
+
 
     # Get config-vars for a release.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param release_id_or_release_version: unique identifier of release or unique version assigned to the release
-    
-    
+
+
     def info_for_app_release(app_id_or_app_name, release_id_or_release_version)
       @client.config_var.info_for_app_release(app_id_or_app_name, release_id_or_release_version)
     end
-    
+
 
     # Update config-vars for app. You can update existing config-vars by setting them again, and remove by setting it to `null`.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, body = {})
       @client.config_var.update(app_id_or_app_name, body)
     end
-    
+
   end
-  
+
 
   # A credit represents value that will be used up before further charges are assigned to an account.
   class Credit
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new credit.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.credit.create(body)
     end
-    
+
 
     # Info for existing credit.
-    
+
     #
-    
+
     # @param credit_id: unique identifier of credit
-    
-    
+
+
     def info(credit_id)
       @client.credit.info(credit_id)
     end
-    
+
 
     # List existing credits.
-    
+
     def list()
       @client.credit.list()
     end
-    
+
   end
-  
+
 
   # Domains define what web routes should be routed to an app on Heroku.
   class Domain
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new domain.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.domain.create(app_id_or_app_name, body)
     end
-    
+
 
     # Associate an SNI endpoint
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param domain_id_or_domain_hostname: unique identifier of this domain or full hostname
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, domain_id_or_domain_hostname, body = {})
       @client.domain.update(app_id_or_app_name, domain_id_or_domain_hostname, body)
     end
-    
+
 
     # Delete an existing domain
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param domain_id_or_domain_hostname: unique identifier of this domain or full hostname
-    
-    
+
+
     def delete(app_id_or_app_name, domain_id_or_domain_hostname)
       @client.domain.delete(app_id_or_app_name, domain_id_or_domain_hostname)
     end
-    
+
 
     # Info for existing domain.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param domain_id_or_domain_hostname: unique identifier of this domain or full hostname
-    
-    
+
+
     def info(app_id_or_app_name, domain_id_or_domain_hostname)
       @client.domain.info(app_id_or_app_name, domain_id_or_domain_hostname)
     end
-    
+
 
     # List existing domains.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.domain.list(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Dyno sizes are the values and details of sizes that can be assigned to dynos. This information can also be found at : [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
   class DynoSize
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing dyno size.
-    
+
     #
-    
+
     # @param dyno_size_id_or_dyno_size_name: unique identifier of the dyno size or name of the dyno size
-    
-    
+
+
     def info(dyno_size_id_or_dyno_size_name)
       @client.dyno_size.info(dyno_size_id_or_dyno_size_name)
     end
-    
+
 
     # List existing dyno sizes.
-    
+
     def list()
       @client.dyno_size.list()
     end
-    
+
 
     # List available dyno sizes for an app
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list_app_dyno_sizes(app_id_or_app_name)
       @client.dyno_size.list_app_dyno_sizes(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Dynos encapsulate running processes of an app on Heroku. Detailed information about dyno sizes can be found at: [https://devcenter.heroku.com/articles/dyno-types](https://devcenter.heroku.com/articles/dyno-types).
   class Dyno
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new dyno.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.dyno.create(app_id_or_app_name, body)
     end
-    
+
 
     # Restart dyno.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param dyno_id_or_dyno_name: unique identifier of this dyno or the name of this process on this dyno
-    
-    
+
+
     def restart(app_id_or_app_name, dyno_id_or_dyno_name)
       @client.dyno.restart(app_id_or_app_name, dyno_id_or_dyno_name)
     end
-    
+
 
     # Restart dynos of a given formation type.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param dyno_formation_type: the formation type of this process on this dyno
-    
-    
+
+
     def restart_formation(app_id_or_app_name, dyno_formation_type)
       @client.dyno.restart_formation(app_id_or_app_name, dyno_formation_type)
     end
-    
+
 
     # Restart all dynos.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def restart_all(app_id_or_app_name)
       @client.dyno.restart_all(app_id_or_app_name)
     end
-    
+
 
     # Stop dyno.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param dyno_id_or_dyno_name: unique identifier of this dyno or the name of this process on this dyno
-    
-    
+
+
     def stop(app_id_or_app_name, dyno_id_or_dyno_name)
       @client.dyno.stop(app_id_or_app_name, dyno_id_or_dyno_name)
     end
-    
+
 
     # Stop dynos of a given formation type.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param dyno_formation_type: the formation type of this process on this dyno
-    
-    
+
+
     def stop_formation(app_id_or_app_name, dyno_formation_type)
       @client.dyno.stop_formation(app_id_or_app_name, dyno_formation_type)
     end
-    
+
 
     # Info for existing dyno.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param dyno_id_or_dyno_name: unique identifier of this dyno or the name of this process on this dyno
-    
-    
+
+
     def info(app_id_or_app_name, dyno_id_or_dyno_name)
       @client.dyno.info(app_id_or_app_name, dyno_id_or_dyno_name)
     end
-    
+
 
     # List existing dynos.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.dyno.list(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Usage for an enterprise account at a daily resolution.
   class EnterpriseAccountDailyUsage
     def initialize(client)
       @client = client
     end
-    
+
 
     # Retrieves usage for an enterprise account for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD. The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).
 
-    
+
     #
-    
+
     # @param enterprise_account_id: unique identifier of the enterprise account
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def info(enterprise_account_id, body = {})
       @client.enterprise_account_daily_usage.info(enterprise_account_id, body)
     end
-    
+
   end
-  
+
 
   # Enterprise account members are users with access to an enterprise account.
   class EnterpriseAccountMember
     def initialize(client)
       @client = client
     end
-    
+
 
     # List members in an enterprise account.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
-    
+
+
     def list(enterprise_account_id_or_enterprise_account_name)
       @client.enterprise_account_member.list(enterprise_account_id_or_enterprise_account_name)
     end
-    
+
 
     # Create a member in an enterprise account.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(enterprise_account_id_or_enterprise_account_name, body = {})
       @client.enterprise_account_member.create(enterprise_account_id_or_enterprise_account_name, body)
     end
-    
+
 
     # Update a member in an enterprise account.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
+
     # @param account_email_or_account_id: unique email address of account or unique identifier of an account
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id, body = {})
       @client.enterprise_account_member.update(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id, body)
     end
-    
+
 
     # delete a member in an enterprise account.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
+
     # @param account_email_or_account_id: unique email address of account or unique identifier of an account
-    
-    
+
+
     def delete(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id)
       @client.enterprise_account_member.delete(enterprise_account_id_or_enterprise_account_name, account_email_or_account_id)
     end
-    
+
   end
-  
+
 
   # Usage for an enterprise account at a monthly resolution.
   class EnterpriseAccountMonthlyUsage
     def initialize(client)
       @client = client
     end
-    
+
 
     # Retrieves usage for an enterprise account for a range of months. Start and end dates can be specified as query parameters using the date format YYYY-MM. If no end date is specified, one month of usage is returned. The enterprise account identifier can be found from the [enterprise account list](https://devcenter.heroku.com/articles/platform-api-reference#enterprise-account-list).
 
-    
+
     #
-    
+
     # @param enterprise_account_id: unique identifier of the enterprise account
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def info(enterprise_account_id, body = {})
       @client.enterprise_account_monthly_usage.info(enterprise_account_id, body)
     end
-    
+
   end
-  
+
 
   # Enterprise accounts allow companies to manage their development teams and billing.
   class EnterpriseAccount
     def initialize(client)
       @client = client
     end
-    
+
 
     # List enterprise accounts in which you are a member.
-    
+
     def list()
       @client.enterprise_account.list()
     end
-    
+
 
     # Information about an enterprise account.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
-    
+
+
     def info(enterprise_account_id_or_enterprise_account_name)
       @client.enterprise_account.info(enterprise_account_id_or_enterprise_account_name)
     end
-    
+
 
     # Update enterprise account properties
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(enterprise_account_id_or_enterprise_account_name, body = {})
       @client.enterprise_account.update(enterprise_account_id_or_enterprise_account_name, body)
     end
-    
+
   end
-  
+
 
   # Filters are special endpoints to allow for API consumers to specify a subset of resources to consume in order to reduce the number of requests that are performed.  Each filter endpoint endpoint is responsible for determining its supported request format.  The endpoints are over POST in order to handle large request bodies without hitting request uri query length limitations, but the requests themselves are idempotent and will not have side effects.
   class FilterApps
     def initialize(client)
       @client = client
     end
-    
+
 
     # Request an apps list filtered by app id.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def apps(body = {})
       @client.filter_apps.apps(body)
     end
-    
+
   end
-  
+
 
   # The formation of processes that should be maintained for an app. Update the formation to scale processes or change dyno sizes. Available process type names and commands are defined by the `process_types` attribute for the [slug](#slug) currently released on an app.
   class Formation
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for a process type
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param formation_id_or_formation_type: unique identifier of this process type or type of process to maintain
-    
-    
+
+
     def info(app_id_or_app_name, formation_id_or_formation_type)
       @client.formation.info(app_id_or_app_name, formation_id_or_formation_type)
     end
-    
+
 
     # List process type formation
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.formation.list(app_id_or_app_name)
     end
-    
+
 
     # Batch update process types
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def batch_update(app_id_or_app_name, body = {})
       @client.formation.batch_update(app_id_or_app_name, body)
     end
-    
+
 
     # Update process type
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param formation_id_or_formation_type: unique identifier of this process type or type of process to maintain
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, formation_id_or_formation_type, body = {})
       @client.formation.update(app_id_or_app_name, formation_id_or_formation_type, body)
     end
-    
+
   end
-  
+
 
   # A generation represents a version of the Heroku platform that includes the app execution environment, routing, telemetry, and build systems.
   class Generation
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for generation.
-    
+
     #
-    
+
     # @param stack_name_or_stack_id: unique name of stack or unique identifier of stack
-    
-    
+
+
     def info(stack_name_or_stack_id)
       @client.generation.info(stack_name_or_stack_id)
     end
-    
+
 
     # List available generations.
-    
+
     def list()
       @client.generation.list()
     end
-    
+
 
     # List available generations for a team.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list_by_team(team_name_or_team_id)
       @client.generation.list_by_team(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # Identity Providers represent the SAML configuration of teams or an Enterprise account
   class IdentityProvider
     def initialize(client)
       @client = client
     end
-    
+
 
     # Get a list of a team's Identity Providers
-    
+
     #
-    
+
     # @param team_name: unique name of team
-    
-    
+
+
     def list_by_team(team_name)
       @client.identity_provider.list_by_team(team_name)
     end
-    
+
 
     # Create an Identity Provider for a team
-    
+
     #
-    
+
     # @param team_name: unique name of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create_by_team(team_name, body = {})
       @client.identity_provider.create_by_team(team_name, body)
     end
-    
+
 
     # Update a team's Identity Provider
-    
+
     #
-    
+
     # @param team_name: unique name of team
-    
+
     # @param identity_provider_id: unique identifier of this identity provider
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update_by_team(team_name, identity_provider_id, body = {})
       @client.identity_provider.update_by_team(team_name, identity_provider_id, body)
     end
-    
+
 
     # Delete a team's Identity Provider
-    
+
     #
-    
+
     # @param team_name: unique name of team
-    
+
     # @param identity_provider_id: unique identifier of this identity provider
-    
-    
+
+
     def delete_by_team(team_name, identity_provider_id)
       @client.identity_provider.delete_by_team(team_name, identity_provider_id)
     end
-    
+
   end
-  
+
 
   # An inbound-ruleset is a collection of rules that specify what hosts can or cannot connect to an application.
   class InboundRuleset
     def initialize(client)
       @client = client
     end
-    
+
 
     # Current inbound ruleset for a space
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def current(space_id_or_space_name)
       @client.inbound_ruleset.current(space_id_or_space_name)
     end
-    
+
 
     # Info on an existing Inbound Ruleset
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param inbound_ruleset_id: unique identifier of an inbound-ruleset
-    
-    
+
+
     def info(space_id_or_space_name, inbound_ruleset_id)
       @client.inbound_ruleset.info(space_id_or_space_name, inbound_ruleset_id)
     end
-    
+
 
     # List all inbound rulesets for a space
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def list(space_id_or_space_name)
       @client.inbound_ruleset.list(space_id_or_space_name)
     end
-    
+
 
     # Create a new inbound ruleset
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(space_id_or_space_name, body = {})
       @client.inbound_ruleset.create(space_id_or_space_name, body)
     end
-    
+
   end
-  
+
 
   # An invoice address represents the address that should be listed on an invoice.
   class InvoiceAddress
     def initialize(client)
       @client = client
     end
-    
+
 
     # Retrieve existing invoice address.
-    
+
     def info()
       @client.invoice_address.info()
     end
-    
+
 
     # Update invoice address for an account.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(body = {})
       @client.invoice_address.update(body)
     end
-    
+
   end
-  
+
 
   # An invoice is an itemized bill of goods for an account which includes pricing and charges.
   class Invoice
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing invoice.
-    
+
     #
-    
+
     # @param invoice_number: human readable invoice number
-    
-    
+
+
     def info(invoice_number)
       @client.invoice.info(invoice_number)
     end
-    
+
 
     # List existing invoices.
-    
+
     def list()
       @client.invoice.list()
     end
-    
+
   end
-  
+
 
   # Keys represent public SSH keys associated with an account and are used to authorize accounts as they are performing git operations.
   class Key
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing key.
-    
+
     #
-    
+
     # @param key_id_or_key_fingerprint: unique identifier of this key or a unique identifying string based on contents
-    
-    
+
+
     def info(key_id_or_key_fingerprint)
       @client.key.info(key_id_or_key_fingerprint)
     end
-    
+
 
     # List existing keys.
-    
+
     def list()
       @client.key.list()
     end
-    
+
   end
-  
+
 
   # [Log drains](https://devcenter.heroku.com/articles/log-drains) provide a way to forward your Heroku logs to an external syslog server for long-term archiving. This external service must be configured to receive syslog packets from Heroku, whereupon its URL can be added to an app using this API. Some add-ons will add a log drain when they are provisioned to an app. These drains can only be removed by removing the add-on.
   class LogDrain
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new log drain.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.log_drain.create(app_id_or_app_name, body)
     end
-    
+
 
     # Update an add-on owned log drain.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
+
     # @param log_drain_id_or_log_drain_url_or_log_drain_token: unique identifier of this log drain or url associated with the log drain or token associated with the log drain
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(addon_id_or_addon_name, log_drain_id_or_log_drain_url_or_log_drain_token, body = {})
       @client.log_drain.update(addon_id_or_addon_name, log_drain_id_or_log_drain_url_or_log_drain_token, body)
     end
-    
+
 
     # Delete an existing log drain. Log drains added by add-ons can only be removed by removing the add-on.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param log_drain_id_or_log_drain_url_or_log_drain_token: unique identifier of this log drain or url associated with the log drain or token associated with the log drain
-    
-    
+
+
     def delete(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
       @client.log_drain.delete(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
     end
-    
+
 
     # Info for existing log drain.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param log_drain_id_or_log_drain_url_or_log_drain_token: unique identifier of this log drain or url associated with the log drain or token associated with the log drain
-    
-    
+
+
     def info(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
       @client.log_drain.info(app_id_or_app_name, log_drain_id_or_log_drain_url_or_log_drain_token)
     end
-    
+
 
     # List existing log drains for an add-on.
-    
+
     #
-    
+
     # @param addon_id_or_addon_name: unique identifier of add-on or globally unique name of the add-on
-    
-    
+
+
     def list_by_addon(addon_id_or_addon_name)
       @client.log_drain.list_by_addon(addon_id_or_addon_name)
     end
-    
+
 
     # List existing log drains.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.log_drain.list(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # A log session is a reference to the http based log stream for an app.
   class LogSession
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new log session.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.log_session.create(app_id_or_app_name, body)
     end
-    
+
   end
-  
+
 
   # OAuth authorizations represent clients that a Heroku user has authorized to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
   class OauthAuthorization
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new OAuth authorization.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.oauth_authorization.create(body)
     end
-    
+
 
     # Delete OAuth authorization.
-    
+
     #
-    
+
     # @param oauth_authorization_id: unique identifier of OAuth authorization
-    
-    
+
+
     def delete(oauth_authorization_id)
       @client.oauth_authorization.delete(oauth_authorization_id)
     end
-    
+
 
     # Info for an OAuth authorization.
-    
+
     #
-    
+
     # @param oauth_authorization_id: unique identifier of OAuth authorization
-    
-    
+
+
     def info(oauth_authorization_id)
       @client.oauth_authorization.info(oauth_authorization_id)
     end
-    
+
 
     # Update an existing OAuth authorization.
-    
+
     #
-    
+
     # @param oauth_authorization_id: unique identifier of OAuth authorization
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(oauth_authorization_id, body = {})
       @client.oauth_authorization.update(oauth_authorization_id, body)
     end
-    
+
 
     # List OAuth authorizations.
-    
+
     def list()
       @client.oauth_authorization.list()
     end
-    
+
 
     # Regenerate OAuth tokens. This endpoint is only available to direct authorizations or privileged OAuth clients.
-    
+
     #
-    
+
     # @param oauth_authorization_id: unique identifier of OAuth authorization
-    
-    
+
+
     def regenerate(oauth_authorization_id)
       @client.oauth_authorization.regenerate(oauth_authorization_id)
     end
-    
+
   end
-  
+
 
   # OAuth clients are applications that Heroku users can authorize to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth).
   class OauthClient
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new OAuth client.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.oauth_client.create(body)
     end
-    
+
 
     # Delete OAuth client.
-    
+
     #
-    
+
     # @param oauth_client_id: unique identifier of this OAuth client
-    
-    
+
+
     def delete(oauth_client_id)
       @client.oauth_client.delete(oauth_client_id)
     end
-    
+
 
     # Info for an OAuth client. The output for unauthenticated requests excludes the `secret` parameter.
-    
+
     #
-    
+
     # @param oauth_client_id: unique identifier of this OAuth client
-    
-    
+
+
     def info(oauth_client_id)
       @client.oauth_client.info(oauth_client_id)
     end
-    
+
 
     # List OAuth clients
-    
+
     def list()
       @client.oauth_client.list()
     end
-    
+
 
     # Update OAuth client
-    
+
     #
-    
+
     # @param oauth_client_id: unique identifier of this OAuth client
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(oauth_client_id, body = {})
       @client.oauth_client.update(oauth_client_id, body)
     end
-    
+
 
     # Rotate credentials for an OAuth client
-    
+
     #
-    
+
     # @param oauth_client_id: unique identifier of this OAuth client
-    
-    
+
+
     def rotate_credentials(oauth_client_id)
       @client.oauth_client.rotate_credentials(oauth_client_id)
     end
-    
+
   end
-  
+
 
   # OAuth grants are used to obtain authorizations on behalf of a user. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
   class OauthGrant
     def initialize(client)
       @client = client
     end
-    
+
   end
-  
+
 
   # OAuth tokens provide access for authorized clients to act on behalf of a Heroku user to automate, customize or extend their usage of the platform. For more information please refer to the [Heroku OAuth documentation](https://devcenter.heroku.com/articles/oauth)
   class OauthToken
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new OAuth token.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.oauth_token.create(body)
     end
-    
+
 
     # Revoke OAuth access token.
-    
+
     #
-    
+
     # @param oauth_token_id: unique identifier of OAuth token
-    
-    
+
+
     def delete(oauth_token_id)
       @client.oauth_token.delete(oauth_token_id)
     end
-    
+
   end
-  
+
 
   # An OCI (Open Container Initiative) image is a standardized format for packaging and distributing containerized applications, ready to run on the platform.
   class OciImage
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for the OCI images of an app, filtered by identifier.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param oci_image_id_or_oci_image_digest: unique identifier of the OCI image or unique identifier representing the content of the OCI image
-    
-    
+
+
     def info(app_id_or_app_name, oci_image_id_or_oci_image_digest)
       @client.oci_image.info(app_id_or_app_name, oci_image_id_or_oci_image_digest)
     end
-    
+
 
     # Create an new OCI image of an app
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.oci_image.create(app_id_or_app_name, body)
     end
-    
+
   end
-  
+
 
   # A password reset represents a in-process password reset attempt.
   class PasswordReset
     def initialize(client)
       @client = client
     end
-    
+
 
     # Reset account's password. This will send a reset password link to the user's email address.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def reset_password(body = {})
       @client.password_reset.reset_password(body)
     end
-    
+
 
     # Complete password reset.
-    
+
     #
-    
+
     # @param password_reset_reset_password_token: unique identifier of a password reset attempt
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def complete_reset_password(password_reset_reset_password_token, body = {})
       @client.password_reset.complete_reset_password(password_reset_reset_password_token, body)
     end
-    
+
   end
-  
+
 
   # [Peering Info](https://devcenter.heroku.com/articles/private-space-peering) gives you the information necessary to peer an AWS VPC to a Private Space.
   class PeeringInfo
     def initialize(client)
       @client = client
     end
-    
+
 
     # Provides the necessary information to establish an AWS VPC Peering with your private space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def info(space_id_or_space_name)
       @client.peering_info.info(space_id_or_space_name)
     end
-    
+
   end
-  
+
 
   # [Peering](https://devcenter.heroku.com/articles/private-space-peering) provides a way to peer your Private Space VPC to another AWS VPC.
   class Peering
     def initialize(client)
       @client = client
     end
-    
+
 
     # List peering connections of a private space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def list(space_id_or_space_name)
       @client.peering.list(space_id_or_space_name)
     end
-    
+
 
     # Accept a pending peering connection with a private space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param peering_pcx_id: The AWS VPC Peering Connection ID of the peering.
-    
-    
+
+
     def accept(space_id_or_space_name, peering_pcx_id)
       @client.peering.accept(space_id_or_space_name, peering_pcx_id)
     end
-    
+
 
     # Destroy an active peering connection with a private space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param peering_pcx_id: The AWS VPC Peering Connection ID of the peering.
-    
-    
+
+
     def destroy(space_id_or_space_name, peering_pcx_id)
       @client.peering.destroy(space_id_or_space_name, peering_pcx_id)
     end
-    
+
 
     # Fetch information for existing peering connection
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param peering_pcx_id: The AWS VPC Peering Connection ID of the peering.
-    
-    
+
+
     def info(space_id_or_space_name, peering_pcx_id)
       @client.peering.info(space_id_or_space_name, peering_pcx_id)
     end
-    
+
   end
-  
+
 
   # An owned entity including users' permissions.
   class PermissionEntity
     def initialize(client)
       @client = client
     end
-    
+
 
     # List permission entities for a team.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list(team_name_or_team_id)
       @client.permission_entity.list(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # Information about the latest builds of apps in a pipeline. A build represents the process of transforming code into build artifacts.
   class PipelineBuild
     def initialize(client)
       @client = client
     end
-    
+
 
     # List latest builds for each app in a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def list(pipeline_id)
       @client.pipeline_build.list(pipeline_id)
     end
-    
+
   end
-  
+
 
   # Pipeline config vars in Heroku CI and review apps used to manage the configuration information for a pipeline.
   class PipelineConfigVar
     def initialize(client)
       @client = client
     end
-    
+
 
     # Get config-vars for a pipeline stage.
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
+
     # @param pipeline_coupling_stage: target pipeline stage
-    
-    
+
+
     def info_for_app(pipeline_id, pipeline_coupling_stage)
       @client.pipeline_config_var.info_for_app(pipeline_id, pipeline_coupling_stage)
     end
-    
+
 
     # Update config-vars for a pipeline stage. You can update existing config-vars by setting them again, and remove by setting it to `null`.
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
+
     # @param pipeline_coupling_stage: target pipeline stage
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(pipeline_id, pipeline_coupling_stage, body = {})
       @client.pipeline_config_var.update(pipeline_id, pipeline_coupling_stage, body)
     end
-    
+
   end
-  
+
 
   # Information about an app's coupling to a pipeline
   class PipelineCoupling
     def initialize(client)
       @client = client
     end
-    
+
 
     # List couplings for a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def list_by_pipeline(pipeline_id)
       @client.pipeline_coupling.list_by_pipeline(pipeline_id)
     end
-    
+
 
     # List pipeline couplings for the current user.
-    
+
     def list_by_current_user()
       @client.pipeline_coupling.list_by_current_user()
     end
-    
+
 
     # List pipeline couplings.
-    
+
     def list()
       @client.pipeline_coupling.list()
     end
-    
+
 
     # List pipeline couplings for a team.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list_by_team(team_name_or_team_id)
       @client.pipeline_coupling.list_by_team(team_name_or_team_id)
     end
-    
+
 
     # Create a new pipeline coupling.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.pipeline_coupling.create(body)
     end
-    
+
 
     # Info for an existing pipeline coupling.
-    
+
     #
-    
+
     # @param pipeline_coupling_id: unique identifier of pipeline coupling
-    
-    
+
+
     def info(pipeline_coupling_id)
       @client.pipeline_coupling.info(pipeline_coupling_id)
     end
-    
+
 
     # Delete an existing pipeline coupling.
-    
+
     #
-    
+
     # @param pipeline_coupling_id: unique identifier of pipeline coupling
-    
-    
+
+
     def delete(pipeline_coupling_id)
       @client.pipeline_coupling.delete(pipeline_coupling_id)
     end
-    
+
 
     # Update an existing pipeline coupling.
-    
+
     #
-    
+
     # @param pipeline_coupling_id: unique identifier of pipeline coupling
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(pipeline_coupling_id, body = {})
       @client.pipeline_coupling.update(pipeline_coupling_id, body)
     end
-    
+
 
     # Info for an existing pipeline coupling.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def info_by_app(app_id_or_app_name)
       @client.pipeline_coupling.info_by_app(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Information about the latest deployment of each app in a pipeline. A deployment is the process of moving the build artifacts to a target environment.
   class PipelineDeployment
     def initialize(client)
       @client = client
     end
-    
+
 
     # List latest deployments for each app in a pipeline. A deployment is a release that changed your source slug, container image, or Heroku processes.
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def list(pipeline_id)
       @client.pipeline_deployment.list(pipeline_id)
     end
-    
+
   end
-  
+
 
   # Promotion targets represent an individual app being promoted to
   class PipelinePromotionTarget
     def initialize(client)
       @client = client
     end
-    
+
 
     # List promotion targets belonging to an existing promotion.
-    
+
     #
-    
+
     # @param pipeline_promotion_id: unique identifier of promotion
-    
-    
+
+
     def list(pipeline_promotion_id)
       @client.pipeline_promotion_target.list(pipeline_promotion_id)
     end
-    
+
   end
-  
+
 
   # Promotions allow you to move code from an app in a pipeline to all targets
   class PipelinePromotion
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new promotion.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.pipeline_promotion.create(body)
     end
-    
+
 
     # Info for existing pipeline promotion.
-    
+
     #
-    
+
     # @param pipeline_promotion_id: unique identifier of promotion
-    
-    
+
+
     def info(pipeline_promotion_id)
       @client.pipeline_promotion.info(pipeline_promotion_id)
     end
-    
+
   end
-  
+
 
   # Information about the latest release of each app in a pipeline. A release makes a deployment available to end-users.
   class PipelineRelease
     def initialize(client)
       @client = client
     end
-    
+
 
     # List latest releases for each app in a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def list(pipeline_id)
       @client.pipeline_release.list(pipeline_id)
     end
-    
+
   end
-  
+
 
   # A pipeline's stack is determined by the apps in the pipeline. This is used during creation of CI and Review Apps that have no stack defined in app.json
   class PipelineStack
     def initialize(client)
       @client = client
     end
-    
+
 
     # The stack for a given pipeline, used for CI and Review Apps that have no stack defined in app.json.
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def default_stack(pipeline_id)
       @client.pipeline_stack.default_stack(pipeline_id)
     end
-    
+
   end
-  
+
 
   # A pipeline transfer is the process of changing pipeline ownership along with the contained apps.
   class PipelineTransfer
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new pipeline transfer.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.pipeline_transfer.create(body)
     end
-    
+
   end
-  
+
 
   # A pipeline allows grouping of apps into different stages.
   class Pipeline
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new pipeline.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.pipeline.create(body)
     end
-    
+
 
     # Info for existing pipeline.
-    
+
     #
-    
+
     # @param pipeline_id_or_pipeline_name: unique identifier of pipeline or name of pipeline
-    
-    
+
+
     def info(pipeline_id_or_pipeline_name)
       @client.pipeline.info(pipeline_id_or_pipeline_name)
     end
-    
+
 
     # Delete an existing pipeline.
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def delete(pipeline_id)
       @client.pipeline.delete(pipeline_id)
     end
-    
+
 
     # Update an existing pipeline.
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(pipeline_id, body = {})
       @client.pipeline.update(pipeline_id, body)
     end
-    
+
 
     # List existing pipelines.
-    
+
     def list()
       @client.pipeline.list()
     end
-    
+
   end
-  
+
 
   # Plans represent different configurations of add-ons that may be added to apps. Endpoints under add-on services can be accessed without authentication.
   class Plan
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing plan.
-    
+
     #
-    
+
     # @param plan_id_or_plan_name: unique identifier of this plan or unique name of this plan
-    
-    
+
+
     def info(plan_id_or_plan_name)
       @client.plan.info(plan_id_or_plan_name)
     end
-    
+
 
     # Info for existing plan by Add-on.
-    
+
     #
-    
+
     # @param addon_service_id_or_addon_service_name: unique identifier of this add-on-service or unique name of this add-on-service
-    
+
     # @param plan_id_or_plan_name: unique identifier of this plan or unique name of this plan
-    
-    
+
+
     def info_by_addon(addon_service_id_or_addon_service_name, plan_id_or_plan_name)
       @client.plan.info_by_addon(addon_service_id_or_addon_service_name, plan_id_or_plan_name)
     end
-    
+
 
     # List existing plans by Add-on.
-    
+
     #
-    
+
     # @param addon_service_id_or_addon_service_name: unique identifier of this add-on-service or unique name of this add-on-service
-    
-    
+
+
     def list_by_addon(addon_service_id_or_addon_service_name)
       @client.plan.list_by_addon(addon_service_id_or_addon_service_name)
     end
-    
+
   end
-  
+
 
   # Rate Limit represents the number of request tokens each account holds. Requests to this endpoint do not count towards the rate limit.
   class RateLimit
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for rate limits.
-    
+
     def info()
       @client.rate_limit.info()
     end
-    
+
   end
-  
+
 
   # A region represents a geographic location in which your application may run.
   class Region
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing region.
-    
+
     #
-    
+
     # @param region_id_or_region_name: unique identifier of region or unique name of region
-    
-    
+
+
     def info(region_id_or_region_name)
       @client.region.info(region_id_or_region_name)
     end
-    
+
 
     # List existing regions.
-    
+
     def list()
       @client.region.list()
     end
-    
+
   end
-  
+
 
   # A release represents a combination of code, config vars and add-ons for an app on Heroku.
   class Release
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing release.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param release_id_or_release_version: unique identifier of release or unique version assigned to the release
-    
-    
+
+
     def info(app_id_or_app_name, release_id_or_release_version)
       @client.release.info(app_id_or_app_name, release_id_or_release_version)
     end
-    
+
 
     # List existing releases.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.release.list(app_id_or_app_name)
     end
-    
+
 
     # Create new release.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.release.create(app_id_or_app_name, body)
     end
-    
+
 
     # Rollback to an existing release.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def rollback(app_id_or_app_name, body = {})
       @client.release.rollback(app_id_or_app_name, body)
     end
-    
+
   end
-  
+
 
   # An ephemeral app to review a set of changes
   class ReviewApp
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new review app
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.review_app.create(body)
     end
-    
+
 
     # Gets an existing review app
-    
+
     #
-    
+
     # @param review_app_id: unique identifier of the review app
-    
-    
+
+
     def get_review_app(review_app_id)
       @client.review_app.get_review_app(review_app_id)
     end
-    
+
 
     # Delete an existing review app
-    
+
     #
-    
+
     # @param review_app_id: unique identifier of the review app
-    
-    
+
+
     def delete(review_app_id)
       @client.review_app.delete(review_app_id)
     end
-    
+
 
     # Get a review app using the associated app_id
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def get_review_app_by_app_id(app_id_or_app_name)
       @client.review_app.get_review_app_by_app_id(app_id_or_app_name)
     end
-    
+
 
     # List review apps for a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def list(pipeline_id)
       @client.review_app.list(pipeline_id)
     end
-    
+
   end
-  
+
 
   # Review apps can be configured for pipelines.
   class ReviewAppConfig
     def initialize(client)
       @client = client
     end
-    
+
 
     # Enable review apps for a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def enable(pipeline_id, body = {})
       @client.review_app_config.enable(pipeline_id, body)
     end
-    
+
 
     # Get review apps configuration for a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def info(pipeline_id)
       @client.review_app_config.info(pipeline_id)
     end
-    
+
 
     # Update review app configuration for a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(pipeline_id, body = {})
       @client.review_app_config.update(pipeline_id, body)
     end
-    
+
 
     # Disable review apps for a pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def delete(pipeline_id)
       @client.review_app_config.delete(pipeline_id)
     end
-    
+
   end
-  
+
 
   # A slug is a snapshot of your application code that is ready to run on the platform.
   class Slug
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing slug.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param slug_id: unique identifier of slug
-    
-    
+
+
     def info(app_id_or_app_name, slug_id)
       @client.slug.info(app_id_or_app_name, slug_id)
     end
-    
+
 
     # Create a new slug. For more information please refer to [Deploying Slugs using the Platform API](https://devcenter.heroku.com/articles/platform-api-deploying-slugs).
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.slug.create(app_id_or_app_name, body)
     end
-    
+
   end
-  
+
 
   # SMS numbers are used for recovery on accounts with two-factor authentication enabled.
   class SmsNumber
     def initialize(client)
       @client = client
     end
-    
+
 
     # Recover an account using an SMS recovery code
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def sms_number(account_email_or_account_id_or_account_self)
       @client.sms_number.sms_number(account_email_or_account_id_or_account_self)
     end
-    
+
 
     # Recover an account using an SMS recovery code
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def recover(account_email_or_account_id_or_account_self)
       @client.sms_number.recover(account_email_or_account_id_or_account_self)
     end
-    
+
 
     # Confirm an SMS number change with a confirmation code
-    
+
     #
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def confirm(account_email_or_account_id_or_account_self)
       @client.sms_number.confirm(account_email_or_account_id_or_account_self)
     end
-    
+
   end
-  
+
 
   # SNI Endpoint is a public address serving a custom SSL cert for HTTPS traffic, using the SNI TLS extension, to a Heroku app.
   class SniEndpoint
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new SNI endpoint.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.sni_endpoint.create(app_id_or_app_name, body)
     end
-    
+
 
     # Delete existing SNI endpoint.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param sni_endpoint_id_or_sni_endpoint_name: unique identifier of this SNI endpoint or unique name for SNI endpoint
-    
-    
+
+
     def delete(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
       @client.sni_endpoint.delete(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
     end
-    
+
 
     # Info for existing SNI endpoint.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param sni_endpoint_id_or_sni_endpoint_name: unique identifier of this SNI endpoint or unique name for SNI endpoint
-    
-    
+
+
     def info(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
       @client.sni_endpoint.info(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name)
     end
-    
+
 
     # List existing SNI endpoints.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list(app_id_or_app_name)
       @client.sni_endpoint.list(app_id_or_app_name)
     end
-    
+
 
     # Update an existing SNI endpoint.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param sni_endpoint_id_or_sni_endpoint_name: unique identifier of this SNI endpoint or unique name for SNI endpoint
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name, body = {})
       @client.sni_endpoint.update(app_id_or_app_name, sni_endpoint_id_or_sni_endpoint_name, body)
     end
-    
+
   end
-  
+
 
   # A source is a location for uploading and downloading an application's source code.
   class Source
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create URLs for uploading and downloading source.
-    
+
     def create()
       @client.source.create()
     end
-    
+
 
     # Create URLs for uploading and downloading source. Deprecated in favor of `POST /sources`
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def create_deprecated(app_id_or_app_name)
       @client.source.create_deprecated(app_id_or_app_name)
     end
-    
+
   end
-  
+
 
   # Space access represents the permissions a particular user has on a particular space.
   class SpaceAppAccess
     def initialize(client)
       @client = client
     end
-    
+
 
     # List permissions for a given user on a given space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
-    
+
+
     def info(space_id_or_space_name, account_email_or_account_id_or_account_self)
       @client.space_app_access.info(space_id_or_space_name, account_email_or_account_id_or_account_self)
     end
-    
+
 
     # Update an existing user's set of permissions on a space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param account_email_or_account_id_or_account_self: unique email address of account or unique identifier of an account or Implicit reference to currently authorized user
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(space_id_or_space_name, account_email_or_account_id_or_account_self, body = {})
       @client.space_app_access.update(space_id_or_space_name, account_email_or_account_id_or_account_self, body)
     end
-    
+
 
     # List all users and their permissions on a space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def list(space_id_or_space_name)
       @client.space_app_access.list(space_id_or_space_name)
     end
-    
+
   end
-  
+
 
   # Network address translation (NAT) for stable outbound IP addresses from a space
   class SpaceNat
     def initialize(client)
       @client = client
     end
-    
+
 
     # Current state of network address translation for a space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def info(space_id_or_space_name)
       @client.space_nat.info(space_id_or_space_name)
     end
-    
+
   end
-  
+
 
   # Space Topology provides you with a mechanism for viewing all the running dynos, formations and applications for a space. This is the same data thats used to power our DNS Service Discovery.
   class SpaceTopology
     def initialize(client)
       @client = client
     end
-    
+
 
     # Current space topology
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def topology(space_id_or_space_name)
       @client.space_topology.topology(space_id_or_space_name)
     end
-    
+
   end
-  
+
 
   # Transfer spaces between enterprise teams with the same Enterprise Account.
   class SpaceTransfer
     def initialize(client)
       @client = client
     end
-    
+
 
     # Transfer space between enterprise teams
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def transfer(space_id_or_space_name, body = {})
       @client.space_transfer.transfer(space_id_or_space_name, body)
     end
-    
+
   end
-  
+
 
   # A space is an isolated, highly available, secure app execution environment.
   class Space
     def initialize(client)
       @client = client
     end
-    
+
 
     # List existing spaces.
-    
+
     def list()
       @client.space.list()
     end
-    
+
 
     # Info for existing space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def info(space_id_or_space_name)
       @client.space.info(space_id_or_space_name)
     end
-    
+
 
     # Update an existing space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(space_id_or_space_name, body = {})
       @client.space.update(space_id_or_space_name, body)
     end
-    
+
 
     # Delete an existing space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def delete(space_id_or_space_name)
       @client.space.delete(space_id_or_space_name)
     end
-    
+
 
     # Create a new space.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.space.create(body)
     end
-    
+
   end
-  
+
 
   # Stacks are the different application execution environments available in the Heroku platform.
   class Stack
     def initialize(client)
       @client = client
     end
-    
+
 
     # Stack info.
-    
+
     #
-    
+
     # @param stack_name_or_stack_id: unique name of stack or unique identifier of stack
-    
-    
+
+
     def info(stack_name_or_stack_id)
       @client.stack.info(stack_name_or_stack_id)
     end
-    
+
 
     # List available stacks.
-    
+
     def list()
       @client.stack.list()
     end
-    
+
 
     # List available app stacks for an app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list_by_app(app_id_or_app_name)
       @client.stack.list_by_app(app_id_or_app_name)
     end
-    
-  end
-  
 
-  # 
+  end
+
+
+  #
   class TeamAddon
     def initialize(client)
       @client = client
     end
-    
+
 
     # List add-ons used across all Team apps
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list_for_team(team_name_or_team_id)
       @client.team_addon.list_for_team(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # A team collaborator represents an account that has been given access to a team app on Heroku.
   class TeamAppCollaborator
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new collaborator on a team app. Use this endpoint instead of the `/apps/{app_id_or_name}/collaborator` endpoint when you want the collaborator to be granted [permissions] (https://devcenter.heroku.com/articles/org-users-access#roles-and-permissions) according to their role in the team.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(app_id_or_app_name, body = {})
       @client.team_app_collaborator.create(app_id_or_app_name, body)
     end
-    
+
 
     # Delete an existing collaborator from a team app.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
+
+    # @param team_app_identity:
+
     # @param collaborator_email: invited email address of collaborator
-    
-    
+
+
     def delete(team_app_identity, collaborator_email)
       @client.team_app_collaborator.delete(team_app_identity, collaborator_email)
     end
-    
+
 
     # Info for a collaborator on a team app.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
+
+    # @param team_app_identity:
+
     # @param collaborator_email: invited email address of collaborator
-    
-    
+
+
     def info(team_app_identity, collaborator_email)
       @client.team_app_collaborator.info(team_app_identity, collaborator_email)
     end
-    
+
 
     # Update an existing collaborator from a team app.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
+
+    # @param team_app_identity:
+
     # @param collaborator_email: invited email address of collaborator
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(team_app_identity, collaborator_email, body = {})
       @client.team_app_collaborator.update(team_app_identity, collaborator_email, body)
     end
-    
+
 
     # List collaborators on a team app.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
-    
+
+    # @param team_app_identity:
+
+
     def list(team_app_identity)
       @client.team_app_collaborator.list(team_app_identity)
     end
-    
+
   end
-  
+
 
   # A team app permission is a behavior that is assigned to a user in a team app.
   class TeamAppPermission
     def initialize(client)
       @client = client
     end
-    
+
 
     # Lists permissions available to teams.
-    
+
     def list()
       @client.team_app_permission.list()
     end
-    
+
   end
-  
+
 
   # A team app encapsulates the team specific functionality of Heroku apps.
   class TeamApp
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.team_app.create(body)
     end
-    
+
 
     # Info for a team app.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
-    
+
+    # @param team_app_identity:
+
+
     def info(team_app_identity)
       @client.team_app.info(team_app_identity)
     end
-    
+
 
     # Lock or unlock a team app.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
+
+    # @param team_app_identity:
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update_locked(team_app_identity, body = {})
       @client.team_app.update_locked(team_app_identity, body)
     end
-    
+
 
     # Transfer an existing team app to another Heroku account.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
+
+    # @param team_app_identity:
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def transfer_to_account(team_app_identity, body = {})
       @client.team_app.transfer_to_account(team_app_identity, body)
     end
-    
+
 
     # Transfer an existing team app to another team.
-    
+
     #
-    
-    # @param team_app_identity: 
-    
+
+    # @param team_app_identity:
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def transfer_to_team(team_app_identity, body = {})
       @client.team_app.transfer_to_team(team_app_identity, body)
     end
-    
+
 
     # List team apps.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list_by_team(team_name_or_team_id)
       @client.team_app.list_by_team(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # Usage for an enterprise team at a daily resolution.
   class TeamDailyUsage
     def initialize(client)
       @client = client
     end
-    
+
 
     # Retrieves usage for an enterprise team for a range of days. Start and end dates can be specified as query parameters using the date format YYYY-MM-DD. The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).
 
-    
+
     #
-    
+
     # @param team_id: unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def info(team_id, body = {})
       @client.team_daily_usage.info(team_id, body)
     end
-    
+
   end
-  
+
 
   # A Heroku team becomes delinquent due to non-payment. We [suspend and delete](https://help.heroku.com/EREVRILX/what-happens-if-i-have-unpaid-heroku-invoices) delinquent teams if their invoices remain unpaid.
   class TeamDelinquency
     def initialize(client)
       @client = client
     end
-    
+
 
     # Team delinquency information.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def info(team_name_or_team_id)
       @client.team_delinquency.info(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # A team feature represents a feature enabled on a team account.
   class TeamFeature
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for an existing team feature.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param team_feature_id_or_team_feature_name: unique identifier of team feature or unique name of team feature
-    
-    
+
+
     def info(team_name_or_team_id, team_feature_id_or_team_feature_name)
       @client.team_feature.info(team_name_or_team_id, team_feature_id_or_team_feature_name)
     end
-    
+
 
     # List existing team features.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list(team_name_or_team_id)
       @client.team_feature.list(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # A team invitation represents an invite to a team.
   class TeamInvitation
     def initialize(client)
       @client = client
     end
-    
+
 
     # Get a list of a team's Identity Providers
-    
+
     #
-    
+
     # @param team_name: unique name of team
-    
-    
+
+
     def list(team_name)
       @client.team_invitation.list(team_name)
     end
-    
+
 
     # Create Team Invitation
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(team_name_or_team_id, body = {})
       @client.team_invitation.create(team_name_or_team_id, body)
     end
-    
+
 
     # Revoke a team invitation.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param team_invitation_id: unique identifier of an invitation
-    
-    
+
+
     def revoke(team_name_or_team_id, team_invitation_id)
       @client.team_invitation.revoke(team_name_or_team_id, team_invitation_id)
     end
-    
+
 
     # Get an invitation by its token
-    
+
     #
-    
+
     # @param team_invitation_token: special token for invitation
-    
-    
+
+
     def get(team_invitation_token)
       @client.team_invitation.get(team_invitation_token)
     end
-    
+
 
     # Accept Team Invitation
-    
+
     #
-    
+
     # @param team_invitation_token: special token for invitation
-    
-    
+
+
     def accept(team_invitation_token)
       @client.team_invitation.accept(team_invitation_token)
     end
-    
+
   end
-  
+
 
   # A Team Invoice is an itemized bill of goods for a team which includes pricing and charges.
   class TeamInvoice
     def initialize(client)
       @client = client
     end
-    
+
 
     # Info for existing invoice.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param team_invoice_number: human readable invoice number
-    
-    
+
+
     def info(team_name_or_team_id, team_invoice_number)
       @client.team_invoice.info(team_name_or_team_id, team_invoice_number)
     end
-    
+
 
     # List existing invoices.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list(team_name_or_team_id)
       @client.team_invoice.list(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # A team member is an individual with access to a team.
   class TeamMember
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new team member, or update their role.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create_or_update(team_name_or_team_id, body = {})
       @client.team_member.create_or_update(team_name_or_team_id, body)
     end
-    
+
 
     # Create a new team member.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(team_name_or_team_id, body = {})
       @client.team_member.create(team_name_or_team_id, body)
     end
-    
+
 
     # Update a team member.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(team_name_or_team_id, body = {})
       @client.team_member.update(team_name_or_team_id, body)
     end
-    
+
 
     # Remove a member from the team.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param team_member_email_or_team_member_id: email address of the team member or unique identifier of the team member
-    
-    
+
+
     def delete(team_name_or_team_id, team_member_email_or_team_member_id)
       @client.team_member.delete(team_name_or_team_id, team_member_email_or_team_member_id)
     end
-    
+
 
     # List members of the team.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list(team_name_or_team_id)
       @client.team_member.list(team_name_or_team_id)
     end
-    
+
 
     # List the apps of a team member.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param team_member_email_or_team_member_id: email address of the team member or unique identifier of the team member
-    
-    
+
+
     def list_by_member(team_name_or_team_id, team_member_email_or_team_member_id)
       @client.team_member.list_by_member(team_name_or_team_id, team_member_email_or_team_member_id)
     end
-    
+
   end
-  
+
 
   # Usage for an enterprise team at a monthly resolution.
   class TeamMonthlyUsage
     def initialize(client)
       @client = client
     end
-    
+
 
     # Retrieves usage for an enterprise team for a range of months. Start and end dates can be specified as query parameters using the date, YYYY-MM. If no end date is specified, one month of usage is returned. The team identifier can be found from the [team list endpoint](https://devcenter.heroku.com/articles/platform-api-reference#team-list).
 
-    
+
     #
-    
+
     # @param team_id: unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def info(team_id, body = {})
       @client.team_monthly_usage.info(team_id, body)
     end
-    
+
   end
-  
+
 
   # Tracks a Team's Preferences
   class TeamPreferences
     def initialize(client)
       @client = client
     end
-    
+
 
     # Retrieve Team Preferences
-    
+
     #
-    
-    # @param team_preferences_identity: 
-    
-    
+
+    # @param team_preferences_identity:
+
+
     def list(team_preferences_identity)
       @client.team_preferences.list(team_preferences_identity)
     end
-    
+
 
     # Update Team Preferences
-    
+
     #
-    
-    # @param team_preferences_identity: 
-    
+
+    # @param team_preferences_identity:
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(team_preferences_identity, body = {})
       @client.team_preferences.update(team_preferences_identity, body)
     end
-    
+
   end
-  
+
 
   # A space is an isolated, highly available, secure app execution environment.
   class TeamSpace
     def initialize(client)
       @client = client
     end
-    
+
 
     # List spaces owned by the team
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def list(team_name_or_team_id)
       @client.team_space.list(team_name_or_team_id)
     end
-    
+
   end
-  
+
 
   # Teams allow you to manage access to a shared group of applications and other resources.
   class Team
     def initialize(client)
       @client = client
     end
-    
+
 
     # List teams in which you are a member.
-    
+
     def list()
       @client.team.list()
     end
-    
+
 
     # Info for a team.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def info(team_name_or_team_id)
       @client.team.info(team_name_or_team_id)
     end
-    
+
 
     # Update team properties.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(team_name_or_team_id, body = {})
       @client.team.update(team_name_or_team_id, body)
     end
-    
+
 
     # Create a new team.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.team.create(body)
     end
-    
+
 
     # Delete an existing team.
-    
+
     #
-    
+
     # @param team_name_or_team_id: unique name of team or unique identifier of team
-    
-    
+
+
     def delete(team_name_or_team_id)
       @client.team.delete(team_name_or_team_id)
     end
-    
+
 
     # List teams for an enterprise account.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
-    
+
+
     def list_by_enterprise_account(enterprise_account_id_or_enterprise_account_name)
       @client.team.list_by_enterprise_account(enterprise_account_id_or_enterprise_account_name)
     end
-    
+
 
     # Create a team in an enterprise account.
-    
+
     #
-    
+
     # @param enterprise_account_id_or_enterprise_account_name: unique identifier of the enterprise account or unique name of the enterprise account
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create_in_enterprise_account(enterprise_account_id_or_enterprise_account_name, body = {})
       @client.team.create_in_enterprise_account(enterprise_account_id_or_enterprise_account_name, body)
     end
-    
+
   end
-  
+
 
   # A telemetry drain forwards OpenTelemetry traces, metrics, and logs to your own consumer. For Fir-generation apps only.
   class TelemetryDrain
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a telemetry drain.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.telemetry_drain.create(body)
     end
-    
+
 
     # List telemetry drains for an app.
-    
+
     #
-    
+
     # @param app_id_or_app_name: unique identifier of app or unique name of app
-    
-    
+
+
     def list_by_app(app_id_or_app_name)
       @client.telemetry_drain.list_by_app(app_id_or_app_name)
     end
-    
+
 
     # List telemetry drains for a space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def list_by_space(space_id_or_space_name)
       @client.telemetry_drain.list_by_space(space_id_or_space_name)
     end
-    
+
 
     # Update a telemetry drain.
-    
+
     #
-    
+
     # @param telemetry_drain_id: unique identifier of telemetry drain
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(telemetry_drain_id, body = {})
       @client.telemetry_drain.update(telemetry_drain_id, body)
     end
-    
+
 
     # Delete a telemetry drain.
-    
+
     #
-    
+
     # @param telemetry_drain_id: unique identifier of telemetry drain
-    
-    
+
+
     def delete(telemetry_drain_id)
       @client.telemetry_drain.delete(telemetry_drain_id)
     end
-    
+
 
     # Info for a telemetry drain.
-    
+
     #
-    
+
     # @param telemetry_drain_id: unique identifier of telemetry drain
-    
-    
+
+
     def info(telemetry_drain_id)
       @client.telemetry_drain.info(telemetry_drain_id)
     end
-    
+
   end
-  
+
 
   # A single test case belonging to a test run
   class TestCase
     def initialize(client)
       @client = client
     end
-    
+
 
     # List test cases
-    
+
     #
-    
+
     # @param test_run_id: unique identifier of a test run
-    
-    
+
+
     def list(test_run_id)
       @client.test_case.list(test_run_id)
     end
-    
+
   end
-  
+
 
   # A single test node belonging to a test run
   class TestNode
     def initialize(client)
       @client = client
     end
-    
+
 
     # List test nodes
-    
+
     #
-    
+
     # @param test_run_id: unique identifier of a test run
-    
-    
+
+
     def list(test_run_id)
       @client.test_node.list(test_run_id)
     end
-    
+
   end
-  
+
 
   # An execution or trial of one or more tests
   class TestRun
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new test-run.
-    
+
     #
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(body = {})
       @client.test_run.create(body)
     end
-    
+
 
     # Info for existing test-run.
-    
+
     #
-    
+
     # @param test_run_id: unique identifier of a test run
-    
-    
+
+
     def info(test_run_id)
       @client.test_run.info(test_run_id)
     end
-    
+
 
     # List existing test-runs for a pipeline.
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
-    
+
+
     def list(pipeline_id)
       @client.test_run.list(pipeline_id)
     end
-    
+
 
     # Info for existing test-run by Pipeline
-    
+
     #
-    
+
     # @param pipeline_id: unique identifier of pipeline
-    
+
     # @param test_run_number: the auto incrementing test run number
-    
-    
+
+
     def info_by_pipeline(pipeline_id, test_run_number)
       @client.test_run.info_by_pipeline(pipeline_id, test_run_number)
     end
-    
+
 
     # Update a test-run's status.
-    
+
     #
-    
+
     # @param test_run_number: the auto incrementing test run number
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(test_run_number, body = {})
       @client.test_run.update(test_run_number, body)
     end
-    
+
   end
-  
+
 
   # Tracks a user's preferences and message dismissals
   class UserPreferences
     def initialize(client)
       @client = client
     end
-    
+
 
     # Retrieve User Preferences
-    
+
     #
-    
+
     # @param user_preferences_self: Implicit reference to currently authorized user
-    
-    
+
+
     def list(user_preferences_self)
       @client.user_preferences.list(user_preferences_self)
     end
-    
+
 
     # Update User Preferences
-    
+
     #
-    
+
     # @param user_preferences_self: Implicit reference to currently authorized user
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(user_preferences_self, body = {})
       @client.user_preferences.update(user_preferences_self, body)
     end
-    
+
   end
-  
+
 
   # [VPN](https://devcenter.heroku.com/articles/private-space-vpn-connection) provides a way to connect your Private Spaces to your network via VPN.
   class VpnConnection
     def initialize(client)
       @client = client
     end
-    
+
 
     # Create a new VPN connection in a private space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def create(space_id_or_space_name, body = {})
       @client.vpn_connection.create(space_id_or_space_name, body)
     end
-    
+
 
     # Destroy existing VPN Connection
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param vpn_connection_id_or_vpn_connection_name: VPN ID or VPN Name
-    
-    
+
+
     def destroy(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name)
       @client.vpn_connection.destroy(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name)
     end
-    
+
 
     # List VPN connections for a space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
-    
+
+
     def list(space_id_or_space_name)
       @client.vpn_connection.list(space_id_or_space_name)
     end
-    
+
 
     # Info for an existing vpn-connection.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param vpn_connection_id_or_vpn_connection_name: VPN ID or VPN Name
-    
-    
+
+
     def info(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name)
       @client.vpn_connection.info(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name)
     end
-    
+
 
     # Update a VPN connection in a private space.
-    
+
     #
-    
+
     # @param space_id_or_space_name: unique identifier of space or unique name of space
-    
+
     # @param vpn_connection_id_or_vpn_connection_name: VPN ID or VPN Name
-    
+
     # @param body: the object to pass as the request payload
-    
-    
+
+
     def update(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name, body = {})
       @client.vpn_connection.update(space_id_or_space_name, vpn_connection_id_or_vpn_connection_name, body)
     end
-    
+
   end
-  
+
 
   SCHEMA = Heroics::Schema.new(JSON.parse(<<-'HEROICS_SCHEMA'))
 {
