@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::Peering
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::Peering";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p><a href="https://devcenter.heroku.com/articles/private-space-peering">Peering</a> provides a way to peer your Private Space VPC to another AWS VPC.</p>
-
+    <p><a href="https://devcenter.heroku.com/articles/private-space-peering">Peering</a> provides a way to peer your Private Space VPC to another AWS VPC.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Accept a pending peering connection with a private space.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -166,9 +165,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Destroy an active peering connection with a private space.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -190,9 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Fetch information for existing peering connection.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -216,9 +211,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Peering.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Peering.</p></div></span>
   
 </li>
 
@@ -240,14 +233,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List peering connections of a private space.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -264,9 +256,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Peering.</p>
-
+    <p>Returns a new instance of Peering.</p>
 
   </div>
 </div>
@@ -279,12 +269,12 @@
       <pre class="lines">
 
 
-2404
-2405
-2406</pre>
+3483
+3484
+3485</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2404</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3483</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -310,65 +300,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Accept a pending peering connection with a private space.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>space_id_or_space_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>peering_pcx_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The AWS VPC Peering Connection ID of the peering.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2419
-2420
-2421</pre>
+3509
+3510
+3511</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2419</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3509</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accept'>accept</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_peering_pcx_id'>peering_pcx_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_peering'>peering</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_peering_pcx_id'>peering_pcx_id</span><span class='rparen'>)</span>
@@ -387,65 +330,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Destroy an active peering connection with a private space.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>space_id_or_space_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>peering_pcx_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The AWS VPC Peering Connection ID of the peering.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2427
-2428
-2429</pre>
+3523
+3524
+3525</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2427</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3523</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_peering_pcx_id'>peering_pcx_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_peering'>peering</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_peering_pcx_id'>peering_pcx_id</span><span class='rparen'>)</span>
@@ -464,65 +360,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Fetch information for existing peering connection</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>space_id_or_space_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>peering_pcx_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The AWS VPC Peering Connection ID of the peering.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2435
-2436
-2437</pre>
+3537
+3538
+3539</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2435</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3537</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_peering_pcx_id'>peering_pcx_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_peering'>peering</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='comma'>,</span> <span class='id identifier rubyid_peering_pcx_id'>peering_pcx_id</span><span class='rparen'>)</span>
@@ -541,49 +390,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>List peering connections of a private space.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>space_id_or_space_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of space or unique name of space</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2411
-2412
-2413</pre>
+3495
+3496
+3497</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2411</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3495</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_peering'>peering</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_space_id_or_space_name'>space_id_or_space_name</span><span class='rparen'>)</span>
@@ -598,9 +416,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:58 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

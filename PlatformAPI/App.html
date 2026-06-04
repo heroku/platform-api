@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::App
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::App";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An app represents the program that you would like to deploy and run on Heroku.</p>
-
+    <p>An app represents the program that you would like to deploy and run on Heroku.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -166,9 +165,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an existing app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -190,9 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Disable ACM flag for an app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -214,9 +209,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Enable ACM flag for an app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -238,9 +231,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -264,9 +255,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of App.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of App.</p></div></span>
   
 </li>
 
@@ -288,9 +277,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing apps.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>List existing apps.</p></div></span>
   
 </li>
 
@@ -312,9 +299,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List owned and collaborated apps (excludes team apps).</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -336,9 +321,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Refresh ACM for an app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -360,14 +343,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -384,9 +366,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of App.</p>
-
+    <p>Returns a new instance of App.</p>
 
   </div>
 </div>
@@ -399,12 +379,12 @@
       <pre class="lines">
 
 
-1433
-1434
-1435</pre>
+1917
+1918
+1919</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1433</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1917</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -430,49 +410,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Create a new app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1440
-1441
-1442</pre>
+1929
+1930
+1931</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1440</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1929</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -491,49 +440,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Delete an existing app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1447
-1448
-1449</pre>
+1941
+1942
+1943</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1447</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1941</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -552,49 +470,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Disable ACM flag for an app</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1488
-1489
-1490</pre>
+2010
+2011
+2012</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1488</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2010</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disable_acm'>disable_acm</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_disable_acm'>disable_acm</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -613,49 +500,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Enable ACM flag for an app</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1481
-1482
-1483</pre>
+1998
+1999
+2000</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1481</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1998</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enable_acm'>enable_acm</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_enable_acm'>enable_acm</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -674,49 +530,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Info for existing app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1454
-1455
-1456</pre>
+1953
+1954
+1955</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1454</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1953</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -737,9 +562,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing apps.</p>
-
+    <p>List existing apps.</p>
 
   </div>
 </div>
@@ -752,12 +575,12 @@
       <pre class="lines">
 
 
-1459
-1460
-1461</pre>
+1960
+1961
+1962</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1459</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1960</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -776,49 +599,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>List owned and collaborated apps (excludes team apps).</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>account_email_or_account_id_or_account_self:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique email address of account or unique identifier of an account or Implicit reference to currently authorized user</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1466
-1467
-1468</pre>
+1972
+1973
+1974</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1466</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1972</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_owned_and_collaborated'>list_owned_and_collaborated</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_list_owned_and_collaborated'>list_owned_and_collaborated</span><span class='lparen'>(</span><span class='id identifier rubyid_account_email_or_account_id_or_account_self'>account_email_or_account_id_or_account_self</span><span class='rparen'>)</span>
@@ -837,49 +629,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Refresh ACM for an app</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1495
-1496
-1497</pre>
+2022
+2023
+2024</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1495</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2022</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_refresh_acm'>refresh_acm</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_refresh_acm'>refresh_acm</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -898,65 +659,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Update an existing app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-1474
-1475
-1476</pre>
+1986
+1987
+1988</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1474</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 1986</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_app'>app</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -971,9 +685,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:57 2026 by
+  Generated on Thu Jun  4 10:11:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

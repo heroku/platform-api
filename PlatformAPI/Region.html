@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::Region
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::Region";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A region represents a geographic location in which your application may run.</p>
-
+    <p>A region represents a geographic location in which your application may run.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing region.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -168,9 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Region.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Region.</p></div></span>
   
 </li>
 
@@ -192,14 +189,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing regions.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>List existing regions.</p></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -216,9 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Region.</p>
-
+    <p>Returns a new instance of Region.</p>
 
   </div>
 </div>
@@ -231,12 +225,12 @@
       <pre class="lines">
 
 
-2734
-2735
-2736</pre>
+4003
+4004
+4005</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2734</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4003</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -262,49 +256,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Info for existing region.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>region_id_or_region_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of region or unique name of region</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2741
-2742
-2743</pre>
+4015
+4016
+4017</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2741</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4015</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_region_id_or_region_name'>region_id_or_region_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_region'>region</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_region_id_or_region_name'>region_id_or_region_name</span><span class='rparen'>)</span>
@@ -325,9 +288,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List existing regions.</p>
-
+    <p>List existing regions.</p>
 
   </div>
 </div>
@@ -340,12 +301,12 @@
       <pre class="lines">
 
 
-2746
-2747
-2748</pre>
+4022
+4023
+4024</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2746</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4022</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_region'>region</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -360,9 +321,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:58 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

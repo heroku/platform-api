@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::Stack
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::Stack";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Stacks are the different application execution environments available in the Heroku platform.</p>
-
+    <p>Stacks are the different application execution environments available in the Heroku platform.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Stack info.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -168,9 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Stack.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Stack.</p></div></span>
   
 </li>
 
@@ -192,9 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List available stacks.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>List available stacks.</p></div></span>
   
 </li>
 
@@ -216,14 +211,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List available app stacks for an app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -240,9 +234,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Stack.</p>
-
+    <p>Returns a new instance of Stack.</p>
 
   </div>
 </div>
@@ -255,12 +247,12 @@
       <pre class="lines">
 
 
-3102
-3103
-3104</pre>
+4595
+4596
+4597</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3102</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4595</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -286,49 +278,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Stack info.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>stack_name_or_stack_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique name of stack or unique identifier of stack</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3109
-3110
-3111</pre>
+4607
+4608
+4609</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3109</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4607</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_stack_name_or_stack_id'>stack_name_or_stack_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_stack_name_or_stack_id'>stack_name_or_stack_id</span><span class='rparen'>)</span>
@@ -349,9 +310,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List available stacks.</p>
-
+    <p>List available stacks.</p>
 
   </div>
 </div>
@@ -364,12 +323,12 @@
       <pre class="lines">
 
 
-3114
-3115
-3116</pre>
+4614
+4615
+4616</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3114</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4614</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -388,49 +347,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>List available app stacks for an app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>app_id_or_app_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of app or unique name of app</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3121
-3122
-3123</pre>
+4626
+4627
+4628</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3121</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4626</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_list_by_app'>list_by_app</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id_or_app_name'>app_id_or_app_name</span><span class='rparen'>)</span>
@@ -445,9 +373,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:58 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::RateLimit
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::RateLimit";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Rate Limit represents the number of request tokens each account holds. Requests to this endpoint do not count towards the rate limit.</p>
-
+    <p>Rate Limit represents the number of request tokens each account holds. Requests to this endpoint do not count towards the rate limit.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for rate limits.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Info for rate limits.</p></div></span>
   
 </li>
 
@@ -168,14 +167,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of RateLimit.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of RateLimit.</p></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -192,9 +190,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of RateLimit.</p>
-
+    <p>Returns a new instance of RateLimit.</p>
 
   </div>
 </div>
@@ -207,12 +203,12 @@
       <pre class="lines">
 
 
-2722
-2723
-2724</pre>
+3987
+3988
+3989</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2722</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3987</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -240,9 +236,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Info for rate limits.</p>
-
+    <p>Info for rate limits.</p>
 
   </div>
 </div>
@@ -255,12 +249,12 @@
       <pre class="lines">
 
 
-2727
-2728
-2729</pre>
+3994
+3995
+3996</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2727</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3994</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_rate_limit'>rate_limit</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -275,9 +269,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:58 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

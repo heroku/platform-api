@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::OauthAuthorization
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::OauthAuthorization";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>OAuth authorizations represent clients that a Heroku user has authorized to automate, customize or extend their usage of the platform. For more information please refer to the <a href="https://devcenter.heroku.com/articles/oauth">Heroku OAuth documentation</a></p>
-
+    <p>OAuth authorizations represent clients that a Heroku user has authorized to automate, customize or extend their usage of the platform. For more information please refer to the <a href="https://devcenter.heroku.com/articles/oauth">Heroku OAuth documentation</a></p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new OAuth authorization.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -166,9 +165,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete OAuth authorization.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -190,9 +187,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for an OAuth authorization.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -216,9 +211,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of OauthAuthorization.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of OauthAuthorization.</p></div></span>
   
 </li>
 
@@ -240,9 +233,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List OAuth authorizations.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>List OAuth authorizations.</p></div></span>
   
 </li>
 
@@ -264,9 +255,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Regenerate OAuth tokens.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -288,14 +277,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update an existing OAuth authorization.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -312,9 +300,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of OauthAuthorization.</p>
-
+    <p>Returns a new instance of OauthAuthorization.</p>
 
   </div>
 </div>
@@ -327,12 +313,12 @@
       <pre class="lines">
 
 
-2221
-2222
-2223</pre>
+3192
+3193
+3194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2221</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3192</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -358,49 +344,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Create a new OAuth authorization.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2228
-2229
-2230</pre>
+3204
+3205
+3206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2228</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -419,49 +374,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Delete OAuth authorization.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>oauth_authorization_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of OAuth authorization</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2235
-2236
-2237</pre>
+3216
+3217
+3218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2235</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3216</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
@@ -480,49 +404,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Info for an OAuth authorization.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>oauth_authorization_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of OAuth authorization</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2242
-2243
-2244</pre>
+3228
+3229
+3230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2242</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3228</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
@@ -543,9 +436,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>List OAuth authorizations.</p>
-
+    <p>List OAuth authorizations.</p>
 
   </div>
 </div>
@@ -558,12 +449,12 @@
       <pre class="lines">
 
 
-2255
-2256
-2257</pre>
+3249
+3250
+3251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2255</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3249</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -582,49 +473,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Regenerate OAuth tokens. This endpoint is only available to direct authorizations or privileged OAuth clients.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>oauth_authorization_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of OAuth authorization</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2262
-2263
-2264</pre>
+3261
+3262
+3263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2262</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_regenerate'>regenerate</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_regenerate'>regenerate</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='rparen'>)</span>
@@ -643,65 +503,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Update an existing OAuth authorization.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>oauth_authorization_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of OAuth authorization</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2250
-2251
-2252</pre>
+3242
+3243
+3244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2250</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3242</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_oauth_authorization'>oauth_authorization</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_authorization_id'>oauth_authorization_id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -716,9 +529,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:57 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

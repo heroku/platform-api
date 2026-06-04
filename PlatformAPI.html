@@ -6,13 +6,13 @@
 <title>
   Module: PlatformAPI
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" />
+  <link rel="stylesheet" href="css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -78,8 +80,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api.rb<span class="defines">,<br />
-  lib/platform-api/client.rb,<br /> lib/platform-api/version.rb</span>
+    <dd>lib/platform-api.rb<span class="defines">,<br>
+  lib/platform-api/client.rb,<br> lib/platform-api/version.rb</span>
+
 </dd>
   </dl>
   
@@ -87,9 +90,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Ruby HTTP client for the Heroku API.</p>
-
+    <p>Ruby HTTP client for the Heroku API.</p>
 
   </div>
 </div>
@@ -118,7 +119,7 @@
         <dt id="VERSION-constant" class="">VERSION =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3.9.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3.9.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
     </dl>
   
@@ -154,9 +155,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get a Client configured to use HTTP Basic or header-based authentication.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Get a Client configured to use HTTP Basic or header-based authentication.</p></div></span>
   
 </li>
 
@@ -178,9 +177,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get a Client configured to use OAuth authentication.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Get a Client configured to use OAuth authentication.</p></div></span>
   
 </li>
 
@@ -202,9 +199,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get a Client configured to use Token authentication.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Get a Client configured to use Token authentication.</p></div></span>
   
 </li>
 
@@ -226,9 +221,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get access to the rate throttling class object for configuration.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Get access to the rate throttling class object for configuration.</p></div></span>
   
 </li>
 
@@ -256,6 +249,7 @@
 
       
     </ul>
+    
   
 
 
@@ -275,9 +269,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get a Client configured to use HTTP Basic or header-based authentication.</p>
-
+    <p>Get a Client configured to use HTTP Basic or header-based authentication.</p>
 
   </div>
 </div>
@@ -295,9 +287,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The API key to use when connecting.</p>
-</div>
+        <div class='inline'><p>The API key to use when connecting.</p></div>
       
     </li>
   
@@ -313,9 +303,9 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Optionally, custom settings to use with the client. Allowed options are <code>default_headers</code>, <code>cache</code>, <code>user</code> and <code>url</code>.</p>
-</div>
+        <div class='inline'><p>Optionally, custom settings
+to use with the client.  Allowed options are <code>default_headers</code>,
+<code>cache</code>, <code>user</code> and <code>url</code>.</p></div>
       
     </li>
   
@@ -332,9 +322,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>A client configured to use the API with HTTP Basic or header-based authentication.</p>
-</div>
+        <div class='inline'><p>A client configured to use the API with HTTP Basic
+or header-based authentication.</p></div>
       
     </li>
   
@@ -398,9 +387,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get a Client configured to use OAuth authentication.</p>
-
+    <p>Get a Client configured to use OAuth authentication.</p>
 
   </div>
 </div>
@@ -418,9 +405,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The OAuth token to use with the API.</p>
-</div>
+        <div class='inline'><p>The OAuth token to use with the API.</p></div>
       
     </li>
   
@@ -436,9 +421,9 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Optionally, custom settings to use with the client. Allowed options are <code>default_headers</code>, <code>cache</code> and <code>url</code>.</p>
-</div>
+        <div class='inline'><p>Optionally, custom settings
+to use with the client.  Allowed options are <code>default_headers</code>,
+<code>cache</code> and <code>url</code>.</p></div>
       
     </li>
   
@@ -455,9 +440,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>A client configured to use the API with OAuth authentication.</p>
-</div>
+        <div class='inline'><p>A client configured to use the API with OAuth
+authentication.</p></div>
       
     </li>
   
@@ -501,9 +485,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get a Client configured to use Token authentication.</p>
-
+    <p>Get a Client configured to use Token authentication.</p>
 
   </div>
 </div>
@@ -521,9 +503,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The token to use with the API.</p>
-</div>
+        <div class='inline'><p>The token to use with the API.</p></div>
       
     </li>
   
@@ -539,9 +519,9 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Optionally, custom settings to use with the client. Allowed options are <code>default_headers</code>, <code>cache</code> and <code>url</code>.</p>
-</div>
+        <div class='inline'><p>Optionally, custom settings
+to use with the client.  Allowed options are <code>default_headers</code>,
+<code>cache</code> and <code>url</code>.</p></div>
       
     </li>
   
@@ -558,9 +538,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>A client configured to use the API with OAuth authentication.</p>
-</div>
+        <div class='inline'><p>A client configured to use the API with OAuth
+authentication.</p></div>
       
     </li>
   
@@ -604,9 +583,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get access to the rate throttling class object for configuration.</p>
-
+    <p>Get access to the rate throttling class object for configuration.</p>
 
   </div>
 </div>
@@ -675,9 +652,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:57 2026 by
+  Generated on Thu Jun  4 10:11:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

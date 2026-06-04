@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::Plan
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::Plan";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Plans represent different configurations of add-ons that may be added to apps. Endpoints under add-on services can be accessed without authentication.</p>
-
+    <p>Plans represent different configurations of add-ons that may be added to apps. Endpoints under add-on services can be accessed without authentication.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing plan.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -166,9 +165,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for existing plan by Add-on.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -192,9 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Plan.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Plan.</p></div></span>
   
 </li>
 
@@ -216,14 +211,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List existing plans by Add-on.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -240,9 +234,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Plan.</p>
-
+    <p>Returns a new instance of Plan.</p>
 
   </div>
 </div>
@@ -255,12 +247,12 @@
       <pre class="lines">
 
 
-2693
-2694
-2695</pre>
+3940
+3941
+3942</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2693</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3940</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -286,49 +278,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Info for existing plan.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>plan_id_or_plan_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of this plan or unique name of this plan</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2700
-2701
-2702</pre>
+3952
+3953
+3954</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2700</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3952</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_plan_id_or_plan_name'>plan_id_or_plan_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_plan'>plan</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_plan_id_or_plan_name'>plan_id_or_plan_name</span><span class='rparen'>)</span>
@@ -347,65 +308,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Info for existing plan by Add-on.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>addon_service_id_or_addon_service_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of this add-on-service or unique name of this add-on-service</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>plan_id_or_plan_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of this plan or unique name of this plan</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2708
-2709
-2710</pre>
+3966
+3967
+3968</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2708</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3966</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info_by_addon'>info_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='comma'>,</span> <span class='id identifier rubyid_plan_id_or_plan_name'>plan_id_or_plan_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_plan'>plan</span><span class='period'>.</span><span class='id identifier rubyid_info_by_addon'>info_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='comma'>,</span> <span class='id identifier rubyid_plan_id_or_plan_name'>plan_id_or_plan_name</span><span class='rparen'>)</span>
@@ -424,49 +338,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>List existing plans by Add-on.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>addon_service_id_or_addon_service_name:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique identifier of this add-on-service or unique name of this add-on-service</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2715
-2716
-2717</pre>
+3978
+3979
+3980</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2715</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3978</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_plan'>plan</span><span class='period'>.</span><span class='id identifier rubyid_list_by_addon'>list_by_addon</span><span class='lparen'>(</span><span class='id identifier rubyid_addon_service_id_or_addon_service_name'>addon_service_id_or_addon_service_name</span><span class='rparen'>)</span>
@@ -481,9 +364,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:58 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::InvoiceAddress
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::InvoiceAddress";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An invoice address represents the address that should be listed on an invoice.</p>
-
+    <p>An invoice address represents the address that should be listed on an invoice.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Retrieve existing invoice address.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>Retrieve existing invoice address.</p></div></span>
   
 </li>
 
@@ -168,9 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of InvoiceAddress.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of InvoiceAddress.</p></div></span>
   
 </li>
 
@@ -192,14 +189,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Update invoice address for an account.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -216,9 +212,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of InvoiceAddress.</p>
-
+    <p>Returns a new instance of InvoiceAddress.</p>
 
   </div>
 </div>
@@ -231,12 +225,12 @@
       <pre class="lines">
 
 
-2095
-2096
-2097</pre>
+2994
+2995
+2996</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2095</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2994</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -264,9 +258,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Retrieve existing invoice address.</p>
-
+    <p>Retrieve existing invoice address.</p>
 
   </div>
 </div>
@@ -279,12 +271,12 @@
       <pre class="lines">
 
 
-2100
-2101
-2102</pre>
+3001
+3002
+3003</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2100</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3001</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invoice_address'>invoice_address</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -303,49 +295,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Update invoice address for an account.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2107
-2108
-2109</pre>
+3013
+3014
+3015</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 2107</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3013</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_invoice_address'>invoice_address</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -360,9 +321,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:57 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>

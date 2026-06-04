@@ -6,13 +6,13 @@
 <title>
   Class: PlatformAPI::TeamApp
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "PlatformAPI::TeamApp";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,16 +96,15 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/platform-api/client.rb</dd>
+    <dd>lib/platform-api/client.rb
+</dd>
   </dl>
   
 </div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>A team app encapsulates the team specific functionality of Heroku apps.</p>
-
+    <p>A team app encapsulates the team specific functionality of Heroku apps.</p>
 
   </div>
 </div>
@@ -142,9 +143,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -166,9 +165,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Info for a team app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -192,9 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of TeamApp.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of TeamApp.</p></div></span>
   
 </li>
 
@@ -216,9 +211,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>List team apps.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -240,9 +233,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Transfer an existing team app to another Heroku account.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -264,9 +255,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Transfer an existing team app to another team.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -288,14 +277,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Lock or unlock a team app.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -312,9 +300,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of TeamApp.</p>
-
+    <p>Returns a new instance of TeamApp.</p>
 
   </div>
 </div>
@@ -327,12 +313,12 @@
       <pre class="lines">
 
 
-3201
-3202
-3203</pre>
+4751
+4752
+4753</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3201</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4751</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -358,49 +344,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Create a new app in the specified team, in the default team if unspecified, or in personal account, if default team is not set.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3208
-3209
-3210</pre>
+4763
+4764
+4765</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3208</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4763</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -419,44 +374,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Info for a team app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_app_identity:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3215
-3216
-3217</pre>
+4775
+4776
+4777</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3215</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4775</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='rparen'>)</span>
@@ -475,49 +404,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>List team apps.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_name_or_team_id:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>unique name of team or unique identifier of team</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3246
-3247
-3248</pre>
+4829
+4830
+4831</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3246</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4829</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_list_by_team'>list_by_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_name_or_team_id'>team_name_or_team_id</span><span class='rparen'>)</span>
@@ -536,60 +434,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Transfer an existing team app to another Heroku account.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_app_identity:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3231
-3232
-3233</pre>
+4803
+4804
+4805</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3231</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4803</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_account'>transfer_to_account</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -608,60 +464,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Transfer an existing team app to another team.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_app_identity:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3239
-3240
-3241</pre>
+4817
+4818
+4819</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3239</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4817</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_transfer_to_team'>transfer_to_team</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -680,60 +494,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Lock or unlock a team app.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>team_app_identity:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>body:</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the object to pass as the request payload</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3223
-3224
-3225</pre>
+4789
+4790
+4791</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 3223</span>
+      <pre class="code"><span class="info file"># File 'lib/platform-api/client.rb', line 4789</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_team_app'>team_app</span><span class='period'>.</span><span class='id identifier rubyid_update_locked'>update_locked</span><span class='lparen'>(</span><span class='id identifier rubyid_team_app_identity'>team_app_identity</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
@@ -748,9 +520,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 19 08:48:58 2026 by
+  Generated on Thu Jun  4 10:11:58 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-3.4.1).
+  0.9.44 (ruby-3.4.9).
 </div>
 
     </div>
