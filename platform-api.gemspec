@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.require_paths = ['lib']
+  spec.metadata["rubygems_mfa_required"] = "true"
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
