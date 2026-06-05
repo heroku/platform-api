@@ -1,5 +1,7 @@
 ## Main (unreleased)
 
+- Relax `moneta` constraint from `~> 1.0.0` to `~> 1.0` so users can pick up moneta 1.x releases (currently 1.6.0). Resolves a 6.0 libyear gap on transitive dependencies. The Moneta API used by this gem (`Moneta.new(:File, dir: ...)`) is unchanged.
+
 ## 3.9.1
 
 - Fix `NameError: uninitialized constant PlatformAPI::MultiJson` caused by heroics 0.1.4 dropping its multi_json dependency. Uses `JSON.parse` from the standard library instead. (#152)
