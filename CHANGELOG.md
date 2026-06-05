@@ -1,5 +1,7 @@
 ## Main (unreleased)
 
+- Relax `moneta` constraint from `~> 1.0.0` to `~> 1.0`
+
 ## 3.9.1
 
 - Fix `NameError: uninitialized constant PlatformAPI::MultiJson` caused by heroics 0.1.4 dropping its multi_json dependency. Uses `JSON.parse` from the standard library instead. (#152)
