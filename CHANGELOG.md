@@ -1,6 +1,6 @@
 ## Main (unreleased)
 
-- Relax `moneta` constraint from `~> 1.0.0` to `~> 1.0` so users can pick up moneta 1.x releases (currently 1.6.0). Resolves a 6.0 libyear gap on transitive dependencies. The Moneta API used by this gem (`Moneta.new(:File, dir: ...)`) is unchanged.
+- Relax `moneta` constraint from `~> 1.0.0` to `~> 1.0`
 
 ## 3.9.1
 
